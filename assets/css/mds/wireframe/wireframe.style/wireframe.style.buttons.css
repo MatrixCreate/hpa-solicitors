@@ -1,0 +1,121 @@
+/* Buttons - visual styling only */
+@layer components {
+  /* Button base styling */
+  .btn {
+    @apply py-[var(--mds-button-padding-y)];
+    @apply px-[var(--mds-button-padding-x)];
+    @apply text-[length:var(--mds-button-font-size)];
+    @apply lg:text-[length:var(--mds-button-font-size-lg)];
+    @apply font-[weight:var(--mds-button-font-weight)];
+    @apply [text-transform:var(--mds-button-text-transform)];
+    @apply tracking-[var(--mds-button-letter-spacing)];
+    @apply rounded-[var(--mds-button-border-radius)];
+    @apply transition-[color,background-color,border-color];
+    @apply duration-[var(--mds-button-transition-duration)];
+    @apply ease-[var(--mds-button-transition-timing)];
+    @apply no-underline hover:no-underline;
+  }
+  
+  /* Button color variants */
+  .btn-primary {
+    @apply bg-[var(--mds-button-primary-background-color)];
+    @apply text-[var(--mds-button-primary-text-color)];
+    &:hover {
+      @apply bg-[var(--mds-button-primary-background-color-hover)];
+      @apply text-[var(--mds-button-primary-text-color-hover)];
+    }
+  }
+  .btn-secondary {
+    @apply bg-[var(--mds-button-secondary-background-color)];
+    @apply text-[var(--mds-button-secondary-text-color)];
+    &:hover {
+      @apply bg-[var(--mds-button-secondary-background-color-hover)];
+      @apply text-[var(--mds-button-secondary-text-color-hover)];
+    }
+  }
+  .btn-border {
+    @apply border-[var(--mds-button-border-width)];
+    @apply border-[var(--mds-button-border-color)];
+    @apply border-solid;
+  }
+  
+  /* Action buttons styling */
+  .action-buttons {
+    @apply gap-[var(--mds-button-gap)];
+  }
+  
+  /* Special button variants styling */
+  .btn-telephone,
+  .btn-contact {
+    @apply py-[var(--mds-button-padding-y)];
+    @apply px-[var(--mds-button-padding-x)];
+    @apply md:py-[var(--mds-button-padding-y)];
+    @apply md:px-[var(--mds-button-padding-x)];
+    @apply lg:text-[var(--mds-button-telephone-font-size-lg)];
+    @apply xl:text-[var(--mds-button-telephone-font-size-xl)];
+    @apply max-md:bg-transparent;
+  }
+  .btn-telephone {
+    @apply md:text-[var(--mds-button-contact-text-color)];
+  }
+  .btn-contact {
+    @apply md:text-[var(--mds-button-contact-text-color)];
+  }
+
+  /* Button size variants */
+  .btn-action-button {
+    @apply p-[var(--mds-button-action-button-padding)];
+    @apply md:text-[var(--mds-button-action-button-font-size-md)];
+    @apply lg:text-[var(--mds-button-action-button-font-size-lg)];
+  }
+  .btn-sm {
+    @apply py-[var(--mds-button-sm-padding-y)];
+    @apply px-[var(--mds-button-sm-padding-x)];
+    @apply text-[var(--mds-button-sm-font-size)];
+  }
+  .btn-md {
+    @apply py-[var(--mds-button-md-padding-y)];
+    @apply px-[var(--mds-button-md-padding-x)];
+    @apply text-[var(--mds-button-md-font-size)];
+  }
+  .btn-lg {
+    @apply py-[var(--mds-button-lg-padding-y)];
+    @apply px-[var(--mds-button-lg-padding-x)];
+    @apply text-[var(--mds-button-lg-font-size)];
+  }
+  .btn-action-link {
+    @apply py-[var(--mds-button-action-link-padding-y)];
+    @apply px-[var(--mds-button-action-link-padding-x)];
+    @apply text-[var(--mds-button-action-link-font-size)];
+    @apply tracking-[var(--mds-button-action-link-letter-spacing)];
+    
+    @apply md:py-[var(--mds-button-action-link-padding-y-md)];
+    @apply md:px-[var(--mds-button-action-link-padding-x-md)];
+    @apply md:text-[var(--mds-button-action-link-font-size-md)];
+    @apply lg:py-[var(--mds-button-action-link-padding-y-lg)];
+    @apply lg:px-[var(--mds-button-action-link-padding-x-lg)];
+    @apply xl:py-[var(--mds-button-action-link-padding-y-md)];
+    @apply xl:px-[var(--mds-button-action-link-padding-x-md)];
+  }
+  
+  /* Button arrow styling */
+  .btn-arrow {
+    &::after {
+      @apply w-[var(--mds-button-icon-size)];
+      @apply h-[var(--mds-button-icon-size)];
+      @apply -mt-[calc(var(--mds-button-icon-size)/2)];
+      @apply -mr-[var(--mds-button-icon-size)];
+      @apply pl-[var(--mds-button-padding-x)];
+    }
+  }
+  
+  /* Button icon styling */
+  .btn-icon {
+    @apply gap-[var(--mds-button-icon-gap)];
+  }
+  
+  /* Button background variants */
+  .btn-trans {
+    @apply bg-[var(--mds-button-transparent-background)];
+  }
+}

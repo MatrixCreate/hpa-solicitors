@@ -1,0 +1,267 @@
+{% extends '_layouts/generic-page-layout' %}
+{% import "_macros/ui.twig" as ui %}
+
+{# Load search configuration from config/search.php #}
+{% set searchConfig = craft.app.config.getConfigFromFile('search') %}
+{% set query = craft.app.request.getQueryParam('q', '') %}
+{% set currentPage = craft.app.request.getQueryParam('page', 1)|number_format(0, '', '', '') %}
+
+{% block pageTitle %}
+    {% if query %}
+        Search results for "{{ query }}"
+    {% else %}
+        Search
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="content-block search-page">
+    <div class="content-block-inner container-medium">
+        
+        {# Search Page Header #}
+        <header class="search-header">
+            <h1 class="search-header-title">
+                {% if query %}
+                    Search Results
+                {% else %}
+                    Search
+                {% endif %}
+            </h1>
+            {% if query %}
+                <p class="search-header-subtitle">Results for "<strong>{{ query }}</strong>"</p>
+            {% endif %}
+        </header>
+
+        {# Search Form #}
+        {{ ui.component('search.form', {
+            variant: 'page',
+            query: query,
+            class: 'mb-12'
+        }) }}
+
+        {% if query %}
+            {# Get filtered sections (exclude specified sections and auto-detect non-public) #}
+            {% set excludedSections = searchConfig.excludedSections ?? ['errorPages', 'testimonials'] %}
+            {% set allSections = craft.app.entries.getAllSections %}
+            {% set searchableSections = [] %}
+            
+            {% for section in allSections %}
+                {% set shouldExclude = false %}
+                
+                {# Check if section is in excluded list #}
+                {% if section.handle in excludedSections %}
+                    {% set shouldExclude = true %}
+                {% endif %}
+                
+                {# Auto-exclude sections without public URLs if enabled #}
+                {# For now, we'll rely on the manual exclusion list above #}
+                {# TODO: Implement proper URL format detection later #}
+                
+                {% if not shouldExclude %}
+                    {% set searchableSections = searchableSections|merge([section.handle]) %}
+                {% endif %}
+            {% endfor %}
+            
+            {# Execute search on filtered sections with pagination #}
+            {% set searchQuery = craft.entries()
+                .section(searchableSections)
+                .search(query)
+                .status('live')
+                .orderBy('score') %}
+            
+            {# Calculate pagination manually #}
+            {% set totalResults = searchQuery.count() %}
+            {% set resultsPerPage = searchConfig.resultsPerPage %}
+            {% set totalPages = (totalResults / resultsPerPage)|round(0, 'ceil') %}
+            {% set offset = (currentPage - 1) * resultsPerPage %}
+            
+            {% set results = searchQuery.offset(offset).limit(resultsPerPage).all() %}
+            
+            {# Create pagination object manually #}
+            {% set pagination = {
+                totalElements: totalResults,
+                totalPages: totalPages,
+                currentPage: currentPage,
+                first: offset + 1,
+                last: min(offset + resultsPerPage, totalResults),
+                prevUrl: currentPage > 1 ? '/search?page=' ~ (currentPage - 1) : null,
+                nextUrl: currentPage < totalPages ? '/search?page=' ~ (currentPage + 1) : null
+            } %}
+
+            {# Group results by section #}
+            {% set resultsBySection = {} %}
+            {% set sectionOrder = searchConfig.sectionDisplayOrder ?? ['pages', 'blog', 'team'] %}
+            {% set sectionNames = searchConfig.sectionDisplayNames ?? {} %}
+            
+            {% for result in results %}
+                {% set sectionHandle = result.section.handle %}
+                {% if resultsBySection[sectionHandle] is not defined %}
+                    {% set resultsBySection = resultsBySection|merge({
+                        (sectionHandle): {
+                            'name': sectionNames[sectionHandle] ?? result.section.name,
+                            'results': []
+                        }
+                    }) %}
+                {% endif %}
+                {% set resultsBySection = resultsBySection|merge({
+                    (sectionHandle): {
+                        'name': resultsBySection[sectionHandle].name,
+                        'results': resultsBySection[sectionHandle].results|merge([result])
+                    }
+                }) %}
+            {% endfor %}
+
+            {# Debug: Show what sections we're searching and what we found #}
+            {% set debugResults = {} %}
+            {% for sectionHandle in searchableSections %}
+                {% set sectionResults = craft.entries()
+                    .section(sectionHandle)
+                    .search(query)
+                    .status('live')
+                    .all() %}
+                {% set debugResults = debugResults|merge({(sectionHandle): sectionResults|length}) %}
+            {% endfor %}
+            
+            <div style="display: none;background: #fef3c7; padding: 1rem; margin: 1rem 0; border-radius: 0.5rem; font-size: 0.875rem;">
+                <strong>DEBUG INFO:</strong><br>
+                Query: "{{ query }}"<br>
+                Searchable sections: {{ searchableSections|join(', ') }}<br>
+                Results per section: 
+                {% for handle, count in debugResults %}
+                    {{ handle }}({{ count }}) 
+                {% endfor %}<br>
+                Total results: {{ results|length }}
+            </div>
+
+            {# Display results #}
+            {% if pagination.totalElements > 0 %}
+                <div class="search-results-summary">
+                    <p>Found <strong>{{ pagination.totalElements }}</strong> result{{ pagination.totalElements != 1 ? 's' : '' }}
+                    {% if pagination.totalPages > 1 %}
+                        (showing {{ pagination.first }} - {{ pagination.last }} of {{ pagination.totalElements }})
+                    {% endif %}
+                    </p>
+                </div>
+
+                <div class="search-results">
+                    {# Display sections in specified order, then remaining #}
+                    {% set displayedSections = [] %}
+                    
+                    {# First, show sections in preferred order #}
+                    {% for sectionHandle in sectionOrder %}
+                        {% if resultsBySection[sectionHandle] is defined %}
+                            {% set sectionData = resultsBySection[sectionHandle] %}
+                            {% set displayedSections = displayedSections|merge([sectionHandle]) %}
+                            
+                            <section class="search-results-section">
+                                <header class="search-section-header">
+                                    <h2 class="search-section-title">
+                                        {{ sectionData.name }}
+                                        <span class="search-section-count">({{ sectionData.results|length }})</span>
+                                    </h2>
+                                </header>
+                                
+                                <div class="search-section-results">
+                                    {% for result in sectionData.results %}
+                                        <div class="search-section-results-item">
+                                        {{ ui.component('search.result.card', {
+                                            entry: result,
+                                            query: query
+                                        }) }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {# Then show any remaining sections #}
+                    {% for sectionHandle, sectionData in resultsBySection %}
+                        {% if sectionHandle not in displayedSections %}
+                            <section class="search-results-section">
+                                <header class="search-section-header">
+                                    <h2 class="search-section-title">
+                                        {{ sectionData.name }}
+                                        <span class="search-section-count">({{ sectionData.results|length }})</span>
+                                    </h2>
+                                </header>
+                                
+                                <div class="search-section-results">
+                                    {% for result in sectionData.results %}
+                                        {{ ui.component('search.result.card', {
+                                            entry: result,
+                                            query: query
+                                        }) }}
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                {# Pagination #}
+                {% if pagination.totalPages > 1 %}
+                    <nav class="search-pagination" aria-label="Search results pagination">
+                        {% if pagination.prevUrl %}
+                            <a href="{{ pagination.prevUrl ~ '&q=' ~ query|url_encode }}" class="pagination-link pagination-prev">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15,18 9,12 15,6"></polyline>
+                                </svg>
+                                Previous
+                            </a>
+                        {% endif %}
+
+                        <div class="pagination-numbers">
+                            {% set startPage = max(1, pagination.currentPage - 2) %}
+                            {% set endPage = min(pagination.totalPages, pagination.currentPage + 2) %}
+                            
+                            {% if startPage > 1 %}
+                                <a href="/search?page=1&q={{ query|url_encode }}" class="pagination-link pagination-number">1</a>
+                                {% if startPage > 2 %}
+                                    <span class="pagination-ellipsis">…</span>
+                                {% endif %}
+                            {% endif %}
+                            
+                            {% for pageNum in startPage..endPage %}
+                                <a href="/search?page={{ pageNum }}&q={{ query|url_encode }}" 
+                                   class="pagination-link pagination-number{{ pageNum == pagination.currentPage ? ' active' : '' }}">
+                                    {{ pageNum }}
+                                </a>
+                            {% endfor %}
+                            
+                            {% if endPage < pagination.totalPages %}
+                                {% if endPage < pagination.totalPages - 1 %}
+                                    <span class="pagination-ellipsis">…</span>
+                                {% endif %}
+                                <a href="/search?page={{ pagination.totalPages }}&q={{ query|url_encode }}" class="pagination-link pagination-number">{{ pagination.totalPages }}</a>
+                            {% endif %}
+                        </div>
+
+                        {% if pagination.nextUrl %}
+                            <a href="{{ pagination.nextUrl ~ '&q=' ~ query|url_encode }}" class="pagination-link pagination-next">
+                                Next
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </a>
+                        {% endif %}
+                    </nav>
+                {% endif %}
+            {% else %}
+                <div class="search-no-results">
+                    <div class="no-results-content">
+                        {# <svg class="no-results-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg> #}
+                        <h3 class="no-results-title">No results found</h3>
+                        <p class="no-results-text">
+                            Sorry, we couldn't find any results for "<strong>{{ query }}</strong>".
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

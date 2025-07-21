@@ -1,0 +1,32 @@
+{% macro debugAttributes(entry, templateName, title) %}
+  {%- if craft.app.user.getIsAdmin() and adminSettings.showDebugInfo -%}
+    data-title="{{ title }}" data-template="{{ templateName }}"
+  {%- endif -%}
+{% endmacro %}
+
+
+{# DEPRECATED
+{% macro backgroundColour(source) %}
+  {% if source %}
+    {{ 'bg-' ~ source }}
+  {% else %}
+    bg-none
+  {% endif %}
+{% endmacro %}
+
+{% macro headingColour(source) %}
+  {% if source %}
+    {{ 'headings-' ~ source }}
+  {% else %}
+    bg-none
+  {% endif %}
+{% endmacro %}
+
+{% macro textColour(source) %}
+  {% if source %}
+    {{ 'text-' ~ source }}
+  {% else %}
+    text-none
+  {% endif %}
+{% endmacro %}
+#}

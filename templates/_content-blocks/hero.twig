@@ -1,0 +1,33 @@
+{% import "_macros/ui.twig" as ui %}
+
+{% cache if not craft.app.config.general.devMode %}
+
+{% set heroDesktopImage = entry.heroDesktopImage.one() | length ? entry.heroDesktopImage.one() : null %}
+{% set heroMobileImage = entry.heroMobileImage.one() | length ? entry.heroMobileImage.one() : null %}
+{% set heroTitle = entry.heroTitle|length ? entry.heroTitle : null %}
+{% set heroText = entry.heroRichText|length ? entry.heroRichText : null %}
+{% set heroActionButtons = entry.heroActionButtons|length ? entry.heroActionButtons : null %}
+{% set heroSlimlineDesign = entry.heroSlimlineDesign ?? false %}
+
+{% if entry.enableHero %}
+<section class="hero mx-auto dynamic-height">
+  <div class="hero-block">
+	
+    {{ ui.component("hero.slide", {
+      entry: entry,
+      heroDesktopImage: heroDesktopImage,
+      heroMobileImage: heroMobileImage,
+      heroTitle: heroTitle,
+      heroText: heroText,
+      heroActionButtons: heroActionButtons,
+      heroSlimlineDesign: heroSlimlineDesign,
+      loop: null,
+      isActive: false,
+      isCarousel: false
+    }) }}
+    
+  </div>
+</section>
+{% endif %}
+
+{% endcache %}

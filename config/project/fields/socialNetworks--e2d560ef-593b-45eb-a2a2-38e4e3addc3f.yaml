@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: socialNetworks
+instructions: null
+name: 'Social Networks'
+searchable: false
+settings:
+  createButtonLabel: 'Add a Social Network'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 5508904f-3547-4f4d-8aa1-7cbd37fad70f # Social Network
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

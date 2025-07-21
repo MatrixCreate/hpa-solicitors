@@ -1,0 +1,72 @@
+@theme {
+  /* ===== BREAKPOINTS ===== */
+  --breakpoint-2xs: 350px;
+  --breakpoint-xs:  500px;
+  --breakpoint-3xl: 1536px;
+  --breakpoint-4xl: 1600px;
+  
+
+  /* ===== LAYOUT & SPACING ===== */
+  --page-max-width:       118rem;
+  --container-wide:       118rem;
+  --container-medium:     80rem;
+  --container-narrow:     64rem;
+
+  --padding-block-2xs:    0.25rem;
+  --padding-block-xs:     0.5rem;
+  --padding-block-sm:     1rem;
+  --padding-block-md:     1.5rem;
+  --padding-block-lg:     2rem;
+  --padding-block-xl:     2.5rem;
+  --padding-block-2xl:    3rem;
+
+
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-display:         Arial, sans-serif;
+  --font-sans:            Arial, sans-serif;
+
+  /* Font Sizes */
+  --font-size-2xs:        0.5rem;
+
+  
+  /* ===== COLOR SYSTEM ===== */
+  
+  /* Grey Palette */
+  --color-grey-900:        #181818;
+  --color-grey-800:        #333333;
+  --color-grey-700:        #4D4D4D;
+  --color-grey-600:        #666666;
+  --color-grey-500:        #808080;
+  --color-grey-400:        #999999;
+  --color-grey-300:        #B3B3B3;
+  --color-grey-200:        #CCCCCC;
+  --color-grey-100:        #E6E6E6;
+  --color-grey-50:         #F5F5F5;
+
+  /* Semantic Color Mappings */
+  --color-primary:         var(--color-grey-800);
+  --color-primary-hover:   var(--color-grey-600);
+  --color-secondary:       var(--color-grey-700);
+  --color-secondary-hover: var(--color-grey-400);
+
+  /* Background Colors */
+  --color-footer-bg:       var(--color-grey-50);
+  --color-body:            var(--color-grey-900);
+
+  /* Link Colors */
+  --color-link:            var(--color-grey-600);
+  --color-link-hover:      var(--color-grey-800);
+
+  /* ===== COMPONENT TOKENS ===== */
+  
+  /* Button Colors */
+  --btn-primary-bg:         var(--color-grey-800);
+  --btn-primary-bg-hover:   var(--color-grey-600);
+  --btn-secondary-bg:       var(--color-grey-700);
+  --btn-secondary-bg-hover: var(--color-grey-400);
+
+  
+  /* ===== ASSETS ===== */
+  --background-image-icon-chevron-down: url('../../assets/icons/system/icon_chevron_down.svg');
+}

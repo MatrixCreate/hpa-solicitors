@@ -1,0 +1,161 @@
+color: null
+description: null
+fieldLayouts:
+  2e691b4d-e75e-4294-b03a-9af415f2deb8:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:e111c5e0-adb3-494c-9bb1-73c6f90d5f38'
+      - 'layoutElement:03d133be-7eb1-4858-afc8-54846a898cfe'
+      - 'layoutElement:27b0ccb0-6d65-434b-9eb1-6a528fc87b12'
+      - 'layoutElement:f34dc9e2-7f55-462d-960b-b9eb9e97140f'
+      - 'layoutElement:ab47c907-4fb4-4af8-96d7-e77f4aaee719'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-09T17:45:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 32a77680-31f8-42ab-932e-0747cc583c2d # Entry Link
+            handle: linkedEntry
+            includeInCards: false
+            instructions: null
+            label: 'Linked Entry'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e1e1003e-2d0f-4ebe-a3bb-7d0244d61f79
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T17:47:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: useEntryDetails
+            includeInCards: true
+            instructions: "When enabled the Linked Entry's Featured Image, Title, and Excerpt will be used for the Card's Image, Heading and Text. Disable the switch to customise these elements."
+            label: 'Use Entry Details'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e111c5e0-adb3-494c-9bb1-73c6f90d5f38
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T17:38:03+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: e111c5e0-adb3-494c-9bb1-73c6f90d5f38
+                  uid: 8e12dcf6-8391-44b7-b0d4-4967ae266e37
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: cardImage
+            includeInCards: true
+            instructions: null
+            label: 'Card Image'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 03d133be-7eb1-4858-afc8-54846a898cfe
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T17:38:03+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: e111c5e0-adb3-494c-9bb1-73c6f90d5f38
+                  uid: 1bcf8d76-62b1-4f13-b57e-2683d13d20dd
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 9a6dba0b-f08b-4808-972b-c05d256a3c3f # Heading
+            handle: cardHeading
+            includeInCards: true
+            instructions: null
+            label: 'Card Heading'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 27b0ccb0-6d65-434b-9eb1-6a528fc87b12
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T17:38:03+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: e111c5e0-adb3-494c-9bb1-73c6f90d5f38
+                  uid: b1cab238-7048-40ea-afc2-0ec4885192e6
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: cardText
+            includeInCards: true
+            instructions: null
+            label: 'Card Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f34dc9e2-7f55-462d-960b-b9eb9e97140f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-11T14:16:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: displayActionButton
+            includeInCards: true
+            instructions: null
+            label: 'Display link as separate Action Button'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ab47c907-4fb4-4af8-96d7-e77f4aaee719
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 9b4f058b-1e01-4f54-b308-48d1ccaa890a
+        userCondition: null
+handle: card
+hasTitleField: false
+icon: address-card
+name: Card
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{{linkedEntry.getElement().title}}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

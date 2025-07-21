@@ -1,0 +1,24 @@
+{# Main mobile navigation component - orchestrates expanding vs sliding #}
+
+{% set mobileMainNav = craft.navigation.nodes()
+  .handle("mainNavigation")
+  .level(1)
+  .with(['children'])
+  .all() %}
+
+{% if mobileMainNav != null %}
+{# Check for mobile navigation settings - could be from globals, site settings, or passed parameters #}
+{% set isSliding = slidingEnabled ?? siteConfig.mobileNavigationStyle.value == 'sliding' ?? false %}
+
+{# Include the appropriate sub-component based on navigation style #}
+{% if isSliding %}
+  {% include '_partials/navigation/navigation-mobile-sliding' with {
+    mobileMainNav: mobileMainNav
+  } %}
+{% else %}
+  {% include '_partials/navigation/navigation-mobile-expanding' with {
+    mobileMainNav: mobileMainNav
+  } %}
+{% endif %}
+
+{% endif %}

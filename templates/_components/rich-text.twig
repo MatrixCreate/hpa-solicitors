@@ -1,0 +1,39 @@
+{#
+# Rich Text Component
+#
+# Handles the common rich-text-field pattern used throughout content blocks
+#
+# Props:
+#   content: string|null (required) - The rich text content to render
+#   class: string (default: 'rich-text-field') - CSS classes for wrapper
+#   useRaw: boolean (default: false) - Whether to use the raw filter
+#
+# Usage:
+#   {{ ui.component('rich-text', { 
+#     content: block.richText 
+#   }) }}
+#
+#   {{ ui.component('rich-text', { 
+#     content: block.richText,
+#     class: 'custom-rich-text',
+#     useRaw: true
+#   }) }}
+#}
+
+{% set defaults = {
+  content: null,
+  class: 'rich-text-field',
+  useRaw: false
+} %}
+
+{% set p = defaults|merge(props ?? {}) %}
+
+{% if p.content and p.content|length %}
+  <div class="{{ p.class }}">
+    {% if p.useRaw %}
+      {{ p.content|raw }}
+    {% else %}
+      {{ p.content }}
+    {% endif %}
+  </div>
+{% endif %}

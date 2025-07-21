@@ -1,0 +1,68 @@
+{# Blog filter component - Categories, Sort, and Search filters #}
+{# Usage: {{ ui.component('blog.filters', { actionUrl: entry.url }) }} #}
+
+{# Get props with fallbacks #}
+{% set actionUrl = props.actionUrl ?? actionUrl ?? '#' %}
+
+{# Filter form - always submit to base URL to reset pagination #}
+<form method="get" action="{{ actionUrl }}" class="blog-filters" id="blogFilterForm">
+  {# Categories filter #}
+  <div class="filter-group">
+    <label for="category" class="filter-label">Categories</label>
+    <div class="filter-select-wrapper">
+      <select name="category" id="category" class="filter-select">
+        <option value="">All Categories</option>
+        {% set categories = craft.entries().section('blogCategories').all() %}
+        {% for category in categories %}
+          <option value="{{ category.id }}" {% if craft.app.request.getQueryParam('category') == category.id|string %}selected{% endif %}>
+            {{ category.title }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  {# Sort filter #}
+  <div class="filter-group">
+    <label for="sort" class="filter-label">Sort</label>
+    <div class="filter-select-wrapper">
+      <select name="sort" id="sort" class="filter-select">
+        <option value="null" disabled="disabled">Sort</option>
+        <option value="postDate desc" {% if craft.app.request.getQueryParam('sort') == 'postDate desc' or not craft.app.request.getQueryParam('sort') %}selected{% endif %}>Newest First</option>
+        <option value="postDate asc" {% if craft.app.request.getQueryParam('sort') == 'postDate asc' %}selected{% endif %}>Oldest First</option>
+        <option value="title asc" {% if craft.app.request.getQueryParam('sort') == 'title asc' %}selected{% endif %}>Title A-Z</option>
+        <option value="title desc" {% if craft.app.request.getQueryParam('sort') == 'title desc' %}selected{% endif %}>Title Z-A</option>
+      </select>
+    </div>
+  </div>
+
+  {# Search filter #}
+  <div class="filter-group">
+    <label for="search" class="filter-label">Search</label>
+    <div class="filter-search-wrapper">
+      <input type="text" name="search" id="search" value="{{ craft.app.request.getQueryParam('search') }}" placeholder="Search blog posts..." class="filter-input">
+      <button type="submit" class="filter-search-button">
+        <svg class="filter-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('blogFilterForm');
+    const categorySelect = document.getElementById('category');
+    const sortSelect = document.getElementById('sort');
+    
+    // Auto-submit form when dropdowns change
+    categorySelect.addEventListener('change', function() {
+      form.submit();
+    });
+    
+    sortSelect.addEventListener('change', function() {
+      form.submit();
+    });
+  });
+</script>

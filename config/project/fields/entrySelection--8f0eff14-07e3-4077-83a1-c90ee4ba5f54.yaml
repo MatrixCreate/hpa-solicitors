@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: entrySelection
+instructions: null
+name: 'Entry Selection'
+searchable: false
+settings:
+  default: false
+  offLabel: Automatic
+  onLabel: Custom
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

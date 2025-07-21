@@ -1,0 +1,72 @@
+@layer components {
+
+  /* Content Blocks - structural layout only */
+  .content-block {
+    @apply relative;
+    + .content-block.bg-none {
+      .content-block-inner {
+      }
+    }
+
+    /* Use :has() to determine if text content is centered (by style attribute)
+      and then center everything in the parent, including action buttons = */
+    .text-wrapper,
+    .rich-text-field {
+      &:has(*):has([style*="text-align:center"]) {
+        @apply items-center;
+        .action-buttons {
+          @apply items-center;
+        }
+      }
+    }
+
+    /* Apply Tailwind prose styles to Rich Text fields in all content blocks */
+    .rich-text-field {
+      @apply flex flex-col;
+    }
+
+    /* Headings in Rich Text fields */
+    .rich-text-field,
+    .heading {
+      h1, h2, h3, h4, h5, h6 {
+        @apply leading-tight;
+        
+        &:first-child {
+          @apply !mt-0;
+        }
+      }
+
+      /* Call to Action Buttons */
+      .action-buttons {
+        @apply flex flex-col;
+        @apply gap-4;
+        &-inline {
+          @apply xs:flex-row;
+        }
+      }
+    }
+
+
+    /* Compress space between text elements */
+    &.accordion,
+    &.blog-listing,
+    &.contact-form,
+    &.entry-cards {
+      .rich-text-field {
+        @apply space-y-2;
+      }
+    }
+    
+
+    /* Balance text in headings and rich text fields, but not for contact forms or call to actions */
+    &:not(.wrap-balance) {
+      .rich-text-field,
+      .heading {
+        h1, h2, h3, h4, h5, h6 {
+          text-wrap: balance;
+        }
+      }
+    }
+  }
+
+}

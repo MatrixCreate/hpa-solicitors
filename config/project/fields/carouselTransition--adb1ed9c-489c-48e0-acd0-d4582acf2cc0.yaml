@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: carouselTransition
+instructions: null
+name: 'Carousel Transition'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Fade
+        -
+          - value
+          - fade
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Slide
+        -
+          - value
+          - slide
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

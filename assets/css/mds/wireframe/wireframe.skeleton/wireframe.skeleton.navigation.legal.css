@@ -1,0 +1,12 @@
+/* Legal Navigation - structural layout only */
+@layer components {
+  
+  .nav--legal {
+    @apply flex-1;
+    @apply flex flex-wrap justify-center items-center gap-4;
+    .nav-link {
+      @apply py-2;
+      @apply hover:no-underline;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: mapLayout
+instructions: null
+name: 'Map Layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Fullscreen
+        -
+          - value
+          - fullscreen
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Page Width'
+        -
+          - value
+          - page-width
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

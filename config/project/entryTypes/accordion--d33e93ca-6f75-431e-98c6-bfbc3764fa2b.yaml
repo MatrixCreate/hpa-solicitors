@@ -1,0 +1,90 @@
+color: null
+description: null
+fieldLayouts:
+  5e135b02-6fea-4aa9-a653-23d738717ee6:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:ad892bb5-d015-4362-9a14-cdb1fa44bc6b'
+      - 'layoutElement:2baa0b6c-b026-432c-9ae3-2347218825d2'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-28T07:54:49+00:00'
+            elementCondition: null
+            heading: Accordion
+            type: craft\fieldlayoutelements\Heading
+            uid: cff4731d-f510-4bc0-9502-125bb1dc2bec
+            userCondition: null
+          -
+            dateAdded: '2025-05-28T06:44:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: openFirstItem
+            includeInCards: true
+            instructions: null
+            label: 'Open first item by default'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad892bb5-d015-4362-9a14-cdb1fa44bc6b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: allItemsOpen
+            includeInCards: true
+            instructions: null
+            label: 'All items remain open'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2baa0b6c-b026-432c-9ae3-2347218825d2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T07:54:19+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 0fd4b09c-6b45-4e74-af5c-93a35e52fc5f
+            userCondition: null
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c5fdfcd3-11c8-47f7-8ca9-5c884e0673eb # Accordion Items
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Accordion Items'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11b26d0e-f238-4dc7-af5c-c12c53c97d81
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fd07a6bc-fa8c-4422-a178-20bdbcc267f3
+        userCondition: null
+handle: accordion
+hasTitleField: false
+icon: list-timeline
+name: Accordion
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Accordion
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

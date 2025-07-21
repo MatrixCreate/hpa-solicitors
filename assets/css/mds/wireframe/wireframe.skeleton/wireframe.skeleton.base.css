@@ -1,0 +1,13 @@
+/* Base skeleton - document structure only */
+@layer base {
+  .body {
+    /* Box model / Display - fundamental layout structure */
+    @apply flex;
+    @apply flex-col;
+    @apply min-h-screen; /* Flexbox sticky footer */
+  }
+  
+  .main {
+    @apply flex-1; /* Flexbox sticky footer */
+  }
+}

@@ -1,0 +1,72 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set mobileBlogListingLayout = 'blog-grid-' ~ block.mobileBlogListingLayout.value %}
+{% set numberOfPostsToDisplay = block.numberOfPostsToDisplay.value ?? 9 %}
+{% set backgroundColour = block.backgroundColour.color[0].background %}
+{% set headingColour = block.headingColour.color[0].heading %}
+{% set textColour = block.textColour.color[0].text %}
+{% if block.actionButton|length %}
+  {% set lazyLoad = false %}
+{% else %}
+  {% set lazyLoad = true %}
+{% endif %}
+
+<section class="blog-listing content-block
+  {{ backgroundColour }}
+  {{ headingColour }}
+  {{ textColour }}
+  "
+  {{ utils.debugAttributes(entry, block.type, 'Blog Listing') }}
+  >
+
+  <div class="content-block-inner container-medium pb-0" id="blog-listing-top">
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+  </div>
+    
+  {# Sprig-powered blog grid with filters and infinite scroll #}
+  {% set actionButtonData = null %}
+  {% if block.actionButton|length %}
+    {% set cta = block.actionButton %}
+    {% set actionButtonData = {
+      url: cta.url,
+      text: cta.text
+    } %}
+  {% endif %}
+  
+  {# Dynamic or standard loading #}
+  {% if block.useDynamicLoading %}
+    {# Get URL parameters for deep linking #}
+    {% set urlCategory = craft.app.request.getParam('category') %}
+    {% set urlSort = craft.app.request.getParam('sort') %}
+    {% set urlSearch = craft.app.request.getParam('search') %}
+    {% set urlPage = craft.app.request.getParam('page') ?? 1 %}
+    
+    {# Load Sprig component with URL parameters #}
+    {{ sprig('_components/blog.grid.sprig', {
+      page: urlPage,
+      limit: numberOfPostsToDisplay,
+      showImages: true,
+      showFilters: block.showFilters,
+      showPagination: block.showPagination,
+      mobileBlogListingLayout: mobileBlogListingLayout,
+      actionButtonUrl: actionButtonData ? actionButtonData.url : '',
+      actionButtonText: actionButtonData ? actionButtonData.text : '',
+      selectedCategory: urlCategory ?? '',
+      selectedSort: urlSort ?? 'postDate desc',
+      search: urlSearch ?? ''
+    }) }}
+  {% else %}
+    {# Load standard grid component #}
+    {{ ui.component('blog.grid.standard', {
+      entry: entry,
+      block: block,
+      showImages: true,
+      mobileBlogListingLayout: mobileBlogListingLayout,
+      numberOfPostsToDisplay: block.numberOfPostsToDisplay.value ?? block.numberOfPostsToDisplay ?? 6,
+    }) }}
+  {% endif %}
+
+</section>

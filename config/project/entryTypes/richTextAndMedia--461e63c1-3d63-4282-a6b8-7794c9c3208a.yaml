@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  d74e87e6-ec3c-4574-b191-9365e5cb6bea:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-11T19:37:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b315ef2-5aa4-4fae-ae34-79d61468e766 # Rich Text and Media
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70778ba2-eacd-4bea-91c3-5f7f40b6c109
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 15b204f8-8434-4dd3-a472-14b4fd47b72e
+        userCondition: null
+handle: richTextAndMedia
+hasTitleField: false
+icon: memo
+name: 'Rich Text and Media'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Rich Text and Media'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

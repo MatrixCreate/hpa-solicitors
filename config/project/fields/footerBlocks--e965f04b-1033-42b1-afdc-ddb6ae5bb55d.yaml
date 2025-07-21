@@ -1,0 +1,183 @@
+columnSuffix: null
+handle: footerBlocks
+instructions: null
+name: 'Footer Blocks'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 9a27d100-e65e-41a6-a8e9-d586751a28ac
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - ddf48f7b-e399-4254-8b42-c8a99a6925c2
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            -
+                              - type
+                              - craft\fieldlayoutelements\Tip
+                            -
+                              - tip
+                              - 'These blocks can be edited in Globals > Global Content.'
+                            -
+                              - dismissible
+                              - true
+                            -
+                              - style
+                              - tip
+                            -
+                              - dateAdded
+                              - '2025-07-06T15:00:54+00:00'
+                            -
+                              - uid
+                              - 6f328c5d-2fe3-4a3d-8f6d-de36eafbc30f
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T14:38:53+00:00'
+                            11:
+                              - uid
+                              - 33042f01-8d2b-47d1-843b-3412c3163361
+                            14:
+                              - fieldUid
+                              - c6a6cb2e-afae-45ed-9b37-883afdce998c # Show Global Call to Action
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T14:38:53+00:00'
+                            11:
+                              - uid
+                              - 9ee6db7a-ed4f-4088-ae8b-b9f7a77731b2
+                            14:
+                              - fieldUid
+                              - 6d321262-9ea2-4e7f-a817-7c4e22515feb # Show Global Contact Form
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T14:38:53+00:00'
+                            11:
+                              - uid
+                              - c9117723-f0fc-4ae0-8d92-366641d2ee39
+                            14:
+                              - fieldUid
+                              - 20e2f95c-70a8-4c32-adb7-35c86d995115 # Show Trust Links
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T14:38:53+00:00'
+                            11:
+                              - uid
+                              - 36767073-8629-48a4-8bb3-2e436313b381
+                            14:
+                              - fieldUid
+                              - d1c05327-4725-49d4-8853-16d9ba87a417 # Show Testimonials
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T14:38:53+00:00'
+                            11:
+                              - uid
+                              - 273cdc08-d165-4b49-86b0-4a9b5c1e06f3
+                            14:
+                              - fieldUid
+                              - 83971616-a717-4139-b641-499dbc6dfb99 # Show Newsletter Signup
+            3:
+              - cardThumbAlignment
+              - end
+  viewMode: inline
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

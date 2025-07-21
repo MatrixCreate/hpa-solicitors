@@ -1,0 +1,120 @@
+{#
+# Advanced Responsive Image Component
+#
+# A sophisticated image component that automatically generates responsive images
+# with multiple formats, retina support, and performance optimizations.
+#
+# Props:
+#   img: Asset (required) - The image asset to render
+#   class: string (default: '') - CSS classes for the img element
+#   sizes: string (default: '100vw') - Sizes attribute for responsive images
+#   formats: array (default: from config) - Image formats to generate ['webp', 'jpeg']
+#   alt: string (default: img.alt || img.title) - Alt text for accessibility
+#   lazy: boolean (default: false) - Enable lazy loading
+#   priority: boolean (default: false) - Set fetchpriority="high" for above-fold images
+#   responsive: object (required) - Responsive breakpoint configuration
+#
+# Responsive Config Example:
+#   responsive: {
+#     sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
+#     md: { mode: 'crop', width: 800, height: 400, quality: 85, position: 'center-center' },
+#     lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
+#   }
+#
+# Usage:
+#   {{ ui.component('image', {
+#     img: entry.featuredImage.one(),
+#     class: 'hero-image w-full h-full object-cover',
+#     sizes: '100vw',
+#     formats: ['webp'],
+#     lazy: true,
+#     responsive: {
+#       sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
+#       md: { mode: 'crop', width: 800, height: 400, quality: 85, position: 'center-center' },
+#       lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
+#     }
+#   }) }}
+#}
+
+{% set defaults = {
+  img: null,
+  class: '',
+  sizes: '100vw',
+  formats: null,
+  alt: null,
+  lazy: false,
+  priority: false,
+  responsive: {}
+} %}
+
+{% set p = defaults|merge(props ?? {}) %}
+
+{% if p.img and p.responsive %}
+  {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
+  {% set configFormats = p.formats ?? transformConfig.formats %}
+  {% set enableRetina = transformConfig.enableRetina %}
+  
+  {% set transforms = {} %}
+
+  {% for format in configFormats %}
+    {% for size, settings in p.responsive %}
+      {% set key = size ~ '_1x_' ~ format %}
+      {% set transform1x = {
+        mode: settings.mode,
+        width: settings.width,
+        height: settings.height ?? 'auto',
+        quality: settings.quality,
+        position: settings.position,
+        format: format
+      } %}
+
+      {% set transforms = transforms|merge({(key): transform1x}) %}
+      
+      {% if enableRetina %}
+        {% set key2x = size ~ '_2x_' ~ format %}
+        {% set transform2x = {
+          mode: settings.mode,
+          width: settings.width * 2,
+          height: settings.height is defined ? settings.height * 2 : 'auto',
+          quality: settings.quality,
+          position: settings.position,
+          format: format
+        } %}
+        
+        {% set transforms = transforms|merge({(key2x): transform2x}) %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% set primarySize = p.responsive|keys|first %}
+  {% set primaryFormat = configFormats|first %}
+  {% set fallbackTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
+  {% set primaryTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
+
+  {% set srcsetItems = [] %}
+  {% for size, settings in p.responsive %}
+    {% set transform1x = transforms[size ~ '_1x_' ~ primaryFormat] %}
+    {% set srcsetItems = srcsetItems|merge([p.img.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+    {% if enableRetina %}
+      {% set transform2x = transforms[size ~ '_2x_' ~ primaryFormat] %}
+      {% set srcsetItems = srcsetItems|merge([p.img.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+    {% endif %}
+  {% endfor %}
+
+  <img
+    src="{{ p.img.getUrl(fallbackTransform) }}"
+    srcset="{{ srcsetItems|join(', ') }}"
+    class="{{ p.class }}"
+    sizes="{{ p.sizes }}"
+  {% if p.priority %}
+    fetchpriority="high"
+  {% endif %}
+  {% if p.lazy %}
+    loading="lazy"
+    decoding="async"
+  {% endif %}
+    alt="{{ p.alt ?? p.img.alt ?? p.img.title }}"
+    width="{{ primaryTransform.width }}"
+    height="{{ primaryTransform.height }}"
+  />
+{% endif %}

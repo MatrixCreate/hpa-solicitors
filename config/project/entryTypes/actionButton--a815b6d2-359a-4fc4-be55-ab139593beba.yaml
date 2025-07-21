@@ -1,0 +1,40 @@
+color: null
+description: null
+fieldLayouts:
+  79c57126-973e-4be2-855e-ca55c6e86ec9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-11T22:10:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2de08d74-791b-4389-a6fc-181f1b631f2e # Action Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 520a7685-12d1-4b7d-804a-d060f9573083
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 72b7553d-c6f2-47b2-92d1-75e07bc60d2d
+        userCondition: null
+handle: actionButton
+hasTitleField: false
+icon: computer-mouse
+name: 'Action Button'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{actionButton.text}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

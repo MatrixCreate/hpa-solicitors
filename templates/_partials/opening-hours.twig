@@ -1,0 +1,52 @@
+{# Add LocalBusiness JSON-LD structured data #}
+{% if companyInfo.outputLocalBusinessOpeningHoursSchema %}
+  {% if companyInfo.address is defined %}
+    {% set localBusiness = seomatic.jsonLd.create({
+      'type': 'LocalBusiness',
+      'name': companyInfo.address.companyName ?: siteName,
+      'address': {
+        'type': 'PostalAddress',
+        'streetAddress': companyInfo.address.addressLine1 ~ (companyInfo.address.addressLine2 ? ', ' ~ companyInfo.address.addressLine2 : ''),
+        'addressLocality': companyInfo.address.townCity,
+        'addressRegion': companyInfo.address.county,
+        'postalCode': companyInfo.address.postcode,
+        'addressCountry': companyInfo.address.country ?: 'GB'
+      },
+      'telephone': companyInfo.telephone,
+      'email': companyInfo.email,
+      'url': siteUrl,
+      'openingHours': companyInfo.openingHours|length ? companyInfo.openingHours.getRange(0)|map(day => day.isBlank ? null : day.getName('full') ~ ' ' ~ day.open|date('H:i') ~ '-' ~ day.close|date('H:i'))|filter : null
+    }, false) %}
+    
+    {# Add LocalBusiness as separate entity #}
+    {% do seomatic.jsonLd.add(localBusiness) %}
+  {% endif %}
+{% endif %}
+
+{% if companyInfo.openingHours.getGroupedRanges(1)|length %}
+  <div class="opening-hours">
+    <h6>Opening Hours</h6>
+    <ul>
+      {% for group in companyInfo.openingHours.getGroupedRanges(1) %}
+        {% set first = group|first %}
+        {% set last = group|last %}
+        {% if first.open and first.close %}
+          <li>
+            <strong>
+            {% if first != last %}
+              {{ first.getName('medium') }}&mdash;{{ last.getName('medium') }}
+            {% else %}
+              {{ first.getName('medium') }}
+            {% endif %}
+            </strong>
+            {% if companyInfo.showTimesIn24HourFormat %}
+              {{ first.open|date('H:i') }}&mdash;{{ first.close|date('H:i') }}
+            {% else %}
+              {{ first.open|date('g:sa')|replace(':00', '') }}&mdash;{{ first.close|date('g:sa')|replace(':00', '') }}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

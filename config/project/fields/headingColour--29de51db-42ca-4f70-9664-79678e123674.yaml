@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: headingColour
+instructions: null
+name: 'Heading Colour'
+searchable: false
+settings:
+  default: null
+  palette: 'Text Colours'
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

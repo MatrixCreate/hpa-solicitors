@@ -1,0 +1,108 @@
+columnSuffix: null
+handle: designOptions
+instructions: null
+name: 'Design Options'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 70b93fde-2861-4aa8-bd82-1810fde181dc
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    1:
+                      - uid
+                      - fa90961d-9369-49cd-b8ef-3c49875e4dce
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T17:04:24+00:00'
+                            11:
+                              - uid
+                              - 2f81df00-251b-480c-b0f8-ab6aa2719c22
+                            14:
+                              - fieldUid
+                              - 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T17:04:24+00:00'
+                            11:
+                              - uid
+                              - fcce60fb-6ec1-4ab2-b4ca-5e5c70f41326
+                            14:
+                              - fieldUid
+                              - 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-06T17:04:24+00:00'
+                            11:
+                              - uid
+                              - edae1266-c956-4b9a-a16c-b54873a5a86b
+                            14:
+                              - fieldUid
+                              - 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            3:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

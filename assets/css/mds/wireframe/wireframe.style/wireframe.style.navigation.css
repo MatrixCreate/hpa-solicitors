@@ -1,0 +1,458 @@
+/* Navigation - visual styling only */
+@layer components {
+  /* ============================================
+     DROPDOWN NAVIGATION STYLE  
+     ============================================ */
+  .nav--dropdown {
+    
+    .nav-list { 
+      @apply text-[var(--mds-nav-font-size)];
+      @apply font-[var(--mds-nav-font-weight)];
+      
+      @apply md:text-[var(--mds-nav-font-size-md)];
+      @apply lg:text-[var(--mds-nav-font-size-lg)];
+      @apply xl:text-[var(--mds-nav-font-size-xl)];
+    }
+    
+    /* Base nav item styles */
+    .nav-item {
+      &:hover {
+        > .nav-item-link {
+          @apply bg-[var(--mds-nav-background-hover)];
+        }
+      }
+    }
+    
+    .nav-item-link {
+      @apply p-2;
+      @apply md:px-[1.25vw];
+      @apply lg:px-3;
+      @apply xl:px-4;
+      @apply font-[var(--mds-nav-font-weight)];
+      @apply hover:no-underline;
+      @apply rounded-sm;
+      @apply transition;
+    }
+    
+    .subnav-indicator {
+      @apply transition-transform duration-150;
+    }
+
+    .nav-menu-level-2,
+    .nav-menu-level-3,
+    .nav-menu-level-4 {
+      @apply bg-[var(--mds-nav-background)];
+      @apply rounded-lg;
+      @apply shadow-2xl;
+    }
+
+    .nav-item-level-1 {
+      &.active > .nav-item-link .subnav-indicator {}
+    }
+    
+    /* Level 2 - First dropdown */
+    .nav-menu-level-2 {
+      @apply p-2;
+      @apply text-[var(--mds-nav-level-2-font-size)];
+      @apply bg-[var(--mds-nav-background-overlay)];
+      @apply transition-opacity duration-300;
+    }
+    
+    .nav-item-level-2 {
+      &.active > .nav-item-link .subnav-indicator {}
+    }
+    
+    .nav-link-level-2 {
+      @apply p-2;
+      @apply font-[var(--mds-nav-level-2-font-weight)];
+      @apply hover:no-underline;
+      @apply transition-colors duration-300;
+      
+      .subnav-indicator {
+        @apply transition-transform duration-150;
+      }
+    }
+
+    /* Level 3+ - Right-flying submenus */
+    .nav-menu-level-3,
+    .nav-menu-level-4,
+    .nav-menu-level-5,
+    .nav-menu-level-6 {
+      @apply p-2;
+      @apply text-[var(--mds-nav-level-3-font-size)];
+      @apply bg-[var(--mds-nav-background-overlay)];
+      @apply shadow-lg;
+      @apply transition-opacity duration-300;
+    }
+    
+    .nav-item-level-3 {
+      &.active > .nav-item-link .subnav-indicator {}
+    }
+    
+    .nav-item-level-4 {
+      &.active > .nav-item-link .subnav-indicator {
+        @apply rotate-90;
+      }
+    }
+    
+    .nav-item-level-5 {
+      &.active > .nav-item-link .subnav-indicator {
+        @apply rotate-90;
+      }
+    }
+    
+    .nav-item-level-6 {
+      &.active > .nav-item-link .subnav-indicator {
+        @apply rotate-90;
+      }
+    }
+
+    .nav-link-level-3,
+    .nav-link-level-4,
+    .nav-link-level-5,
+    .nav-link-level-6 {
+      @apply p-2;
+      @apply font-[var(--mds-nav-level-3-font-weight)];
+      @apply hover:no-underline;
+      @apply transition-colors duration-300;
+      
+      .subnav-indicator {
+        @apply transition-transform duration-150;
+      }
+    }
+
+    /* Legacy support - maintain old classes for compatibility */
+    .nav-submenu {
+      @apply p-2;
+      @apply text-sm;
+      @apply bg-[var(--mds-nav-background-overlay)];
+      @apply transition-opacity duration-300;
+    }
+    
+    .nav-item.active {
+      .nav-submenu {}
+    }
+    
+    .nav-subitem {
+      @apply p-2;
+      @apply font-[var(--mds-nav-level-2-font-weight)];
+      @apply hover:no-underline;
+      @apply transition-colors duration-300;
+      &.active {}
+    }
+  }
+
+  /* ============================================
+     MEGAMENU NAVIGATION STYLE  
+     ============================================ */
+  .nav--megamenu {
+    
+    .nav-list { 
+      @apply text-[var(--mds-nav-font-size)];
+      
+      @apply md:text-[var(--mds-nav-font-size-md)];
+      @apply lg:text-[var(--mds-nav-font-size-lg)];
+      @apply xl:text-[var(--mds-nav-font-size-xl)];
+    }
+    
+    .nav-item-link {
+      @apply p-2;
+      @apply md:px-[1.25vw];
+      @apply lg:px-3;
+      @apply xl:px-4;
+      @apply font-[var(--mds-nav-font-weight)];
+      @apply hover:no-underline;
+      @apply transition;
+    }
+    
+    .subnav-indicator {
+      @apply transition-transform duration-150;
+    }
+
+    .nav-item-level-1 {
+      &.active > .nav-item-link .subnav-indicator {}
+    }
+    
+    /* Level 2 becomes full-width mega panel */
+    .nav-menu-level-2 {
+      @apply bg-[var(--mds-nav-background)];
+      @apply shadow-2xl;
+      @apply transition-opacity duration-300;
+    }
+    
+    /* Individual columns */
+    .megamenu-column {
+      @apply border-[var(--mds-megamenu-border)];
+      
+      &.column-1 {
+        @apply bg-[var(--mds-nav-background-active)];
+      }
+      
+      &.column-2,
+      &.column-3 {
+        @apply bg-[var(--mds-nav-background)];
+      }
+    }
+    
+    /* Level 2 - First column (always visible) */
+    .nav-item-level-2 {
+      &.active {
+        .nav-link-level-2 {
+          @apply bg-[var(--mds-nav-background-active)];
+          @apply text-[var(--mds-nav-text-active)];
+          @apply border-l-4;
+          @apply border-[var(--mds-nav-border)];
+        }
+      }
+    }
+    
+    .nav-link-level-2 {
+      @apply p-4;
+      @apply text-[var(--mds-megamenu-level-2-font-size)];
+      @apply font-[var(--mds-megamenu-level-2-font-weight)];
+      @apply transition-colors;
+      @apply text-[var(--mds-nav-text)];
+      &:hover {
+        @apply bg-[var(--mds-nav-background-hover)];
+      }
+    }
+    
+    /* Level 3 - Second column */
+    .nav-item-level-3 {
+      &.active {
+        .nav-link-level-3 {
+          @apply bg-[var(--mds-nav-background-active)];
+          @apply text-[var(--mds-nav-text-active)];
+          @apply border-[var(--mds-nav-border)];
+        }
+      }
+    }
+    
+    .nav-link-level-3 {
+      @apply p-3;
+      @apply text-[var(--mds-megamenu-level-3-font-size)];
+      @apply font-[var(--mds-megamenu-level-3-font-weight)];
+      @apply transition-colors;
+      @apply text-[var(--mds-nav-text)];
+      &:hover {
+        @apply bg-[var(--mds-nav-background-hover)];
+      }
+    }
+    
+    .nav-link-level-4 {
+      @apply p-3;
+      @apply text-[var(--mds-megamenu-level-4-font-size)];
+      @apply font-[var(--mds-megamenu-level-4-font-weight)];
+      @apply transition-colors;
+      @apply text-[var(--mds-nav-text)];
+      &:hover {
+        @apply text-[var(--mds-nav-text-hover)];
+        @apply bg-[var(--mds-nav-background-hover)];
+      }
+    }
+
+    /* "View [page title]" links for click interaction mode in megamenu */
+    .nav-item-view-page {
+      border-color: var(--mds-megamenu-border);
+      
+      .nav-link-view-page {
+        font-weight: var(--mds-font-weight-bold);
+        color: var(--mds-nav-text-active);
+        &:hover {
+          color: var(--mds-nav-text-hover);
+          background-color: var(--mds-nav-background-hover);
+        }
+      }
+    }
+    
+    /* Column headers */
+    .megamenu-column-header {
+      font-size: var(--mds-megamenu-header-font-size);
+      font-weight: var(--mds-megamenu-header-font-weight);
+      color: var(--mds-text-muted);
+      background-color: var(--mds-surface-secondary);
+    }
+    
+    /* Responsive megamenu */
+    @media (max-width: 768px) {
+      .nav-menu-level-2 {
+        .megamenu-column {
+          border-color: var(--mds-megamenu-border);
+        }
+      }
+    }
+  }
+  
+
+  /* Mobile nav styling */
+  .mobile-header-inner {
+    @apply p-4 px-6;
+    background-color: var(--mds-header-background);
+  }
+  .btn-menu {
+    @apply p-2 md:px-4 md:py-2;
+  }
+
+  /* Mobile Navigation Panel */
+  .mobile-nav {
+    background-color: var(--mds-mobile-nav-background);
+    @apply shadow-2xl;
+  }
+  
+  .mobile-nav-item-header {
+    @apply py-4 px-6;
+    border-bottom-color: color-mix(in srgb, var(--mds-mobile-nav-border) 10%, transparent);
+  }
+  
+  /* Mobile Navigation Links */
+  .mobile-nav-link {
+    font-size: var(--mds-mobile-nav-font-size);
+    font-weight: var(--mds-mobile-nav-font-weight);
+    @apply transition-colors;
+    color: var(--mds-mobile-nav-text);
+    &:hover {
+      color: var(--mds-mobile-nav-text-hover);
+      opacity: 0.8;
+    }
+  }
+  
+  .mobile-nav-link.active {
+    /* Active link styling can be added here if needed */
+  }
+  
+  .mobile-nav-passive {
+    /* Passive link styling - inherits from mobile-nav-link */
+  }
+  
+  /* Mobile Navigation Toggle Button */
+  .mobile-nav-toggle {
+    color: var(--mds-mobile-nav-text);
+  }
+  
+  .mobile-nav-toggle-icon {
+    @apply transition-transform duration-200;
+  }
+  
+  .mobile-nav-toggle-icon.rotate-90 {
+    @apply rotate-90;
+  }
+  
+  /* Mobile Navigation Submenu */
+  .mobile-nav-submenu {
+    background-color: var(--mds-mobile-nav-submenu-background);
+    opacity: 0.8;
+  }
+  
+  /* Mobile Navigation Actions */
+  .mobile-nav-actions {
+    @apply p-6;
+    border-top-color: color-mix(in srgb, var(--mds-mobile-nav-border) 10%, transparent);
+  }
+  
+  .mobile-nav-cta {
+    @apply py-4 px-6;
+    font-weight: var(--mds-mobile-nav-level-title-font-weight);
+    @apply rounded-lg;
+    @apply transition-colors;
+    color: var(--mds-mobile-nav-text);
+    background-color: var(--mds-mobile-nav-cta-background);
+    &:hover {
+      background-color: var(--mds-mobile-nav-cta-background-hover);
+    }
+  }
+
+  /* Mobile Sliding Navigation Styling */
+  
+  .mobile-nav--sliding {
+    background-color: var(--mds-mobile-nav-background);
+    @apply shadow-2xl;
+  }
+  
+  .mobile-nav-level {
+    background-color: var(--mds-mobile-nav-background);
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  
+  .mobile-nav-item-header--sliding {
+    @apply py-4 px-6;
+    border-bottom-color: color-mix(in srgb, var(--mds-mobile-nav-border) 10%, transparent);
+  }
+  
+  /* Level Header with Back Button */
+  .mobile-nav-level-header {
+    @apply p-4 px-6;
+    background-color: var(--mds-mobile-nav-background-dark);
+    border-bottom-color: color-mix(in srgb, var(--mds-mobile-nav-border) 20%, transparent);
+  }
+  
+  .mobile-nav-back-btn {
+    font-size: var(--mds-mobile-nav-font-size);
+    font-weight: var(--mds-mobile-nav-level-title-font-weight);
+    @apply rounded-lg;
+    @apply transition-colors;
+    color: var(--mds-mobile-nav-text);
+    &:hover {
+      background-color: color-mix(in srgb, var(--mds-mobile-nav-border) 10%, transparent);
+    }
+  }
+  
+  .mobile-nav-level-title {
+    font-size: var(--mds-mobile-nav-level-title-font-size);
+    font-weight: var(--mds-mobile-nav-level-title-font-weight);
+    color: var(--mds-mobile-nav-text);
+  }
+  
+  /* Mobile Navigation Links - Sliding */
+  .mobile-nav-link--sliding {
+    font-size: var(--mds-mobile-nav-font-size);
+    font-weight: var(--mds-mobile-nav-font-weight);
+    @apply transition-colors;
+    color: var(--mds-mobile-nav-text);
+    &:hover {
+      color: var(--mds-mobile-nav-text-hover);
+      opacity: 0.8;
+    }
+  }
+  
+  .mobile-nav-link--sliding.active {
+    /* Active link styling can be added here if needed */
+  }
+  
+  .mobile-nav-passive--sliding {
+    /* Passive link styling - inherits from mobile-nav-link--sliding */
+  }
+  
+  /* Mobile Navigation Toggle Button - Sliding */
+  .mobile-nav-toggle--sliding {
+    color: var(--mds-mobile-nav-text);
+  }
+  
+  .mobile-nav-toggle-icon--sliding {
+    @apply transition-transform duration-200;
+  }
+  
+  /* Mobile Navigation Actions - Sliding */
+  .mobile-nav-actions--sliding {
+    @apply p-6;
+    border-top-color: color-mix(in srgb, var(--mds-mobile-nav-border) 10%, transparent);
+  }
+  
+  .mobile-nav-cta--sliding {
+    @apply py-4 px-6;
+    font-weight: var(--mds-mobile-nav-level-title-font-weight);
+    @apply rounded-lg;
+    @apply transition-colors;
+    color: var(--mds-mobile-nav-text);
+    background-color: var(--mds-mobile-nav-cta-background);
+    &:hover {
+      background-color: var(--mds-mobile-nav-cta-background-hover);
+    }
+  }
+
+  /* Mobile Navigation Global Effects */
+  
+  /* Blur effect for main content when mobile nav is open */
+  .mobile-nav-blur {
+    @apply blur-sm;
+  }
+}

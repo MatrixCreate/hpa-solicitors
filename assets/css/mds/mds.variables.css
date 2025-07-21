@@ -1,0 +1,454 @@
+@layer base {
+  :root {
+    /* ===== SEMANTIC COLOR SYSTEM ===== */
+    
+    /* Base Text Colors */
+    --mds-text-primary:                               theme(colors.grey-900);
+    --mds-text-secondary:                             theme(colors.grey-700);
+    --mds-text-muted:                                 theme(colors.grey-500);
+    --mds-text-light:                                 theme(colors.grey-400);
+    --mds-text-inverse:                               theme(colors.white);
+    --mds-text-accent:                                theme(colors.grey-600);
+    
+    /* Base Surface Colors */
+    --mds-surface-primary:                            theme(colors.white);
+    --mds-surface-secondary:                          theme(colors.grey-50);
+    --mds-surface-tertiary:                           theme(colors.grey-100);
+    --mds-surface-overlay:                            theme(colors.white);
+    --mds-surface-elevated:                           theme(colors.white);
+    --mds-surface-dark:                               theme(colors.grey-900);
+    --mds-surface-medium:                             theme(colors.grey-500);
+    
+    /* Base Link Colors */
+    --mds-link-color:                                 theme(colors.grey-700);
+
+    /* Base Border Colors */
+    --mds-border-primary:                             theme(colors.grey-200);
+    --mds-border-secondary:                           theme(colors.grey-300);
+    --mds-border-light:                               theme(colors.grey-100);
+    --mds-border-dark:                                theme(colors.grey-400);
+    --mds-border-accent:                              theme(colors.grey-600);
+    
+    /* Interactive Colors */
+    --mds-interactive-primary:                        theme(colors.grey-600);
+    --mds-interactive-primary-hover:                  theme(colors.grey-800);
+    --mds-interactive-secondary:                      theme(colors.grey-400);
+    --mds-interactive-secondary-hover:                theme(colors.grey-600);
+    --mds-interactive-muted:                          theme(colors.grey-300);
+    --mds-interactive-muted-hover:                    theme(colors.grey-400);
+    
+    /* Status Colors (using neutral grays in wireframe) */
+    --mds-status-info:                                theme(colors.grey-600);
+    --mds-status-info-background:                     theme(colors.grey-50);
+    --mds-status-success:                             theme(colors.grey-700);
+    --mds-status-success-background:                  theme(colors.grey-50);
+    --mds-status-warning:                             theme(colors.grey-500);
+    --mds-status-warning-background:                  theme(colors.grey-50);
+    --mds-status-error:                               theme(colors.grey-800);
+    --mds-status-error-background:                    theme(colors.grey-50);
+    
+    /* Component-Specific Colors */
+    
+    /* Header Colors */
+    --mds-header-background:                          theme(colors.white);
+    --mds-header-text:                                theme(colors.grey-900);
+    --mds-header-link:                                theme(colors.grey-700);
+    --mds-header-link-hover:                          theme(colors.grey-900);
+    
+    /* Navigation Colors */
+    --mds-nav-background:                             theme(colors.white);
+    --mds-nav-background-overlay:                     theme(colors.white);
+    --mds-nav-text:                                   theme(colors.grey-700);
+    --mds-nav-text-hover:                             theme(colors.grey-900);
+    --mds-nav-text-active:                            theme(colors.grey-900);
+    --mds-nav-text-muted:                             theme(colors.grey-400);
+    --mds-nav-background-hover:                       theme(colors.grey-100);
+    --mds-nav-background-active:                      theme(colors.grey-50);
+    --mds-nav-border:                                 theme(colors.grey-200);
+    
+    /* Mobile Navigation Colors */
+    --mds-mobile-nav-background:                      theme(colors.grey-700);
+    --mds-mobile-nav-background-dark:                 theme(colors.grey-800);
+    --mds-mobile-nav-text:                            theme(colors.white);
+    --mds-mobile-nav-text-hover:                      theme(colors.white);
+    --mds-mobile-nav-submenu-background:              theme(colors.grey-800);
+    --mds-mobile-nav-border:                          theme(colors.white);
+    --mds-mobile-nav-cta-background:                  theme(colors.grey-600);
+    --mds-mobile-nav-cta-background-hover:            theme(colors.grey-700);
+    
+    /* Footer Colors */
+    --mds-footer-background:                          theme(colors.grey-50);
+    --mds-footer-text:                                theme(colors.grey-700);
+    --mds-footer-link:                                theme(colors.grey-600);
+    --mds-footer-link-hover:                          theme(colors.grey-900);
+    --mds-footer-border:                              theme(colors.grey-300);
+    
+    /* Hero Colors */
+    --mds-hero-text:                                  theme(colors.grey-900);
+    --mds-hero-text-overlay:                          theme(colors.white);
+    --mds-hero-background:                            theme(colors.white);
+    --mds-hero-overlay:                               theme(colors.white);
+    
+    /* Card Colors */
+    --mds-card-background:                            theme(colors.white);
+    --mds-card-background-secondary:                  theme(colors.grey-50);
+    --mds-card-text:                                  theme(colors.grey-900);
+    --mds-card-text-secondary:                        theme(colors.grey-700);
+    --mds-card-border:                                theme(colors.grey-200);
+    --mds-card-shadow:                                theme(colors.grey-900);
+    
+    /* Search Colors */
+    --mds-search-background:                          theme(colors.white);
+    --mds-search-text:                                theme(colors.grey-900);
+    --mds-search-text-muted:                          theme(colors.grey-500);
+    --mds-search-text-light:                          theme(colors.grey-300);
+    --mds-search-button-background:                   theme(colors.grey-100);
+    --mds-search-button-background-hover:             theme(colors.grey-200);
+    --mds-search-button-text:                         theme(colors.grey-700);
+    --mds-search-button-text-hover:                   theme(colors.grey-900);
+    --mds-search-button-text-focus:                   theme(colors.blue-600);
+    --mds-search-button-background-focus:             theme(colors.blue-100);
+    --mds-search-results-border:                      theme(colors.grey-200);
+    --mds-search-no-results-background:               theme(colors.grey-50);
+    --mds-search-no-results-text:                     theme(colors.grey-800);
+    --mds-search-no-results-text-muted:               theme(colors.grey-500);
+    --mds-search-intro-icon:                          theme(colors.grey-300);
+    --mds-search-intro-title:                         theme(colors.grey-800);
+    --mds-search-intro-text:                          theme(colors.grey-500);
+    
+    /* Pagination Colors */
+    --mds-pagination-background:                      theme(colors.white);
+    --mds-pagination-text:                            theme(colors.grey-700);
+    --mds-pagination-text-hover:                      theme(colors.grey-900);
+    --mds-pagination-background-hover:                theme(colors.grey-50);
+    --mds-pagination-border:                          theme(colors.grey-300);
+    --mds-pagination-border-hover:                    theme(colors.grey-400);
+    --mds-pagination-active-background:               theme(colors.grey-600);
+    --mds-pagination-active-background-hover:         theme(colors.grey-700);
+    --mds-pagination-active-text:                     theme(colors.white);
+    --mds-pagination-disabled-text:                   theme(colors.grey-500);
+    
+    /* Accordion Colors */
+    --mds-accordion-trigger-text:                     theme(colors.grey-900);
+    --mds-accordion-trigger-background:               transparent;
+    --mds-accordion-trigger-background-hover:         theme(colors.grey-50);
+    --mds-accordion-content-text:                     theme(colors.grey-700);
+    --mds-accordion-content-background:               theme(colors.white);
+    --mds-accordion-border:                           theme(colors.grey-200);
+    --mds-accordion-bullet:                           theme(colors.grey-600);
+    
+    /* Debug Colors */
+    --mds-debug-background:                           theme(colors.grey-200);
+    --mds-debug-text:                                 theme(colors.grey-900);
+    --mds-debug-border:                               theme(colors.grey-200);
+    
+    /* Buttons */
+    --mds-button-primary-background-color:            theme(colors.grey-600);
+    --mds-button-primary-background-color-hover:      theme(colors.grey-800);
+    --mds-button-primary-text-color:                  theme(colors.white);
+    --mds-button-primary-text-color-hover:            theme(colors.white);
+    --mds-button-secondary-background-color:          theme(colors.grey-400);
+    --mds-button-secondary-background-color-hover:    theme(colors.grey-800);
+    --mds-button-secondary-text-color:                theme(colors.white);
+    --mds-button-secondary-text-color-hover:          theme(colors.white);
+    
+    /* Button Structure */
+    --mds-button-border-radius:                       0;
+    --mds-button-border-width:                        2px;
+    --mds-button-border-color:                        theme(colors.white);
+    --mds-button-padding-x:                           theme(spacing.4);
+    --mds-button-padding-y:                           theme(spacing.2);
+    --mds-button-font-size:                           theme(fontSize.sm);
+    --mds-button-font-size-lg:                        theme(fontSize.base);
+    --mds-button-font-weight:                         theme(fontWeight.semibold);
+    --mds-button-text-transform:                      uppercase;
+    --mds-button-letter-spacing:                      theme(letterSpacing.wide);
+    --mds-button-transition-duration:                 300ms;
+    --mds-button-transition-timing:                   ease-in-out;
+    
+    /* Button Size Variants */
+    --mds-button-sm-padding-x:                        theme(spacing.2);
+    --mds-button-sm-padding-y:                        theme(spacing.1);
+    --mds-button-sm-font-size:                        theme(fontSize.sm);
+    --mds-button-md-padding-x:                        theme(spacing.3);
+    --mds-button-md-padding-y:                        theme(spacing.2);
+    --mds-button-md-font-size:                        theme(fontSize.base);
+    --mds-button-lg-padding-x:                        theme(spacing.4);
+    --mds-button-lg-padding-y:                        theme(spacing.3);
+    --mds-button-lg-font-size:                        theme(fontSize.lg);
+    
+    /* Button Layout */
+    --mds-button-gap:                                 theme(spacing.2);
+    --mds-button-icon-size:                           theme(spacing.6);
+    --mds-button-icon-gap:                            theme(spacing.2);
+    
+    /* Button Transparent Variant */
+    --mds-button-transparent-background:              transparent;
+    
+    /* Button Action Link Variant */
+    --mds-button-action-link-padding-x:               theme(spacing.4);
+    --mds-button-action-link-padding-y:               theme(spacing.2);
+    --mds-button-action-link-padding-x-md:            theme(spacing.2);
+    --mds-button-action-link-padding-y-md:            theme(spacing.1);
+    --mds-button-action-link-padding-x-lg:            theme(spacing.4);
+    --mds-button-action-link-padding-y-lg:            theme(spacing.2);
+    --mds-button-action-link-font-size:               theme(fontSize.base);
+    --mds-button-action-link-font-size-md:            theme(fontSize.xs);
+    --mds-button-action-link-letter-spacing:          normal;
+    
+    /* Button Action Button Variant */
+    --mds-button-action-button-padding:               0.5rem 1rem 0.4rem 1rem;
+    --mds-button-action-button-font-size-md:          theme(fontSize.xs);
+    --mds-button-action-button-font-size-lg:          theme(fontSize.base);
+    
+    /* Button Special Variants */
+    --mds-button-telephone-font-size-lg:              theme(fontSize.sm);
+    --mds-button-telephone-font-size-xl:              theme(fontSize.base);
+    --mds-button-contact-text-color:                  theme(colors.white);
+
+    /* Global Border Radius */
+    --mds-global-card-border-radius:                  0;
+    --mds-global-card-border-radius-overflow:         visible;
+
+    /* Forms */
+    --mds-form-input-border-width:                    1px;
+    --mds-form-input-border-style:                    solid;
+    --mds-form-input-border-color:                    theme(colors.grey-400);
+    --mds-form-input-border-radius:                   var(--mds-global-card-border-radius);
+    --mds-form-input-background-color:                theme(colors.white);
+    --mds-form-input-text-color:                      theme(colors.grey-900);
+    --mds-form-input-placeholder-color:               theme(colors.grey-500);
+
+    /* Testimonials */
+    --mds-testimonial-card-background-color:          theme(colors.grey-500);
+    --mds-testimonial-card-text-color:                theme(colors.white);
+    --mds-testimonial-card-corner-radius:             var(--mds-global-card-border-radius);
+    --mds-testimonial-stars-color:                    theme(colors.yellow-400);
+    
+    --mds-testimonial-nav-btn-background-color:       theme(colors.white);
+    --mds-testimonial-nav-btn-background-color-hover: theme(colors.grey-500);
+
+    --mds-testimonial-dot-background-color:           theme(colors.grey-300);
+    --mds-testimonial-dot-background-color-active:    theme(colors.grey-700);
+
+    /* Image Styling */
+    --mds-image-border-radius:                        var(--mds-global-card-border-radius);
+
+
+    /* Entry Cards */
+    --mds-entry-card-background-color:                theme(colors.grey-100);
+    --mds-entry-card-image-border-radius:             0;
+    --mds-entry-card-text:                            theme(colors.grey-900);
+    --mds-entry-card-border-radius:                   var(--mds-global-card-border-radius);
+    --mds-entry-card-border-radius-overflow:          var(--mds-global-card-border-radius-overflow);
+
+    /* Blog Card */
+    --mds-blog-card-background-color:                 theme(colors.grey-100);
+    --mds-blog-card-text-color:                       heme(colors.grey-900);
+    --mds-blog-card-text-padding:                     theme(spacing.4);
+    --mds-blog-card-date-font-size:                   theme(fontSize.xs);
+    --mds-blog-card-date-font-weight:                 theme(fontWeight.semibold);
+
+    /* Contact Form */
+    --mds-form-image-border-radius:                   var(--mds-image-border-radius);
+    
+    /* Additional Component Colors */
+    --mds-blockquote-border:                          theme(colors.blue-600);
+    --mds-tabs-border:                                theme(colors.grey-200);
+    --mds-megamenu-border:                            theme(colors.grey-200);
+    --mds-filter-search-button-background:            theme(colors.grey-800);
+    --mds-filter-search-button-text:                  theme(colors.white);
+    --mds-filter-select-background:                   theme(colors.white);
+    --mds-blog-border:                                theme(colors.grey-200);
+    --mds-overlay-background:                         rgb(255 255 255 / 0.6);
+    
+    /* ===== TYPOGRAPHY SYSTEM ===== */
+    
+    /* Base Typography Scale */
+    --mds-font-size-2xs:  0.5rem;
+    --mds-font-size-xs:   theme(fontSize.xs);
+    --mds-font-size-sm:   theme(fontSize.sm);
+    --mds-font-size-base: theme(fontSize.base);
+    --mds-font-size-lg:   theme(fontSize.lg);
+    --mds-font-size-xl:   theme(fontSize.xl);
+    --mds-font-size-2xl:  theme(fontSize.2xl);
+    --mds-font-size-3xl:  theme(fontSize.3xl);
+    --mds-font-size-4xl:  theme(fontSize.4xl);
+    --mds-font-size-5xl:  theme(fontSize.5xl);
+    
+    /* Font Weight Scale */
+    --mds-font-weight-normal:   theme(fontWeight.normal);
+    --mds-font-weight-medium:   theme(fontWeight.medium);
+    --mds-font-weight-semibold: theme(fontWeight.semibold);
+    --mds-font-weight-bold:     theme(fontWeight.bold);
+    
+    /* Semantic Typography Tokens */
+
+    /* Heading Typography */
+    --mds-heading-h1-font-size:    var(--mds-font-size-3xl);
+    --mds-heading-h1-font-size-md: var(--mds-font-size-4xl);
+    --mds-heading-h1-font-size-lg: var(--mds-font-size-5xl);
+    --mds-heading-h1-font-weight:  var(--mds-font-weight-semibold);
+    
+    --mds-heading-h2-font-size:    var(--mds-font-size-2xl);
+    --mds-heading-h2-font-size-md: var(--mds-font-size-3xl);
+    --mds-heading-h2-font-size-lg: var(--mds-font-size-4xl);
+    --mds-heading-h2-font-weight:  var(--mds-font-weight-semibold);
+    
+    --mds-heading-h3-font-size:    var(--mds-font-size-xl);
+    --mds-heading-h3-font-size-md: var(--mds-font-size-2xl);
+    --mds-heading-h3-font-size-lg: var(--mds-font-size-3xl);
+    --mds-heading-h3-font-weight:  var(--mds-font-weight-semibold);
+    
+    --mds-heading-h4-font-size:    var(--mds-font-size-lg);
+    --mds-heading-h4-font-size-md: var(--mds-font-size-xl);
+    --mds-heading-h4-font-size-lg: var(--mds-font-size-2xl);
+    --mds-heading-h4-font-weight:  var(--mds-font-weight-semibold);
+    
+    --mds-heading-h5-font-size:    var(--mds-font-size-base);
+    --mds-heading-h5-font-size-md: var(--mds-font-size-lg);
+    --mds-heading-h5-font-size-lg: var(--mds-font-size-xl);
+    --mds-heading-h5-font-weight:  var(--mds-font-weight-semibold);
+    
+    --mds-heading-h6-font-size:    var(--mds-font-size-sm);
+    --mds-heading-h6-font-size-md: var(--mds-font-size-base);
+    --mds-heading-h6-font-weight:  var(--mds-font-weight-semibold);
+    
+    /* Navigation Typography */
+    --mds-nav-font-size:           var(--mds-font-size-sm);
+    --mds-nav-font-size-md:        var(--mds-font-size-base);
+    --mds-nav-font-size-lg:        var(--mds-font-size-lg);
+    --mds-nav-font-size-xl:        var(--mds-font-size-xl);
+    --mds-nav-font-weight:         var(--mds-font-weight-semibold);
+    
+    --mds-nav-level-2-font-size:   var(--mds-font-size-sm);
+    --mds-nav-level-2-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-nav-level-3-font-size:   var(--mds-font-size-sm);
+    --mds-nav-level-3-font-weight: var(--mds-font-weight-medium);
+    
+    --mds-nav-level-4-font-size:   var(--mds-font-size-sm);
+    --mds-nav-level-4-font-weight: var(--mds-font-weight-normal);
+    
+    /* Mobile Navigation Typography */
+    --mds-mobile-nav-font-size:               var(--mds-font-size-lg);
+    --mds-mobile-nav-font-weight:             var(--mds-font-weight-medium);
+    --mds-mobile-nav-level-title-font-size:   var(--mds-font-size-lg);
+    --mds-mobile-nav-level-title-font-weight: var(--mds-font-weight-semibold);
+    
+    /* Megamenu Typography */
+    --mds-megamenu-level-2-font-size:   var(--mds-font-size-base);
+    --mds-megamenu-level-2-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-megamenu-level-3-font-size:   var(--mds-font-size-sm);
+    --mds-megamenu-level-3-font-weight: var(--mds-font-weight-medium);
+    
+    --mds-megamenu-level-4-font-size:   var(--mds-font-size-sm);
+    --mds-megamenu-level-4-font-weight: var(--mds-font-weight-normal);
+    
+    --mds-megamenu-header-font-size:    var(--mds-font-size-xs);
+    --mds-megamenu-header-font-weight:  var(--mds-font-weight-semibold);
+    
+    /* Search Typography */
+    --mds-search-subtitle-font-size:    var(--mds-font-size-sm);
+    --mds-search-subtitle-font-weight:  var(--mds-font-weight-normal);
+    
+    --mds-search-section-title-font-size:   var(--mds-font-size-lg);
+    --mds-search-section-title-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-search-section-count-font-size:   var(--mds-font-size-base);
+    --mds-search-section-count-font-weight: var(--mds-font-weight-normal);
+    
+    --mds-search-intro-title-font-size:   var(--mds-font-size-xl);
+    --mds-search-intro-title-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-search-no-results-title-font-size:   var(--mds-font-size-xl);
+    --mds-search-no-results-title-font-weight: var(--mds-font-weight-semibold);
+    
+    /* Pagination Typography */
+    --mds-pagination-font-size: var(--mds-font-size-sm);
+    --mds-pagination-font-weight: var(--mds-font-weight-medium);
+    
+    --mds-pagination-ellipsis-font-size: var(--mds-font-size-sm);
+    --mds-pagination-ellipsis-font-weight: var(--mds-font-weight-normal);
+    
+    /* Accordion Typography */
+    --mds-accordion-trigger-font-size:   var(--mds-font-size-base);
+    --mds-accordion-trigger-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-accordion-heading-font-size:   var(--mds-font-size-lg);
+    --mds-accordion-heading-font-weight: var(--mds-font-weight-bold);
+    
+    --mds-accordion-content-font-size:   var(--mds-font-size-base);
+    --mds-accordion-content-font-weight: var(--mds-font-weight-medium);
+    
+    /* Testimonial Typography */
+    --mds-testimonial-quote-font-size:   var(--mds-font-size-base);
+    --mds-testimonial-quote-font-weight: var(--mds-font-weight-medium);
+    
+    --mds-testimonial-view-more-font-size:   var(--mds-font-size-xs);
+    --mds-testimonial-view-more-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-testimonial-attribution-font-size:   var(--mds-font-size-base);
+    --mds-testimonial-attribution-font-weight: var(--mds-font-weight-normal);
+    
+    /* Entry Card Typography */
+    --mds-entry-card-heading-font-size:   var(--mds-font-size-lg);
+    --mds-entry-card-heading-font-weight: var(--mds-font-weight-bold);
+    
+    --mds-entry-card-text-font-size:   var(--mds-font-size-sm);
+    --mds-entry-card-text-font-weight: var(--mds-font-weight-normal);
+    
+    /* Blog Typography */
+    --mds-blog-card-date-font-size:   var(--mds-font-size-xs);
+    --mds-blog-card-date-font-weight: var(--mds-font-weight-semibold);
+    
+    --mds-blog-article-blockquote-font-size:   var(--mds-font-size-xl);
+    --mds-blog-article-blockquote-font-weight: var(--mds-font-weight-normal);
+    
+    /* Hero Typography */
+    --mds-hero-text-font-size:    var(--mds-font-size-lg);
+    --mds-hero-text-font-size-sm: var(--mds-font-size-xl);
+    --mds-hero-text-font-size-md: var(--mds-font-size-2xl);
+    --mds-hero-text-font-weight:  var(--mds-font-weight-normal);
+    
+    /* Tab Typography */
+    --mds-tab-label-padding:      theme(spacing.2);
+    --mds-tab-label-font-size:    var(--mds-font-size-sm);
+    --mds-tab-label-font-size-md: var(--mds-font-size-lg);
+    --mds-tab-label-font-weight:  var(--mds-font-weight-bold);
+    
+    /* USP Typography */
+    --mds-usp-text-font-size:    var(--mds-font-size-sm);
+    --mds-usp-text-font-size-md: var(--mds-font-size-base);
+    --mds-usp-text-font-weight:  var(--mds-font-weight-medium);
+    
+    /* Footer Typography */
+    --mds-footer-font-size:   var(--mds-font-size-sm);
+    --mds-footer-font-weight: var(--mds-font-weight-normal);
+    
+    /* Contact Details Typography */
+    --mds-contact-details-heading-font-size:   var(--mds-font-size-base);
+    --mds-contact-details-heading-font-weight: var(--mds-font-weight-semibold);
+    
+    /* Debug Typography */
+    --mds-debug-block-name-font-size:   var(--mds-font-size-xs);
+    --mds-debug-block-name-font-weight: var(--mds-font-weight-normal);
+    
+    --mds-debug-template-font-size:   var(--mds-font-size-2xs);
+    --mds-debug-template-font-weight: var(--mds-font-weight-normal);
+    
+    /* Filter Typography */
+    --mds-filter-label-font-size:   var(--mds-font-size-sm);
+    --mds-filter-label-font-weight: var(--mds-font-weight-medium);
+    
+    --mds-filter-select-font-size:   var(--mds-font-size-sm);
+    --mds-filter-select-font-weight: var(--mds-font-weight-normal);
+    
+    --mds-filter-input-font-size:   var(--mds-font-size-sm);
+    --mds-filter-input-font-weight: var(--mds-font-weight-normal);
+    
+    --mds-filter-search-button-font-size:   var(--mds-font-size-sm);
+    --mds-filter-search-button-font-weight: var(--mds-font-weight-normal);
+  }
+}

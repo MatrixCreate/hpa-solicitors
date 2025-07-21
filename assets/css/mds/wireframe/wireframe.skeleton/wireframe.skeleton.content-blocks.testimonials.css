@@ -1,0 +1,85 @@
+/* Testimonials Content Block - structural layout only */
+@layer components {
+
+  /* Testimonials */
+  .testimonials {
+    @apply select-none;
+    .container-narrow {
+      @apply !py-0;
+    }
+    .testimonial-carousel {
+      @apply relative;
+    }
+    .testimonial-card {
+      @apply flex flex-col;
+      @apply h-full;
+      @apply cursor-default select-none;
+    }
+    .testimonial-stars {
+      @apply flex items-center;
+      @apply gap-1;
+      @apply pb-6;
+      @apply border-b;
+      .icon-star {
+        @apply inline-block;
+        @apply w-6 h-6;
+        @apply mx-0.5;
+      }
+    }
+    .testimonial-quote {
+      @apply flex-1;
+      @apply max-w-[55ch];
+      @apply mx-auto mt-4;
+      @apply leading-normal;
+    }
+    .testimonial-quote-view-more {
+      @apply inline;
+      @apply uppercase;
+      @apply hover:underline;
+    }
+    .testimonial-content {
+      @apply flex-1 flex flex-col justify-between;
+      @apply gap-4;
+    }
+    .testimonial-footer {
+      @apply flex items-center;
+      @apply gap-4;
+    }
+    .testimonial-avatar-icon {
+      @apply w-12 h-12;
+    }
+    .testimonial-attribution {
+      @apply flex flex-col;
+      @apply leading-none;
+    }
+    .testimonial-nav-btn {
+      @apply absolute top-1/2 -translate-y-1/2 z-10;
+      @apply hidden md:flex md:items-center md:justify-center;
+      @apply w-10 h-10;
+      @apply opacity-80;
+      @apply rounded-full;
+
+      &.disabled {
+        @apply opacity-50;
+        @apply cursor-not-allowed;
+      }
+    }
+    .testimonial-nav-btn-prev {
+      @apply left-6 -translate-x-12;
+    }
+    .testimonial-nav-btn-next {
+      @apply right-6 translate-x-12;
+    }
+    .testimonial-nav-btn-icon {
+      @apply w-4 h-4;
+    }
+    .testimonial-dots {
+      @apply flex justify-center gap-2 mt-6;
+    }
+    .testimonial-dot {
+      @apply w-2.5 h-2.5;
+      @apply rounded-full;
+    }
+  }
+
+}

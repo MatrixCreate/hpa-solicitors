@@ -1,0 +1,39 @@
+{% import "_macros/utils.twig" as utils %}
+
+{% set backgroundColour = globalContent.trustLinksBackgroundColour.color[0].background %}
+
+<section class="trust-links content-block
+  {{ backgroundColour }}"
+  {{ utils.debugAttributes(entry, 'trustLinks', 'Trust Links') }}
+  >
+  <div class="content-block-inner container-narrow trust-links-content-block-inner">
+    <div class="trust-links-row">
+      {% for trustLink in globalContent.trustLinks.all() %}
+        {% set imageTransform = {
+          mode: 'fit',
+          quality: 100,
+          position: 'center-center',
+          format: 'webp'
+        } %}
+        {% set logo = trustLink.logo.one() %}
+        {% set link = trustLink.theUrl ?? '' %}
+          {% if link | length %}
+          <a href="{{ link }}" target="_blank" rel="noopener noreferrer">
+          {% endif %}
+            <img
+              class="trust-links-logo"
+              style="
+                --width:{{ logo.width }};
+                --height:{{ logo.height }};
+              "
+              src="{{ logo.url(imageTransform) }}"
+              alt="{{ logo.alt ?? logo.title }}"
+              loading="lazy"
+              decoding="async">
+          {% if link | length %}
+          </a>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

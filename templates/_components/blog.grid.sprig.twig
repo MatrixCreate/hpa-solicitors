@@ -1,0 +1,353 @@
+{% import "_macros/ui.twig" as ui %}
+
+{#
+  SPRIG BLOG GRID COMPONENT
+  -------------------------
+  This Sprig component renders:
+    - The filter form (categories, sort, and search)
+    - The blog grid (ul of blog posts)
+    - Sprig-powered pagination
+  Filtering and pagination are handled together:
+    - Changing a filter replaces the grid and resets pagination
+    - Clicking pagination links updates content without page reload
+#}
+
+{# Handle deep linking from URL query parameters #}
+{% set urlCategory = craft.app.request.getParam('category') %}
+{% set urlSort = craft.app.request.getParam('sort') %}
+{% set urlSearch = craft.app.request.getParam('search') %}
+
+{# Set filter defaults to prevent Twig errors #}
+{% set selectedCategory = selectedCategory ?? '' %}
+{% set selectedSort = selectedSort ?? 'postDate desc' %}
+{% set search = search ?? '' %}
+
+{# Get parameters for pagination #}
+{% set page = page ?? 1 %}
+{% set limit = limit ?? 9 %}
+{% set showFilters = showFilters ?? true %}
+{% set showPagination = showPagination ?? true %}
+{% set mobileBlogListingLayout = mobileBlogListingLayout ?? 'blog-grid-grid' %}
+{% set actionButtonUrl = actionButtonUrl ?? '' %}
+{% set actionButtonText = actionButtonText ?? '' %}
+
+{# Get all categories for the filter dropdown #}
+{% set categories = craft.entries().section('blogCategories').all() %}
+
+{# Use URL parameters if available, otherwise use passed variables #}
+{% set selectedCategory = selectedCategory ?? urlCategory ?? '' %}
+{% set selectedSort = selectedSort ?? urlSort ?? 'postDate desc' %}
+{% set search = search ?? urlSearch ?? '' %}
+
+{#
+  Build the blog entries query:
+    - Filter by selected category if set
+    - Filter by search if set
+    - Apply sort order
+#}
+{% set blogEntriesQ = craft.entries()
+  .section('blog')
+  .limit(limit)
+  .orderBy(selectedSort) %}
+
+{# Apply category filter #}
+{% if selectedCategory %}
+  {% set blogEntriesQ = blogEntriesQ.relatedTo(selectedCategory) %}
+{% endif %}
+
+{# Apply search filter #}
+{% if search %}
+  {% set blogEntriesQ = blogEntriesQ.search(search) %}
+{% endif %}
+
+{# Use Sprig pagination #}
+{% set pageInfo = sprig.paginate(blogEntriesQ, page) %}
+{% set entries = pageInfo.pageResults %}
+
+{# Update URL for deep linking #}
+{% set params = {} %}
+{% if page > 1 %}
+  {% set params = params|merge({page: page}) %}
+{% endif %}
+{% if selectedCategory %}
+  {% set params = params|merge({category: selectedCategory}) %}
+{% endif %}
+{% if selectedSort != 'postDate desc' %}
+  {% set params = params|merge({sort: selectedSort}) %}
+{% endif %}
+{% if search %}
+  {% set params = params|merge({search: search}) %}
+{% endif %}
+{% if params %}
+  {% do sprig.pushUrl('?' ~ params|url_encode) %}
+{% endif %}
+
+
+  {# Blog grid wrapper #}
+  <div class="blog-listing-wrapper">
+      
+    {# Filter form: triggers Sprig reload on change/submit #}
+    {% if showFilters %}
+      <form class="blog-filters" id="blog-filters" sprig>
+        {{ hiddenInput('page', 1) }}
+        {{ hiddenInput('limit', limit) }}
+        {{ hiddenInput('showFilters', showFilters) }}
+        {{ hiddenInput('showPagination', showPagination) }}
+        {{ hiddenInput('mobileBlogListingLayout', mobileBlogListingLayout) }}
+        {{ hiddenInput('actionButtonUrl', actionButtonUrl) }}
+        {{ hiddenInput('actionButtonText', actionButtonText) }}
+
+        <div class="filter-group">
+          <label for="category" class="filter-label">Categories</label>
+          <div class="filter-select-wrapper">
+            <select
+              name="selectedCategory"
+              id="category"
+              class="filter-select"
+              s-trigger="change"
+              sprig
+              >
+              <option value="">All Categories</option>
+              {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == selectedCategory %}selected{% endif %}>
+                  {{ category.title }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div> {# .filter-group #}
+
+        <div class="filter-group">
+          <label for="sort" class="filter-label">Sort</label>
+          <div class="filter-select-wrapper">
+            <select
+              name="selectedSort"
+              id="sort"
+              class="filter-select"
+              s-trigger="change"
+              sprig
+              >
+              <option value="null" disabled="disabled">Sort</option>
+              <option value="postDate desc" {% if selectedSort == 'postDate desc' %}selected{% endif %}>Newest First</option>
+              <option value="postDate asc" {% if selectedSort == 'postDate asc' %}selected{% endif %}>Oldest First</option>
+              <option value="title asc" {% if selectedSort == 'title asc' %}selected{% endif %}>Title A-Z</option>
+              <option value="title desc" {% if selectedSort == 'title desc' %}selected{% endif %}>Title Z-A</option>
+            </select>
+          </div>
+        </div> {# .filter-group #}
+
+        <div class="filter-group">
+          <label for="search" class="filter-label">Search</label>
+          <div class="filter-search-wrapper">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              value="{{ search }}"
+              placeholder="Search blog posts..."
+              class="filter-input"
+              />
+            <button
+              type="submit"
+              class="filter-search-button"
+              s-trigger="click"
+              sprig
+              >
+              <svg class="filter-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div> {# .filter-group #}
+      </form>
+    {% endif %}
+    
+    {% if entries|length %}
+      <ul class="blog-grid {{ mobileBlogListingLayout }}" id="blog-grid">
+        {% for entry in entries %}
+          <li class="blog-grid-item">
+            {{ ui.component('blog.card', {
+              entry: entry,
+              showImages: showImages ?? true
+            }) }}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {# Sprig pagination controls #}
+      {% if showPagination and pageInfo.totalPages > 1 %}
+        <nav class="pagination-nav" aria-label="Pagination">
+          <ul class="pagination">
+            {# Previous page link #}
+            {% if pageInfo.currentPage > 1 %}
+              <li class="pagination-item">
+                <a href="#"
+                  class="pagination-link"
+                  aria-label="Previous page"
+                  sprig
+                  s-val:page="{{ pageInfo.currentPage - 1 }}"
+                  s-val:selectedCategory="{{ selectedCategory }}"
+                  s-val:selectedSort="{{ selectedSort }}"
+                  s-val:search="{{ search }}"
+                  s-val:limit="{{ limit }}"
+                  s-val:showFilters="{{ showFilters }}"
+                  s-val:showPagination="{{ showPagination }}"
+                  s-val:mobileBlogListingLayout="{{ mobileBlogListingLayout }}"
+                  s-val:actionButtonUrl="{{ actionButtonUrl }}"
+                  s-val:actionButtonText="{{ actionButtonText }}"
+                  >
+                  « Prev
+                </a>
+              </li>
+            {% endif %}
+
+            {# Page numbers - Google-style pagination #}
+            {% set windowStart = pageInfo.currentPage >= 7 ? pageInfo.currentPage - 6 : 1 %}
+            {% set windowEnd = windowStart + 9 %}
+            {% if windowEnd > pageInfo.totalPages %}
+              {% set windowEnd = pageInfo.totalPages %}
+            {% endif %}
+            
+            {% for pageNum in windowStart..windowEnd %}
+              <li class="pagination-item">
+                {% if pageNum == pageInfo.currentPage %}
+                  <span class="pagination-link pagination-link--current" aria-label="Page {{ pageNum }}">
+                    {{ pageNum }}
+                  </span>
+                {% else %}
+                  <a href="#"
+                    class="pagination-link"
+                    aria-label="Page {{ pageNum }}"
+                    sprig
+                    s-val:page="{{ pageNum }}"
+                    s-val:selectedCategory="{{ selectedCategory }}"
+                    s-val:selectedSort="{{ selectedSort }}"
+                    s-val:search="{{ search }}"
+                    s-val:limit="{{ limit }}"
+                    s-val:showFilters="{{ showFilters }}"
+                    s-val:showPagination="{{ showPagination }}"
+                    s-val:mobileBlogListingLayout="{{ mobileBlogListingLayout }}"
+                    s-val:actionButtonUrl="{{ actionButtonUrl }}"
+                    s-val:actionButtonText="{{ actionButtonText }}"
+                    >
+                    {{ pageNum }}
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+
+            {# Next page link #}
+            {% if pageInfo.currentPage < pageInfo.totalPages %}
+              <li class="pagination-item">
+                <a href="#"
+                  class="pagination-link"
+                  aria-label="Next page"
+                  sprig
+                  s-val:page="{{ pageInfo.currentPage + 1 }}"
+                  s-val:selectedCategory="{{ selectedCategory }}"
+                  s-val:selectedSort="{{ selectedSort }}"
+                  s-val:search="{{ search }}"
+                  s-val:limit="{{ limit }}"
+                  s-val:showFilters="{{ showFilters }}"
+                  s-val:showPagination="{{ showPagination }}"
+                  s-val:mobileBlogListingLayout="{{ mobileBlogListingLayout }}"
+                  s-val:actionButtonUrl="{{ actionButtonUrl }}"
+                  s-val:actionButtonText="{{ actionButtonText }}"
+                  >
+                  Next »
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+
+      {# Action button (if configured) #}
+      {% if actionButtonUrl and actionButtonText %}
+        <div class="view-more-wrapper">
+          {{ ui.component('button', {
+            type: 'link',
+            href: actionButtonUrl,
+            text: actionButtonText,
+            class: 'btn btn-primary btn-view-more'
+          }) }}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="blog-grid-empty">
+        <div class="blog-grid-empty-heading">
+          No blog posts found
+        </div>
+        <div class="blog-grid-empty-text">
+          {% if search or selectedCategory %}
+            Please try different search terms or category filters.
+          {% else %}
+            Please check back later for new content.
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Enhanced search functionality
+      document.addEventListener('keypress', function (e) {
+        if (e.target.closest('#blog-filters') && e.target.name === 'search' && e.key === 'Enter') {
+          e.preventDefault();
+          const searchButton = e.target.closest('form').querySelector('button[type="submit"]');
+          if (searchButton) {
+            searchButton.click();
+          }
+        }
+      });
+
+      // Prevent layout shift and handle smooth scroll
+      if (typeof htmx !== 'undefined') {
+        // Before the request starts, measure and preserve height
+        const sprigComponent = document.querySelector('.sprig-component');
+        document.addEventListener('htmx:beforeRequest', function (event) {
+          // Find the sprig component that will be updated
+          const sprigComponent = event.detail.target.closest('.sprig-component') || event.detail.target;
+          if (sprigComponent && sprigComponent.classList.contains('sprig-component')) {
+            // Measure current height and set as min-height to prevent collapse
+            const currentHeight = sprigComponent.getBoundingClientRect().height;
+            sprigComponent.style.minHeight = currentHeight + 'px';
+          }
+        });
+
+        // After content swaps, scroll and remove height constraint
+        document.addEventListener('htmx:afterSwap', function (event) {
+          const sprigComponent = event.detail.target;
+          if (sprigComponent && sprigComponent.classList.contains('sprig-component')) {
+
+            // Find the form to scroll to
+            const formElement = document.getElementById('blog-listing-top'); //sprigComponent.querySelector('#blog-filters[sprig]');
+
+            if (formElement) {
+              // Get the header height from CSS custom property
+              const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 0;
+
+              // Calculate position to scroll to (top of form minus header height)
+              const formRect = formElement.getBoundingClientRect();
+              const formTop = formRect.top + window.pageYOffset;
+              const scrollPosition = formTop - headerHeight - 20; // Extra 20px buffer
+
+              // Smooth scroll to the calculated position
+              window.scrollTo({
+                top: Math.max(0, scrollPosition),
+                behavior: 'smooth'
+              });
+            }
+
+            // Remove min-height constraint after a short delay to allow content to settle
+            setTimeout(() => {
+              sprigComponent.style.minHeight = '';
+            }, 100);
+          }
+        });
+      }
+    });
+  </script>
+</div>

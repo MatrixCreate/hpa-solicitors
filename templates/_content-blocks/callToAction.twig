@@ -1,0 +1,200 @@
+{#- 
+  Call to Action Block Template
+  ----------------------------
+  A flexible call-to-action component that can be configured either through local
+  block settings or global  settings. Supports rich text content, action
+  buttons, and customizable styling.
+
+  Features:
+  - Global or local configuration options
+  - Background image with responsive sizing
+  - Customizable colors for background, headings, and text
+  - Rich text content support
+  - Multiple action buttons
+  - Responsive image handling with WebP support
+
+  Configuration Options:
+  Global Mode (useGlobalCallToActionBlock):
+  - Background image from globalContent settings
+  - Background color from globalContent settings
+  - Heading color from globalContent settings
+  - Text color from globalContent settings
+  - Rich text from globalContent settings
+  - Action buttons from globalContent settings
+
+  Local Mode:
+  - Background image from block settings
+  - Background color from block settings
+  - Heading color from block settings
+  - Text color from block settings
+  - Rich text from block settings
+  - Action buttons from block settings
+
+  Image Responsiveness:
+  - Mobile: 768px width
+  - Tablet: 1200px × 400px
+  - Desktop: 2048px × 800px
+-#}
+
+{%- import "_macros/utils.twig" as utils -%}
+{%- import "_macros/ui.twig" as ui -%}
+
+{%- set isFooterBlockCallToActionBlock = isFooterBlock ?? false -%}
+{%- set useGlobalCallToActionBlock = block.useGlobalCallToActionBlock ?? isFooterBlockCallToActionBlock ?? false -%}
+{%- set backgroundImage = null -%}
+
+{# Use the Global Call to Action if it's enabled, otherwise use the local block settings #}
+{% if useGlobalCallToActionBlock %}
+  
+  {# {%- set backgroundImage = globalContent.globalCtaBackgroundImage.one() -%} #}
+
+  {% if globalContent.globalCtaImage %}
+    {%- set image = globalContent.globalCtaImage.one() -%}
+  {% endif %}
+  
+  {% if globalContent.globalCtaBackgroundColour %}
+    {%- set backgroundColour = globalContent.globalCtaBackgroundColour.color[0].background -%}
+  {% endif %}
+
+  {% if globalContent.globalCtaHeadingColour %}
+    {%- set headingColour = globalContent.globalCtaHeadingColour.color[0].heading -%}
+  {% endif %}
+
+  {% if globalContent.globalCtaTextColour %}
+    {%- set textColour = globalContent.globalCtaTextColour.color[0].text -%}
+  {% endif %}
+
+  {%- set richText = globalContent.globalCtaRichText -%}
+  {%- set actionButtons = globalContent.globalCtaActionButtons -%}
+
+  {% set backgroundImage = globalContent.globalCtaBackgroundImage.one() %}
+{% else %}
+
+  {# {%- set backgroundImage = block.backgroundImage.one() -%} #}
+
+  {% if block.image %}
+    {%- set image = block.image.one() -%}
+  {% endif %}
+
+  {% if block.backgroundColour %}
+    {%- set backgroundColour = block.backgroundColour.color[0].background -%}
+  {% endif %}
+
+  {% if block.headingColour %}
+    {%- set headingColour = block.headingColour.color[0].heading -%}
+  {% endif %}
+
+  {% if block.textColour %}
+    {%- set textColour = block.textColour.color[0].text -%}
+  {% endif %}
+
+  {%- set richText = block.richText -%}
+  {%- set actionButtons = block.actionButtons -%}
+
+  {% set backgroundImage = null %}
+{% endif %}
+
+<section class="call-to-action content-block
+  {{ textColour }}
+  {{ headingColour }}
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, 'callToAction', 'Call to Action') }}
+  >
+  <div class="content-block-inner container-narrow">
+
+    <div class="container-inner">
+      <div class="content-box {{ image ? 'has-image' : 'centered' }}">
+
+        {% if image %}
+        <div class="image-wrapper">
+          {{ ui.component('image', {
+            img: image,
+            class: 'call-to-action-image',
+            sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 460px',
+            formats: ['webp'],
+            alt: image.alt ?? image.title,
+            lazy: true,
+            responsive: {
+              sm: {
+                mode: 'crop',
+                width: 400,
+                height: 300,
+                quality: 85,
+                position: 'center-center',
+              },
+              md: {
+                mode: 'crop',
+                width: 600,
+                height: 400,
+                quality: 85,
+                position: 'center-center',
+              },
+              lg: {
+                mode: 'crop',
+                width: 460,
+                height: 350,
+                quality: 85,
+                position: 'center-center',
+              },
+            }
+          }) }}
+        </div>
+        {% endif %}
+
+        {% if richText|length %}
+          {{ ui.component('rich-text', { 
+            content: richText 
+          }) }}
+        {% endif %}
+
+        <div class="action-buttons action-buttons-inline">
+        {% for action in actionButtons.all() %}
+          {% set cta = action.actionButton %}
+          {{ ui.component('button', {
+            type: 'link',
+            href: cta.url,
+            target: cta.target,
+            text: cta.text ?? 'Read more',
+            class: 'btn btn-primary'
+          }) }}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+    {% if backgroundImage %}
+      {{ ui.component('image', {
+        img: backgroundImage,
+        class: 'background-image call-to-action-image',
+        sizes: '100vw',
+        formats: ['webp'],
+        alt: backgroundImage.alt ?? backgroundImage.title,
+        lazy: true,
+        responsive: {
+          sm: {
+            mode: 'crop',
+            width: 400,
+            height: 300,
+            quality: 85,
+            position: 'center-center',
+          },
+          md: {
+            mode: 'crop',
+            width: 800,
+            height: 400,
+            quality: 85,
+            position: 'center-center',
+          },
+          lg: {
+            mode: 'crop',
+            width: 1200,
+            height: 800,
+            quality: 85,
+            position: 'center-center',
+          },
+        }
+      }) }}
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,75 @@
+{
+  "name": "matrixcreate/hpa-solicitors",
+  "type": "template",
+  "description": "A project template to make creating new (type goes here) projects easier.",
+  "keywords": [
+    "template",
+    "craft",
+    "starter"
+  ],
+  "homepage": "https://bitbucket.org/matrixcreate/hpa-solicitors.git",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matrix Create",
+      "email": "hello@matrixcreate.com",
+      "homepage": "https://matrixcreate.com",
+      "role": "Agency"
+    }
+  ],
+  "require": {
+    "craftcms/ckeditor": "4.9.0",
+    "craftcms/cms": "^5.8.5",
+    "craftcms/feed-me": "^6.1.0",
+    "craftcms/store-hours": "^4.2.0",
+    "craftpulse/craft-colour-swatches": "5.1.0",
+    "matrixcreate/craft-simple-seo-import": "^1.0",
+    "nystudio107/craft-code-field": "5.0.1",
+    "nystudio107/craft-plugin-vite": "^5.0.1",
+    "nystudio107/craft-retour": "5.0.11",
+    "nystudio107/craft-seomatic": "5.1.16",
+    "nystudio107/craft-vite": "^5.0.1",
+    "putyourlightson/craft-sprig": "3.6.1",
+    "verbb/auth": "^2.0.3",
+    "verbb/base": "^3.0.2",
+    "verbb/buttonbox": "^5.0.0",
+    "verbb/cloner": "3.0.1",
+    "verbb/formie": "3.0.31",
+    "verbb/hyper": "2.2.6",
+    "verbb/icon-picker": "3.0.4",
+    "verbb/navigation": "3.0.9",
+    "vlucas/phpdotenv": "^3.4.0",
+    "wrav/oembed": "3.1.5"
+  },
+  "require-dev": {
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.4"
+    },
+    "allow-plugins": {
+      "craftcms/plugin-installer": true,
+      "yiisoft/yii2-composer": true
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
+    }
+  ]
+}

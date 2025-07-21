@@ -1,0 +1,47 @@
+/* Call to Action Content Block - structural layout only */
+@layer components {
+
+  /* Call to Action with background image */
+  .call-to-action {
+    @apply relative;
+    .content-box {
+      @apply relative z-10;
+      @apply flex flex-col items-center gap-4 md:gap-8;
+      .rich-text-field {
+        @apply mb-0;
+      }
+    }
+    /* If background image */
+    &:has(.background-image) {
+      .background-image {
+        @apply absolute top-0 left-0 z-0;
+        @apply w-full h-full;
+        @apply object-cover;
+      }
+      .content-box {
+        @apply p-6;
+      }
+    }
+    .form-btn-wrapper {
+      @apply flex justify-center;
+      @apply mt-4;
+    }
+  }
+  /* Call to Action */
+  .call-to-action {
+    /* If background image */
+    &:has(.background-image) {
+      /* Remove container width and padding, so image is fullscreen */
+      .content-block-inner {
+        @apply max-w-none;
+        @apply p-0;
+      }
+      /* Re-apply container width and padding to the container-inner */
+      .container-inner {
+        max-width: var(--container-narrow);
+        @apply mx-auto;
+      }
+    }
+  }
+
+}

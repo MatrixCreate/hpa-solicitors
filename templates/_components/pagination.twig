@@ -1,0 +1,83 @@
+{# Pagination component - Google-style pagination with filter support #}
+{# Get props with fallbacks #}
+{% set pageInfo = props.pageInfo ?? pageInfo ?? { totalPages: 1, currentPage: 1 } %}
+{% set entry = props.entry ?? entry %}
+
+{% set totalPages = pageInfo.totalPages %}
+{% set currentPage = pageInfo.currentPage %}
+
+{# Build base URL without pagination #}
+{% set baseUrl = entry.url %}
+
+{# Build query parameters for pagination links #}
+{% macro buildPageUrl(baseUrl, page, category, sort, search) %}
+  {% set params = [] %}
+  {% if page > 1 %}
+    {% set params = params|merge(['page=' ~ page]) %}
+  {% endif %}
+  {% if category %}
+    {% set params = params|merge(['category=' ~ category]) %}
+  {% endif %}
+  {% if sort %}
+    {% set params = params|merge(['sort=' ~ sort|url_encode]) %}
+  {% endif %}
+  {% if search %}
+    {% set params = params|merge(['search=' ~ search|url_encode]) %}
+  {% endif %}
+  {% set queryString = params|length > 0 ? '?' ~ params|join('&') : '' %}
+  {{ baseUrl ~ queryString }}
+{% endmacro %}
+
+{# Get current filter parameters #}
+{% set categoryParam = craft.app.request.getQueryParam('category') %}
+{% set sortParam = craft.app.request.getQueryParam('sort') %}
+{% set searchParam = craft.app.request.getQueryParam('search') %}
+
+{# Import the macro #}
+{% from _self import buildPageUrl %}
+
+{% if totalPages > 1 %}
+  <nav class="pagination-nav" aria-label="Pagination">
+    <ul class="pagination">
+      {# Previous page link #}
+      {% if currentPage > 1 %}
+        <li class="pagination-item">
+          <a href="{{ buildPageUrl(baseUrl, currentPage - 1, categoryParam, sortParam, searchParam) }}" class="pagination-link" aria-label="Previous page">
+            « Prev
+          </a>
+        </li>
+      {% endif %}
+
+      {# Google-style pagination: show 10 pages, advance window at page 7+ #}
+      {% set windowStart = currentPage >= 7 ? currentPage - 6 : 1 %}
+      {% set windowEnd = windowStart + 9 %}
+      {% if windowEnd > totalPages %}
+        {% set windowEnd = totalPages %}
+      {% endif %}
+      
+      {# Show pages in current window #}
+      {% for page in windowStart..windowEnd %}
+        <li class="pagination-item">
+          {% if page == currentPage %}
+            <span class="pagination-link pagination-link--current" aria-label="Page {{ page }}">
+              {{ page }}
+            </span>
+          {% else %}
+            <a href="{{ buildPageUrl(baseUrl, page, categoryParam, sortParam, searchParam) }}" class="pagination-link" aria-label="Page {{ page }}">
+              {{ page }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+
+      {# Next page link #}
+      {% if currentPage < totalPages %}
+        <li class="pagination-item">
+          <a href="{{ buildPageUrl(baseUrl, currentPage + 1, categoryParam, sortParam, searchParam) }}" class="pagination-link" aria-label="Next page">
+            Next »
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

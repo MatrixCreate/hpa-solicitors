@@ -1,0 +1,79 @@
+{# 
+  USPs (Unique Selling Points) Block Template
+  -------------------------------------------
+  A flexible component for displaying key features or benefits, supporting both
+  global sitewide settings and local block configuration. Each USP item includes
+  an icon and optional rich text content.
+
+  Features:
+  - Global or local configuration options
+  - Icon + text layout for each USP item
+  - Customizable background color (passed via include or block settings)
+  - Rich text content support
+  - Responsive layout with flexbox
+
+  Configuration Options:
+  Global Mode (useGlobalUsps):
+  - USPs from sitewide settings
+  - Rich text from sitewide settings
+
+  Local Mode:
+  - USPs from block settings
+  - Rich text from block settings
+
+  Background Color:
+  - Can be passed directly to the include
+  - Falls back to block.backgroundColour.color[0].background if not provided
+
+  USP Item Structure:
+  - Icon: SVG icon displayed inline
+  - Text: Optional rich text content for each USP item
+#}
+
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{# Determine if using global or local settings #}
+{%- set useGlobalUsps = useGlobalUsps ?? block.useGlobalUsps ?? false -%}
+
+{# Set configuration based on global/local mode #}
+{% if useGlobalUsps %}
+  {%- set usps = globalContent.usps.all() -%}
+  {%- set richText = globalContent.uspsRichText -%}
+{% else %}
+  {%- set usps = block.usps.all() -%}
+  {%- set richText = block.richText -%}
+{% endif %}
+
+{%- set backgroundColour = backgroundColour ?? block.backgroundColour.color[0].background -%}
+
+{# Main USPs section with styling classes #}
+<section class="usps content-block {{ backgroundColour }}"
+  {{ utils.debugAttributes(entry, 'usps', 'USPs') }}
+  >
+  <div class="content-block-inner container-narrow">
+
+    {# Optional rich text content above the USPs #}
+    {{ ui.component('rich-text', { 
+      content: richText 
+    }) }}
+
+    {# USP items grid #}
+    <div class="usp-row">
+    {% for item in usps %}
+      <div class="usp-item">
+        {# Icon display #}
+        <div class="usp-icon">
+          {{ item.uspIcon.inline }}
+        </div>
+        {# Optional rich text content #}
+        {% if item.richText|length %}
+          <div class="usp-text">
+            {{ item.richText }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>

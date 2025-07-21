@@ -1,0 +1,64 @@
+@theme {
+  /* ===== BRAND COLOR SYSTEM ===== */
+  
+  /* Primary Brand Colors */
+  --color-white:          #FFFFFF;
+  --color-black:          #181818;
+  --color-dark-grey:      #666666;
+  --color-medium-grey:    #999999;
+  --color-light-grey:     #f5f5f5;
+  
+  /* Brand Blue Palette */
+  --color-dark-blue:      #149BD7;
+  --color-light-blue:     #48C0F5;
+  --color-pale-blue:      #bfebff;
+  
+  /* Brand Orange Palette */
+  --color-dark-orange:    #ed7712;
+  --color-light-orange:   #ffc107;
+  --color-pale-orange:    #ffe79f;
+  
+  /* Semantic Color Mappings */
+  --color-primary:         var(--color-dark-blue);
+  --color-primary-hover:   var(--color-light-blue);
+  --color-secondary:       var(--color-dark-orange);
+  --color-secondary-hover: var(--color-light-orange);
+  
+  /* Background Colors */
+  --color-footer-bg:       var(--color-light-grey);
+  --color-body:            var(--color-black);
+  
+  /* Link Colors */
+  --color-link:            var(--color-dark-blue);
+  --color-link-hover:      var(--color-black);
+  
+  /* ===== TYPOGRAPHY ===== */
+  --font-display:         'DM Serif Display', 'serif';
+  --font-sans:            'DM Sans', 'sans-serif';
+  
+  /* ===== LAYOUT & SPACING ===== */
+  --page-max-width:       118rem;
+  --container-wide:       118rem;
+  --container-medium:     80rem;
+  --container-narrow:     64rem;
+  
+  --padding-block-2xs:    0.25rem;
+  --padding-block-xs:     0.5rem;
+  --padding-block-sm:     1rem;
+  --padding-block-md:     1.5rem;
+  --padding-block-lg:     2rem;
+  --padding-block-xl:     2.5rem;
+  --padding-block-2xl:    3rem;
+  
+  /* ===== BREAKPOINTS ===== */
+  --breakpoint-2xs: 350px;
+  --breakpoint-xs:  500px;
+  --breakpoint-3xl: 1536px;
+  --breakpoint-4xl: 1600px;
+  
+  /* ===== UTILITIES ===== */
+  --font-size-2xs:        0.5rem;
+  
+  /* ===== ASSETS ===== */
+  --background-image-icon-chevron-down: url('../../assets/icons/system/icon_chevron_down.svg');
+}

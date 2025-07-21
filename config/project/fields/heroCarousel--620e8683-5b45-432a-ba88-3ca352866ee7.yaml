@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: heroCarousel
+instructions: null
+name: 'Hero Carousel'
+searchable: false
+settings:
+  createButtonLabel: 'Add Carousel Slide'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 37859521-7f68-4f5b-a2a2-59e6e03e0de4 # Hero
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

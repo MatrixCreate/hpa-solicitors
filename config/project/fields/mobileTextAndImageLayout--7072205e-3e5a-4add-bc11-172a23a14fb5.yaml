@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: mobileTextAndImageLayout
+instructions: null
+name: 'Mobile Layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image Before Text'
+        -
+          - value
+          - image-before-text
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image After Text'
+        -
+          - value
+          - image-after-text
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

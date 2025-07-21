@@ -1,0 +1,16 @@
+/* Video - visual styling only */
+@layer components {
+  
+  /* Video */
+  .video {
+    .video-poster-image {
+      @apply transition-opacity duration-300;
+    }
+    .video-play-button {
+      @apply transition-colors;
+      @apply bg-[var(--mds-button-primary-background-color)];
+      @apply hover:bg-[var(--mds-button-primary-background-color-hover)];
+    }
+  }
+
+}

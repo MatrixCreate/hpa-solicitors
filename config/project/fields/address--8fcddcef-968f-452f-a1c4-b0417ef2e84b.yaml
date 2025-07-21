@@ -1,0 +1,262 @@
+columnSuffix: null
+handle: address
+instructions: null
+name: Address
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 559216c2-4553-4ae8-8e5f-9bae3644268b
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - 85674927-921f-48ce-97a9-4a5738f2f092
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - e8d9f954-13e2-46c4-84e5-e464c12d4316
+                            14:
+                              - fieldUid
+                              - 39d30d0b-28d5-4f77-8302-a426460014ac # Company Name
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - 'Address Line 1'
+                            6:
+                              - required
+                              - true
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - 52ec9049-5dcd-4376-a8e9-987a4a11bb7f
+                            14:
+                              - fieldUid
+                              - f96c62d2-f6a9-40f8-8a85-0c30354e59be # Address - Address Line 1
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - 'Address Line 2'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - e6a2f7ae-0d43-45d4-a21b-499b1349ae35
+                            14:
+                              - fieldUid
+                              - 9c5c3197-a7ec-4513-828b-a7dec4c278ea # Address - Address Line 2
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - 'Address Line 3'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - 3f8dab9e-25ec-452e-9d04-480b74f2cd3f
+                            14:
+                              - fieldUid
+                              - 232c396c-f786-4ec9-8fa3-9c36b3a392b6 # Address - Address Line 3
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - Town/City
+                            6:
+                              - required
+                              - true
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - 1e191c6d-5fb5-40f9-a71b-d133bad59855
+                            14:
+                              - fieldUid
+                              - 3f8360fd-a038-48f2-97c7-251dc5e05560 # Address - Town/City
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - County
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - 8f2eeb7f-30bb-4878-88f9-3e6c9ac51d69
+                            14:
+                              - fieldUid
+                              - b90c49a5-ba40-40da-9960-652d13796403 # Address - County
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - Postcode
+                            6:
+                              - required
+                              - true
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - 26dddcfe-a315-4025-bba4-993677116558
+                            14:
+                              - fieldUid
+                              - 25cbfe34-61e1-4e6d-97b8-c1c08f098b95 # Address - Postcode
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - Country
+                            6:
+                              - required
+                              - false
+                            7:
+                              - providesThumbs
+                              - false
+                            8:
+                              - includeInCards
+                              - false
+                            9:
+                              - width
+                              - 100
+                            10:
+                              - dateAdded
+                              - '2025-07-19T14:43:20+00:00'
+                            11:
+                              - uid
+                              - bcfa59e0-dccd-485e-9002-4e96925e1104
+                            14:
+                              - fieldUid
+                              - 903b9664-f543-4226-8f72-68a4adb28992 # Address - Country
+            3:
+              - cardThumbAlignment
+              - end
+  viewMode: inline
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

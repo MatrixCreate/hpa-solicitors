@@ -1,0 +1,17 @@
+/* Rich Text - visual styling only */
+@layer components {
+  
+  /* Rich Text Block */
+  .rich-text {
+    .image {
+      figcaption {
+        @apply text-sm;
+      }
+    }
+    blockquote {
+      @apply italic;
+      @apply border-[var(--mds-blockquote-border)];
+    }
+  }
+
+}

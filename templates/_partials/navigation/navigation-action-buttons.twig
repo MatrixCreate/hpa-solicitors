@@ -1,0 +1,41 @@
+{% set actionButtonNav = craft.navigation.nodes()
+  .handle("actionButtons")
+  .level(1)
+  .with(['children'])
+  .all() %}
+
+{% set icon = null %}
+
+<div class="action-buttons">
+{% for actionButton in actionButtonNav %}
+  {% if actionButton.useGlobalTelephone is defined and actionButton.useGlobalTelephone == true %}
+    {% set buttonUrl = 'tel:' ~ companyInfo.telephone|replace({' ': ''}) %}
+    {% set buttonText = companyInfo.telephone %}
+    {% set actionButtonClasses = 'btn-primary btn-telephone' ~ actionButton.classes %}
+    {% if actionButton.customAttributes %}
+      {% set ariaLabel = actionButton.customAttributes[0].value %}
+    {% endif %}
+    {% set icon = svg('@webroot/assets/icons/system/icon_mobile_telephone.svg')|attr({ class: 'call-button-icon'}) %}
+  {% else %}
+    {% set buttonUrl = actionButton.url %}
+    {% set buttonText = actionButton.title %}
+    {% set actionButtonClasses = 'btn-secondary btn-contact ' ~ actionButton.classes %}
+    {% if actionButton.customAttributes %}
+      {% set ariaLabel = actionButton.customAttributes[0].value %}
+    {% else %}
+      {% set ariaLabel = 'Action button: ' ~ actionButton.title %}
+    {% endif %}
+    {% set icon = null %}
+  {% endif %}
+  <a href="{{ buttonUrl }}" class="btn {{ actionButtonClasses }}" aria-label="{{ ariaLabel ?? null }}">
+    {% if icon %}
+      <span class="btn-icon">
+        {{ icon|raw }}
+      </span>
+    {% endif %}
+    <span class="btn-text">
+      {{ buttonText }}
+    </span>
+  </a>  
+{% endfor %}
+</div>

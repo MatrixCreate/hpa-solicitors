@@ -1,0 +1,103 @@
+{% import "_macros/ui.twig" as ui %}
+
+{% cache if not craft.app.config.general.devMode %}
+
+{% set customiseFooterColours = siteConfig.customiseFooterColours %}
+
+{% set footerBackgroundColour = customiseFooterColours ? siteConfig.footerBackgroundColour.color[0].background : '' %}
+{% set footerHeadingColour = customiseFooterColours ? siteConfig.footerHeadingColour.color[0].heading : '' %}
+{% set footerTextColour = customiseFooterColours ? siteConfig.footerTextColour.color[0].text : '' %}
+  {# {% set footerHeadingColour = siteConfig.footerHeadingColour.color[0].heading %}
+  {% set footerTextColour = siteConfig.footerTextColour.color[0].text %} #}
+
+<footer class="footer">
+  {% include "_partials/footer-blocks" %}
+  <div class="footer-inner
+  {{ footerBackgroundColour}}
+  {{ footerHeadingColour}}
+  {{ footerTextColour}}">
+    <div class="footer-container">
+      <div class="footer-primary">
+        {# Load logo assets from global-variables file #}
+        {%- if companyInfo.footerLogo.one() -%}
+          {%- set footerLogo = companyInfo.footerLogo.one() -%}
+          <img loading="lazy" decoding="async" class="footer-logo" src="{{ footerLogo.url }}" alt="{{ siteName }}" width="{{ footerLogo.width }}" height="{{ footerLogo.height }}">
+        {%- elseif companyInfo.mainLogo.one() -%}
+          {%- set mainLogo = companyInfo.mainLogo.one() -%}
+          <img loading="lazy" decoding="async" class="footer-logo" src="{{ mainLogo.url }}" alt="{{ siteName }}" width="{{ mainLogo.width }}" height="{{ mainLogo.height }}">
+        {%- else -%}
+          <h5 class="text-2xl">{{ siteName }}</h5>
+        {%- endif -%}
+
+        <div class="footer-content">
+          {%- if siteConfig.showContactDetailsInFooter and companyInfo.address.companyName|length -%}
+          <p>
+            {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}, ")|raw : '' }}
+            {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}, <br>")|raw : '' }}
+            {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2},")|raw : '' }}
+            {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}, <br>")|raw : '' }}
+            {{ companyInfo.address.townCity|length ? ("#{companyInfo.address.townCity}, ")|raw : '' }}
+            {{ companyInfo.address.county|length ? ("#{companyInfo.address.county}, ")|raw : '' }}
+            {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
+          </p>
+          <div class="footer-contact">
+            <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
+              {{ companyInfo.telephone }}
+            </a>
+            <a href="mailto:{{ companyInfo.email }}">
+              {{ companyInfo.email }}
+            </a>
+          </div>
+          {%- endif -%}
+
+          {%- if companyInfo.openingHours|length -%}
+            {% include '_partials/opening-hours' %}
+          {%- endif -%}
+          
+          {%- if siteConfig.showSocialNetworksInFooter -%}
+          <div class="footer-socials">
+            {{ ui.component('social-networks', { size: 'md', gap: 'gap-2' }) }}
+          </div>
+          {% endif %}
+          
+          {%- if siteConfig.footerTagline|length -%}
+          <div class="footer-tagline">
+            {{ siteConfig.footerTagline }}
+          </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        {% include '_partials/navigation/navigation-footer' %}
+      </div>
+    </div>
+
+    <div class="footer-container footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="footer-legal">
+          {% include "_partials/navigation/navigation-legal" %}
+        </div>
+
+        <div class="footer-copyright">
+          <div>
+            &copy; {{ now|date('Y') }} {{ companyInfo.address.companyName is defined ? companyInfo.address.companyName : siteName }}.
+          </div>
+
+          {%- if adminSettings.showWebsiteCredit -%}
+          <div class="footer-credit">
+            Website Design & Development by
+            <a class="footer-credit-link" href="https://localiq.co.uk/" target="_blank" rel="nofollow noreferrer" title="Visit LOCALiQ">
+              <img loading="lazy" decoding="async" class="footer-credit-logo" src="/assets/site/localiq.svg" width="50" height="10" alt="LOCALiQ">
+            </a>
+          </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ ui.component('back-to-top') }}
+</footer>
+
+{% endcache %}

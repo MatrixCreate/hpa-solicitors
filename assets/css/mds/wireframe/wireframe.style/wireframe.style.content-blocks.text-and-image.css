@@ -1,0 +1,17 @@
+/* Text & Image - visual styling only */
+@layer components {
+  /* Text & Image */
+  .text-and-image {
+    .content-block-inner {
+      @apply md:p-[var(--padding-block-md)];
+      @apply md:lg:py-[var(--padding-block-2xl)];
+    }
+    .text-wrapper {
+      @apply p-6;
+      @apply md:p-0;
+    }
+    .text-and-image-image {
+      @apply rounded-[var(--mds-image-border-radius)];
+    }
+  }
+}

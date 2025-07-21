@@ -1,0 +1,117 @@
+columnSuffix: null
+handle: contentBlocks
+instructions: null
+name: 'Content Blocks'
+searchable: true
+settings:
+  createButtonLabel: 'Add Content Block'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 9573206f-ece7-4f83-81e6-85264a54ed47 # Blog Listing
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - b31e80bd-f6a2-40b1-a76a-2254459b4ef0 # Call to Action
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 9881f7fe-9627-4f98-9c75-df9d131b19b3 # Contact & Location
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 3155b740-e488-47da-9d89-d0dc38bca3ae # Contact Form
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 66619569-b8b8-4473-b67b-32b8c6e3e7d7 # Entry Cards
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - b370b742-014c-44eb-a3eb-a3e456283ab1 # FAQ
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 39cea0eb-d033-4b07-a76b-2bbb18856244 # Text
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - d5949c6e-8359-485f-855e-6abc97353dfb # USPs
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 9af841c7-f6cd-49d3-aa91-c7f982e8a3b0 # Tabbed Navigator
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 51e21cbf-04f1-4657-92a9-7f5ae4b3f809 # Testimonials
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - f5d132be-e014-4c13-9cfa-43f5e4a30020 # Text & Image
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 996e80fd-630e-4e59-82ca-4d13f55d6251 # Video
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

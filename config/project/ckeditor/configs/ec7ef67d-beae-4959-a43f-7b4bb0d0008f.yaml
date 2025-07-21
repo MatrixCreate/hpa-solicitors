@@ -1,0 +1,60 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: 'Main Heading (H1)'
+options:
+  alignment:
+    options:
+      - left
+      - center
+      - right
+  style:
+    definitions:
+      -
+        classes:
+          - font-sans
+        element: span
+        name: 'Body Font'
+      -
+        classes:
+          - font-display
+        element: span
+        name: 'Heading Font'
+      -
+        classes:
+          - text-xl
+        element: span
+        name: 'Small Heading'
+      -
+        classes:
+          - font-thin
+        element: span
+        name: '🖊️ Thin'
+      -
+        classes:
+          - font-extralight
+        element: span
+        name: '🖊️ Extra-Light'
+      -
+        classes:
+          - font-medium
+        element: span
+        name: '🖊️ Medium'
+toolbar:
+  - heading
+  - style
+  - '|'
+  - bold
+  - italic
+  - fontColor
+  - '|'
+  - alignment
+  - '|'
+  - undo
+  - redo
+  - '|'
+  - sourceEditing

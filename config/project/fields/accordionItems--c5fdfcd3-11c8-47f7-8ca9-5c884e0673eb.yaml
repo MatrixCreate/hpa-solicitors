@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: accordionItems
+instructions: null
+name: 'Accordion Items'
+searchable: false
+settings:
+  createButtonLabel: 'Add Accordion Item'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 3f391906-dfde-4bc4-ba91-b132e9e3afde # Heading
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - c5f708db-3ff0-47de-b546-c8cbaf129dfe # Question & Answer
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

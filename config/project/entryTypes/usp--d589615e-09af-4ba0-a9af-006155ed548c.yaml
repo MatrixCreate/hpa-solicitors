@@ -1,0 +1,59 @@
+color: null
+description: null
+fieldLayouts:
+  9dbfa1df-6263-48ce-94df-f35d35a509ca:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:9f5f0b46-d1dc-4618-a275-ad6f0a7b543d'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-12T10:01:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 52d16a9f-4777-4c28-a348-6146366ed718 # Icon
+            handle: uspIcon
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: deae2787-07ee-4362-8e72-f889351277ff
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T10:02:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f5f0b46-d1dc-4618-a275-ad6f0a7b543d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fe732a53-50a6-4d14-8071-dcef44e1224b
+        userCondition: null
+handle: usp
+hasTitleField: false
+icon: certificate
+name: USP
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{richText|striptags}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

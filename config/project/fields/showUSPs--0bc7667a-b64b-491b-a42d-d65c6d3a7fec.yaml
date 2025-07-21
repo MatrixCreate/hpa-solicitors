@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: showUSPs
+instructions: null
+name: 'Show USPs'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

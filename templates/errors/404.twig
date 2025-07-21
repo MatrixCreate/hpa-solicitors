@@ -1,0 +1,11 @@
+{% set errorEntry = craft.entries.section('errorPages').slug('404').one() %}
+{% if errorEntry %}
+    {% include 'errors/_entry' with { entry: errorEntry } %}
+{% else %}
+    {# Fallback if no 404 entry exists #}
+    {% include '_entry-types/error-page' with {
+        heading: 'Page Not Found',
+        richText: '<p>The page you were looking for could not be found.</p>',
+        callsToAction: []
+    } %}
+{% endif %}

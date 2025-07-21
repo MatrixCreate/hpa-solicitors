@@ -1,0 +1,62 @@
+/* Pagination - visual styling only */
+@layer components {
+  .pagination-link {
+    @apply text-[var(--mds-pagination-font-size)];
+    @apply font-[var(--mds-pagination-font-weight)];
+    @apply text-[var(--mds-pagination-text)];
+    @apply bg-[var(--mds-pagination-background)];
+    @apply border-[var(--mds-pagination-border)];
+    @apply transition-all duration-200;
+  }
+
+  .pagination-link:hover {
+    @apply bg-[var(--mds-pagination-background-hover)];
+    @apply border-[var(--mds-pagination-border-hover)];
+    @apply text-[var(--mds-pagination-text-hover)];
+  }
+
+  .pagination-number.active {
+    @apply bg-[var(--mds-pagination-active-background)];
+    @apply border-[var(--mds-pagination-active-background)];
+    @apply text-[var(--mds-pagination-active-text)];
+  }
+
+  .pagination-number.active:hover {
+    @apply bg-[var(--mds-pagination-active-background-hover)];
+    @apply border-[var(--mds-pagination-active-background-hover)];
+    @apply text-[var(--mds-pagination-active-text)];
+  }
+
+  .pagination-prev,
+  .pagination-next {
+    @apply font-[var(--mds-pagination-font-weight)];
+  }
+
+  .pagination-ellipsis {
+    @apply text-[var(--mds-pagination-ellipsis-font-size)];
+    @apply font-[var(--mds-pagination-ellipsis-font-weight)];
+    @apply text-[var(--mds-pagination-disabled-text)];
+  }
+
+  /* Blog pagination classes */
+  .pagination-link {
+    border-color: var(--mds-pagination-border);
+    background-color: var(--mds-pagination-background);
+    color: var(--mds-pagination-text);
+    &:hover {
+      background-color: var(--mds-pagination-background-hover);
+    }
+  }
+
+  .pagination-link--current {
+    background-color: var(--mds-pagination-active-background);
+    color: var(--mds-pagination-active-text);
+    border-color: var(--mds-pagination-active-background);
+  }
+
+  .pagination-ellipsis {
+    @apply text-[var(--mds-pagination-ellipsis-font-size)];
+    @apply font-[var(--mds-pagination-ellipsis-font-weight)];
+    @apply text-[var(--mds-pagination-disabled-text)];
+  }
+}

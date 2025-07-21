@@ -1,0 +1,35 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% if globalContent.newsletterType == true %}
+  {% set newsletterType = 'form' %}
+{% else %}
+  {% set newsletterType = 'embedCode' %}
+{% endif %}
+
+{% set backgroundColour = globalContent.newsletterSignupBackgroundColour.color[0].background ?? null %}
+
+<section class="newsletter-signup content-block
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, 'newsletterSignup', 'Newsletter Signup') }}
+  >
+  <div class="content-block-inner container-medium">
+    
+    <div class="content-box content-box-center">
+      {{ ui.component('rich-text', { 
+        content: globalContent.newsletterRichText 
+      }) }}
+      {% if newsletterType == 'embedCode' %}
+        <div class="newsletter-embed-code">
+          {{ globalContent.newsletterEmbedCode|raw }}
+        </div>
+      {% else %}
+        {% set form = globalContent.newsletterForm.one() %}
+        <div class="newsletter-form">
+          {{ craft.formie.renderForm(form, {}) }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

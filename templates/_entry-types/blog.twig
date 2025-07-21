@@ -1,0 +1,57 @@
+{% import "_macros/ui.twig" as ui %}
+
+<section class="blog-article">
+
+  <div class="container-narrow">
+    <div class="blog-heading-label">
+      Our Blog
+    </div>
+    <h1 class="blog-heading-title">
+      {{ entry.headline|striptags }}
+    </h1>
+    <div class="blog-heading-standfirst">
+      {{ entry.standFirst|striptags }}
+    </div>
+
+    {% if entry.blogAuthor | length %}
+      {% set author = entry.blogAuthor.one() %}
+      {% set headshot = author.headshot.one() ?? siteConfig.globalTeamProfileImagePlaceholder.one() %}
+      <div class="blog-author">
+      {% if headshot %}
+        <a href="{{ entry.blogAuthor.one().url }}">
+          {{ ui.component('image', {
+            img: headshot,
+            class: 'blog-author-image',
+            sizes: '96px',
+            formats: ['webp'],
+            alt: author.firstName ~ ' ' ~ author.lastName,
+            lazy: true,
+            responsive: {
+              sm: {
+                mode: 'crop',
+                width: 96,
+                height: 96,
+                quality: 90,
+                position: 'center-center',
+              }
+            }
+          }) }}
+        </a>
+      {% endif %}
+        <div class="blog-author-content">
+          <div class="blog-author-name">
+            <div class="blog-author-name-label">Written by</div>
+            <div class="blog-author-name-text">
+              <a href="{{ author.url }}">
+                {{ author.firstName }} {{ author.lastName }}
+              </a>
+            </div>
+          </div>
+          <div class="blog-author-title">{{ author.jobTitle }}</div>
+        </div>
+      </div>
+    {% endif %}
+
+    {{ entry.articleBody }}
+  </div>
+</section>

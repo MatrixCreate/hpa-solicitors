@@ -1,0 +1,12 @@
+/* Layout Components - STYLE (Visual/Aesthetic Only) */
+@layer components {
+
+  /* Enhanced container classes - visual spacing */
+  .container-wide,
+  .container-medium,
+  .container-narrow {
+    @apply p-[var(--padding-block-md)];
+    @apply lg:py-[var(--padding-block-2xl)];
+  }
+
+}

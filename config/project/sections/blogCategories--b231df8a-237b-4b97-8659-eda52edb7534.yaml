@@ -1,0 +1,31 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: cd67adfe-aa88-46bb-b290-9a431a8ebdcc # Blog Category
+handle: blogCategories
+maxAuthors: 1
+name: 'Blog Categories'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - refresh
+        - '1'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  c5d93292-99d1-44d9-889c-396699fe2e22: # $SYSTEM_NAME
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: 482aad69-822f-4948-aa08-32b1f71b4b32
+type: structure

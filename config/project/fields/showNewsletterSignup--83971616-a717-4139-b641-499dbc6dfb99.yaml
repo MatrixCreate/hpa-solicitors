@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: showNewsletterSignup
+instructions: null
+name: 'Show Newsletter Signup'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

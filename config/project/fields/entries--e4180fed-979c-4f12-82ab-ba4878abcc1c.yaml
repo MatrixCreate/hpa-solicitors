@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: entries
+instructions: null
+name: Entries
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: true
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+    - 'section:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+    - singles
+    - 'section:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

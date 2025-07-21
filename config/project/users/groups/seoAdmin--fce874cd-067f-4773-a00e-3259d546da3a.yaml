@@ -1,0 +1,194 @@
+description: null
+handle: seoAdmin
+name: 'SEO Admin'
+permissions:
+  - accesscp
+  - accessplugin-formie
+  - accessplugin-navigation
+  - accessplugin-retour
+  - accessplugin-seomatic
+  - accessplugin-simple-seo-import
+  - administrateusers
+  - 'assignusergroup:05837b13-9d38-4af8-8ff9-7471d5a55b93' # Client Admin
+  - assignuserpermissions
+  - 'createentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'createentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'createentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'createentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'createentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'createfolders:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'createfolders:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'createfolders:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'deleteassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'deleteassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'deleteassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'deleteentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'deleteentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'deleteentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'deleteentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'deleteentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'deletepeerassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'deletepeerassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'deletepeerassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'deletepeerentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'deletepeerentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'deletepeerentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'deletepeerentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'deletepeerentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'deletepeerentrydrafts:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'deletepeerentrydrafts:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'deletepeerentrydrafts:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'deletepeerentrydrafts:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'deletepeerentrydrafts:b156a4d8-bfad-4133-aeea-6315302beb3c' # Homepage
+  - 'deletepeerentrydrafts:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - deleteusers
+  - 'editglobalset:43e3a0f2-6fb3-4ec7-ab75-c2d919e11f72' # Site Config
+  - 'editglobalset:44f82986-4c29-4096-a4aa-f83786aac4c6' # Global Content
+  - 'editimages:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'editimages:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'editimages:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'editpeerimages:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'editpeerimages:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'editpeerimages:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - editusers
+  - formie-accessforms
+  - formie-accesssentnotifications
+  - formie-accesssubmissions
+  - formie-createformappearance
+  - formie-createformbehavior
+  - formie-createformintegrations
+  - formie-createforms
+  - formie-createformsettings
+  - formie-createformusage
+  - formie-createnotifications
+  - formie-createsubmissions
+  - 'formie-createsubmissions:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-deleteforms
+  - formie-deletesentnotifications
+  - 'formie-deletesentnotifications:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-deletesubmissions
+  - 'formie-deletesubmissions:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-manageforms
+  - 'formie-manageforms:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-resendsentnotifications
+  - 'formie-resendsentnotifications:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-savesubmissions
+  - 'formie-savesubmissions:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-showformappearance
+  - 'formie-showformappearance:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-showformbehavior
+  - 'formie-showformbehavior:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-showformintegrations
+  - 'formie-showformintegrations:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-showformsettings
+  - 'formie-showformsettings:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-showformusage
+  - 'formie-showformusage:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-shownotifications
+  - 'formie-shownotifications:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-shownotificationsadvanced
+  - 'formie-shownotificationsadvanced:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-shownotificationstemplates
+  - 'formie-shownotificationstemplates:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-viewsentnotifications
+  - 'formie-viewsentnotifications:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - formie-viewsubmissions
+  - 'formie-viewsubmissions:d724f19b-34c1-427e-b252-9eede3ee3bbe'
+  - impersonateusers
+  - moderateusers
+  - navigation-createnavs
+  - 'navigation-managenav:18baf9ab-a896-443e-b1b3-f3e620ba7d29' # Footer Navigation
+  - 'navigation-managenav:190d550d-cd36-4eb1-aa32-254676fd36e7' # Mobile Main Navigation
+  - 'navigation-managenav:7b3389a9-8f98-4356-b3a9-d0fb28227037' # Main Navigation
+  - 'navigation-managenav:dab9b726-98b8-4247-888b-e74d504359c3' # Legal Navigation
+  - registerusers
+  - 'replacefiles:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'replacefiles:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'replacefiles:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'replacepeerfiles:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'replacepeerfiles:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'replacepeerfiles:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'retour:dashboard'
+  - 'retour:redirects'
+  - 'retour:settings'
+  - 'retour:shortlinks'
+  - 'saveassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'saveassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'saveassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'saveentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'saveentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'saveentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'saveentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'saveentries:b156a4d8-bfad-4133-aeea-6315302beb3c' # Homepage
+  - 'saveentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'savepeerassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'savepeerassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'savepeerassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'savepeerentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'savepeerentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'savepeerentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'savepeerentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'savepeerentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'savepeerentrydrafts:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'savepeerentrydrafts:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'savepeerentrydrafts:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'savepeerentrydrafts:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'savepeerentrydrafts:b156a4d8-bfad-4133-aeea-6315302beb3c' # Homepage
+  - 'savepeerentrydrafts:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'seomatic:content-meta'
+  - 'seomatic:content-meta:facebook'
+  - 'seomatic:content-meta:general'
+  - 'seomatic:content-meta:sitemap'
+  - 'seomatic:content-meta:twitter'
+  - 'seomatic:dashboard'
+  - 'seomatic:global-meta'
+  - 'seomatic:global-meta:ads'
+  - 'seomatic:global-meta:facebook'
+  - 'seomatic:global-meta:general'
+  - 'seomatic:global-meta:humans'
+  - 'seomatic:global-meta:robots'
+  - 'seomatic:global-meta:security'
+  - 'seomatic:global-meta:twitter'
+  - 'seomatic:plugin-settings'
+  - 'seomatic:site-settings'
+  - 'seomatic:site-settings:creator'
+  - 'seomatic:site-settings:identity'
+  - 'seomatic:site-settings:miscellaneous'
+  - 'seomatic:site-settings:sitemap'
+  - 'seomatic:site-settings:social'
+  - 'seomatic:tracking-scripts'
+  - 'seomatic:tracking-scripts:facebookpixel'
+  - 'seomatic:tracking-scripts:fathom'
+  - 'seomatic:tracking-scripts:googleanalytics'
+  - 'seomatic:tracking-scripts:googletagmanager'
+  - 'seomatic:tracking-scripts:gtag'
+  - 'seomatic:tracking-scripts:hubspot'
+  - 'seomatic:tracking-scripts:linkedininsight'
+  - 'seomatic:tracking-scripts:matomo'
+  - 'seomatic:tracking-scripts:pinteresttag'
+  - 'seomatic:tracking-scripts:plausible'
+  - 'utility:clear-caches'
+  - 'viewassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'viewassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'viewassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'viewentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'viewentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'viewentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'viewentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'viewentries:b156a4d8-bfad-4133-aeea-6315302beb3c' # Homepage
+  - 'viewentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'viewpeerassets:6a7139c2-80b8-41c8-bbe6-db7f700982eb' # Documents
+  - 'viewpeerassets:c0810266-1d43-445d-aec3-bcbf89dbf84b' # Brand Assets
+  - 'viewpeerassets:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
+  - 'viewpeerentries:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'viewpeerentries:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'viewpeerentries:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'viewpeerentries:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'viewpeerentries:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - 'viewpeerentrydrafts:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
+  - 'viewpeerentrydrafts:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
+  - 'viewpeerentrydrafts:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+  - 'viewpeerentrydrafts:876b20f6-53f0-4a05-af9b-aafff44ed2f2' # Pages
+  - 'viewpeerentrydrafts:b156a4d8-bfad-4133-aeea-6315302beb3c' # Homepage
+  - 'viewpeerentrydrafts:d88f9b9e-930b-4d0e-be0f-2de36d7ad7f6' # Testimonials
+  - viewusers

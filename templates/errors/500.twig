@@ -1,0 +1,11 @@
+{% set errorEntry = craft.entries.section('errorPages').slug('500').one() %}
+{% if errorEntry %}
+    {% include 'errors/_entry' with { entry: errorEntry } %}
+{% else %}
+    {# Fallback if no 500 entry exists #}
+    {% include '_entry-types/error-page' with {
+        heading: 'Server Error',
+        richText: '<p>Something went wrong on our end. Please try again later.</p>',
+        callsToAction: []
+    } %}
+{% endif %}

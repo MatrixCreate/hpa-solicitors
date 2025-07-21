@@ -1,0 +1,30 @@
+/* Tabbed Navigator - visual styling only */
+@layer components {
+  
+  /* Tabbed Navigator */
+  .tabbed-block-tabs {
+    &::after {
+      @apply bg-[var(--mds-tabs-border)];
+    }
+  }
+  .tabbed-block-tab-label {
+    @apply p-[var(--mds-tab-label-padding)];
+    @apply text-[var(--mds-tab-label-font-size)];
+    @apply font-[var(--mds-tab-label-font-weight)];
+    @apply cursor-pointer;
+    @apply transition-colors;
+    @apply text-[var(--mds-text-light)];
+    
+    @apply md:text-[var(--mds-tab-label-font-size-md)];
+  }
+
+  .entry-card-text {
+    @apply space-y-2; 
+  }
+  .entry-card-heading {
+    @apply mb-2;
+    @apply text-xl font-bold;
+  }
+  
+
+}

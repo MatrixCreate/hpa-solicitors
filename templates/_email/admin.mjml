@@ -1,0 +1,25 @@
+
+<mjml>
+  <mj-include path="./_partials/head.mjml" />
+  
+  <mj-body background-color="#e8e6e1">
+    <mj-include path="./_partials/company-logo.mjml" />
+    
+    <!-- Content Section -->
+    <mj-section padding="40px 20px" background-color="#ffffff">
+      <mj-column>
+
+        <mj-text font-family="gesta, -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif" font-size="32px" font-weight="700" color="#333333" align="center" line-height="40px" padding-bottom="30px">
+          New enquiry received via website
+        </mj-text>
+        
+        <mj-text font-size="16px" line-height="24px" color="#333333" align="left" padding-bottom="30px">
+          <mj-raw>{{ contentHtml|raw }}</mj-raw>
+        </mj-text>
+        
+      </mj-column>
+    </mj-section>
+    
+    <mj-include path="./_partials/footer.mjml" />
+  </mj-body>
+</mjml>

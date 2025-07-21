@@ -1,0 +1,75 @@
+{% if responsive is defined %}
+  {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
+  {% set configFormats = formats ?? transformConfig.formats %}
+  {% set enableRetina = transformConfig.enableRetina %}
+  
+  {% set transforms = {} %}
+
+  {% for format in configFormats %}
+    {% for size, settings in responsive %}
+      {% set key = size ~ '_1x_' ~ format %}
+      {% set transform1x = {
+        mode: settings.mode,
+        width: settings.width,
+        height: settings.height ?? 'auto',
+        quality: settings.quality,
+        position: settings.position,
+        format: format
+      } %}
+
+      {% set transforms = transforms|merge({(key): transform1x}) %}
+      
+      {% if enableRetina %}
+        {% set key2x = size ~ '_2x_' ~ format %}
+        {% set transform2x = {
+          mode: settings.mode,
+          width: settings.width * 2,
+          height: settings.height is defined ? settings.height * 2 : 'auto',
+          quality: settings.quality,
+          position: settings.position,
+          format: format
+        } %}
+        
+        {% set transforms = transforms|merge({(key2x): transform2x}) %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% set primarySize = responsive|keys|first %}
+  {% set primaryFormat = configFormats|first %}
+  {% set fallbackTransform = transforms[primarySize ~ '_1x_jpg'] ?? transforms[primarySize ~ '_1x_jpeg'] ?? transforms[transforms|keys|first] %}
+  {% set primaryTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
+
+  <picture>
+    {% for format in configFormats %}
+      {% set srcsetItems = [] %}
+      {% for size, settings in responsive %}
+        {% set transform1x = transforms[size ~ '_1x_' ~ format] %}
+        {% set srcsetItems = srcsetItems|merge([img.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+        {% if enableRetina %}
+          {% set transform2x = transforms[size ~ '_2x_' ~ format] %}
+          {% set srcsetItems = srcsetItems|merge([img.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+        {% endif %}
+      {% endfor %}
+      
+      <source
+        type="image/{{ format }}"
+        srcset="{{ srcsetItems|join(', ') }}"
+        sizes="{{ sizes }}">
+    {% endfor %}
+    <img
+      src="{{ img.getUrl(fallbackTransform) }}"
+      class="{{ class }}"
+      {% if priority is defined and priority %}
+        fetchpriority="high"
+      {% endif %}
+      {% if lazy %}
+        loading="lazy"
+        decoding="async"
+      {% endif %}
+      alt="{{ alt ?? img.alt ?? img.title }}"
+      width="{{ primaryTransform.width }}"
+      height="{{ primaryTransform.height }}">
+  </picture>
+{% endif %}
+

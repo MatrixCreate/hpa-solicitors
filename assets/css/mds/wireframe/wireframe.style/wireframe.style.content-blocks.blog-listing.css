@@ -1,0 +1,99 @@
+/* Blog Listing - visual styling only */
+@layer components {
+  
+  /* Blog Listing */
+  .blog-listing-wrapper {
+    @apply md:py-[var(--padding-block-2xl)];
+  }
+
+  /* Blog Grid Filter classes here */
+  .filter-label {
+    @apply text-sm font-medium mb-1;
+  }
+
+  .filter-select {
+    @apply text-sm;
+    @apply rounded-md;
+    @apply bg-[var(--mds-filter-select-background)];
+  }
+
+  .filter-input {
+    @apply text-sm;
+  }
+
+  .filter-search-button {
+    @apply text-sm;
+    @apply bg-[var(--mds-surface-dark)];
+    @apply text-[var(--mds-text-inverse)];
+  }
+
+  /* Blog card */
+  .blog-card {
+    @apply rounded-[var(--mds-blog-card-border-radius)];
+  }
+  .blog-card-text {
+    @apply p-[var(--mds-blog-card-text-padding)];
+    @apply bg-[var(--mds-blog-card-background-color)];
+    @apply text-[var(--mds-blog-card-text-color)];
+  }
+  .blog-card-title {
+    @apply text-base font-bold;
+    @apply md:text-lg;
+  }
+  .blog-card-footer {
+    @apply flex justify-between items-center gap-2;
+    @apply mt-4;
+  }
+  .blog-card-post-date {
+    @apply text-[var(--mds-blog-card-date-font-size)];
+    @apply font-[var(--mds-blog-card-date-font-weight)];
+    @apply text-[var(--mds-text-accent)];
+  }
+  .blog-article {
+    .image {
+      figcaption {
+        @apply text-sm;
+        @apply border-[var(--mds-blog-border)];
+      }
+    }
+    blockquote {
+      @apply text-[var(--mds-blog-article-blockquote-font-size)];
+      @apply font-[var(--mds-blog-article-blockquote-font-weight)];
+      @apply italic;
+    }
+  }
+
+  /* Blog Article */
+  .blog-heading-label {
+    @apply mb-1;
+    @apply text-lg font-medium italic;
+  }
+  .blog-heading-title {
+    @apply mb-8;
+    @apply text-2xl font-bold;
+  }
+  .blog-heading-standfirst {
+    @apply mb-8;
+    @apply text-2xl;
+  }
+  .blog-author-image {
+    @apply w-24 h-24;
+    @apply rounded-full overflow-auto;
+  }
+  .blog-author-name {
+    @apply flex flex-col justify-center;
+  }
+  .blog-author-name-label {
+    @apply text-xs font-semibold uppercase;
+  }
+  .blog-author-name-text {
+    @apply text-lg font-medium;
+  }
+  .blog-author-title {
+    @apply text-base text-gray-600;
+  }
+  .blog-author {
+    @apply flex my-8 gap-4;
+  }
+
+}

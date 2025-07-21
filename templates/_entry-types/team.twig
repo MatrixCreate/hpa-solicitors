@@ -1,0 +1,61 @@
+{% import "_macros/ui.twig" as ui %}
+
+<div class="team-profile content-block">
+  <div class="content-block-inner container-medium">
+
+    <div class="team-profile">
+      
+      <div class="team-profile-image-wrapper">
+        {% set headshot = null %}
+        {% if entry.headshot.one() %}
+          {% set headshot = entry.headshot.one() %}
+        {% else %}
+          {% set headshot = sitewideContent.teamProfileImage.one() ?? null %}
+        {% endif %}
+
+        {% if headshot %}
+          {{ ui.component('image', {
+            img: headshot,
+            class: 'team-profile-image',
+            sizes: '(max-width: 767px) 300px, 400px',
+            formats: ['webp'],
+            alt: headshot.title ?? (entry.firstName ~ ' ' ~ entry.lastName),
+            lazy: true,
+            responsive: {
+              mobile: {
+                mode: 'crop',
+                width: 300,
+                height: 300,
+                quality: 85,
+                position: 'center-center',
+              },
+              desktop: {
+                mode: 'crop',
+                width: 400,
+                height: 400,
+                quality: 85,
+                position: 'center-center',
+              }
+            }
+          }) }}
+        {% endif %}
+      </div>
+      <div class="team-profile-content">
+        <h1 class="team-profile-name">
+          {{ entry.firstName }}
+          {{ entry.lastName }}
+        </h1>
+        {% if entry.jobTitle %}
+          <h2 class="team-profile-job-title">{{ entry.jobTitle }}</h2>
+        {% endif %}
+        {% if entry.bio %}
+          <div class="team-profile-bio">
+            {{ entry.bio|nl2br }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {# .content-block-inner #}
+</div>
+{# .content-block #}

@@ -1,0 +1,14 @@
+{% import "_macros/utils.twig" as utils %}
+
+{% if globalContent.reviewsEmbedCode|trim|length %}
+  <section class="reviews content-block
+    {{ utils.backgroundColour(globalContent.reviewsBackgroundColour.class) }}"
+    {{ utils.debugAttributes(entry, 'reviews', 'Reviews') }}
+    >
+    <div class="content-block-inner container-narrow">
+      <div class="w-full">
+        {{ globalContent.reviewsEmbedCode|raw }}
+      </div>
+    </div>
+  </section>
+{% endif %}

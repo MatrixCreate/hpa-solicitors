@@ -1,0 +1,61 @@
+{#
+  Search Result Card Component
+  
+  Props:
+  - entry: The entry object
+  - query: Search query for highlighting (optional)
+#}
+
+{% set entry = entry %}
+{% set query = query ?? '' %}
+
+{% if entry %}
+<article class="search-result-card">
+    <div class="search-result-content">
+        <header class="search-result-header">
+            <h3 class="search-result-title">
+                <a href="{{ entry.url }}" class="search-result-link">
+                    {{ entry.title }}
+                </a>
+            </h3>
+            {#
+            <div class="search-result-meta">
+                <span class="search-result-section">{{ entry.section.name }}</span>
+                {% if entry.postDate %}
+                    <time class="search-result-date" datetime="{{ entry.postDate|date('c') }}">
+                        {{ entry.postDate|date('M j, Y') }}
+                    </time>
+                {% endif %}
+            </div>
+            #}
+        </header>
+        
+        <div class="search-result-excerpt">
+            {% if entry.excerpt %}
+                {{ entry.excerpt|truncate(150) }}
+            {% elseif entry.contentBlocks %}
+                {# Extract text from first rich text block #}
+                {% set firstRichTextBlock = entry.contentBlocks.type('richText').one() %}
+                {% if firstRichTextBlock and firstRichTextBlock.richText %}
+                    {{ firstRichTextBlock.richText|striptags|truncate(150) }}
+                {% endif %}
+            {% else %}
+                {{ entry.title }}
+            {% endif %}
+        </div>
+        
+        {% if entry.url %}
+        {#
+        <footer class="search-result-footer">
+            <a href="{{ entry.url }}" class="search-result-read-more">
+                Read more
+                <svg class="search-result-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m9 18 6-6-6-6"/>
+                </svg>
+            </a>
+        </footer>
+        #}
+        {% endif %}
+    </div>
+</article>
+{% endif %}

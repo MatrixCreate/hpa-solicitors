@@ -1,0 +1,35 @@
+{% import "_macros/ui.twig" as ui %}
+
+{# 
+  Simplified Accordion Entry Partial
+  ----------------------------------
+  This is a lightweight version of the accordion component designed for use within
+  rich text fields. It reuses the core accordion.items component but with a simplified
+  configuration structure.
+
+  Key differences from the main accordion block:
+  - No rich text content above the accordion
+  - No action button below
+  - No SEO schema generation
+  - Direct configuration from entry fields instead of block fields
+  - No background color options
+
+  Configuration:
+  - accordionItems: The accordion items from the entry
+  - openFirstItem: Whether to open the first item by default
+  - allItemsStayOpen: Whether multiple items can be open simultaneously
+  - scrollToTop: Disabled by default for inline usage
+#}
+
+<div class="accordion-wrapper">
+  {{ ui.component('accordion.items', {
+    accordionItems: entry.accordionItems ?? null,
+    openFirstItem: entry.openFirstItem ?? false,
+    allItemsStayOpen: entry.allItemsStayOpen ?? false,
+    scrollToTop: false,
+    shrinkWrapTriggers: true,
+    usePlusMinusIcons: false,
+    closedIcon: '@webroot/assets/icons/system/icon_chevron_right.svg',
+    openIcon: '@webroot/assets/icons/system/icon_chevron_right.svg',
+    }) }}
+</div>

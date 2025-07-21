@@ -1,0 +1,317 @@
+fieldLayouts:
+  05d457c7-694f-40b9-94b9-e30b2522770b:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: 'Contact Details'
+            type: craft\fieldlayoutelements\Heading
+            uid: 194e66d9-b98e-4f92-af35-d942f28506e3
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8fcddcef-968f-452f-a1c4-b0417ef2e84b # Address
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 53060152-9f7c-46b4-94be-a75e8bc804b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: e0de7bea-749c-4442-b300-9f3131fcc260
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c86d69c8-411f-49cf-a938-18fb516179ba # Email
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7498d462-b815-4af0-b4b8-1f1a2fcbe21f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d9fa2a8a-b9f3-4960-88f8-1db729fff2b3 # Telephone
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 628d78f5-585b-40a8-b3be-be8f2b3b2f53
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 74dc6939-61f7-4208-99c1-6ce7f073427b # Fax
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 796ab3ae-2f95-481a-b891-2ce42755fbb8
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: 'Location Map'
+            type: craft\fieldlayoutelements\Heading
+            uid: 94156502-256a-4a5e-97b2-4c8ecb7852c4
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ea167b29-b833-4874-9b5e-40b3843a8fc9 # Code (Multi-Line)
+            handle: locationMapEmbedCode
+            includeInCards: false
+            instructions: null
+            label: 'Location Map Embed Code'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f487b74-c5fd-4feb-8fa3-0ad700f3ebaa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: Legal
+            type: craft\fieldlayoutelements\Heading
+            uid: 0a824a8f-a72e-4acb-b526-e6ea87f70831
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f06cdad3-726b-4cd4-b541-263e0c23061d # Limited Company Number
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43c0f3d0-90c1-418c-8d63-e81d6a064598
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2121ee0f-b363-488e-9196-0b98524e7a4e # Registered Address
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24ca767b-891c-4ecb-aa4a-453d5d2ded50
+            userCondition: null
+            warning: null
+            width: 50
+        name: 'Contact Info'
+        uid: 2bcefe92-ef04-4eb6-978b-e8358eccb98f
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: 'Brand Logos'
+            type: craft\fieldlayoutelements\Heading
+            uid: 75162f9f-e9b6-4691-a55f-b86ed60e27c9
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 74d2d162-eeeb-47a7-a055-13c1ac6021b3 # Brand Asset
+            handle: mainLogo
+            includeInCards: false
+            instructions: null
+            label: 'Main Logo'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6695df2-85d6-4ed1-9f83-96bd427b6d6c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 74d2d162-eeeb-47a7-a055-13c1ac6021b3 # Brand Asset
+            handle: footerLogo
+            includeInCards: false
+            instructions: null
+            label: 'Footer Logo'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7b72c9a5-e85f-43ae-9dff-954a0cc68d58
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 74d2d162-eeeb-47a7-a055-13c1ac6021b3 # Brand Asset
+            handle: emailLogo
+            includeInCards: false
+            instructions: null
+            label: 'Email Logo'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d831973-bc8a-422d-b463-3f954bf92670
+            userCondition: null
+            warning: null
+            width: 100
+        name: Brand
+        uid: 604074cc-3fa1-4ac3-8750-a47bf22cc5c3
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: 'Opening Hours'
+            type: craft\fieldlayoutelements\Heading
+            uid: 769c4394-7bf9-470e-8451-e8ce4cd7a151
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d80e6aaa-9ad4-4342-b96c-ce48b8833d58 # Opening Hours
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 181cc43b-85c4-44d4-880e-bac711c43e92
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:16:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: showTimesIn24HourFormat
+            includeInCards: false
+            instructions: null
+            label: 'Show Times in 24-Hour Format'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 189063e1-f6ca-423c-b90e-beccaef257d4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: outputLocalBusinessOpeningHoursSchema
+            includeInCards: false
+            instructions: null
+            label: 'Output LocalBusiness and Opening Hours Schema'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70d37d1a-0ff0-4ca3-842a-2e0e80e66d2d
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Opening Hours'
+        uid: ed4233c3-ff75-4b5c-94e3-41cde3a5c230
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            elementCondition: null
+            heading: 'Social Networks'
+            type: craft\fieldlayoutelements\Heading
+            uid: 1090537c-440a-4778-8120-599e03ec10d1
+            userCondition: null
+          -
+            dateAdded: '2025-07-19T10:12:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e2d560ef-593b-45eb-a2a2-38e4e3addc3f # Social Networks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e140dee9-b143-483f-9e5b-0df2a6b52e60
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Social Networks'
+        uid: d77be5c2-fff1-422a-9f57-c26b2dc8d2f7
+        userCondition: null
+handle: companyInfo
+name: 'Company Info'
+sortOrder: 1

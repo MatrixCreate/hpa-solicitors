@@ -1,0 +1,87 @@
+{% import "_macros/ui.twig" as ui %}
+
+{# Get props with fallbacks #}
+{% set numberOfPostsToDisplay = props.numberOfPostsToDisplay ?? numberOfPostsToDisplay ?? 6 %}
+{% if numberOfPostsToDisplay.value is defined %}
+  {% set numberOfPostsToDisplay = numberOfPostsToDisplay.value %}
+{% endif %}
+{% set showImages = props.showImages ?? showImages ?? true %}
+{% set block = props.block ?? block ?? null %}
+{% set mobileBlogListingLayout = props.mobileBlogListingLayout ?? mobileBlogListingLayout ?? 'blog-grid-cards' %}
+
+{# Build filtered query #}
+{% set entryQuery = craft.entries().section('blog') %}
+
+{# Apply category filter #}
+{% set categoryFilter = craft.app.request.getQueryParam('category') %}
+{% if categoryFilter %}
+  {% set entryQuery = entryQuery.relatedTo(categoryFilter) %}
+{% endif %}
+
+{# Apply search filter #}
+{% set searchFilter = craft.app.request.getQueryParam('search') %}
+{% if searchFilter %}
+  {% set entryQuery = entryQuery.search(searchFilter) %}
+{% endif %}
+
+{# Apply sort filter #}
+{% set sortFilter = craft.app.request.getQueryParam('sort') ?? 'postDate desc' %}
+{% set sortParts = sortFilter|split(' ') %}
+{% set sortField = sortParts[0] ?? 'postDate' %}
+{% set sortDirection = sortParts[1] ?? 'desc' %}
+{% set entryQuery = entryQuery.orderBy(sortField ~ ' ' ~ sortDirection|upper) %}
+
+{# Get page number from query parameter #}
+{% set currentPage = craft.app.request.getQueryParam('page') ?? 1 %}
+{% set offset = (currentPage - 1) * numberOfPostsToDisplay %}
+
+{# Apply pagination manually to be consistent with Sprig approach #}
+{% set paginatedQuery = entryQuery.offset(offset).limit(numberOfPostsToDisplay) %}
+{% set entries = paginatedQuery.all() %}
+{% set totalEntries = entryQuery.count() %}
+{% set totalPages = (totalEntries / numberOfPostsToDisplay)|round(0, 'ceil') %}
+
+{# Build pageInfo object for pagination component #}
+{% set pageInfo = {
+  currentPage: currentPage,
+  totalPages: totalPages,
+  totalResults: totalEntries
+} %}
+
+  <div class="blog-listing-wrapper">
+    {# Blog filters #}
+    {% if block.showFilters %}
+      {{ ui.component('blog.filters', { actionUrl: (props.entry ?? entry).url }) }}
+    {% endif %}
+
+    <ul class="blog-grid {{ mobileBlogListingLayout }}" id="blog-grid">
+      {% for entry in entries %}
+        <li class="blog-grid-item">
+          {{ ui.component('blog.card', {
+            entry : entry,
+            showImages: showImages ?? true
+          }) }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# Pagination controls #}
+    {% if block.showPagination %}
+      {{ ui.component('pagination', {
+        pageInfo : pageInfo,
+        entry: (props.entry ?? entry)
+      }) }}
+    {% endif %}
+
+    {% if block.actionButton | length %}
+      <div class="view-more-wrapper">
+        {% set cta = block.actionButton %}
+        {{ ui.component('button', {
+            type: 'link',
+            href: cta.url,
+            text: cta.text,
+            class: 'btn btn-primary btn-view-more'
+          }) }}
+      </div>
+    {% endif %}
+  </div>

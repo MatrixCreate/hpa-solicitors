@@ -1,0 +1,55 @@
+css: ".ck-content span.font-display {\r\n  font-family: 'DM Serif Display', serif;\r\n  font-size: 1.5rem;\r\n}"
+headingLevels:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: 'Rich Text and Media'
+options:
+  alignment:
+    options:
+      - left
+      - center
+      - right
+  link:
+    decorators:
+      openInNewTab:
+        attributes:
+          rel: 'noopener noreferrer'
+          target: _blank
+        label: 'Open in a new tab'
+        mode: manual
+  style:
+    definitions:
+      -
+        classes:
+          - font-sans
+        element: span
+        name: 'Body Font'
+      -
+        classes:
+          - font-display
+        element: span
+        name: 'Display Font'
+toolbar:
+  - heading
+  - style
+  - '|'
+  - bold
+  - italic
+  - fontColor
+  - '|'
+  - alignment
+  - bulletedList
+  - numberedList
+  - link
+  - blockQuote
+  - insertImage
+  - mediaEmbed
+  - insertTable
+  - '|'
+  - undo
+  - redo
+  - '|'
+  - sourceEditing

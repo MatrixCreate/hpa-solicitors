@@ -1,0 +1,48 @@
+/* Text & Images Content Block - structural layout only */
+@layer components {
+
+  /* Text & Image blocks */
+  .text-and-images {
+    .text-and-image-block {
+      .content-block-inner {
+        @apply w-full;
+        @apply max-w-[var(--container-wide)];
+        @apply mx-auto;
+      }
+      .content-wrapper {
+        @apply flex flex-col mx-auto;
+        @apply gap-6;
+        @apply md:grid md:grid-cols-12;
+      }
+      .text-wrapper {
+        @apply flex flex-col justify-center col-span-6;
+        @apply space-y-4;
+      }
+      .image-wrapper {
+        @apply flex flex-col col-span-6;
+        @apply gap-4;
+        .text-and-image-image {
+          @apply w-full h-full;
+          @apply max-h-[45rem];
+        }
+      }
+    } 
+    /* Image left or right */
+    &.layout-text-left .text-and-image-block:nth-child(odd) {
+      .image-wrapper {
+        @apply md:order-1;
+      }
+    }
+    &.layout-image-left .text-and-image-block:nth-child(odd) {
+      .text-wrapper {
+        @apply md:order-1;
+      }
+    }
+    &.layout-image-left .text-and-image-block:nth-child(even) {
+      .image-wrapper {
+        @apply md:order-1;
+      }
+    }
+  }
+
+}

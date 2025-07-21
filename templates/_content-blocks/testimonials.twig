@@ -1,0 +1,232 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set isFooterBlock = isFooterBlock ?? false %}
+
+{# testimonialsOrigin lightswitch is enabled, there is a third-party reviews widget (Elfsight) #}
+{% if globalContent.testimonialsOrigin %}
+  {% set useThirdParty = true %}
+{% else %}
+  {% set useThirdParty = false %}
+{% endif %}
+
+{% set useGlobalTestimonials = useGlobalTestimonials ?? false %}
+
+{# Always query the testimonials section for the testimonials #}
+{% set testimonials = craft.entries.section('testimonials').all() %}
+
+{% if isFooterBlock and useGlobalTestimonials %}
+  {% set richText = globalContent.globalTestimonialsRichText %}
+  {% set backgroundColour = globalContent.globalTestimonialsBackgroundColour.color[0].background %}
+  {% set headingColour = globalContent.globalTestimonialsHeadingColour.color[0].heading %}
+  {% set textColour = globalContent.globalTestimonialsTextColour.color[0].text %}
+  {% set blockType = 'testimonials' %}
+{% else %}
+  {% set richText = block.richText %}
+  {% set backgroundColour = block.backgroundColour.color[0].background %}
+  {% set headingColour = block.headingColour.color[0].heading %}
+  {% set textColour = block.textColour.color[0].text %}
+  {% set blockType = block.type %}
+{% endif %}
+
+<section class="testimonials content-block
+  {{ backgroundColour }}
+  {{ headingColour }}
+  {{ textColour }}"
+  {{ utils.debugAttributes(entry, blockType, 'Testimonials') }}
+  >
+  <div class="container-medium content-block-inner">
+
+  {% if richText | length %}
+    <div class="container-medium p-0">
+      {{ ui.component('rich-text', { 
+        content: richText,
+        useRaw: true 
+      }) }}
+    </div>
+  {% endif %}
+
+  {% if useThirdParty %}
+    {{ globalContent.globalReviewsEmbedCode|raw }}
+  {% elseif not useThirdParty and testimonials|length %}
+    <div class="testimonials-container" x-data="testimonialsCarousel">
+      <div class="testimonial-carousel">
+
+        <ul class="lq-slider escape-padding mobile-carousel" x-ref="slider">
+          {% for testimonial in testimonials %}
+            <li class="lq-slider-item" data-index="{{ loop.index0 }}">
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  {% set starRating = testimonial.starRating %}
+                  {% for i in range(1, starRating) %}
+                    <svg class="icon-star" viewbox="0 0 24 23">
+                      <path stroke="none" fill="currentColor" d="M15.0877 6.80493L15.0877 6.80503C15.3334 7.39688 15.8891 7.80212 16.528 7.80346L22.8472 8.36131C23.4728 8.41159 23.7308 9.19717 23.2506 9.6095L18.436 13.7437L18.436 13.7438C17.95 14.1612 17.7379 14.8157 17.8863 15.439L19.3572 21.6206C19.5043 22.2385 18.835 22.7195 18.3007 22.3924L12.8906 19.0797C12.3439 18.745 11.6562 18.745 11.1095 19.0797C11.1095 19.0797 11.1095 19.0797 11.1095 19.0797L5.69933 22.3924C5.16502 22.7195 4.49576 22.2385 4.64279 21.6206L6.11373 15.439C6.11374 15.439 6.11374 15.439 6.11374 15.439C6.26207 14.8157 6.05015 14.1612 5.56409 13.7438L5.56405 13.7437L0.749407 9.60949C0.269238 9.19718 0.52722 8.41159 1.15281 8.36131L7.4721 7.85346C8.11097 7.80212 8.66672 7.39689 8.91233 6.80493L11.3469 0.937237C11.5888 0.354254 12.4113 0.354254 12.6532 0.937239L15.0877 6.80493Z"/>
+                    </svg>
+                  {% endfor %}
+                </div>
+
+                <div class="testimonial-content">
+                  <div class="testimonial-quote" x-data="{
+                    isExpanded: false,
+                    wordCount: 25,
+                    fullText: '{{ testimonial.quote|striptags|replace({" '": "\\' "}) }}',
+                    get truncatedText() {
+                      const words = this.fullText.split(' ');
+                      if (words.length <= this.wordCount + 10) return this.fullText;
+                      return words.slice(0, this.wordCount).join(' ') + '...';
+                    },
+                    get shouldShowMore() {
+                      const words = this.fullText.split(' ');
+                      return words.length > this.wordCount + 10;
+                    }
+                  }">
+                    &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
+                    <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
+                      View more
+                    </button>
+                  </div>
+                  <div class="testimonial-footer">
+                    <div class="testimonial-avatar">
+                      {{ svg('@webroot/assets/icons/system/user.svg')|attr({ class: 'testimonial-avatar-icon' }) }}
+                    </div>
+                    <div class="testimonial-attribution">
+                      <div class="testimonial-name">
+                        {{ testimonial.customerName }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {# Previous Button #}
+        <button @click="prev" class="testimonial-nav-btn testimonial-nav-btn-prev" :class="{ 'disabled': !canGoPrev() }" :disabled="!canGoPrev()" aria-label="Previous slide">
+          {{ svg('@webroot/assets/icons/system/icon_chevron_left.svg')|attr({
+            class: 'testimonial-nav-btn-icon',
+            'aria-hidden': true
+          }) }}
+        </button>
+
+        {# Next Button #}
+        <button @click="next" class="testimonial-nav-btn testimonial-nav-btn-next" :class="{ 'disabled': !canGoNext() }" :disabled="!canGoNext()" aria-label="Next slide">
+          {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
+            class: 'testimonial-nav-btn-icon',
+            'aria-hidden': true
+          }) }}
+        </button>
+      </div>
+
+      {# Indicator Dots #}
+      <div class="testimonial-dots">
+        <template x-for="index in totalDots()" :key="index">
+          <div @click="goToSlide(index - 1)" class="testimonial-dot" :class="currentSlide === index - 1 ? 'active' : ''"></div>
+        </template>
+      </div>
+
+      <script>
+        document.addEventListener('alpine:init', () => {
+          Alpine.data('testimonialsCarousel', () => ({
+            testimonials: {{ testimonials|length }},
+            currentSlide: 0,
+            slidesPerView: window.innerWidth >= 768 ? 3 : 1,
+            
+            get isDesktop() {
+              return window.innerWidth >= 768;
+            },
+            
+            totalDots() {
+              return Math.ceil(this.testimonials / this.slidesPerView);
+            },
+            
+            canGoNext() {
+              return this.currentSlide < this.totalDots() - 1;
+            },
+            
+            canGoPrev() {
+              return this.currentSlide > 0;
+            },
+            
+            next() {
+              if (this.canGoNext()) {
+                this.currentSlide++;
+                this.scrollToActive();
+              }
+            },
+            
+            prev() {
+              if (this.canGoPrev()) {
+                this.currentSlide--;
+                this.scrollToActive();
+              }
+            },
+            
+            scrollToActive() {
+              if (!this.isDesktop) return;
+              const slider = this.$refs.slider;
+              if (!slider) return;
+              const slideWidth = slider.querySelector('.lq-slider-item').offsetWidth;
+              const gap = 24; // Matches the gap-6 class (6 * 4px)
+              const scrollPosition = (slideWidth + gap) * this.currentSlide * this.slidesPerView;
+              slider.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+            },
+            
+            goToSlide(index) {
+              this.currentSlide = index;
+              if (this.isDesktop) {
+                this.scrollToActive();
+              } else {
+                const slider = this.$refs.slider;
+                if (!slider) return;
+                const slideElement = slider.children[index];
+                if (slideElement) {
+                  slider.scrollTo({ left: slideElement.offsetLeft, behavior: 'smooth' });
+                }
+              }
+            },
+            
+            init() {
+              // Set up intersection observer for mobile
+              const observer = new IntersectionObserver((entries) => {
+                if (this.isDesktop) return;
+
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    const slideIndex = parseInt(entry.target.dataset.index);
+                    this.currentSlide = Math.floor(slideIndex / this.slidesPerView);
+                  }
+                });
+              }, {
+                root: this.$refs.slider,
+                threshold: 0.5
+              });
+
+              this.$refs.slider.querySelectorAll('.lq-slider-item').forEach(slide => {
+                observer.observe(slide);
+              });
+
+              // Initial scroll for desktop
+              if (this.isDesktop) {
+                setTimeout(() => this.scrollToActive(), 100);
+              }
+
+              // Handle resize
+              window.addEventListener('resize', () => {
+                const wasDesktop = this.isDesktop;
+                this.slidesPerView = window.innerWidth >= 768 ? 3 : 1;
+
+                if (wasDesktop !== this.isDesktop) {
+                  if (this.isDesktop) {
+                    this.scrollToActive();
+                  }
+                }
+              });
+            }
+          }));
+        });
+      </script>
+    </div> {# .testimonials-container #}
+    {% endif %}
+  </div> {# .content-block-inner #}
+</section> {# .testimonials.content-block #}

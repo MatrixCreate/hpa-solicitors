@@ -1,0 +1,12 @@
+@layer components {
+  
+  /* Error Page */
+  .error-page-wrapper {
+    @apply container flex flex-col items-center space-y-4;
+    @apply mx-auto py-32;
+  }
+  .error-page-title {
+    @apply font-display font-bold text-4xl;
+  }
+
+}

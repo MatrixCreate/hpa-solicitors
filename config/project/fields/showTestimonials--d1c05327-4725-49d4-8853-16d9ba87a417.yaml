@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: showTestimonials
+instructions: null
+name: 'Show Testimonials'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

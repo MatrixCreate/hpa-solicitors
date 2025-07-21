@@ -1,0 +1,57 @@
+/* Header - visual styling only */
+@layer components {
+  .header {
+    @apply transition-all duration-300;
+    @apply bg-[var(--mds-header-background)];
+  }
+
+  .desktop-header-inner {
+    @apply p-[var(--padding-block-md)];
+    @apply lg:py-6;
+    @apply xl:py-8;
+    @apply gap-4;
+    @apply transition-all duration-300;
+  }
+  .desktop-header-actions {
+    @apply gap-2;
+  }
+
+
+  .secondary-header {}
+  .secondary-header-inner {
+    @apply gap-4;
+    @apply transition-all duration-300;
+    @apply p-6;
+  }
+  .mobile-header {
+    @apply transition duration-300;
+  }
+
+  /* Company logo - normal state with responsive breakpoints */
+  .company-logo {
+    @apply w-36 lg:w-40 xl:w-52 2xl:w-60;
+    @apply transition-all duration-300;
+  }
+
+  /* Header shrunk state - smaller logo at all breakpoints */
+  .header-shrunk .company-logo {
+    @apply w-28 lg:w-32 xl:w-40 2xl:w-48;
+  }
+
+  /* Header padding adjustments for shrunk state */
+  .header-shrunk .desktop-header-inner {
+    @apply p-[var(--padding-block-sm)];
+    @apply lg:py-4;
+    @apply xl:py-5;
+  }
+
+  /* Header hide/show animations */
+  .header-hidden {
+    transform: translateY(-100%);
+  }
+
+  /* Mobile header hide/show adjustments */
+  .mobile-header.header-hidden {
+    transform: translateY(-100%);
+  }
+}

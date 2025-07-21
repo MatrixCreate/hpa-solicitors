@@ -1,0 +1,14 @@
+/* Call to Action - visual styling only */
+@layer components {
+  
+  /* Call to Action with background image */
+  .call-to-action {
+    /* If background image */
+    &:has(.background-image) {
+      .content-box {
+        @apply bg-[var(--mds-overlay-background)];
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,124 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set useGlobalContactForm = useGlobalContactForm ?? block.useGlobalContactForm ?? false %}
+
+{% if useGlobalContactForm %}
+  {% set image = globalContent.globalContactFormImage.one() ?? null %}
+  {% set richText = globalContent.globalContactFormRichText %}
+  {% set form = globalContent.globalContactFormForm %}
+  {% set headingColour = globalContent.globalContactFormHeadingColour.color[0].heading %}
+  {% set textColour = globalContent.globalContactFormTextColour.color[0].text %}
+  {% set backgroundColour = globalContent.globalContactFormBackgroundColour.color[0].background %}
+  {% set backgroundImage = globalContent.globalContactFormBackgroundImage.one() ?? null %}
+  {% set blockType = 'contactForm' %}
+{% else %}
+  {% set image = block.image.one() ?? null %}
+  {% set richText = block.richText %}
+  {% set form = block.form %}
+  {% set headingColour = block.headingColour.color[0].heading %}
+  {% set textColour = block.textColour.color[0].text %}
+  {% set backgroundColour = block.backgroundColour.color[0].background %}
+  {% set backgroundImage = block.backgroundImage.one() ?? null %}
+  {% set blockType = block.type %}
+{% endif %}
+
+<section class="contact-form content-block
+  {{ backgroundColour }}
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundImage ? 'has-background-image' : '' }}
+  "
+  {{ utils.debugAttributes(entry, blockType, 'Contact Form') }}
+  >
+	<div class="content-block-inner container-medium">
+    <div class="container-inner">
+
+      <div class="content-box {{ image ? 'has-image' : 'centered' }}">
+        {% if image %}
+          <div class="image-wrapper">
+            {{ ui.component('image', {
+              img: image,
+              class: 'contact-form-image',
+              sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 460px',
+              formats: ['webp'],
+              alt: image.alt ?? image.title,
+              lazy: true,
+              responsive: {
+                sm: {
+                  mode: 'crop',
+                  width: 400,
+                  height: 300,
+                  quality: 80,
+                  position: 'center-center',
+                },
+                md: {
+                  mode: 'crop',
+                  width: 600,
+                  height: 400,
+                  quality: 80,
+                  position: 'center-center',
+                },
+                lg: {
+                  mode: 'crop',
+                  width: 460,
+                  height: 350,
+                  quality: 80,
+                  position: 'center-center',
+                },
+              }
+            }) }}
+          </div>
+          {# .image-wrapper #}
+        {% endif %}
+
+        <div class="form-wrapper">
+          {{ ui.component('rich-text', { 
+            content: richText 
+          }) }}
+
+          {% if form %}
+          <div class="form">
+            {{ ui.component('contact-form', { form: form.one() }) }}
+          </div>
+          {% endif %}
+        </div> {# .form-wrapper #}
+      </div> {# .content-box #}
+    </div> {# .container-inner #}
+
+    {% if backgroundImage %}
+      {{ ui.component('image', {
+        img: backgroundImage,
+        class: 'background-image contact-form-image',
+        sizes: '100vw',
+        formats: ['webp'],
+        alt: backgroundImage.alt ?? backgroundImage.title,
+        lazy: true,
+        responsive: {
+          sm: {
+            mode: 'crop',
+            width: 400,
+            height: 300,
+            quality: 85,
+            position: 'center-center',
+          },
+          md: {
+            mode: 'crop',
+            width: 800,
+            height: 400,
+            quality: 85,
+            position: 'center-center',
+          },
+          lg: {
+            mode: 'crop',
+            width: 1200,
+            height: 800,
+            quality: 85,
+            position: 'center-center',
+          },
+        }
+      }) }}
+    {% endif %}
+
+	</div>
+</section>

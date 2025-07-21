@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: testimonialsOrigin
+instructions: null
+name: 'Testimonials Origin'
+searchable: false
+settings:
+  default: false
+  offLabel: Testimonials
+  onLabel: 'Third Party Widget'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -1,0 +1,54 @@
+/* Testimonials - visual styling only */
+@layer components {
+  
+  /* Testimonials */
+  .testimonials {
+    .rich-text-field {
+      @apply !mb-6;
+    }
+    .testimonial-card {
+      @apply p-6;
+      @apply bg-[var(--mds-testimonial-card-background-color)];
+      @apply text-[var(--mds-testimonial-card-text-color)];
+      @apply rounded-[var(--mds-testimonial-card-corner-radius)];
+    }
+    .testimonial-stars {
+      .icon-star {
+        @apply text-[var(--mds-testimonial-stars-color)];
+      }
+    }
+    .testimonial-quote {
+      @apply text-[var(--mds-testimonial-quote-font-size)];
+      @apply font-[var(--mds-testimonial-quote-font-weight)];
+      @apply italic;
+    }
+    .testimonial-quote-view-more {
+      @apply text-[var(--mds-testimonial-view-more-font-size)];
+      @apply font-[var(--mds-testimonial-view-more-font-weight)];
+      @apply italic;
+      @apply transition-colors duration-200;
+    }
+    .testimonial-avatar-icon {
+      @apply w-8 h-8;
+      @apply text-white;
+    }
+    .testimonial-attribution {
+      @apply text-[var(--mds-testimonial-attribution-font-size)];
+      @apply font-[var(--mds-testimonial-attribution-font-weight)];
+    }
+    .testimonial-nav-btn {
+      @apply bg-[var(--mds-testimonial-nav-btn-background-color)];
+      @apply hover:bg-[var(--mds-testimonial-nav-btn-background-color-hover)];
+      @apply shadow-md;
+      @apply transition-all duration-200;
+    }
+    .testimonial-dot {
+      @apply bg-[var(--mds-testimonial-dot-background-color)];
+      @apply transition-colors duration-200;
+      &.active {
+        @apply bg-[var(--mds-testimonial-dot-background-color-active)];
+      }
+    }
+  }
+
+}

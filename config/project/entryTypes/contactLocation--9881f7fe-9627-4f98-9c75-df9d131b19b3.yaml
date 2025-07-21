@@ -1,0 +1,86 @@
+color: null
+description: null
+fieldLayouts:
+  181e6cf7-645b-49db-98ad-3cfa9f0e8555:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:ab65a238-5b4b-4506-bbbf-5312049328cd'
+      - 'layoutElement:70a3fee9-cdde-4a30-a4a2-0c6e2b23e9cb'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-12T20:58:05+00:00'
+            dismissible: true
+            elementCondition: null
+            style: tip
+            tip: 'Contact Details and Location Map can be edited in Globals > Settings > Contact Information.'
+            type: craft\fieldlayoutelements\Tip
+            uid: ab992540-544d-49c7-8dc6-9c8c80f4764c
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T18:25:27+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d87efd46-c6d6-404f-a665-68fc741de58b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T21:39:48+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5983bfb3-52d6-43a0-9cb8-4c46b215aaa8 # Map Layout
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ab65a238-5b4b-4506-bbbf-5312049328cd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T21:41:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70a3fee9-cdde-4a30-a4a2-0c6e2b23e9cb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d5aae0b3-9b53-4acc-828d-c4f00fa94b4b
+        userCondition: null
+handle: contactLocation
+hasTitleField: false
+icon: map-location
+name: 'Contact & Location'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Contact & Location'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

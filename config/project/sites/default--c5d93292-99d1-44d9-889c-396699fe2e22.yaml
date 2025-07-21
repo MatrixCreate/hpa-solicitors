@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: $SYSTEM_NAME
+primary: true
+siteGroup: c404b271-327d-4f5f-bd51-e8d73acacae0 # Craft Starter
+sortOrder: 1

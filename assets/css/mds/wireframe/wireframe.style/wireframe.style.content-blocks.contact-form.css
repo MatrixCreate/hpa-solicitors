@@ -1,0 +1,25 @@
+/* Contact Form - visual styling only */
+@layer components {
+  
+  /* Contact Form */
+  .contact-form {
+    /* If background image */
+    &:has(.background-image) {
+      .content-box {
+        @apply bg-[var(--mds-overlay-background)];
+      }
+    }
+  
+    /* Inset form */
+    &.is-inset {
+      .form-wrapper {
+        @apply bg-grey-200;
+      }
+    }
+
+    .contact-form-image {
+      @apply rounded-[var(--mds-form-image-border-radius)];
+    }
+  }
+  
+}

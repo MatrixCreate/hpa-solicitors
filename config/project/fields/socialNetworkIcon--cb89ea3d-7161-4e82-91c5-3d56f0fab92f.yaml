@@ -1,0 +1,13 @@
+columnSuffix: rbvbisik
+handle: socialNetworkIcon
+instructions: null
+name: 'Social Network Icon'
+searchable: false
+settings:
+  iconSets:
+    - 41a5d3cf-54d5-4397-bf98-71f049b2e9ba # Social Networks
+  renderId: null
+  showLabels: false
+translationKeyFormat: null
+translationMethod: none
+type: verbb\iconpicker\fields\IconPickerField

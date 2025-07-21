@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: mediaType
+instructions: null
+name: 'Media Type'
+searchable: false
+settings:
+  default: false
+  offLabel: Images
+  onLabel: Video
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

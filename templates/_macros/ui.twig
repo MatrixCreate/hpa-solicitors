@@ -1,0 +1,50 @@
+{#
+# UI Component Macro System
+# 
+# Provides a centralized way to load and render UI components with consistent
+# parameter passing and prop handling.
+#
+# Usage:
+#   {% import '_macros/ui.twig' as ui %}
+#   {{ ui.component('button', { text: 'Click me', url: '/contact' }) }}
+#
+#}
+
+{# 
+# Main component loader macro
+# 
+# @param string name - The component name (matches filename in _components/)
+# @param object props - Properties to pass to the component
+# @return string - Rendered component HTML
+#}
+{% macro component(name, props = {}) %}
+    {% apply spaceless %}
+        {% include '_components/' ~ name with { 
+            props: props 
+        } %}
+    {% endapply %}
+{% endmacro %}
+
+{#
+# Rich text field renderer
+# 
+# Handles the common rich-text-field pattern used throughout content blocks
+# 
+# @param string|null content - The rich text content to render
+# @param string class - Additional CSS classes (default: 'rich-text-field')
+# @param boolean useRaw - Whether to use the raw filter (default: false)
+# @return string - Rendered rich text HTML
+#}
+{% macro richText(content, class = 'rich-text-field', useRaw = false) %}
+    {% apply spaceless %}
+        {% if content and content|length %}
+            <div class="{{ class }}">
+                {% if useRaw %}
+                    {{ content|raw }}
+                {% else %}
+                    {{ content }}
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endapply %}
+{% endmacro %}

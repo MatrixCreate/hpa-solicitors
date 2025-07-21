@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: mobileNavigationStyle
+instructions: null
+name: 'Mobile Navigation Style'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Expanding
+        -
+          - value
+          - expanding
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Sliding
+        -
+          - value
+          - sliding
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

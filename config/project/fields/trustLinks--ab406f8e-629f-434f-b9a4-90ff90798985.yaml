@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: trustLinks
+instructions: null
+name: 'Trust Links'
+searchable: false
+settings:
+  createButtonLabel: 'New Trust Link'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - ac175830-a62e-48be-af34-457ed01e1e65 # Trust Link
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

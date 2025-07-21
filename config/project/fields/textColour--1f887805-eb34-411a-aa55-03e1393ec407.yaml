@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: textColour
+instructions: null
+name: 'Text Colour'
+searchable: false
+settings:
+  default: null
+  palette: 'Text Colours'
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: defaultIcon
+instructions: null
+name: Icon
+searchable: false
+settings:
+  iconSets:
+    - 631c4db7-6390-487e-ab40-a4d454c24b68 # Custom
+  renderId: null
+  showLabels: false
+translationKeyFormat: null
+translationMethod: none
+type: verbb\iconpicker\fields\IconPickerField

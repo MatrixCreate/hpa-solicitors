@@ -1,0 +1,27 @@
+{% import "_macros/ui.twig" as ui %}
+
+<div class="error-page-wrapper">
+  {% if heading|length %}
+    <div class="error-page-title">
+      {{ heading }}
+    </div>
+  {% endif %}
+  {% if richText|length %}
+    <div class="rich-text-field">
+      {{ richText }}
+    </div>
+  {% endif %}
+
+  {% for item in callsToAction %}
+    {% if item.actionButton.url %}
+      {% set cta = item.actionButton %}
+      {{ ui.component('button', {
+        type: 'link',
+        href: cta.url,
+        target: cta.target,
+        text: cta.text ?? 'Read more',
+        class: 'btn btn-primary'
+        }) }}
+    {% endif %}
+  {% endfor %}
+</div>

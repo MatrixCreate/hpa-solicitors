@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: useGlobalUsps
+instructions: null
+name: 'Use Global USPs'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

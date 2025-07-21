@@ -1,0 +1,4 @@
+handle: customerTemplate
+name: 'Customer Template'
+sortOrder: null
+template: _email/customer.twig

@@ -1,0 +1,73 @@
+columnSuffix: null
+handle: columnLayout
+instructions: null
+name: 'Column Layout'
+searchable: false
+settings:
+  customOptions: false
+  displayAsGraphic: null
+  displayFullwidth: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Equal Width'
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - equal-width
+        -
+          - imageUrl
+          - /assets/icons/system/icon_columns_equal_width.svg
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'One Third / Two Thirds'
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - one-third-two-thirds
+        -
+          - imageUrl
+          - /assets/icons/system/icon_columns_one_third_two_thirds.svg
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Two Thirds / One Third '
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - two-thirds-one-third
+        -
+          - imageUrl
+          - /assets/icons/system/icon_columns_two_thirds_one_third.svg
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: verbb\buttonbox\fields\Buttons

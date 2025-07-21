@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: desktopTextAndImageLayout
+instructions: null
+name: 'Text & Image Layout'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image Left - Text Right'
+        -
+          - value
+          - image-left
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Text Left - Image Right'
+        -
+          - value
+          - text-left
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

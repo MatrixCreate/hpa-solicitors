@@ -1,0 +1,56 @@
+{# Get props with fallbacks #}
+{% set form = props.form ?? form ?? null %}
+
+{% if form != 'none' and form %}
+  {{ craft.formie.renderForm(form, {
+    themeConfig: {
+      formWrapper: {
+        resetClass: true,
+      },
+      nestedFieldContainer: {
+        resetClass: true,
+        attributes: {
+          class: ['group-row'],
+        },
+      },
+      fieldLabel: {
+        attributes: {
+          style: {
+            'font-size': '0.95rem',
+          }
+        },
+      },
+      nestedFieldRow: {
+        attributes: {
+          class: ['group-row'],
+        },
+      },
+      buttonWrapper: {
+        resetClass: true,
+        attributes: {
+          class: ['form-btn-wrapper'],
+        },
+      },
+      submitButton: {
+        resetClass: true,
+        label: 'Submit',
+        attributes: {
+          class: ['btn btn-primary'],
+        },
+      },
+      fieldContainer: false,
+      fieldInputContainer: null,
+    },
+  }) }}
+
+  {% js %}
+    // Wait until Formie has been loaded and initialized
+    document.addEventListener('onFormieInit', (event) => {
+        // Fetch the Form Factory once it's been loaded
+        let Formie = event.detail.formie;
+
+        // Refresh the necessary bits that are statically cached (CSRF inputs, captchas, etc)
+        Formie.refreshForCache(event.detail.formId);
+    });
+  {% endjs %}
+{% endif %}

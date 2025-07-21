@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: rating
+instructions: null
+name: Rating
+searchable: false
+settings:
+  totalStars: 5
+translationKeyFormat: null
+translationMethod: none
+type: verbb\buttonbox\fields\Stars

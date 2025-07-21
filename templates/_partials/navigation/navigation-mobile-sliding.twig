@@ -1,0 +1,268 @@
+
+{# Macro for rendering a single navigation level #}
+{% macro renderNavLevel(items, level = 1, parentId = '') %}
+  <ul class="mobile-nav-list--sliding">
+    {% for navItem in items %}
+      {# Determine children - use includeAllChildren logic or nav children #}
+      {% set children = [] %}
+      {% if navItem.includeAllChildren ?? false %}
+        {# Use actual entry children when includeAllChildren is enabled #}
+        {% set children = navItem.element.children.all() %}
+      {% else %}
+        {# Use navigation plugin children #}
+        {% set children = navItem.children.all() %}
+      {% endif %}
+      
+      {% set hasChildren = children|length > 0 %}
+      {% set levelId = 'level-' ~ level ~ '-' ~ navItem.id %}
+      
+      <li class="mobile-nav-item--sliding">
+        <div class="mobile-nav-item-header--sliding">
+          {# Passive items render as spans, others as links #}
+          {% if navItem.className is defined and 'verbb\\navigation\\' in navItem.className and navItem.isPassive %}
+            <span class="mobile-nav-link--sliding mobile-nav-passive--sliding">
+              {{ navItem.title }}
+            </span>
+          {% else %}
+            <a href="{{ navItem.url }}" 
+               class="mobile-nav-link--sliding {% if navItem.url == (entry.url ?? null) %}active{% endif %}">
+              {{ navItem.title }}
+            </a>
+          {% endif %}
+          
+          {# Navigate to next level button for items with children #}
+          {% if hasChildren %}
+            <button type="button" 
+                    class="mobile-nav-toggle--sliding js-nav-forward"
+                    data-target="{{ levelId }}"
+                    aria-label="Open {{ navItem.title }} submenu">
+              <span class="mobile-nav-toggle-icon--sliding">
+                {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
+                  class: 'w-5 h-5'
+                }) }}
+              </span>
+            </button>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  {# Generate child levels as separate panels #}
+  {% for navItem in items %}
+    {% set children = [] %}
+    {% if navItem.includeAllChildren ?? false %}
+      {% set children = navItem.element.children.all() %}
+    {% else %}
+      {% set children = navItem.children.all() %}
+    {% endif %}
+    
+    {% if children|length > 0 %}
+      {% set levelId = 'level-' ~ level ~ '-' ~ navItem.id %}
+      <div class="mobile-nav-level" id="{{ levelId }}">
+        {# Level header with back button #}
+        <div class="mobile-nav-level-header">
+          <button type="button" 
+                  class="mobile-nav-back-btn js-nav-back"
+                  aria-label="Back to previous level">
+            {{ svg('@webroot/assets/icons/system/icon_chevron_left.svg')|attr({
+              class: 'back-icon'
+            }) }}
+          </button>
+          <div class="mobile-nav-level-title js-level-title" data-parent-title="{{ navItem.title }}">{{ navItem.title }}</div>
+        </div>
+        
+        {{ _self.renderNavLevel(children, level + 1, levelId) }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{# Mobile sliding navigation component #}
+<div class="mobile-nav-container--sliding"
+     x-data="{ navOpen: false }"
+     @keydown.escape.window="navOpen = false">
+
+  {# Menu Button #}
+  <button class="btn-menu" 
+          type="button" 
+          aria-controls="mobile-navigation-sliding" 
+          :aria-expanded="navOpen.toString()" 
+          @click="navOpen = !navOpen">
+    
+    {# Menu Icon #}
+    {{ svg('@webroot/assets/icons/system/icon_menu.svg')|attr({
+      class: 'menu-icon--sliding',
+      'x-show': '!navOpen',
+      'x-cloak': true
+    }) }}
+
+    {# Close Icon #}
+    {{ svg('@webroot/assets/icons/system/icon_close.svg')|attr({
+      class: 'menu-close-icon--sliding',
+      'x-show': 'navOpen',
+      'x-cloak': true
+    }) }}
+    
+    <span class="sr-only">Menu</span>
+  </button>
+
+  {# Mobile Navigation Panel #}
+  <nav class="mobile-nav--sliding"
+       id="mobile-navigation-sliding"
+       data-level-title-mode="back"
+       x-show="navOpen"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 transform -translate-x-full"
+       x-transition:enter-end="opacity-100 transform translate-x-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 transform translate-x-0"
+       x-transition:leave-end="opacity-0 transform -translate-x-full">
+    
+    <div class="mobile-nav-content--sliding">
+      {# Main Navigation - Sliding Levels Container #}
+      <div class="mobile-nav-main--sliding">
+        <div class="mobile-nav-levels js-nav-levels">
+          {# Level 1 - Main navigation (always visible initially) #}
+          <div class="mobile-nav-level active" id="level-1">
+            {{ _self.renderNavLevel(mobileMainNav, 1) }}
+          </div>
+        </div>
+      </div>
+      
+      {# Additional Content/Actions #}
+      {% if siteConfig.showTelephoneInMobileNav and siteConfig.telephone is defined and siteConfig.telephone %}
+        <div class="mobile-nav-actions--sliding">
+          <a href="tel:{{ siteConfig.telephone|replace(' ', '') }}" 
+             class="mobile-nav-cta--sliding">
+            {{ svg('@webroot/assets/icons/system/icon_telephone.svg')|attr({
+              class: 'w-5 h-5'
+            }) }}
+            {{ siteConfig.telephone }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('.mobile-nav--sliding');
+  if (!nav) return;
+  
+  const levelsContainer = nav.querySelector('.js-nav-levels');
+  const titleMode = nav.dataset.levelTitleMode || 'title'; // 'title' or 'back'
+  let levelStack = ['level-1']; // Track navigation history
+  
+  // Mobile navigation global effects (shared function)
+  function toggleMobileNavEffects(isOpen) {
+    const body = document.body;
+    const main = document.querySelector('.main');
+    const footer = document.querySelector('.footer');
+    
+    if (isOpen) {
+      body.classList.add('mobile-nav-open');
+      if (main) main.classList.add('mobile-nav-blur');
+      if (footer) footer.classList.add('mobile-nav-blur');
+    } else {
+      body.classList.remove('mobile-nav-open');
+      if (main) main.classList.remove('mobile-nav-blur');
+      if (footer) footer.classList.remove('mobile-nav-blur');
+    }
+  }
+  
+  // Update level titles based on mode
+  function updateLevelTitles() {
+    const levelTitles = levelsContainer.querySelectorAll('.js-level-title');
+    levelTitles.forEach(titleEl => {
+      if (titleMode === 'back') {
+        titleEl.textContent = 'Back';
+      } else {
+        titleEl.textContent = titleEl.dataset.parentTitle;
+      }
+    });
+  }
+  
+  // Show a specific level
+  function showLevel(levelId) {
+    const targetLevel = levelsContainer.querySelector(`#${levelId}`);
+    if (targetLevel) {
+      targetLevel.classList.add('active');
+    }
+  }
+  
+  // Hide a specific level
+  function hideLevel(levelId) {
+    const targetLevel = levelsContainer.querySelector(`#${levelId}`);
+    if (targetLevel) {
+      targetLevel.classList.remove('active');
+    }
+  }
+  
+  // Handle forward navigation (to child levels)
+  levelsContainer.addEventListener('click', function(e) {
+    const forwardBtn = e.target.closest('.js-nav-forward');
+    if (!forwardBtn) return;
+    
+    e.preventDefault();
+    
+    const targetId = forwardBtn.dataset.target;
+    if (targetId) {
+      levelStack.push(targetId);
+      showLevel(targetId);
+    }
+  });
+  
+  // Handle back navigation
+  levelsContainer.addEventListener('click', function(e) {
+    const backBtn = e.target.closest('.js-nav-back');
+    if (!backBtn) return;
+    
+    e.preventDefault();
+    
+    // Remove current level from stack and hide it
+    if (levelStack.length > 1) {
+      const currentLevel = levelStack.pop();
+      hideLevel(currentLevel);
+      // Previous level should already be active underneath
+    }
+  });
+  
+  // Handle menu open/close effects and navigation reset
+  const container = document.querySelector('.mobile-nav-container--sliding');
+  if (container) {
+    const menuButton = container.querySelector('.btn-menu');
+    
+    if (menuButton) {
+      menuButton.addEventListener('click', function() {
+        // Small delay to let Alpine update
+        setTimeout(() => {
+          // Check Alpine data for nav state
+          const alpineData = container._x_dataStack?.[0];
+          if (alpineData) {
+            toggleMobileNavEffects(alpineData.navOpen);
+            
+            // Reset to first level when opening menu
+            if (alpineData.navOpen) {
+              levelStack = ['level-1'];
+              showLevel('level-1');
+            }
+          }
+        }, 50);
+      });
+    }
+    
+    // Also watch for escape key 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        toggleMobileNavEffects(false);
+      }
+    });
+  }
+  
+  // Initialize - show first level and update titles
+  showLevel('level-1');
+  updateLevelTitles();
+});
+</script>

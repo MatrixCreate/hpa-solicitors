@@ -1,0 +1,46 @@
+/* Hero - visual styling only */
+@layer components {
+
+    /* Hero */
+  .hero-text-wrapper {
+    @apply p-6;
+  }
+  .hero-text {
+    @apply text-[var(--mds-hero-text)];
+    .rich-text-field {
+      @apply text-[var(--mds-hero-text-font-size)];
+      @apply sm:text-[var(--mds-hero-text-font-size-sm)];
+      @apply md:text-[var(--mds-hero-text-font-size-md)];
+      @apply font-[var(--mds-hero-text-font-weight)];
+    }
+    p {
+      @apply mb-4;
+    }
+    .action-buttons {
+      @apply mt-6;
+    }
+  }
+
+  /* Hero Autoplay Toggle */
+  .hero-autoplay-toggle {
+    @apply absolute bottom-4 right-4 z-10 w-12 h-12;
+    @apply bg-black/50 backdrop-blur-sm rounded-full border border-white/20 text-white opacity-0;
+    @apply transition-all duration-300 hover:bg-black/70 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+  
+  .hero-carousel:hover .hero-autoplay-toggle {
+    @apply opacity-100;
+  }
+  
+  .hero-autoplay-toggle[data-state="playing"] .play-icon {
+    @apply hidden;
+  }
+  
+  .hero-autoplay-toggle[data-state="paused"] .pause-icon {
+    @apply hidden;
+  }
+  
+  .hero-autoplay-toggle svg {
+    @apply w-6 h-6 mx-auto;
+  }
+}

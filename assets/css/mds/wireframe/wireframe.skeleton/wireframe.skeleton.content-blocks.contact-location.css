@@ -1,0 +1,60 @@
+/* Contact & Location Content Block - structural layout only */
+@layer components {
+
+  /* Contact & Location */
+  .contact-location {
+    &.page-width {
+      .content-block-inner {
+        max-width: var(--container-narrow);
+        @apply mx-auto;
+      }
+      .contact-location-wrapper {
+        @apply flex flex-col md:flex-row;
+        .contact-details,
+        .location-map {
+          @apply flex-1;
+        }
+        .location-map {
+          @apply -m-6 mt-6 md:m-0;
+        }
+      }
+    }
+    &.fullscreen {
+      .contact-location-wrapper {
+        @apply flex flex-col;
+        .contact-details {
+          @apply max-w-[var(--container-narrow)];
+          @apply mx-auto;
+        }
+        .contact-details {
+          @apply md:flex-row space-y-4 md:space-y-0;
+          .contact-details-group {
+            @apply flex-1;
+          }
+        }
+      }
+    }
+    .location-map {
+      iframe {
+        @apply w-full min-h-[30rem];
+      }
+    }
+
+    .contact-details {
+      @apply flex flex-col space-y-4 md:space-y-8;
+    }
+    .contact-details-group {
+      @apply flex flex-col space-y-4 md:space-y-8;
+    }
+    .contact-details-item {
+      @apply flex gap-4;
+    }
+    .item-icon {
+      @apply w-6 h-6;
+      svg {
+        @apply w-full h-full;
+      }
+    }
+  }
+
+}

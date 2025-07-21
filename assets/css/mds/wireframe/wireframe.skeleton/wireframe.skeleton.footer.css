@@ -1,0 +1,87 @@
+/* Footer - structural layout only */
+@layer components {
+  .footer-container {
+    @apply max-w-[var(--container-wide)];
+    @apply w-full mx-auto;
+    @apply flex;
+    @apply flex-col md:flex-row md:justify-center md:gap-8;
+  }
+
+  .footer-primary {
+    @apply flex-1 flex flex-col items-center text-center md:items-start md:text-left;
+  }
+
+  .footer-logo {
+    @apply block;
+    @apply w-48;
+  }
+
+  .footer-content {
+    @apply flex flex-col;
+    @apply space-y-4;
+  }
+
+  .footer-contact {
+    @apply flex flex-col;
+  }
+
+  .footer-socials {
+    @apply flex justify-center md:justify-start;
+  }
+
+  .footer-tagline {
+    @apply flex flex-col;
+    @apply space-y-4;
+  }
+
+  .footer-nav {
+    @apply flex-1 flex flex-col justify-end lg:items-end;
+    @apply mt-6 md:mt-0 md:py-0 pt-4;
+    @apply md:border-none;
+    /* border-top: 1px solid var(--mds-footer-border); */
+  }
+
+  .footer-bottom {
+    @apply !pt-0 md:pt-0 md:pb-6;
+  }
+
+  .footer-bottom-content {
+    @apply w-full flex flex-col items-center md:flex-row-reverse md:justify-between;
+    @apply pt-6 gap-2 lg:gap-8;
+    border-top: 1px solid var(--mds-footer-border);
+  }
+
+  .footer-copyright {
+    @apply flex flex-col md:flex-row items-center md:gap-2;
+  }
+
+  .footer-credit {
+    @apply flex items-center;
+    @apply order-4;
+    @apply lg:text-right;
+  }
+  .footer-credit-link {
+    @apply inline items-center;
+  }
+  .footer-credit-logo {
+    @apply ml-1;
+  }
+
+  .nav-footer {
+    @apply flex-1 flex flex-col lg:flex-row flex-wrap justify-center items-center md:justify-start md:items-end lg:items-start lg:gap-4;
+  }
+
+  /* Opening Hours */
+  .opening-hours {
+    
+  }
+  .opening-hours h6 {
+    @apply font-semibold;
+  }
+  .opening-hours ul {
+    @apply space-y-1;
+  }
+  .opening-hours li {
+    @apply text-sm;
+  }  
+}

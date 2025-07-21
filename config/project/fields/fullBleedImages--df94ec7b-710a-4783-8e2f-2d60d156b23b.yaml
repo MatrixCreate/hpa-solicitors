@@ -1,0 +1,12 @@
+columnSuffix: fzizzcat
+handle: fullBleedImages
+instructions: 'Images bleed out to the edges of the screen.'
+name: 'Full Bleed Images'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

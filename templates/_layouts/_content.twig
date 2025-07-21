@@ -1,0 +1,6 @@
+{% set baseUrl = "_content-blocks/" %}
+{% set blocks = entry.contentBlocks.all() %}
+
+{% for block in blocks %}
+    {% include baseUrl ~ block.type ~ '.twig' %}
+{% endfor %}

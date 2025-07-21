@@ -1,0 +1,40 @@
+/* Layout Components - SKELETON (Structure/Layout Only) */
+@layer components {
+  /* Enhanced container classes - structural layout */
+  .container-wide,
+  .container-medium,
+  .container-narrow {
+    /* Box model / Display - layout structure */
+    @apply w-full;
+    @apply mx-auto;
+  }
+
+  .container-wide {  
+    max-width: var(--container-wide);
+  }
+  .container-medium {
+    max-width: var(--container-medium);
+  }
+  .container-narrow {
+    max-width: var(--container-narrow);
+  }
+  
+  /* Height utilities - layout structure */
+  .h-mobile-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: 100svh;
+  }
+  .h-screen-offset-header {
+    height: 100%;
+    height: stretch;
+    height: calc(100vh - var(--header-height));
+  }
+
+  /* Overlay link utility - positioning and sizing structure */
+  .overlay-link {
+    @apply absolute top-0 right-0 bottom-0 left-0 z-20;
+    @apply w-full h-full;
+  }
+
+}

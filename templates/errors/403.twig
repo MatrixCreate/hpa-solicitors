@@ -1,0 +1,11 @@
+{% set errorEntry = craft.entries.section('errorPages').slug('403').one() %}
+{% if errorEntry %}
+    {% include 'errors/_entry' with { entry: errorEntry } %}
+{% else %}
+    {# Fallback if no 403 entry exists #}
+    {% include '_entry-types/error-page' with {
+        heading: 'Access Denied',
+        richText: '<p>You do not have permission to access this page.</p>',
+        callsToAction: []
+    } %}
+{% endif %}

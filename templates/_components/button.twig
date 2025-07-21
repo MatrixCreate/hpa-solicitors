@@ -1,0 +1,54 @@
+{#
+# Button Component
+#
+# Props:
+#   type: 'button' | 'submit' | 'link' | 'overlay-link' (default: 'button')
+#   text: string (required)
+#   href: string (for link types, default: '#')
+#   target: string (optional)
+#   class: string (optional)
+#   id: string (optional)
+#   attributes: array of objects with 'attribute' and 'value' keys (optional)
+#
+# Usage:
+#   {{ ui.component('button', { 
+#     type: 'link', 
+#     text: 'Click me', 
+#     href: '/contact',
+#     class: 'btn-primary'
+#   }) }}
+#}
+
+{% set defaults = {
+  type: 'button',
+  text: '',
+  href: '#',
+  target: null,
+  class: '',
+  id: '',
+  attributes: []
+} %}
+
+{% set p = defaults|merge(props ?? {}) %}
+
+{% if p.type == 'button' or p.type == 'submit' %}
+  <button
+    class="{{ p.class }}"
+    type="{{ p.type }}"
+    {% if p.id %}id="{{ p.id }}"{% endif %}>
+    {{ p.text }}
+  </button>
+{% elseif p.type == 'link' or p.type == 'overlay-link' %}
+  <a
+    class="{{ p.class }}"
+    href="{{ p.href }}"
+    {% if p.target %}target="{{ p.target }}"{% endif %}
+    {% if p.attributes %}
+      {% for attribute in p.attributes %}
+        data-{{ attribute.attribute }}="{{ attribute.value }}"
+      {% endfor %}
+    {% endif %}
+  >
+    {{ p.text }}
+  </a>
+{% endif %}

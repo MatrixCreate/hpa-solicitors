@@ -1,0 +1,22 @@
+{# Main navigation component - orchestrates dropdown vs megamenu #}
+
+
+{% if mainNav != null %}
+{# Check for navigation settings - could be from globals, site settings, or passed parameters #}
+{% set isMegamenu = megamenuEnabled ?? siteConfig.desktopNavigationStyle.value == 'megamenu' ?? false %}
+{% set navInteraction = navigationInteraction ?? siteConfig.desktopNavigationInteraction.value ?? 'hover' %}
+
+{# Include the appropriate sub-component based on navigation style #}
+{% if isMegamenu %}
+  {% include '_partials/navigation/navigation-main-megamenu' with {
+    mainNav: mainNav,
+    navInteraction: navInteraction
+  } %}
+{% else %}
+  {% include '_partials/navigation/navigation-main-dropdown' with {
+    mainNav: mainNav,
+    navInteraction: navInteraction
+  } %}
+{% endif %}
+
+{% endif %}

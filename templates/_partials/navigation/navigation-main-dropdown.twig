@@ -1,0 +1,380 @@
+{# Recursive macro for dropdown navigation #}
+{% macro renderNavLevel(items, level = 1) %}
+  {% set levelClass = 'nav-menu-level-' ~ level %}
+  {% set itemClass = 'nav-item-level-' ~ level %}
+  {% set linkClass = 'nav-link-level-' ~ level %}
+  
+  <ul class="nav-list {{ levelClass }} {% if level == 1 %}nav-list nav-menu-level-1{% elseif level == 2 %}nav-submenu nav-menu-level-2{% else %}nav-submenu nav-menu-level-{{ level }}{% endif %}">
+    {% for navItem in items %}
+      {# Determine children - use includeAllChildren logic or nav children #}
+      {% set children = [] %}
+      {% if navItem.includeAllChildren ?? false %}
+        {# Use actual entry children when includeAllChildren is enabled #}
+        {% set children = navItem.element.children.all() %}
+      {% else %}
+        {# Use navigation plugin children #}
+        {% set children = navItem.children.all() %}
+      {% endif %}
+      
+      {% set hasChildren = children|length > 0 %}
+      
+      <li class="nav-item {{ itemClass }} js-nav-item-level-{{ level }} {% if hasChildren %}has-submenu{% endif %}">
+        {% if navItem.className is defined and 'verbb\\navigation\\' in navItem.className and navItem.isPassive %}
+          <span class="nav-item-link {{ linkClass }} js-nav-item-link nav-item-passive">
+            {{ navItem.title }}
+            {% if hasChildren %}
+              {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
+                class: 'subnav-indicator'
+              }) }}
+            {% endif %}
+          </span>
+        {% else %}
+          <a href="{{ navItem.url }}"
+             class="nav-item-link {{ linkClass }} js-nav-item-link {% if navItem.url == (entry.url ?? null) %}active{% endif %}">
+            {{ navItem.title }}
+            {% if hasChildren %}
+              {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
+                class: 'subnav-indicator'
+              }) }}
+            {% endif %}
+          </a>
+        {% endif %}
+        
+        {% if hasChildren %}
+          {# Recursively render children #}
+          <ul class="nav-list {{ levelClass }} {% if level == 1 %}nav-list nav-menu-level-{{ level + 1 }}{% elseif level == 2 %}nav-submenu nav-menu-level-{{ level + 1 }}{% else %}nav-submenu nav-menu-level-{{ level + 1 }}{% endif %}">
+            {% for childItem in children %}
+              {# Determine children - use includeAllChildren logic or nav children #}
+              {% set grandChildren = [] %}
+              {% if childItem.includeAllChildren ?? false %}
+                {# Use actual entry children when includeAllChildren is enabled #}
+                {% set grandChildren = childItem.element.children.all() %}
+              {% else %}
+                {# Use navigation plugin children #}
+                {% set grandChildren = childItem.children.all() %}
+              {% endif %}
+              
+              {% set hasGrandChildren = grandChildren|length > 0 %}
+              
+              <li class="nav-item nav-item-level-{{ level + 1 }} js-nav-item-level-{{ level + 1 }} {% if hasGrandChildren %}has-submenu{% endif %}">
+                <a href="{{ childItem.url }}"
+                   class="nav-item-link nav-link-level-{{ level + 1 }} js-nav-item-link {% if childItem.url == (entry.url ?? null) %}active{% endif %}">
+                  {{ childItem.title }}
+                  {% if hasGrandChildren %}
+                    {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
+                      class: 'subnav-indicator'
+                    }) }}
+                  {% endif %}
+                </a>
+                
+                {% if hasGrandChildren %}
+                  {# Recursively render grandchildren #}
+                  {{ _self.renderNavLevel(grandChildren, level + 2) }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{# Dropdown navigation component #}
+<nav class="nav nav--main nav--dropdown" data-dropdown data-interaction="{{ navInteraction }}">
+  {{ _self.renderNavLevel(mainNav) }}
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const nav = document.querySelector('.nav--dropdown');
+      const interaction = nav.getAttribute('data-interaction');
+      
+      // Get all nav item links
+      const navItemLinks = document.querySelectorAll('.nav--dropdown .nav-item-link');
+      
+      if (interaction === 'click') {
+        // Dropdown navigation click behavior for all levels
+        // Track which items have been clicked once
+        let clickedItems = new Set();
+        
+        navItemLinks.forEach(link => {
+          link.addEventListener('click', function (event) {
+            const parent = link.parentElement;
+            const isPassiveItem = link.classList.contains('nav-item-passive');
+            const hasSubmenu = parent.classList.contains('has-submenu');
+            
+            // If nav item has submenu, implement first-click/second-click behavior
+            if (hasSubmenu) {
+              
+              // For passive items, always just show submenu (no navigation)
+              if (isPassiveItem) {
+                event.preventDefault();
+                
+                // Close all other submenus at the same level
+                const siblings = parent.parentElement.children;
+                Array.from(siblings).forEach(sibling => {
+                  if (sibling !== parent) {
+                    sibling.classList.remove('active');
+                    // Also close any nested submenus
+                    const nestedItems = sibling.querySelectorAll('.nav-item.active');
+                    nestedItems.forEach(nested => nested.classList.remove('active'));
+                  }
+                });
+                
+                // Show this submenu
+                parent.classList.add('active');
+                return;
+              }
+              
+              // For non-passive items, implement first-click/second-click behavior
+              if (!clickedItems.has(parent) || !parent.classList.contains('active')) {
+                // First click OR submenu is not currently visible - prevent navigation, show submenu
+                event.preventDefault();
+                
+                // Close all other submenus at the same level and reset their clicked state
+                const siblings = parent.parentElement.children;
+                Array.from(siblings).forEach(sibling => {
+                  if (sibling !== parent) {
+                    sibling.classList.remove('active');
+                    clickedItems.delete(sibling); // Reset clicked state for other items
+                    // Also close any nested submenus
+                    const nestedItems = sibling.querySelectorAll('.nav-item.active');
+                    nestedItems.forEach(nested => {
+                      nested.classList.remove('active');
+                      clickedItems.delete(nested); // Reset clicked state for nested items too
+                    });
+                  }
+                });
+                
+                // Show this submenu and mark as clicked
+                parent.classList.add('active');
+                clickedItems.add(parent);
+                
+              } else {
+                // Second click AND submenu is currently visible - allow navigation
+                // Don't prevent default, let the link work normally
+                console.log('Following link on second click:', link.getAttribute('href'));
+              }
+            }
+          });
+        });
+        
+        // Close submenus function
+        const closeSubmenus = () => {
+          const activeItems = document.querySelectorAll('.nav--dropdown .nav-item.active');
+          activeItems.forEach(item => {
+            item.classList.remove('active');
+            
+            // Reset chevron indicators when closing submenus
+            const indicator = item.querySelector('.subnav-indicator');
+            if (indicator) {
+              indicator.style.transform = 'rotate(0deg)';
+            }
+            
+            // Clear clicked state when closing submenus
+            if (typeof clickedItems !== 'undefined') {
+              clickedItems.delete(item);
+            }
+          });
+        };
+
+        // Close submenus when clicking outside of the nav
+        document.addEventListener('click', function (event) {
+          if (!event.target.closest('.nav--dropdown')) {
+            closeSubmenus();
+            
+            // Also clear clicked items state
+            if (typeof clickedItems !== 'undefined') {
+              clickedItems.clear();
+            }
+          }
+        });
+
+        // Close submenus on scroll with improved UX heuristic
+        let isScrolling = false;
+        let scrollStartPosition = window.scrollY;
+        let scrollTimeout;
+        
+        window.addEventListener('scroll', function() {
+          if (!isScrolling) {
+            scrollStartPosition = window.scrollY;
+            isScrolling = true;
+          }
+
+          let currentScrollPosition = window.scrollY;
+          let scrollDelta = Math.abs(currentScrollPosition - scrollStartPosition);
+
+          // Close navigation when user scrolls more than 50px and nav is active
+          if (scrollDelta > 50) {
+            const activeItems = document.querySelectorAll('.nav--dropdown .nav-item.active');
+            if (activeItems.length > 0) {
+              closeSubmenus();
+              isScrolling = false;
+            }
+          }
+
+          // Reset the scroll start position and flag after scrolling stops
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(function() {
+            isScrolling = false;
+          }, 150);
+        }, { passive: true });
+        
+        // Close submenus on escape key
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeSubmenus();
+          }
+        });
+      }
+      
+      // Hover interactions for dropdown navigation
+      if (interaction === 'hover') {
+        // Hover delay timers
+        let hoverDelayTimers = new Map();
+        
+        // Helper function to show submenu with delay
+        function showSubmenuWithDelay(navItem, delay = 150) {
+          // Clear any existing timer for this item
+          if (hoverDelayTimers.has(navItem)) {
+            clearTimeout(hoverDelayTimers.get(navItem));
+          }
+          
+          // Set new timer to show submenu
+          const timer = setTimeout(() => {
+            navItem.classList.add('active');
+            
+            // Rotate chevron indicator
+            const indicator = navItem.querySelector('.subnav-indicator');
+            if (indicator) {
+              indicator.style.transform = 'rotate(90deg)';
+            }
+          }, delay);
+          
+          hoverDelayTimers.set(navItem, timer);
+        }
+        
+        // Helper function to hide submenu with delay
+        function hideSubmenuWithDelay(navItem, delay = 300) {
+          // Clear any existing timer for this item
+          if (hoverDelayTimers.has(navItem)) {
+            clearTimeout(hoverDelayTimers.get(navItem));
+          }
+          
+          // Set new timer to hide submenu
+          const timer = setTimeout(() => {
+            navItem.classList.remove('active');
+            
+            // Reset chevron indicator
+            const indicator = navItem.querySelector('.subnav-indicator');
+            if (indicator) {
+              indicator.style.transform = 'rotate(0deg)';
+            }
+            
+            // Also hide any nested active submenus and reset their active classes
+            const nestedActiveItems = navItem.querySelectorAll('.nav-item.active');
+            nestedActiveItems.forEach(nested => {
+              nested.classList.remove('active');
+              const nestedIndicator = nested.querySelector('.subnav-indicator');
+              if (nestedIndicator) {
+                nestedIndicator.style.transform = 'rotate(0deg)';
+              }
+            });
+          }, delay);
+          
+          hoverDelayTimers.set(navItem, timer);
+        }
+        
+        // Dropdown navigation hover behavior with JavaScript
+        const allNavItems = nav.querySelectorAll('.nav-item.has-submenu');
+        
+        allNavItems.forEach(navItem => {
+          const submenu = navItem.querySelector('.nav-submenu, .nav-menu-level-2, .nav-menu-level-3, .nav-menu-level-4, .nav-menu-level-5, .nav-menu-level-6');
+          if (!submenu) return;
+          
+          navItem.addEventListener('mouseenter', () => {
+            showSubmenuWithDelay(navItem, 100);
+          });
+          
+          navItem.addEventListener('mouseleave', () => {
+            hideSubmenuWithDelay(navItem, 200);
+          });
+          
+          submenu.addEventListener('mouseenter', () => {
+            // Clear hide timer when entering submenu
+            if (hoverDelayTimers.has(navItem)) {
+              clearTimeout(hoverDelayTimers.get(navItem));
+            }
+          });
+          
+          submenu.addEventListener('mouseleave', () => {
+            hideSubmenuWithDelay(navItem, 200);
+          });
+        });
+      }
+      
+      // Touch device enhancements (applies to both hover and click modes)
+      if ('ontouchstart' in window) {
+        nav.classList.add('touch-device');
+        
+        // Special handling for hover interaction mode on touch devices
+        if (interaction === 'hover') {
+          // Track which items have been tapped once
+          let tappedItems = new Set();
+          
+          // Handle Level 1 touch interactions
+          const level1Links = nav.querySelectorAll('.nav-item-level-1 .nav-item-link');
+          level1Links.forEach(link => {
+            link.addEventListener('click', function(event) {
+              const navItem = link.parentElement;
+              const isPassiveItem = link.classList.contains('nav-item-passive');
+              const hasSubmenu = navItem.classList.contains('has-submenu');
+              const linkUrl = link.getAttribute('href');
+              
+              // Only apply first-tap/second-tap behavior to items with submenus
+              if (hasSubmenu) {
+                // For passive items, always just show submenu (no navigation)
+                if (isPassiveItem) {
+                  event.preventDefault();
+                  navItem.classList.add('active');
+                  return;
+                }
+                
+                // For non-passive items, implement first-tap/second-tap behavior
+                if (!tappedItems.has(navItem)) {
+                // Prevent navigation on first tap
+                event.preventDefault();
+                
+                // Mark as tapped
+                tappedItems.add(navItem);
+                
+                // Show the submenu
+                navItem.classList.add('active');
+                
+                // Clear the tapped status after 3 seconds of inactivity
+                setTimeout(() => {
+                  if (!navItem.matches(':hover') && !navItem.querySelector('.nav-menu-level-2:hover')) {
+                    tappedItems.delete(navItem);
+                  }
+                }, 3000);
+              } else {
+                // Second tap - allow navigation
+                // Let the link work normally (don't prevent default)
+                console.log('Following link on second tap:', linkUrl);
+              }
+              }
+              // Items without submenus navigate immediately (no special touch handling needed)
+            });
+          });
+          
+          // Reset tapped items when user taps elsewhere
+          document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav--dropdown')) {
+              tappedItems.clear();
+            }
+          });
+        }
+      }
+    });
+  </script>
+</nav>

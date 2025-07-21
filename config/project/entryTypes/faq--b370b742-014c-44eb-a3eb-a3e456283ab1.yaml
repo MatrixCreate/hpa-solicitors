@@ -1,0 +1,310 @@
+color: null
+description: null
+fieldLayouts:
+  81caf14b-156e-4fff-a3ce-a458b5059fc4:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:0be83dfe-f991-422d-8e6e-ff73de1a412a'
+      - 'layoutElement:e537a880-6b83-4c95-b631-4f84c7e444a9'
+      - 'layoutElement:97011bf8-762d-4c42-9653-b953190693ad'
+      - 'layoutElement:f9a0e132-2e26-4d3b-9ac3-78dbcc3172c1'
+      - 'layoutElement:97bfc781-ea66-4d0e-81b8-b85351d13e9b'
+      - 'layoutElement:263355bf-9c7e-4d49-aa69-52cf485f0aa2'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-04-02T14:15:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-11T10:17:53+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: outputFAQPageSchema
+            includeInCards: true
+            instructions: null
+            label: 'Output FAQPage Schema'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e537a880-6b83-4c95-b631-4f84c7e444a9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:15:34+00:00'
+            dismissible: false
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 51a5ba2d-d05e-44ad-979e-4f072efcd0cf
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            style: tip
+            tip: 'Global FAQ can be edited in Globals > Global Content > FAQ.'
+            type: craft\fieldlayoutelements\Tip
+            uid: cff90c7c-be7b-4182-b672-b9aeeabddc52
+            userCondition: null
+          -
+            dateAdded: '2025-07-11T10:20:31+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 2b64ace7-e07d-4796-af05-f01319a8750a
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            heading: 'Page FAQ'
+            type: craft\fieldlayoutelements\Heading
+            uid: 6eb61280-8898-4cf5-b8ec-3bdea8e62a0d
+            userCondition: null
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: ea86101f-d127-4773-9ed2-4b1a6d36c9b5
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97011bf8-762d-4c42-9653-b953190693ad
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-11T10:19:11+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: e46c516d-8eb4-4204-bbdc-becb6785890d
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 3ee66451-cd1a-4a87-bbcc-408b52a1c141
+            userCondition: null
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: eb8e64e0-9baa-43e1-a21b-f18c258d162e
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: c5fdfcd3-11c8-47f7-8ca9-5c884e0673eb # Accordion Items
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Accordion Items'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ca3dd884-0fc0-4e8c-a10a-d82e69991c66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T16:03:41+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: ec66fada-4d2e-49c9-b8f4-27c7a83bdb19
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: openFirstItem
+            includeInCards: true
+            instructions: null
+            label: 'Open first item automatically'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9a0e132-2e26-4d3b-9ac3-78dbcc3172c1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 0b662ed8-c51c-4ec0-b052-d4c34bd2389e
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: allItemsStayOpen
+            includeInCards: true
+            instructions: null
+            label: 'All items stay open'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97bfc781-ea66-4d0e-81b8-b85351d13e9b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-11T10:20:31+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 84c15222-5eea-420d-98c4-fd4322fe95f3
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: e0a1be49-ee30-41ad-af3b-36bff85fb337
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:22:53+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: b1947ab5-1f26-4907-9d2b-779445aadac6
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 2de08d74-791b-4389-a6fc-181f1b631f2e # Action Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ac36b90-e3b8-4b8d-b7e2-a9e27abffd19
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-11T10:33:56+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 63384291-e36a-47ab-8a0a-2c5bd92a399f
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 26e6c8e0-dc38-437b-a9ae-9c4addae9a97
+            userCondition: null
+          -
+            dateAdded: '2025-01-12T10:38:46+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 548a3fbf-a41a-45bb-b04d-ed73ba7f2ca1
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: backgroundColour
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 263355bf-9c7e-4d49-aa69-52cf485f0aa2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: fa842d20-fa3f-4b51-aafb-804a7e44426c
+        userCondition: null
+handle: faq
+hasTitleField: false
+icon: comments-question
+name: FAQ
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: FAQ
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

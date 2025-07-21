@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: usps
+instructions: null
+name: USPs
+searchable: false
+settings:
+  createButtonLabel: 'Add a USP'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d589615e-09af-4ba0-a9af-006155ed548c # USP
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

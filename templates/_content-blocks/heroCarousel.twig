@@ -1,0 +1,71 @@
+{% cache if not craft.app.config.general.devMode %}
+
+{% import "_macros/ui.twig" as ui %}
+
+{% set hero = entry.heroCarousel.all() %}
+{% set isCarousel = hero|length > 1 %}
+
+{# Carousel settings #}
+{% set transitionType = entry.carouselTransition.value %}
+{% set autoplayEnabled = entry.carouselAutoplay ?? false %}
+{% set autoplaySpeed = entry.carouselAutoplaySpeed.value ?? 5000 %}
+{% set transitionSpeed = entry.carouselTransitionSpeed.value ?? 2000 %}
+{% set pauseOnHover = false %}
+
+{% if hero|length %}
+<section class="hero mx-auto dynamic-height">
+  <div class="hero-carousel js-hero-carousel" 
+       data-transition-type="{{ transitionType }}"
+       data-autoplay-enabled="{{ autoplayEnabled ? 'true' : 'false' }}"
+       data-autoplay-speed="{{ autoplaySpeed }}"
+       data-transition-speed="{{ transitionSpeed }}"
+       data-pause-on-hover="{{ pauseOnHover ? 'true' : 'false' }}"
+       data-slides-count="{{ hero|length }}">
+	
+		{% for slide in hero %}
+
+			{% set heroDesktopImage = slide.heroDesktopImage.one() | length ? slide.heroDesktopImage.one() : null %}
+			{% set heroMobileImage = slide.heroMobileImage.one() | length ? slide.heroMobileImage.one() : null %}
+			{% set heroTitle = slide.heroTitle|length ? slide.heroTitle : null %}
+			{% set heroText = slide.heroText|length ? slide.heroText : null %}
+			{% set heroActionButtons = slide.heroActionButtons|length ? slide.heroActionButtons : null %}
+
+			{# Include the slide markup #}
+			{{ ui.component("hero.slide", {
+				entry: entry,
+				heroDesktopImage: heroDesktopImage,
+				heroMobileImage: heroMobileImage,
+				heroTitle: heroTitle,
+				heroText: heroText,
+				heroActionButtons: heroActionButtons,
+				loop: loop,
+				isActive: loop.first,
+				isCarousel: isCarousel,
+				transitionType: transitionType
+			}) }}
+
+		{% endfor %}
+
+    {# Autoplay pause/play button #}
+    {% if autoplayEnabled and isCarousel %}
+      <button class="hero-autoplay-toggle" 
+              aria-label="Pause slideshow" 
+              data-state="playing">
+        <span class="pause-icon">
+          {{ svg('@webroot/assets/icons/system/icon_pause.svg')|attr({
+            'aria-hidden': true
+          }) }}
+        </span>
+        <span class="play-icon">
+          {{ svg('@webroot/assets/icons/system/icon_video_play.svg')|attr({
+            'class': 'w-5 h-5 pl-1',
+            'aria-hidden': true
+          }) }}
+        </span>
+      </button>
+    {% endif %}
+
+  </div>
+</section>
+{% endif %}
+{% endcache %}

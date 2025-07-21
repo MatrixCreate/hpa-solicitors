@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "context7-project": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/ben/Local/mcp/context7/dist/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

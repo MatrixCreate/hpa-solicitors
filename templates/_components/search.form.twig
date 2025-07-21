@@ -1,0 +1,33 @@
+{#
+  Search Form Component
+  
+  Props:
+  - query: Current search query (optional)
+  - placeholder: Input placeholder text (default: "Search...")
+  - class: Additional CSS classes (optional)
+  - variant: Form variant - 'header' or 'page' (default: 'page')
+#}
+
+{% set query = query ?? craft.app.request.getQueryParam('q', '') %}
+{% set placeholder = placeholder ?? 'Search...' %}
+{% set variant = variant ?? 'page' %}
+{% set class = class ?? '' %}
+
+<form method="GET" action="/search" class="search-form search-form--{{ variant }} {{ class }}">
+    <div class="search-input-wrapper">
+        <input 
+            type="search" 
+            name="q" 
+            placeholder="{{ placeholder }}" 
+            class="form-input search-input"
+            value="{{ query }}"
+            {% if variant == 'header' %}aria-label="Search site"{% endif %}
+        >
+        <button type="submit" class="search-button" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+        </button>
+    </div>
+</form>

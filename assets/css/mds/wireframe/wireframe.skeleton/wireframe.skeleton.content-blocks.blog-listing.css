@@ -1,0 +1,142 @@
+/* Blog Listing Content Block - structural layout only */
+@layer components {
+
+  /* Blog Listing */
+  .blog-listing-wrapper {
+    @apply md:mx-auto;
+    @apply py-6 px-6;
+    @apply pl-6 md:pr-6;
+    @media (min-width: 768px) {
+      max-width: var(--container-medium);
+    }
+  }
+
+  /* Blog Grid Filter classes here */
+  .blog-filters {
+    @apply flex flex-col md:flex-row md:flex-wrap md:items-end;
+    @apply w-full;
+    @apply gap-2 md:gap-6 lg:gap-8;
+    @apply mb-8;
+  }
+
+  .filter-group {
+    @apply flex-1;
+  }
+
+  .filter-select-wrapper {
+    @apply relative;
+    &::after {
+      @apply absolute top-1/2 -translate-y-1/2 right-4;
+      @apply w-4 h-4;
+      @apply bg-contain bg-no-repeat;
+      @apply bg-icon-chevron-down;
+      @apply content-[''];
+    }
+  }
+  .filter-select {
+    @apply w-full min-w-[160px];
+    @apply px-3 py-2 pr-8;
+    @apply bg-no-repeat;
+    @apply bg-right;
+    @apply border-2;
+    @apply appearance-none;
+  }
+
+  .filter-input {
+    @apply flex-1;
+    @apply w-full;
+    @apply px-3 py-2;
+    @apply border-2;
+    @apply rounded-l-md;
+  }
+
+  .filter-search-wrapper {
+    @apply flex;
+  }
+
+  .filter-search-button {
+    @apply flex items-center;
+    @apply px-4 py-2;
+    @apply rounded-r-md;
+  }
+
+  .filter-search-icon {
+    @apply w-4 h-4;
+  }
+
+
+  /* Blog Grid */
+  .blog-grid {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .blog-grid-carousel {
+    @apply flex snap-x snap-mandatory overflow-x-auto gap-6;
+    @apply md:grid md:grid-cols-3 lg:gap-8 max-md:pr-6;
+    @apply -mr-6 md:mr-0;
+    > * {
+      @apply basis-[90%] snap-start flex-shrink-0;
+    }
+  }
+  .blog-grid-grid {
+    @apply flex flex-col;
+    @apply md:grid md:grid-cols-3;
+    @apply gap-6 lg:gap-8;
+  }
+  .blog-grid-empty {
+    @apply flex flex-col items-center justify-center py-16;
+  }
+  .blog-grid-empty-heading {
+    @apply text-3xl font-bold text-center mb-4;
+  }
+  .blog-grid-empty-text {
+    @apply text-lg text-center;
+  }
+
+  /* Blog card */
+  .blog-card {
+    @apply flex-1;
+    @apply flex flex-col;
+    @apply h-full;
+    @apply overflow-hidden;
+  }
+  .blog-card-image {
+    @apply w-full h-full object-cover;
+  }
+  .blog-card-text {
+    @apply flex-1;
+    @apply flex flex-col justify-between space-y-2;
+  }
+  .blog-card-excerpt {
+    @apply text-sm;
+  }
+  .blog-card-footer {
+    @apply flex justify-between items-center gap-2;
+  }
+  .blog-article {
+    .image {
+      @apply mb-8;
+      figcaption {
+        @apply mt-2 pl-2;
+        @apply border-l-4;
+      }
+    }
+    blockquote {
+      @apply mb-4 pl-4;
+      @apply border-l-8;
+      @apply border-gray-200;
+    }
+    
+    .accordion-wrapper {
+      @apply my-6;
+    }
+  }
+  .view-more-wrapper {
+    @apply flex justify-center items-center;
+    @apply -ml-6 pt-8;
+  }
+
+}

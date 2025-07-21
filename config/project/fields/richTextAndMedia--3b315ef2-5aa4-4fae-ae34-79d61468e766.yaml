@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: richTextAndMedia
+instructions: null
+name: 'Rich Text and Media'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: '*'
+  characterLimit: null
+  ckeConfig: d0aa718b-a2d0-4c5a-8067-9a7e747e6db5 # Rich Text and Media
+  createButtonLabel: 'New Rich Text and Media'
+  defaultTransform: null
+  expandEntryButtons: false
+  fullGraphqlData: false
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

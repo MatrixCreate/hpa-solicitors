@@ -1,0 +1,802 @@
+fieldLayouts:
+  f96df896-26cf-47c5-9118-7e2150a11c87:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: globalCtaImage
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 08820d49-3726-47e7-afc4-f091b1bc34b7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 0400de23-7183-41d3-9e58-36bcc0cd7e6f
+            userCondition: null
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: globalCtaRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e9240066-88b1-49a1-ada7-96c9d9eb0726
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 26c92ef0-b8e6-469c-88ca-2950876d4469 # Action Buttons
+            handle: globalCtaActionButtons
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 90fa8601-fbc3-4019-9044-907a38724ee5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 3b03df70-d6de-4e35-b5d2-ecb9fe7e806f
+            userCondition: null
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalCtaHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8f8c300f-a926-40e8-a45d-f80ab1954069
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: globalCtaTextColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c55bd6ff-b307-425d-9f27-2c5736d52e94
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-10T21:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalCtaBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d8b19c0-dc6b-4421-acd8-a6807e491e61
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-14T23:46:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: globalCtaBackgroundImage
+            includeInCards: false
+            instructions: null
+            label: 'Background Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 80d4e7de-630e-4f70-90cc-f283f7b601ee
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Call to Action'
+        uid: 611cde15-1aee-43f7-8a12-5aaef27135c3
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-14T19:47:22+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: globalContactFormImage
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a823ccda-7245-4843-969e-9868616e8e05
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-14T19:47:22+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: bf7ee3e8-42f3-4578-83e6-fdcbf85823d8
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:32:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: globalContactFormRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c4a30c2c-a815-4222-b01b-2fec14ca46bd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T10:02:43+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: b509c652-966b-44b9-97d1-5463a5a91a1f
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:32:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 63ba87bf-e562-44d4-ac20-3360a518ec05 # Form
+            handle: globalContactFormForm
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 20d3e9e4-7d10-4007-8d85-9e1c8fea7b57
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T09:56:47+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: d0ebdff4-675a-46f2-9ba1-bfdc46f192c8
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T17:25:47+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalContactFormHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0842d291-923e-4d77-afeb-08d164c0297a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T17:25:47+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: globalContactFormTextColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a792826b-e74f-4da4-a4fe-0b053ec54c8b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:32:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalContactFormBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b516f2b4-16f0-408c-9cc9-977ddc0b4ff4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:32:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: globalContactFormBackgroundImage
+            includeInCards: false
+            instructions: null
+            label: 'Background Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 869e1c7d-3219-48ca-9f8a-b34d21a3a0db
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Contact Form'
+        uid: 38e7a266-2b16-489d-a531-4ae89cda9902
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-04-02T14:22:12+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: globalFaqRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce970f11-594a-4113-9a68-54c115c9a7ab
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T10:02:43+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: fbf79ed7-bea9-40cd-a71e-33e7dab9917e
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:22:12+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c5fdfcd3-11c8-47f7-8ca9-5c884e0673eb # Accordion Items
+            handle: globalFaqAccordionItems
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 948ffb42-72bf-414d-8da5-df36d1fc1657
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T16:04:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: globalFaqOpenFirstItem
+            includeInCards: false
+            instructions: null
+            label: 'Open first item automatically'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f12ce24-db9a-47b9-9280-6a913818b839
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:22:12+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: globalFaqAllItemsStayOpen
+            includeInCards: false
+            instructions: null
+            label: 'All items stay open'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1dca5986-01b2-4982-9af1-bc431c4617f7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T09:56:47+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 9151234f-39fc-4c94-ab67-85cd5a1c357b
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:22:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2de08d74-791b-4389-a6fc-181f1b631f2e # Action Button
+            handle: globalFaqCallToAction
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24a99520-98b4-4950-98cc-1d8af0f41956
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T09:56:47+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 3cbe1ef0-8798-4c10-b455-bc92ed8cf6b7
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:22:12+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalFaqBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9b36ad15-cff0-4550-b6cf-e41604984bac
+            userCondition: null
+            warning: null
+            width: 100
+        name: FAQ
+        uid: 24116202-3b14-4e78-80e3-7d9df059b1fc
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-28T10:02:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: uspsRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7441c8f2-df4e-40f7-acae-80b5c265940d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T10:02:43+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: a8427bc0-d434-430f-9693-bbb0beadf182
+            userCondition: null
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 453eb038-5a16-46c6-85dd-6f13bf991d65 # USPs
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f458d51f-07f2-467d-b0ac-0491e57f8140
+            userCondition: null
+            warning: null
+            width: 100
+        name: USPs
+        uid: 313f61b7-96fb-4f59-bf50-53c2087d0814
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-06T15:12:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ab406f8e-629f-434f-b9a4-90ff90798985 # Trust Links
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 509b4aef-5b92-4a37-9b5f-7d5095803b90
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T17:43:44+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 88eb4f89-250e-4ceb-b61b-ca45af9cbeb0
+            userCondition: null
+          -
+            dateAdded: '2025-05-28T10:02:43+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 41919307-300c-43e6-b719-9ab99eb82958
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: trustLinksBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 47963b85-d920-441c-9acb-b1e02366edf7
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Trust Links'
+        uid: f73a6856-7eac-4a6a-9ebc-119fd2e22614
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-07T10:08:39+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: globalTestimonialsRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3454e5dc-5eaf-47d1-ae93-803ef8909d2e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-13T08:05:51+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: b6cf46d2-5a1d-43d7-b173-2d8189ca89dd
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T14:19:23+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1d4c3930-eccf-49d3-aef2-58470d7b1621 # Testimonials Origin
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: 'Hit Save to see the updated options.'
+            type: craft\fieldlayoutelements\CustomField
+            uid: c7f976a9-3f29-4f23-b864-49c66c285b7e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-13T07:57:33+00:00'
+            elementCondition:
+              class: craft\elements\conditions\ElementCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 1d4c3930-eccf-49d3-aef2-58470d7b1621 # Testimonials Origin
+                  layoutElementUid: c7f976a9-3f29-4f23-b864-49c66c285b7e
+                  uid: 5069e200-d1b4-4bef-9241-f6c85cace1a3
+                  value: false
+              elementType: craft\elements\GlobalSet
+              fieldContext: global
+            template: _cp/tips/testimonials_entries.twig
+            templateMode: site
+            type: craft\fieldlayoutelements\Template
+            uid: 1c689554-5e5c-40b6-8f79-8e1360269c3d
+            userCondition: null
+            width: 100
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\ElementCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 1d4c3930-eccf-49d3-aef2-58470d7b1621 # Testimonials Origin
+                  layoutElementUid: c7f976a9-3f29-4f23-b864-49c66c285b7e
+                  uid: a230d612-c403-4798-8697-ca8f77207b22
+                  value: true
+              elementType: craft\elements\GlobalSet
+              fieldContext: global
+            fieldUid: ea167b29-b833-4874-9b5e-40b3843a8fc9 # Code (Multi-Line)
+            handle: globalReviewsEmbedCode
+            includeInCards: false
+            instructions: null
+            label: 'Embed Code'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8b49be38-414e-465d-95ce-83064a878bd7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-13T08:04:43+00:00'
+            elementCondition: null
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: b00cff3f-6b59-4ec8-a66d-0bb221d14f4a
+            userCondition: null
+          -
+            dateAdded: '2025-07-13T08:03:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalTestimonialsHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 42884887-af39-4592-b06f-6d754956865e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-13T08:03:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: globalTestimonialsTextColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4de02781-cce8-43ad-9744-c927f9aa23dc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalTestimonialsBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 80a1ffc6-6ed9-46e3-a743-e4ae4f758dde
+            userCondition: null
+            warning: null
+            width: 100
+        name: Testimonials
+        uid: 50d23edb-6839-4615-90cb-bfac32b5abe6
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: newsletterRichText
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cacff28f-9a4e-4e14-8179-73ee3b349b11
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T17:43:44+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 68a9906d-95cf-4f37-b8f0-48a847b255d5
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T21:24:18+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: dee8ebd6-cda9-49fb-b9c0-203ca0fdfec8 # Newsletter Type
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: 'Hit Save to see the updated options.'
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4df94589-ad07-469f-aeae-438a637e753c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-13T08:04:43+00:00'
+            elementCondition: null
+            heading: ''
+            type: craft\fieldlayoutelements\Heading
+            uid: 4b37b457-919b-4fb9-8cc9-23450331a005
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T21:24:18+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\ElementCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: dee8ebd6-cda9-49fb-b9c0-203ca0fdfec8 # Newsletter Type
+                  layoutElementUid: 4df94589-ad07-469f-aeae-438a637e753c
+                  uid: 2f6554b0-ee51-4928-b245-139b37a76edf
+                  value: false
+              elementType: craft\elements\GlobalSet
+              fieldContext: global
+            fieldUid: ea167b29-b833-4874-9b5e-40b3843a8fc9 # Code (Multi-Line)
+            handle: newsletterEmbedCode
+            includeInCards: false
+            instructions: null
+            label: 'Embed Code'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad73bec1-ba24-4133-8781-abb13e4c0371
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\ElementCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: dee8ebd6-cda9-49fb-b9c0-203ca0fdfec8 # Newsletter Type
+                  layoutElementUid: 4df94589-ad07-469f-aeae-438a637e753c
+                  uid: d2ffe536-9172-452d-9a89-ec451e060e8c
+                  value: true
+              elementType: craft\elements\GlobalSet
+              fieldContext: global
+            fieldUid: 63ba87bf-e562-44d4-ac20-3360a518ec05 # Form
+            handle: newsletterForm
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 36b27eb1-1db0-405a-b017-b66a5d733af7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T17:43:44+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 00946718-5aed-4408-830d-1167b0750b30
+            userCondition: null
+          -
+            dateAdded: '2025-01-06T14:49:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: newsletterSignupBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ca34190-8b60-4fe9-950a-fccdbec7bb51
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Newsletter Signup'
+        uid: 79fa2ae3-83fa-469a-a099-52a65d72161e
+        userCondition: null
+handle: globalContent
+name: 'Global Content'
+sortOrder: 3

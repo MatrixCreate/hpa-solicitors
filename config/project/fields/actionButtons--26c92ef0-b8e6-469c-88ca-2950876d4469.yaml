@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: actionButtons
+instructions: null
+name: 'Action Buttons'
+searchable: false
+settings:
+  createButtonLabel: 'New Action Button'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - a815b6d2-359a-4fc4-be55-ab139593beba # Action Button
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

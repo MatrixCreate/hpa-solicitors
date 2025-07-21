@@ -1,0 +1,99 @@
+css: ".ck-content span.font-display {\r\n  font-family: 'DM Serif Display', serif;\r\n}"
+headingLevels:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: 'Rich Text (Multi-Column)'
+options:
+  alignment:
+    options:
+      - left
+      - center
+      - right
+  fontColor:
+    colors:
+      -
+        color: '#FFFFFF'
+        label: White
+      -
+        color: '#f7f7f7'
+        label: 'Pale Grey'
+      -
+        color: '#eeeeee'
+        label: 'Light Grey'
+      -
+        color: '#d7d7d7'
+        label: 'Mid Light Grey'
+      -
+        color: '#aaaaaa'
+        label: 'Mid Grey'
+      -
+        color: '#666666'
+        label: 'Dark Grey'
+      -
+        color: '#333333'
+        label: 'Darker Grey'
+      -
+        color: '#181818'
+        label: 'Nearly Black'
+      -
+        color: '#bfebff'
+        label: 'Pale Blue'
+      -
+        color: '#48C0F5'
+        label: 'Light Blue'
+      -
+        color: '#149BD7'
+        label: 'Dark Blue'
+      -
+        color: '#fdba74'
+        label: 'Light Orange'
+      -
+        color: '#F5A623'
+        label: 'Brand Orange'
+      -
+        color: '#ea580c'
+        label: 'Dark Orange'
+  link:
+    decorators:
+      openInNewTab:
+        attributes:
+          rel: 'noopener noreferrer'
+          target: _blank
+        label: 'Open in a new tab'
+        mode: manual
+  style:
+    definitions:
+      -
+        classes:
+          - font-sans
+        element: span
+        name: 'Body Font'
+      -
+        classes:
+          - font-display
+        element: span
+        name: 'Heading Font'
+toolbar:
+  - createEntry
+  - heading
+  - style
+  - '|'
+  - bold
+  - italic
+  - fontColor
+  - alignment
+  - '|'
+  - bulletedList
+  - numberedList
+  - link
+  - blockQuote
+  - insertTable
+  - '|'
+  - '|'
+  - undo
+  - redo
+  - '|'
+  - sourceEditing

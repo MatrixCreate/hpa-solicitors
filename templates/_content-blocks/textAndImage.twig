@@ -1,0 +1,75 @@
+{%- import "_macros/utils.twig" as utils -%}
+{%- import "_macros/ui.twig" as ui -%}
+
+{%- set columnLayout = 'column-layout-' ~ block.desktopTextAndImageLayout ?? null -%}
+{%- set mobileLayout = 'mobile-layout-' ~ block.mobileTextAndImageLayout ?? null -%}
+{%- set backgroundColour = block.backgroundColour.color[0].background -%}
+{%- set headingColour = block.headingColour.color[0].heading -%}
+{%- set textColour = block.textColour.color[0].text -%}
+{%- set fitImageToBlock = siteConfig.contentBlocks_textAndImages_fitImageToBlock ?? false -%}
+
+
+<section class="text-and-image content-block
+  {{ columnLayout }}
+  {{ mobileLayout }}
+  {{ fitImageToBlock ? 'fit-image-to-block' : '' }}
+  
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, block.type, 'Text and Image') }}
+  >
+  <div class="content-block-inner">
+    <div class="content-wrapper">
+      <div class="image-wrapper">
+        {%- if block.image|length -%}
+          {%- set image = block.image.one() -%}
+        {%- else -%}
+          {%- set image = siteConfig.globalTextAndImagePlaceholder.one() -%}
+        {%- endif -%}
+
+        {%- if image|length -%}
+          <figure class="text-and-image-figure h-full" role="figure">
+            {{ ui.component('image', {
+              img: image,
+              class: 'text-and-image-image',
+              sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 460px',
+              formats: ['webp'],
+              alt: image.alt ?? image.title,
+              lazy: true,
+              responsive: {
+                sm: { mode: 'crop', width: 400, height: 300, quality: 90, position: 'center-center' },
+                md: { mode: 'crop', width: 600, height: 400, quality: 90, position: 'center-center' },
+                lg: { mode: 'crop', width: 460, height: 300, quality: 90, position: 'center-center' },
+              }
+            }) }}
+          </figure>
+        {%- endif -%}
+      </div> {# .image-wrapper #}
+      <div class="text-wrapper">
+        {{ ui.component('rich-text', { 
+          content: block.richText 
+        }) }}
+
+        {% if block.actionButtons.all() %}
+        <div class="action-buttons">
+          {% for item in block.actionButtons.all() %}
+            {% if item.actionButton.url|length %}
+              {%- set cta = item.actionButton -%}
+              {%- set alternatingButtonClass = loop.index is odd ? 'btn-primary' : 'btn-secondary' -%}
+              {{ ui.component('button', {
+                type: 'link',
+                href: cta.url,
+                text: cta.text,
+                class: 'btn ' ~ alternatingButtonClass
+              }) }}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div> {# .text-wrapper #}
+    </div> {# .content-wrapper #}
+  </div> {# .content-block-inner.max-w-5xl #}
+</section> {# .text-and-media #}
+

@@ -1,0 +1,34 @@
+/* Entry Cards - visual styling only */
+@layer components {
+  
+  /* Entry Cards */
+  .entry-card-grid {
+    
+  }
+  .entry-card {
+    @apply rounded-[var(--mds-entry-card-border-radius)];
+    overflow: var(--mds-entry-card-border-radius-overflow);
+    .entry-card-image {
+      @apply rounded-[var(--mds-entry-card-image-border-radius)];
+    }
+    .entry-card-content {
+      @apply p-4;
+      @apply bg-[var(--mds-entry-card-background-color)];
+    }
+    .text-content {
+      @apply mb-4;
+    }
+    .entry-card-heading {
+      @apply mb-2;
+      @apply text-[var(--mds-entry-card-heading-font-size)];
+      @apply font-[var(--mds-entry-card-heading-font-weight)];
+    }
+    .entry-card-text {
+      @apply font-sans;
+      @apply text-[var(--mds-entry-card-text-font-size)];
+      @apply font-[var(--mds-entry-card-text-font-weight)];
+      @apply text-[var(--mds-entry-card-text)];
+    }
+  }
+
+}

@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: callToActionBlock
+instructions: null
+name: 'Call to Action Block'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - b31e80bd-f6a2-40b1-a76a-2254459b4ef0 # Call to Action
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

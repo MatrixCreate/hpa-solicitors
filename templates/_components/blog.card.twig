@@ -1,0 +1,66 @@
+{% import "_macros/ui.twig" as ui %}
+
+{# Get props with fallbacks #}
+{% set showImages = props.showImages ?? showImages ?? true %}
+{% set entry = props.entry ?? entry %}
+
+<div class="blog-card">
+  {% if showImages %}
+    {% set cardImage = entry.featuredImage.one() %}
+    {% if cardImage|length %}
+      <a href="{{ entry.url }}">
+        <figure role="figure">
+          {{ ui.component('image', {
+            img: cardImage,
+            class: 'blog-card-image',
+            sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 300px',
+            formats: ['webp'],
+            alt: cardImage.alt ?? cardImage.title,
+            lazy: true,
+            responsive: {
+              sm: {
+                mode: 'crop',
+                width: 400,
+                height: 280,
+                quality: 85,
+                position: 'center-center',
+              },
+              md: {
+                mode: 'crop',
+                width: 600,
+                height: 400,
+                quality: 85,
+                position: 'center-center',
+              },
+              lg: {
+                mode: 'crop',
+                width: 300,
+                height: 200,
+                quality: 85,
+                position: 'center-center',
+              },
+            }
+          }) }}
+        </figure>
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <div class="blog-card-text">
+    <h2 class="blog-card-title">
+      <a href="{{ entry.url }}">
+        {{ entry.title }}
+      </a>
+    </h2>
+    {% if entry.excerpt|length %}
+    <div class="blog-card-excerpt">
+      {{ entry.excerpt }}
+    </div>
+    {% endif %}
+    <div class="blog-card-footer">
+      <div class="blog-card-post-date">
+        {{ entry.postDate|date('j M Y') }}
+      </div>
+    </div>
+  </div>
+</div>

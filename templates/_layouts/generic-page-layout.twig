@@ -1,0 +1,61 @@
+{# -- Layout template for HTML pages -- #}
+{#
+ ┌─────────────────────────────────────────────────────────────────────────────┐
+ │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+ │ │                                                                         │ │
+ │ │                                                                         │ │
+ │ │                                                                         │ │
+ │ │                                 content                                 │ │
+ │ └─────────────────────────────────────────────────────────────────────────┘ │
+ │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+ │ │                                                                         │ │
+ │ │                                                                         │ │
+ │ │                                                                         │ │
+ │ │                               subContent                                │ │
+ │ └─────────────────────────────────────────────────────────────────────────┘ │
+ │                                                                             │
+ │                                  bodyHtml                                   │
+ └─────────────────────────────────────────────────────────────────────────────┘
+#}
+{% extends "_boilerplate/_layouts/base-html-layout" %}
+
+{# -- Any <meta> tags that should be included in the <head> #}
+{% block headMeta %}
+{% endblock headMeta %}
+
+{# -- Any <link> tags that should be included in the <head> #}
+  {% block headLinks %}
+    {% include "_partials/fonts" %}
+    {{ craft.vite.script('assets/js/app.js', false) }}
+  {% endblock headLinks %}
+
+  {# -- Any CSS that should be included before </head> -- #}
+  {% block headCss %}
+
+  {% endblock headCss %}
+
+{# -- Page body -- #}
+{% block bodyHtml %}
+
+    {# -- Header -- #}
+    {% include "_partials/header" %}
+
+    {# -- Main content -- #}
+    <main class="main content" id="content">
+        {% block hero %}
+        {% endblock %}
+        
+        {# -- Primary content block -- #}
+        {% block content %}
+        {% endblock %}
+
+        {# -- Content that appears below the primary content block -- #}
+        {% block subcontent %}
+        {% endblock %}
+    </main>
+
+    {# -- Footer -- #}
+    {% include "_partials/footer" %}
+    {% include "_components/debug-info" %}
+
+{% endblock bodyHtml %}

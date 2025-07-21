@@ -1,0 +1,59 @@
+color: null
+description: null
+fieldLayouts:
+  63469034-d5e9-4300-b713-ebd5f29a2a2e:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:6026e449-af7d-479e-95e8-2544d955d2dd'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-26T09:39:16+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6026e449-af7d-479e-95e8-2544d955d2dd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-27T20:31:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d069a8c-490e-496f-ab47-937ab9b6a92a # Columns
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 99853bc7-2f8a-4b06-bbca-4c0d9c6e8735
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e9b3ca13-dd52-47ec-8f06-a19eac0fd156
+        userCondition: null
+handle: multiColumnText
+hasTitleField: false
+icon: columns-3
+name: 'Multi-Column Text'
+showSlugField: false
+showStatusField: false
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Multi-Column Text'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

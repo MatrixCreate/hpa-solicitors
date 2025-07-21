@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: videoUrl
+instructions: null
+name: 'Video URL'
+searchable: false
+settings:
+  url: ''
+translationKeyFormat: null
+translationMethod: none
+type: wrav\oembed\fields\OembedField

@@ -1,0 +1,14 @@
+/* Text & Images - visual styling only */
+@layer components {
+  
+  
+  /* Text & Images */
+  .text-and-images {
+    .text-and-image-block {
+      .content-block-inner {
+        @apply md:p-[var(--padding-block-md)];\n        @apply md:lg:py-[var(--padding-block-2xl)];
+      }
+    }
+  }
+
+}

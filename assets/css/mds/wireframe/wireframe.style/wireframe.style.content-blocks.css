@@ -1,0 +1,81 @@
+@layer components {
+  
+  /* Content Blocks - visual styling only */
+  .content-block {
+
+    /* Apply Tailwind prose styles to Rich Text fields in all content blocks */
+    .rich-text-field {
+      @apply flex flex-col;
+      @apply prose max-w-none;
+      @apply prose-headings:font-display;
+      @apply prose-headings:font-bold;
+      @apply prose-headings:leading-tight;
+    }
+
+    /* Headings in Rich Text fields */
+    .rich-text-field,
+    .heading {
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-display font-semibold;
+      }
+      h1 {
+        @apply text-[var(--mds-heading-h1-font-size)];
+        @apply font-[var(--mds-heading-h1-font-weight)];
+        
+        @apply md:text-[var(--mds-heading-h1-font-size-md)];
+        @apply lg:text-[var(--mds-heading-h1-font-size-lg)];
+      }
+      h2 {
+        @apply text-[var(--mds-heading-h2-font-size)];
+        @apply font-[var(--mds-heading-h2-font-weight)];
+        
+        @apply md:text-[var(--mds-heading-h2-font-size-md)];
+        @apply lg:text-[var(--mds-heading-h2-font-size-lg)];
+      }
+      h3 {
+        @apply text-[var(--mds-heading-h3-font-size)];
+        @apply font-[var(--mds-heading-h3-font-weight)];
+        
+        @apply md:text-[var(--mds-heading-h3-font-size-md)];
+        @apply lg:text-[var(--mds-heading-h3-font-size-lg)];
+      }
+      h4 {
+        @apply text-[var(--mds-heading-h4-font-size)];
+        @apply font-[var(--mds-heading-h4-font-weight)];
+        
+        @apply md:text-[var(--mds-heading-h4-font-size-md)];
+        @apply lg:text-[var(--mds-heading-h4-font-size-lg)];
+      }
+      h5 {
+        @apply text-[var(--mds-heading-h5-font-size)];
+        @apply font-[var(--mds-heading-h5-font-weight)];
+        
+        @apply md:text-[var(--mds-heading-h5-font-size-md)];
+        @apply lg:text-[var(--mds-heading-h5-font-size-lg)];
+      }
+      h6 {
+        @apply text-[var(--mds-heading-h6-font-size)];
+        @apply font-[var(--mds-heading-h6-font-weight)];
+        @apply uppercase;
+        
+        @apply md:text-[var(--mds-heading-h6-font-size-md)];
+      }
+
+      /* Style UL and OL lists */
+      ul {
+        li {
+          &::before {
+            @apply bg-[var(--secondary-color)];
+          }
+        }
+      }
+    }
+
+    .rich-text-field {
+      @apply space-y-4 mb-8;
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+}

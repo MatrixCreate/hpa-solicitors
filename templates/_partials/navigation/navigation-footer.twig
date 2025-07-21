@@ -1,0 +1,17 @@
+{% set footerNav = craft.navigation.nodes()
+  .handle("footerNavigation")
+  .level(1)
+  .all() %}
+
+{% if footerNav != null %}
+  <nav class="nav nav-footer">
+  {% for navItem in footerNav %}
+    <a
+      class="nav-footer-link"
+      href="{{ navItem.url }}"
+      >
+      {{ navItem.title }}
+    </a>
+  {% endfor %}
+  </nav>
+{% endif %}

@@ -1,0 +1,12 @@
+/* Debug utilities - structural positioning */
+@layer utilities {
+  .debug-info {
+    @apply absolute top-0 left-0;
+
+    &::before  {
+      @apply absolute top-0 left-0;
+      @apply w-screen h-[1px];
+      content: '';
+    }
+  }
+}

@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: colour
+instructions: null
+name: Colour
+searchable: false
+settings:
+  default: null
+  palette: 'Background Colours'
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

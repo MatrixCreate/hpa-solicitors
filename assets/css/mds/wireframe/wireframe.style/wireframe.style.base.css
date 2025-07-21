@@ -1,0 +1,28 @@
+/* Base styles - visual styling only */
+@layer base {
+  .body {
+    /* Typography - visual styling */
+    @apply font-sans;
+    @apply leading-relaxed;
+    @apply text-[var(--mds-text-primary)];
+  }
+}
+
+@layer base {  
+  a {
+    @apply text-[var(--mds-link-color)];
+    @apply transition-colors duration-300 ease-in-out;
+    
+    &:hover {
+      @apply text-[var(--mds-link-color-hover)];
+      text-decoration-thickness: 1px;
+    }
+    &:focus {
+      @apply text-[var(--mds-link-color-hover)];
+    }
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+}

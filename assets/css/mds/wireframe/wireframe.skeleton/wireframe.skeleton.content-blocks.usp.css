@@ -1,0 +1,25 @@
+/* USPs Content Block - structural layout only */
+@layer components {
+
+  /* USPs */
+  .usp-row {
+    @apply grid grid-cols-2 md:grid-cols-4 md:flex md:flex-row gap-4 md:gap-6 lg:gap-10;
+  }
+  .usp-item {
+    @apply flex-1;
+    @apply flex flex-col gap-4 space-y-1;
+    @apply items-center;
+    @apply md:text-center;
+  }
+  .usp-icon {
+    @apply w-12 h-12;
+    svg {
+      @apply w-full h-full;
+    }
+  }
+  .usp-text {
+    @apply !leading-tight;
+    @apply text-center;
+  }
+
+}

@@ -1,0 +1,9 @@
+{% extends '_layouts/generic-page-layout.twig' %}
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% include '_entry-types/blog' %}
+	{% include '_layouts/_content' %}
+
+{% endblock %}

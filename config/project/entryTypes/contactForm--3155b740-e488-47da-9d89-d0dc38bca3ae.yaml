@@ -1,0 +1,302 @@
+color: null
+description: null
+fieldLayouts:
+  50b5b7ff-0822-4528-ad1b-34faebc7e805:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:dcb3b0c9-0032-4f7c-9615-f02ac62fafa8'
+      - 'layoutElement:e5947920-0b51-4e32-bd4c-9f797757f9a3'
+      - 'layoutElement:7fc77759-9517-4d97-8b33-7755d034a2f2'
+      - 'layoutElement:c8beb96e-1b5a-422f-bed3-368f132f6855'
+      - 'layoutElement:577d908c-118d-4524-9597-57cf8bb89dcc'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-04-02T14:34:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: useGlobalContactForm
+            includeInCards: true
+            instructions: null
+            label: 'Use Global Contact Form'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:34:57+00:00'
+            dismissible: false
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 20d2b373-87fe-492f-8f18-d76fa8774b2b
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            style: tip
+            tip: 'Global Contact Form can be edited Globals > Global Content > Contact Form.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 5ee35c0b-cd11-40b6-bdd1-b777ddd155ee
+            userCondition: null
+          -
+            dateAdded: '2025-07-14T19:48:52+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: b8329d9f-b324-407b-86cc-da03834ba433
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d2ebc82-409f-474e-b028-0f85fb452a44
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-14T19:48:52+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 29591104-b0b1-44a5-82df-1f3c1326a9d2
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: cc8c1e9c-9e36-4a85-ab2e-9eca5e9cbbef
+            userCondition: null
+          -
+            dateAdded: '2025-01-09T20:19:59+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 5eff7c0d-5d19-4fe8-a559-3befc0bc0992
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e5947920-0b51-4e32-bd4c-9f797757f9a3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:16:54+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: f3ba81b9-427e-4f7e-8389-85c9513c8048
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 904408c2-4d3b-4e9d-b1ea-885e5235de5f
+            userCondition: null
+          -
+            dateAdded: '2025-01-09T20:19:59+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: da4c5f80-90fa-4759-a7c1-2d65fdc4e98f
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 63ba87bf-e562-44d4-ac20-3360a518ec05 # Form
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7fc77759-9517-4d97-8b33-7755d034a2f2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:16:54+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 6b6e2e81-a9e4-4edc-b016-f1fb0fa16506
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 075c01ba-8269-4996-b678-08f790fbc77a
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T18:49:02+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 47f7d0f9-f739-4b08-8eee-ac94e6b97862
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b40dd5fc-18a4-47fa-b2b1-e7d5b2bd48f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T18:49:02+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 62f7f0b5-84df-49cc-bc4c-cebc68f4d3cd
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06e54211-ab8e-4967-8475-64c705f0a3ef
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T20:19:59+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 6a7e94c4-dd2f-4ee9-9016-ea7b8b088048
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c8beb96e-1b5a-422f-bed3-368f132f6855
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:32:09+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 11fabd40-a958-4bd1-b251-3bcea1e4c6b0
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
+            handle: backgroundImage
+            includeInCards: true
+            instructions: null
+            label: 'Background Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 577d908c-118d-4524-9597-57cf8bb89dcc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 681aef92-4417-462d-a664-45c371462d20
+        userCondition: null
+handle: contactForm
+hasTitleField: false
+icon: envelope-open-text
+name: 'Contact Form'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Contact Form'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

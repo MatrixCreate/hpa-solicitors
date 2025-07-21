@@ -1,0 +1,7 @@
+enabled: '1'
+handle: socialNetworks
+name: 'Social Networks'
+settings:
+  folder: /social-networks
+sortOrder: 2
+type: verbb\iconpicker\iconsets\SvgFolder

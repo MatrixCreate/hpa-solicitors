@@ -1,0 +1,40 @@
+/* Footer - visual styling only */
+@layer components {
+  /* Footer */
+  .footer {
+    a {
+      color: inherit;
+    }
+  }
+  .footer-inner {
+    @apply bg-[var(--mds-footer-background)];
+  }
+  .footer-container {
+    @apply p-[var(--padding-block-md)];
+    @apply pb-4;
+    @apply md:pb-7;
+    @apply lg:py-[var(--padding-block-2xl)];
+  }
+
+  .footer-logo {
+    @apply mb-4;
+  }
+
+  .footer-content {
+    @apply text-sm;
+  }
+
+  .footer-bottom-content {
+    @apply text-xs;
+  }
+
+  .footer-credit-link {
+    @apply underline;
+  }
+
+  .nav-footer-link {
+    @apply py-2;
+    @apply font-medium;
+    @apply hover:no-underline;
+  }
+}

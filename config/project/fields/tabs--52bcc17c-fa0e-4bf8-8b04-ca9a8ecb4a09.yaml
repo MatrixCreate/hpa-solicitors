@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: tabs
+instructions: null
+name: Tabs
+searchable: false
+settings:
+  createButtonLabel: 'Add Tab'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 7e984883-702a-4ca9-9552-1a3dd0d337de # Tab
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

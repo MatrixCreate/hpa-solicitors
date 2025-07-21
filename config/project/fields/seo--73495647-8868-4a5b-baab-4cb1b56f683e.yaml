@@ -1,0 +1,59 @@
+columnSuffix: null
+handle: seo
+instructions: null
+name: 'SEO Settings'
+searchable: false
+settings:
+  elementDisplayPreviewType: google
+  facebookEnabledFields:
+    - seoPreview
+    - ogType
+    - ogTitle
+    - ogSiteNamePosition
+    - ogDescription
+    - ogImage
+    - ogImageTransform
+    - ogImageTransformMode
+    - ogImageDescription
+  facebookTabEnabled: '1'
+  generalEnabledFields:
+    - seoPreview
+    - mainEntityOfPage
+    - seoTitle
+    - siteNamePosition
+    - seoDescription
+    - seoKeywords
+    - seoImage
+    - seoImageTransform
+    - seoImageTransformMode
+    - seoImageDescription
+    - robots
+    - canonicalUrl
+  generalTabEnabled: '1'
+  sitemapEnabledFields:
+    - sitemapUrls
+    - sitemapAssets
+    - sitemapAssetTransform
+    - sitemapFiles
+    - sitemapAltLinks
+    - sitemapChangeFreq
+    - sitemapPriority
+    - sitemapLimit
+    - newsSitemap
+    - newsPublicationName
+  sitemapTabEnabled: '1'
+  twitterEnabledFields:
+    - seoPreview
+    - twitterCardType
+    - twitterCreator
+    - twitterTitle
+    - twitterSiteNamePosition
+    - twitterDescription
+    - twitterImage
+    - transformTwitterImage
+    - twitterImageTransformMode
+    - twitterImageDescription
+  twitterTabEnabled: '1'
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\seomatic\fields\SeoSettings

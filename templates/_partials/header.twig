@@ -1,0 +1,73 @@
+{% import "_macros/ui.twig" as ui %}
+
+{% cache if not craft.app.config.general.devMode %}
+
+{% set mainNav = craft.navigation.nodes()
+  .handle("mainNavigation")
+  .level(1)
+  .with(['children'])
+  .all() %}
+
+{% set stickyHeader = siteConfig.stickyHeader %}
+{% set shrinkHeaderOnScroll = siteConfig.shrinkHeaderOnScroll %}
+{% set hideHeaderOnScroll = siteConfig.hideHeaderOnScroll %}
+
+{% set hasSecondaryHeader = siteConfig.addSecondaryHeader ? true : false  %}
+
+<header class="header {% if stickyHeader %}header-sticky{% endif %} js-header" data-shrink-on-scroll="{{ shrinkHeaderOnScroll ? '1' : '0' }}" data-hide-on-scroll="{{ hideHeaderOnScroll ? '1' : '0' }}">
+  <a href="#content" class="sr-only skip-to-content">Skip to Content</a>
+
+  {%- if hasSecondaryHeader -%}
+    <div class="secondary-header bg-primary">
+      <div class="secondary-header-inner">
+        <div class="secondary-header-right">
+          {% if siteConfig.showActionButtons %}
+            {% include '_partials/navigation/navigation-action-buttons' %}
+          {% endif %}
+        </div>
+        <div class="secondary-header-left">
+          {% if siteConfig.showSearch %}
+            {{ ui.component('search.form') }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+  
+  <div class="desktop-header">
+    <div class="desktop-header-inner">
+      <a href="/">
+        {{ ui.component('company-logo') }}
+      </a>
+      {% include "_partials/navigation/navigation-main" %}
+
+    {%- if not hasSecondaryHeader -%}
+      <div class="desktop-header-actions">
+      {%- if siteConfig.showSearch -%}
+        {{ ui.component('search.form') }}
+      {%- endif -%}
+
+      {%- if siteConfig.showActionButtons -%}
+        {% include '_partials/navigation/navigation-action-buttons' %}
+      {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    </div>
+  </div>
+
+  <div class="mobile-header">
+    <div class="mobile-header-inner">
+      <a href="/">
+        {{ ui.component('company-logo') }}
+      </a>
+      <div class="mobile-header-actions">
+        {% if siteConfig.showActionButtons %}
+          {% include '_partials/navigation/navigation-action-buttons' %}
+        {% endif %}
+        {% include '_partials/navigation/navigation-mobile' %}
+      </div>
+    </div>
+  </div>
+</header>
+{% endcache %}

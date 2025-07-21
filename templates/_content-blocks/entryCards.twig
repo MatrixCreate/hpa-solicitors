@@ -1,0 +1,157 @@
+{# 
+  Entry Cards Block Template
+  -------------------------
+  A flexible component for displaying entry cards in a grid layout. Supports two modes:
+  1. Custom Cards: Manually configured cards with custom or entry-based content
+  2. Automatic Cards: Automatically generated from selected entries or child entries
+
+  Features:
+  - Custom or automatic card types
+  - Support for child entries or manually selected entries
+  - Customizable colors for background, heading, and text
+  - Rich text content support
+  - Responsive grid layout
+  - Optional action buttons
+  - Featured images support
+  - Custom or entry-based content for each card
+
+  Configuration Options:
+- entrySelection: 'custom' or 'automatic'
+  - showOwnChildren: Display child entries of current entry
+  - backgroundColour: Background color class
+  - headingColour: Heading color class
+  - textColour: Text color class
+  - richText: Optional rich text content above cards
+#}
+
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{# Determine card type - custom or automatic #}
+{% if block.entrySelection %}
+{% set entrySelection = 'custom' %}
+{% else %}
+{% set entrySelection = 'automatic' %}
+{% endif %}
+
+{# Set whether to show child entries of current entry #}
+{% if block.showOwnChildren %}
+  {% set showOwnChildren = true %}
+{% else %}
+  {% set showOwnChildren = false %}
+{% endif %}
+
+{# Set color classes from block settings #}
+{% set backgroundColour = block.backgroundColour.color[0].background %}
+{% set headingColour = block.headingColour.color[0].heading %}
+{% set textColour = block.textColour.color[0].text %}
+
+{# Main section wrapper with styling classes #}
+<section class="entry-cards content-block
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, 'entry-cards', 'Entry Cards') }}
+  >
+  <div class="content-block-inner container-medium">
+
+    {# Optional rich text content above the cards #}
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+
+    {# Card grid container with responsive columns #}
+    <div class="entry-card-grid">
+
+    {% if entrySelection == 'custom' %}
+        {# Custom Card Type Logic #}
+        {% set entryCards = block.entryCards.all() %}
+        {% for card in entryCards %}
+        
+          {# Get linked entry details and CTA configuration #}
+          {% set ctaLink = card.linkedEntry %}
+          {% set ctaEntryTitle = card.linkedEntry.getElement().title ?? '' %}
+          {% set ctaLinkType = ctaLink.linkType.label %}
+          {% set linkText = ctaLink.linkText %}
+          {% set linkTarget = ctaLink.target %}
+          {% set icon = svg('@webroot/assets/icons/system/icon_chevron_right.svg') %}
+          {% set relatedEntry = null %}
+
+          {% if card.useEntryDetails %}
+            {# Use content from the linked entry #}
+            {% set linkUrl = ctaLink.url %}
+            
+            {% set relatedEntry = ctaLink.getElement() ?? null %}
+            {% set relatedEntryImage = relatedEntry.featuredImage.one() ?? null %}
+            {% set cardImage = relatedEntryImage %}
+            
+            {% set cardHeading = card.linkedEntry.linkText ?? card.linkedEntry.getElement().title ?? '' %}
+            {% set cardText = card.linkedEntry.getElement().excerpt ?? '' %}
+          {% else %}
+            {# Use custom content for the card #}
+            {% set linkUrl = ctaLink.url %}
+            {% set cardImage = card.cardImage.one() %}
+            {% set cardHeading = card.cardHeading ?? '' %}
+            {% set cardText = card.cardText ?? ''  %}
+          {% endif %}
+
+          {# Only render card if there's a related entry #}
+          {% if relatedEntry %}
+            <div class="entry-card-grid-item">
+              {{ ui.component('entry.card', {
+                linkUrl: linkUrl,
+                cardImage: cardImage,
+                cardHeading: cardHeading,
+                cardText: cardText,
+                displayActionButton: card.displayActionButton ?? false,
+                icon: icon
+              }) }}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      {% else %}
+        {# Automatic Card Type Logic #}
+        {# Determine which entries to display #}
+        {% if showOwnChildren %}
+          {# Show child entries of current entry #}
+          {% set entries = entry.children.all() %}
+        {% else %}
+          {% set entries = block.entries.all() %}
+          {% if block.entries.all()|length == 1 %}
+            {# If only one entry selected, show its children #}
+            {% set entries = block.entries.one().children().all() %}
+          {% else %}
+            {# If multiple entries selected, show all of them #}
+            {% set entries = block.entries.all() %}
+          {% endif %}
+        {% endif %}
+
+        {# Loop through entries and create cards #}
+        {% for card in entries %}
+          {# Get entry details for card #}
+          {% set linkUrl = card.url %}
+          {% set cardImage = card.featuredImage.one() %}
+          {% set cardHeading = card.title %}
+          {% set cardText = card.excerpt %}
+          {% set displayActionButton = card.displayActionButton ?? false %}
+          {% set icon = svg('@webroot/assets/icons/system/icon_chevron_right.svg') %}
+
+          {# Render the card #}
+          <div class="entry-card-grid-item">
+            {{ ui.component('entry.card', {
+                linkUrl: linkUrl,
+                cardImage: cardImage,
+                cardHeading: cardHeading,
+                cardText: cardText,
+                displayActionButton: displayActionButton,
+                icon: null
+              }) }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div> {# .entry-card-grid #}
+
+  </div> {# .content-block-inner #}
+</section> {# .entry-cards #}

@@ -1,0 +1,20 @@
+{# Get props with fallbacks #}
+{% set size = props.size ?? size ?? 'md' %}
+{% set gap = props.gap ?? gap ?? 'gap-2' %}
+
+{% cache if not craft.app.config.general.devMode %}
+  {% set socialNetworks = companyInfo.socialNetworks.all() %}
+
+  {% if socialNetworks != null %}
+    <div class="social-networks {{ gap }}">
+      {% for socialNetwork in socialNetworks %}
+        <a class="social-icon {{ size }}"
+          href="{{ socialNetwork.theUrl }}"
+          title="Visit site"
+          target="_blank">
+          {{ socialNetwork.socialNetworkIcon.inline }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endcache %}

@@ -1,0 +1,80 @@
+/* Contact Form Content Block - structural layout only */
+@layer components {
+
+  /* Contact Form with background image */
+  .contact-form {
+    @apply relative;
+    .content-box {
+      @apply relative z-10;
+      @apply flex flex-col items-center gap-4 md:gap-8;
+    }
+    /* If background image */
+    &:has(.background-image) {
+      .background-image {
+        @apply absolute top-0 left-0 z-0;
+        @apply w-full h-full;
+        @apply object-cover;
+      }
+      .content-box {
+        @apply p-6;
+      }
+    }
+    .form-btn-wrapper {
+      @apply flex;
+      @apply mt-4;
+    }
+  }
+
+  /* Contact Form */
+  .contact-form {
+    .content-box {
+      &:has(.image-wrapper) {
+        @apply md:grid md:grid-cols-2;
+      }
+    }
+    .form-wrapper,
+    .location-map {
+      @apply flex-1;
+    }
+    .form-wrapper {
+      @apply w-full;
+    }
+
+    &.is-inset {
+      .form-wrapper {
+        @apply w-full max-w-2xl;
+        @apply mx-auto p-6;
+      }
+    }
+
+    .contact-form-image {
+      @apply w-full;
+    }
+
+    .location-map {
+      @apply -m-6 mt-0 md:m-0;
+      iframe {
+        @apply w-full h-full min-h-[40rem] md:min-h-0;
+      }
+    }
+    label {
+      @apply max-md:hidden;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      @apply md:hidden md:invisible md:opacity-0;
+    }
+    .btn-wrapper {
+      @apply flex justify-center;
+    }
+    .checkbox-wrapper {
+      .fui-layout-wrap {
+        @apply sm:columns-2 mt-2;
+      }
+    }
+    .fui-legend {
+      @apply hidden;
+    }
+  }
+
+}

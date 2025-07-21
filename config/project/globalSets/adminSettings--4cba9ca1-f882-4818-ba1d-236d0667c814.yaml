@@ -1,0 +1,47 @@
+fieldLayouts:
+  f07fdce3-64e7-409d-be75-1ca332d20b52:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-27T12:38:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 31db8b4d-b440-4c24-aecd-f9ade0be778d # Show Website Credit
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d8d35908-e297-407d-a7b6-c9bed9edbe7f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-27T12:39:57+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c0994dca-df88-45f0-8a1e-be19faa83838 # Show Debug Info
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b9795d1d-8ea5-4d2f-8343-bc4426e2e485
+            userCondition: null
+            warning: null
+            width: 100
+        name: Settings
+        uid: 5f1724db-23ad-4757-a319-60da2f946d29
+        userCondition: null
+handle: adminSettings
+name: 'Admin Settings'
+sortOrder: 4

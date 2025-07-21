@@ -1,0 +1,16 @@
+columnSuffix: zbqlbfbt
+handle: excerpt
+instructions: "The Excerpt is the default text for cards and listing blocks, and can also be used as the value for the Meta Description field.\r\n\r\n"
+name: Excerpt
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,311 @@
+{% import "_macros/ui.twig" as ui %}
+
+{# Get props with fallbacks #}
+{% set heroDesktopImage = props.heroDesktopImage ?? heroDesktopImage ?? null %}
+{% set heroMobileImage = props.heroMobileImage ?? heroMobileImage ?? null %}
+{% set heroTitle = props.heroTitle ?? heroTitle ?? null %}
+{% set heroText = props.heroText ?? heroText ?? null %}
+{% set heroActionButtons = props.heroActionButtons ?? heroActionButtons ?? null %}
+{% set heroSlimlineDesign = props.heroSlimlineDesign ?? heroSlimlineDesign ?? false %}
+{% set isActive = props.isActive ?? isActive ?? false %}
+{% set isCarousel = props.isCarousel ?? isCarousel ?? false %}
+{% set transitionType = props.transitionType ?? transitionType ?? null %}
+{% set loop = props.loop ?? loop ?? null %}
+
+{% set hasDesktopImage = false %}
+{% set hasMobileImage = false %}
+{% set desktopImage = null %}
+{% set mobileImage = null %}
+
+{% set fallbackHeroImage = siteConfig.globalHeroImagePlaceholder.one() ?? null %}
+
+{# Check current entry and parents for hero images #}
+{% set currentEntry = props.entry ?? entry %}
+{% set foundImages = false %}
+
+
+{# Only run fallback logic if no images were passed to this template #}
+{% if not heroDesktopImage and not heroMobileImage %}
+  
+  {# Check if parent hero image lookup is enabled #}
+  {% set useParentHeroImage = siteConfig.useParentHeroImage ?? true %}
+  
+  {% if useParentHeroImage %}
+    {# Check current entry and parents for hero images (checks up to 10 levels, overkill but just to be safe) #}
+    {% for i in 1..10 %}
+      {# If current entry is not null and we haven't found images yet, set current hero and check for images #}
+      {% if currentEntry is not null and not foundImages %}
+        {% set currentHero = currentEntry %}
+        
+        {# Check for direct hero fields first (regular hero setup) #}
+        {% if currentHero.heroDesktopImage is defined and currentHero.heroDesktopImage.one() is not null %}
+          {% set desktopImage = currentHero.heroDesktopImage.one() %}
+          {% set hasDesktopImage = true %}
+          {% if currentHero.heroMobileImage is defined and currentHero.heroMobileImage.one() is not null %}
+            {% set mobileImage = currentHero.heroMobileImage.one() %}
+            {% set hasMobileImage = true %}
+          {% endif %}
+          {% set foundImages = true %}
+        {# Check for heroCarousel field (carousel setup) and get first slide #}
+        {% elseif currentHero.heroCarousel is not null and currentHero.heroCarousel.one() is not null %}
+          {% set heroCarouselSlide = currentHero.heroCarousel.one() %}
+          {% if heroCarouselSlide.heroDesktopImage is defined and heroCarouselSlide.heroDesktopImage.one() is not null %}
+            {% set desktopImage = heroCarouselSlide.heroDesktopImage.one() %}
+            {% set hasDesktopImage = true %}
+            {% if heroCarouselSlide.heroMobileImage is defined and heroCarouselSlide.heroMobileImage.one() is not null %}
+              {% set mobileImage = heroCarouselSlide.heroMobileImage.one() %}
+              {% set hasMobileImage = true %}
+            {% endif %}
+            {% set foundImages = true %}
+          {% endif %}
+        {% endif %}
+        
+        {# If no images found, move to parent #}
+        {% if not foundImages %}
+          {% set currentEntry = currentEntry.level > 1 ? currentEntry.parent : null %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {# Parent hero image lookup is disabled - only check the current entry #}
+    {% set currentHero = currentEntry %}
+    
+    {# Check for direct hero fields first (regular hero setup) #}
+    {% if currentHero.heroDesktopImage is defined and currentHero.heroDesktopImage.one() is not null %}
+      {% set desktopImage = currentHero.heroDesktopImage.one() %}
+      {% set hasDesktopImage = true %}
+      {% if currentHero.heroMobileImage is defined and currentHero.heroMobileImage.one() is not null %}
+        {% set mobileImage = currentHero.heroMobileImage.one() %}
+        {% set hasMobileImage = true %}
+      {% endif %}
+      {% set foundImages = true %}
+    {# Check for heroCarousel field (carousel setup) and get first slide #}
+    {% elseif currentHero.heroCarousel is not null and currentHero.heroCarousel.one() is not null %}
+      {% set heroCarouselSlide = currentHero.heroCarousel.one() %}
+      {% if heroCarouselSlide.heroDesktopImage is defined and heroCarouselSlide.heroDesktopImage.one() is not null %}
+        {% set desktopImage = heroCarouselSlide.heroDesktopImage.one() %}
+        {% set hasDesktopImage = true %}
+        {% if heroCarouselSlide.heroMobileImage is defined and heroCarouselSlide.heroMobileImage.one() is not null %}
+          {% set mobileImage = heroCarouselSlide.heroMobileImage.one() %}
+          {% set hasMobileImage = true %}
+        {% endif %}
+        {% set foundImages = true %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% else %}
+  {# Use the images passed to this template #}
+  {% if heroDesktopImage %}
+    {% set desktopImage = heroDesktopImage %}
+    {% set hasDesktopImage = true %}
+  {% endif %}
+  {% if heroMobileImage %}
+    {% set mobileImage = heroMobileImage %}
+    {% set hasMobileImage = true %}
+  {% endif %}
+{% endif %}
+
+
+{# Set hero content #}
+{% set heroTitle = heroTitle ?? entry.title ?? null %}
+{% set heroText = heroText ?? null %}
+{% set heroActionButtons = heroActionButtons.all() ?? null %}
+
+{# Set hero image dimensions #}
+{% set heroImageDimensions = {
+  desktopXl: {
+    breakpoint: 1920,
+    width: 3840,
+    height: 1300,
+  },
+  desktop: {
+    breakpoint: 1440,
+    width: 1920,
+    height: 800,
+  },
+  tablet: {
+    breakpoint: 768,
+    width: 1440,
+    height: 500,
+  },
+  mobile: {
+    breakpoint: 320,
+    width: 768,
+    height: 600,
+  },
+  desktopSlimlineXl: {
+    breakpoint: 1920,
+    width: 3840,
+    height: 800,
+  },
+  desktopSlimline: {
+    breakpoint: 1440,
+    width: 1440,
+    height: 400,
+  },
+  tabletSlimline: {
+    breakpoint: 768,
+    width: 1440,
+    height: 300,
+  },
+  mobileSlimline: {
+    breakpoint: 320,
+    width: 768,
+    height: 600,
+  }
+} %}
+
+{# Set image transformation settings #}
+{% set mode = 'crop' %}
+{% set quality = 80 %}
+{% set position = 'center-center' %}
+{% set format = 'webp' %}
+
+{# Set whether the hero is slimline #}
+{% set isSlimline = heroSlimlineDesign ?? false %}
+
+{# Set current dimensions based on whether the hero is slimline #}
+{% set currentDimensions = isSlimline ? {
+  mobile: heroImageDimensions.mobileSlimline,
+  tablet: heroImageDimensions.tabletSlimline,
+  desktop: heroImageDimensions.desktopSlimline,
+  desktopXl: heroImageDimensions.desktopSlimlineXl,
+} : {
+  mobile: heroImageDimensions.mobile,
+  tablet: heroImageDimensions.tablet,
+  desktop: heroImageDimensions.desktop,
+  desktopXl: heroImageDimensions.desktopXl,
+} %}
+
+{# Set image transformation settings #}
+<div class="hero-inner
+  {{ isActive ? 'active' : '' }}
+  {{ isCarousel ? 'hero-carousel-slide js-carousel-slide' : '' }}
+  {{ isCarousel ? 'hero-carousel-slide--' ~ (transitionType ?? 'fade') : '' }}
+  ">
+  {% set webpMobile = {
+    mode: mode,
+    width: currentDimensions.mobile.width,
+    height: currentDimensions.mobile.height,
+    quality: quality,
+    position: position,
+    format: format
+  } %}
+  {% set webpW1440 = {
+    mode: mode,
+    width: currentDimensions.tablet.width,
+    height: currentDimensions.tablet.height,
+    quality: quality,
+    position: position,
+    format: format
+  } %}
+  {% set webpW1920 = {
+    mode: mode,
+    width: currentDimensions.desktop.width,
+    height: currentDimensions.desktop.height,
+    quality: quality,
+    position: position,
+    format: format
+  } %}
+  {% set webpW3840 = {
+    mode: mode,
+    width: currentDimensions.desktopXl.width,
+    height: currentDimensions.desktopXl.height,
+    quality: quality,
+    position: position,
+    format: format
+  } %}
+
+  {% if hasMobileImage %}
+    {% set mobileTransform = {
+        format: format,
+        width: currentDimensions.mobile.width,
+        quality: quality
+      } %}
+  {% endif %}
+
+  <picture>
+    {% if hasDesktopImage %}
+      <source
+        srcset="{{ desktopImage.getUrl(webpW1920) }} 1x, {{ desktopImage.getUrl(webpW3840) }} 2x"
+        media="(min-width: 1920px)"
+        type="image/webp">
+      <source
+        srcset="{{ desktopImage.getUrl(webpW1920) }} 1x, {{ desktopImage.getUrl(webpW3840) }} 2x"
+        media="(min-width: 1440px)"
+        type="image/webp">
+      <source
+        srcset="{{ desktopImage.getUrl(webpW1440) }} 1x, {{ desktopImage.getUrl(webpW1920) }} 2x"
+        media="(min-width: 768px)"
+        type="image/webp">
+    {% elseif fallbackHeroImage %}
+      <source
+        srcset="{{ fallbackHeroImage.getUrl(webpW1920) }} 1x, {{ fallbackHeroImage.getUrl(webpW3840) }} 2x"
+        media="(min-width: 1440px)"
+        type="image/webp">
+      <source
+        srcset="{{ fallbackHeroImage.getUrl(webpW1440) }} 1x, {{ fallbackHeroImage.getUrl(webpW1920) }} 2x"
+        media="(min-width: 768px)"
+        type="image/webp">
+    {% endif %}
+    {% if mobileImage %}
+      <source
+        srcset="{{ mobileImage.getUrl(webpMobile) }} 1x, {{ mobileImage.getUrl(webpMobile) }} 2x"
+        type="image/webp">
+    {% endif %}
+    {% if hasDesktopImage %}
+      <img
+        class="hero-image"
+        src="{{ desktopImage.getUrl(webpMobile) }}"
+        width="{{ desktopImage.getWidth(webpMobile) }}"
+        height="{{ desktopImage.getHeight(webpMobile) }}"
+        alt="{{ desktopImage.alt ?? desktopImage.title }}"
+        fetchpriority="high">
+    {% elseif fallbackHeroImage %}
+      <img
+        class="hero-image"
+        src="{{ fallbackHeroImage.getUrl(webpMobile) }}"
+        width="{{ fallbackHeroImage.getWidth(webpMobile) }}"
+        height="{{ fallbackHeroImage.getHeight(webpMobile) }}"
+        alt="{{ fallbackHeroImage.alt ?? fallbackHeroImage.title }}"
+        fetchpriority="high">
+    {% endif %}
+  </picture>
+
+  <div class="hero-text-wrapper">
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        {% if heroTitle %}
+        <div class="heading heading-scale">
+          {{ heroTitle }}
+        </div>
+        {% endif %}
+
+        {{ ui.component('rich-text', { 
+          content: heroText 
+        }) }}
+
+        {% if heroActionButtons %}
+          {% set firstActionButton = heroActionButtons[0].actionButton %}
+          {% if firstActionButton.url|length %}
+            <div class="action-buttons gap-8">
+              {% for item in heroActionButtons %}
+                {% if item.actionButton.url %}
+                  {% set cta = item.actionButton %}
+                  {{ ui.component('button', {
+                    type: 'link',
+                    href: cta.url,
+                    target: cta.target,
+                    text: cta.text ?? 'Read more',
+                    class: 'btn btn-primary'
+                  }) }}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div> {# .hero-text-inner #}
+    </div> {# .hero-text #}
+  </div> {# .hero-text-wrapper #}
+
+</div> {# .hero-inner #}

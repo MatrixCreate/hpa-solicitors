@@ -1,0 +1,8 @@
+<div class="company-logo">
+  {% if companyInfo.mainLogo.one() %}
+    {% set mainLogo = companyInfo.mainLogo.one() %}
+    <img fetchpriority="high" class="company-logo-image js-scale-logo" src="{{ mainLogo.url }}" alt="{{ siteName }}" width="{{ mainLogo.width }}" height="{{ mainLogo.height }}">
+  {% else %}
+    <h5 class="company-logo-text">{{ siteName }}</h5>
+  {% endif %}
+</div>

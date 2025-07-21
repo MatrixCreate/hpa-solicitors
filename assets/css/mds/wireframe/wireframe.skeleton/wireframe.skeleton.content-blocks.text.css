@@ -1,0 +1,18 @@
+/* Rich Text Content Block - structural layout only */
+@layer components {
+
+  /* Rich Text Block */
+  .rich-text {
+    .image {
+      figcaption {
+        @apply pt-1;
+      }
+    }
+    blockquote {
+      @apply !mt-10 !mb-6;
+      @apply pl-6;
+      @apply border-l-4;
+    }
+  }
+
+}

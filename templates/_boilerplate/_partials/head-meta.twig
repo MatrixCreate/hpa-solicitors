@@ -1,0 +1,24 @@
+{# -- Basic meta tags -- #}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+{# -- Prefetch & preconnect headers and links -- #}
+{% set headerLink = "Link: " %}
+{% for url in prefetchUrls %}
+  {% set headerLink = headerLink ~ "<#{url}>; rel=dns-prefetch;," %}
+  {% set headerLink = headerLink ~ "<#{url}>; rel=preconnect; crossorigin;" %}
+  {% if not loop.last %}
+    {% set headerLink = headerLink ~ "," %}
+  {% endif %}
+  <link rel="dns-prefetch" href="{{ url }}">
+  <link rel="preconnect" href="{{ url }}" crossorigin>
+{% endfor %}
+{% header headerLink %}
+
+{% include '_partials/favicon' %}
+{% hook 'seo' %}
+
+{% if entry is defined and entry.customSchema|length %}
+  {{ entry.customSchema|raw }}
+{% endif %}

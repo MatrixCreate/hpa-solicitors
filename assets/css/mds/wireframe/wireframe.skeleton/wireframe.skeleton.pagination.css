@@ -1,0 +1,55 @@
+/* Pagination - structural layout only */
+@layer components {
+  /* Pagination styles */
+  .search-pagination {
+    @apply flex items-center justify-center;
+    @apply gap-4;
+    @apply mt-6;
+  }
+
+  .pagination-numbers {
+    @apply flex items-center gap-1;
+  }
+
+  .pagination-link {
+    @apply flex items-center gap-2;
+    @apply px-3 py-2;
+    @apply border;
+    @apply rounded-md;
+    @apply no-underline;
+  }
+
+  .pagination-number {
+    @apply min-w-[2.5rem];
+    @apply justify-center;
+  }
+
+  .pagination-prev svg,
+  .pagination-next svg {
+    @apply flex-shrink-0;
+  }
+
+  .pagination-ellipsis {
+    @apply px-3 py-2;
+  }
+
+  /* Blog pagination classes */
+  .pagination-nav {
+    @apply mt-8;
+  }
+
+  .pagination {
+    @apply flex justify-center items-center;
+    @apply space-x-2;
+  }
+
+  .pagination-link {
+    @apply px-3 py-2;
+    @apply border;
+    @apply rounded;
+  }
+
+  .pagination-ellipsis {
+    @apply px-3 py-2;
+  }
+}

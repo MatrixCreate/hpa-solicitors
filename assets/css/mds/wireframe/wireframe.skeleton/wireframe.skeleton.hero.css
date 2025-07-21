@@ -1,0 +1,78 @@
+/* Hero - structural layout only */
+@layer components {
+
+  /* Hero */
+  .hero-inner {
+    @apply relative;
+    @apply h-full;
+  }
+  .hero-image {
+    @apply w-full h-full;
+    @apply object-cover;
+  }
+  .hero-text-wrapper {
+    @apply absolute top-0 bottom-0 md:left-1/2 z-10 md:-translate-x-1/2;
+    @apply flex flex-col items-start justify-center;
+    @apply w-full h-full;
+    @apply max-w-[var(--container-medium)];
+  }
+  .hero-text {
+    @apply flex flex-col space-y-4 lg:space-y-8;
+    @apply w-full lg:w-1/2;
+    /* If child text elements were centered in CMS, then center the action-buttons */
+    &:has(*):has([style*="text-align:center"]) {
+      .action-buttons {
+        @apply flex justify-center;
+      }
+    }
+  }
+
+
+  /* Hero carousel */
+  .hero-carousel {
+    @apply relative;
+    @apply overflow-hidden;
+    @apply aspect-square;
+    @apply md:aspect-[16/5];
+    
+    /* Carousel timing values - synchronized between CSS and JavaScript
+       - Default values are set here
+       - Can be overridden via Twig data attributes (data-autoplay-speed, data-transition-speed)
+       - JavaScript reads these CSS custom properties to ensure timing synchronization
+       - CSS transitions automatically use --hero-transition-speed */
+    --hero-transition-speed: 700ms;
+    --hero-autoplay-speed: 5000ms;
+  }
+  .hero-carousel-slide {
+    @apply absolute;
+    @apply w-full h-full;
+    @apply opacity-0;
+    @apply pointer-events-none;
+  }
+  .hero-carousel-slide.active {
+    @apply opacity-100;
+    @apply pointer-events-auto;
+    @apply z-1;
+  }
+  
+  /* Fade transition */
+  .hero-carousel-slide--fade {
+    @apply transition-opacity;
+    @apply ease-in-out;
+    transition-duration: var(--hero-transition-speed);
+  }
+  
+  /* Slide transition */
+  .hero-carousel-slide--slide {
+    @apply transition-transform;
+    @apply ease-in-out;
+    @apply opacity-100;
+    transition-duration: var(--hero-transition-speed);
+  }
+  .hero-carousel-slide--slide.active {
+    @apply opacity-100;
+    @apply opacity-100;
+    @apply pointer-events-auto;
+    @apply z-1;
+  }
+}

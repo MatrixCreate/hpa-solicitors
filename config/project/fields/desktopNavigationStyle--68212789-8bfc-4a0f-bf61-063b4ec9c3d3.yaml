@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: desktopNavigationStyle
+instructions: null
+name: 'Navigation Style'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Dropdown
+        -
+          - value
+          - dropdown
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Mega Menu'
+        -
+          - value
+          - megamenu
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

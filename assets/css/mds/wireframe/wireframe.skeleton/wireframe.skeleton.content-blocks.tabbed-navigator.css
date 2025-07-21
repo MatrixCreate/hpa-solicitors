@@ -1,0 +1,86 @@
+/* Tabbed Navigator Content Block - structural layout only */
+@layer components {
+
+  /* Tabbed Navigator */
+  /* --- Unified Tabbed Block Styles --- */
+  .tabbed-block {
+    @apply mt-8;
+  }
+  .tabbed-block-tabs {
+    @apply relative w-full;
+    @apply mb-8 px-6;
+    @apply overflow-hidden;
+    &::after {
+      @apply absolute bottom-0 left-6 right-6;
+      @apply w-full h-[2px];
+      content: '';
+    }
+  }
+  .tabbed-block-tabs-inner {
+    @apply relative;
+    @apply flex gap-4;
+    @apply md:gap-8;
+    @apply overflow-x-auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .tabbed-block-tab-label {
+    @apply flex-1;
+    @apply w-fit min-w-fit;
+    @apply pb-2 px-2 md:px-6;
+    @apply !leading-normal;
+    @apply border-b-2 border-transparent;
+    @apply focus:outline-none opacity-50 hover:opacity-100 z-10;
+  }
+  .tabbed-block-tab-label.active {
+    @apply opacity-100;
+  }
+  .tabbed-block-contents {
+    @apply w-full;
+  }
+  .tabbed-block-tab-content {
+    @apply w-full pl-6 md:pl-0;
+  }
+  .tab-content-inner {
+    @apply flex snap-x snap-mandatory overflow-x-auto gap-6;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .tab-content-inner > * {
+    @apply w-[calc(100%-1.5rem)] snap-start flex-shrink-0;
+  }
+  @media (min-width: 768px) {
+    .tabbed-entries {
+      .tab-content-inner {
+        @apply grid grid-cols-3 gap-8 overflow-visible snap-none;
+      }
+      .tab-content-inner > * {
+        min-width: 0;
+        @apply w-full;
+      }
+    }
+  }
+  /* Entries variant */
+  .tabbed-block.tabbed-entries .tabbed-block-tabs {
+    @apply justify-evenly md:justify-center;
+  }
+  .tabbed-block.tabbed-entries .tab-content-inner {
+    @apply pr-6 md:pr-0;
+  }
+  /* Content variant */
+  .tabbed-block.tabbed-content .tab-content-inner {
+    @apply gap-6;
+  }
+
+  .entry-card {}
+  .entry-card-text {
+    @apply flex flex-col flex-1;
+  }
+
+}

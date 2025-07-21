@@ -1,0 +1,240 @@
+color: null
+description: null
+fieldLayouts:
+  8c9430bf-6e04-4391-a24d-f7fd8f3bc8fe:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:b4225143-4656-40b1-b60c-72e9fa2fc528'
+      - 'layoutElement:6ec7e370-6306-42f2-8fbd-c3b0003af6ab'
+      - 'layoutElement:ab1ccbcb-e9fb-46d4-a2fc-cb8ea4295521'
+      - 'layoutElement:24a01971-30a3-4cc2-b902-a11d3a0b7975'
+      - 'layoutElement:3a10a2cf-e577-4080-88d2-fb75a44cdfc6'
+      - 'layoutElement:b3523d73-88d1-4a82-9c4e-256efd50e087'
+      - 'layoutElement:37e9bfaf-1514-471e-8b7d-a55cf918f5e1'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-09T18:10:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4225143-4656-40b1-b60c-72e9fa2fc528
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T18:10:21+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 5f3d6c30-28f0-430f-830d-e49aadca8385
+            userCondition: null
+          -
+            dateAdded: '2025-07-09T19:36:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8f0eff14-07e3-4077-83a1-c90ee4ba5f54 # Entry Selection
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ec7e370-6306-42f2-8fbd-c3b0003af6ab
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-04T11:18:58+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 8f0eff14-07e3-4077-83a1-c90ee4ba5f54 # Entry Selection
+                  layoutElementUid: 6ec7e370-6306-42f2-8fbd-c3b0003af6ab
+                  uid: 3e4ef5a6-3d9c-45a0-9a51-058b981a3141
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: showOwnChildren
+            includeInCards: true
+            instructions: null
+            label: "Show Current Entry's Own Children"
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ab1ccbcb-e9fb-46d4-a2fc-cb8ea4295521
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-03T10:47:36+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 8f0eff14-07e3-4077-83a1-c90ee4ba5f54 # Entry Selection
+                  layoutElementUid: 6ec7e370-6306-42f2-8fbd-c3b0003af6ab
+                  uid: 7ff6d95f-17ea-4783-9be2-7f434e507c41
+                  value: false
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: ab1ccbcb-e9fb-46d4-a2fc-cb8ea4295521
+                  uid: a60c3ed8-ceaa-4aca-89d4-0a03a2030f56
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e4180fed-979c-4f12-82ab-ba4878abcc1c # Entries
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24a01971-30a3-4cc2-b902-a11d3a0b7975
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-03T10:57:02+00:00'
+            dismissible: true
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 8f0eff14-07e3-4077-83a1-c90ee4ba5f54 # Entry Selection
+                  layoutElementUid: 6ec7e370-6306-42f2-8fbd-c3b0003af6ab
+                  uid: 97b4a4cc-c7e3-4d0d-a6df-0cf6025be4d1
+                  value: false
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: ab1ccbcb-e9fb-46d4-a2fc-cb8ea4295521
+                  uid: 4334931c-0a95-42b0-8167-5c902ccad991
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            style: tip
+            tip: 'Choose either the specific entries you wish to display, or choose a single entry with children to display all of them.'
+            type: craft\fieldlayoutelements\Tip
+            uid: a58aa1f7-5796-4fe0-ab6e-568edff1ec8c
+            userCondition: null
+          -
+            dateAdded: '2025-01-09T18:11:38+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 8f0eff14-07e3-4077-83a1-c90ee4ba5f54 # Entry Selection
+                  layoutElementUid: 6ec7e370-6306-42f2-8fbd-c3b0003af6ab
+                  uid: 314a1849-cc67-4bf7-a51b-f946db1ddeb4
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: c5757c83-2811-4860-bbe7-17ae2eca0e7c # Entry Cards
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e02d9d7e-f8cc-46c3-b8fb-79fb02627660
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-02T14:01:20+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 895b3dc1-5cfa-41d8-bab7-3327345b0028
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:01:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a10a2cf-e577-4080-88d2-fb75a44cdfc6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-11T20:37:08+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b3523d73-88d1-4a82-9c4e-256efd50e087
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-09T18:10:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 37e9bfaf-1514-471e-8b7d-a55cf918f5e1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 59910eae-36f2-4dd1-adea-cbeb27f2e77b
+        userCondition: null
+handle: entryCards
+hasTitleField: false
+icon: grid-horizontal
+name: 'Entry Cards'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Entry Cards'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

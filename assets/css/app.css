@@ -1,0 +1,13 @@
+/* Tailwind CSS and plugins */
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* MDS (Matrix Design System) */
+@import './mds/mds.tokens.css';
+@import './mds/mds.variables.css';
+@import './mds/wireframe/wireframe.skeleton/wireframe.skeleton.index.css';
+@import './mds/wireframe/wireframe.style/wireframe.style.index.css';
+
+/* Theme styles (Client branding etc) */
+/* @import './theme/theme.index.css'; */
+/* @import './theme.hpa/theme.index.css'; */

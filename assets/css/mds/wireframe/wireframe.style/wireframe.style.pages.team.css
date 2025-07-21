@@ -1,0 +1,23 @@
+@layer components {
+  
+  /* Team Profile */
+  .team-profile {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-12 items-start;
+  }
+  .team-profile-image-wrapper {
+    @apply flex items-center justify-center overflow-hidden rounded-md;
+  }
+  .team-profile-image {
+    @apply w-full h-full object-cover;
+  }
+  .team-profile-name {
+    @apply text-3xl font-bold mb-2;
+  }
+  .team-profile-job-title {
+    @apply text-xl font-semibold mb-6;
+  }
+  .team-profile-bio {
+    @apply text-lg leading-relaxed space-y-6;
+  }
+
+}

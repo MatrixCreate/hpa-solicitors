@@ -1,0 +1,83 @@
+/* Accordion - visual styling only */
+@layer components {
+  
+  /* Accordion */
+  .accordion {
+    .accordion-trigger {
+      .content {
+        h2, h3, h4, h5, h6, p, p strong {
+          @apply text-[var(--mds-accordion-trigger-font-size)];
+          @apply font-[var(--mds-accordion-trigger-font-weight)];
+          @apply text-[var(--mds-accordion-trigger-text)];
+        }
+      }
+    }
+    &.enhanced {
+      .accordion-object {
+        .accordion-heading {
+          @apply text-[var(--mds-accordion-trigger-text)];
+          h2, h3, h4, h5, h6 {
+            @apply font-sans;
+            @apply text-[var(--mds-accordion-heading-font-size)];
+            @apply font-[var(--mds-accordion-heading-font-weight)];
+          }
+        }
+        .accordion-trigger {
+          @apply font-bold;
+          @apply text-[var(--trigger-colour)];
+          @apply border-[var(--mds-accordion-border)];
+    
+          h2, h3, h4, h5, h6, p, p strong {
+            @apply font-sans;
+            @apply text-[var(--mds-accordion-trigger-font-size)];
+            @apply font-[var(--mds-accordion-trigger-font-weight)];
+            @apply text-[var(--mds-accordion-trigger-text)];
+          }
+    
+          .accordion-icons {
+            @apply text-[var(--mds-accordion-trigger-text)];
+            .accordion-icon {
+              @apply transition-all duration-300;
+            }
+          }
+          strong {
+            @apply font-bold;
+          }
+        }
+        .accordion-content {
+          .accordion-inner {
+            @apply transition-all duration-300;
+
+            h2, h3, h4, h5, h6,
+            h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+              @apply font-sans;
+              @apply text-[var(--mds-accordion-content-font-size)];
+              @apply font-[var(--mds-accordion-content-font-weight)];
+            }
+          }
+        }
+      }
+      &.fullsize-accordion {
+        .accordion-item {
+          @apply border-[var(--mds-accordion-border)];
+        }
+      }
+    }
+  }
+  .accordion.nested-accordion {
+    .accordion-trigger {
+      &::before {
+        @apply bg-[var(--mds-accordion-bullet-color)];
+      }
+    }
+  }
+  .content-block:not(.bg-white) {
+    .accordion.nested-accordion {
+      .accordion-trigger {
+        &::before {
+          background-color: var(--mds-accordion-bullet-color);
+        }
+      }
+    }
+  }
+}

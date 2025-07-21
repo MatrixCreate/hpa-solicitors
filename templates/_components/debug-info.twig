@@ -1,0 +1,31 @@
+{# {%- if adminSettings.showDebugInfo -%} #}
+{%- if craft.app.user.getIsAdmin() and adminSettings.showDebugInfo -%}
+  <script>
+    document.querySelectorAll('.content-block').forEach(block => {
+      const title = block.getAttribute('data-title');
+      const template = block.getAttribute('data-template');
+      if (title && template) {
+        // Create the debug-info container
+        const debugInfo = document.createElement('div');
+        debugInfo.classList.add('debug-info');
+
+        // Create block-name element
+        const blockName = document.createElement('div');
+        blockName.classList.add('block-name');
+        blockName.textContent = `${title}`;
+
+        // Create block-template element
+        const blockTemplate = document.createElement('div');
+        blockTemplate.classList.add('block-template');
+        blockTemplate.textContent = `templates/_content-blocks/${template}.twig`;
+
+        // Append block-name and block-template to debug-info
+        debugInfo.appendChild(blockName);
+        debugInfo.appendChild(blockTemplate);
+
+        // Append debug-info to the current block
+        block.appendChild(debugInfo);
+      }
+    });
+  </script>
+{%- endif -%}

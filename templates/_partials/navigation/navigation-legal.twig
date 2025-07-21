@@ -1,0 +1,14 @@
+{%- set legalNav = craft.navigation.nodes()
+    .handle("legalNavigation")
+    .level(1)
+    .all() -%}
+
+{%- if legalNav != null -%}
+  <nav class="nav nav--legal">
+  {%- for navItem in legalNav -%}
+    <a href="{{ navItem.url }}" class="nav-link">
+      {{ navItem.title }}
+    </a>
+  {%- endfor -%}
+  </nav>
+{%- endif -%}

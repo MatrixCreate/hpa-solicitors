@@ -1,0 +1,37 @@
+/* Video Content Block - structural layout only */
+@layer components {
+
+  /* Video */
+  .video {
+    .video-container {
+      @apply relative;
+      @apply w-[40rem] h-full;
+      @apply mx-auto p-4 py-8 md:p-0;
+    }
+    .video-poster-image {
+      @apply absolute md:static inset-0;
+      @apply w-full h-full;
+      @apply object-cover;
+      @apply rounded-lg;
+      @apply opacity-75;
+      @apply group-hover:opacity-100;
+    }
+    .video-button {
+      @apply relative md:absolute inset-0 flex flex-col items-center justify-center;
+      @apply cursor-pointer;
+    }
+    .video-iframe {
+      @apply w-full h-full aspect-video;
+      @apply rounded-lg;
+    }
+    .video-play-button {
+      @apply p-8 py-4;
+      @apply rounded-xl shadow-lg pointer-events-auto;
+      @apply pointer-events-none;
+    }
+    .video-play-icon {
+      @apply h-6 md:h-8;
+    }
+  }
+
+}

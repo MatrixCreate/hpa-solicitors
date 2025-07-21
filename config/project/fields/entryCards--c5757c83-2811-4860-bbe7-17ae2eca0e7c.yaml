@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: entryCards
+instructions: null
+name: 'Entry Cards'
+searchable: false
+settings:
+  createButtonLabel: 'Add Entry Card'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 04cfbc63-72a1-4075-8092-897b03fb63dc # Card
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,91 @@
+{# 
+  Entry Card Component
+  -------------------
+  A reusable card component for displaying entry links with optional image,
+  heading, text, and action button.
+
+  Required Variables:
+  - linkUrl: The URL the card links to
+  - cardHeading: The heading text for the card
+  - icon: The icon markup for the action button
+
+  Optional Variables:
+  - cardImage: The image object for the card
+  - cardText: The text content for the card
+  - displayActionButton: Whether to show an action button (default: false)
+#}
+
+{% import "_macros/ui.twig" as ui %}
+
+{# Get props with fallbacks #}
+{% set linkUrl = props.linkUrl ?? linkUrl ?? '#' %}
+{% set cardHeading = props.cardHeading ?? cardHeading ?? '' %}
+{% set cardText = props.cardText ?? cardText ?? '' %}
+{% set cardImage = props.cardImage ?? cardImage ?? null %}
+{% set displayActionButton = props.displayActionButton ?? displayActionButton ?? false %}
+{% set icon = props.icon ?? icon ?? null %}
+
+<div class="entry-card no-shadow entry-card {% if displayActionButton %}has-action-button{% else %}has-overlay-link{% endif %}">
+  <a href="{{ linkUrl }}" class="entry-card-link">
+    {% if cardImage is not null %}
+    <figure class="entry-card-figure" role="figure">
+      {{ ui.component('image', {
+        img: cardImage,
+        class: 'entry-card-image',
+        sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 300px',
+        formats: ['webp'],
+        alt: cardImage.alt ?? cardImage.title ?? '',
+        lazy: true,
+        responsive: {
+          sm: {
+            mode: 'crop',
+            width: 400,
+            height: 280,
+            quality: 85,
+            position: 'center-center',
+          },
+          md: {
+            mode: 'crop',
+            width: 600,
+            height: 400,
+            quality: 85,
+            position: 'center-center',
+          },
+          lg: {
+            mode: 'crop',
+            width: 300,
+            height: 200,
+            quality: 85,
+            position: 'center-center',
+          },
+        }
+      }) }}
+    </figure>
+    {% endif %}
+
+    <div class="card-content entry-card-content">
+      <div class="text-content">
+        {% if cardHeading|length %}
+        <div class="entry-card-heading">
+          <h3>{{ cardHeading }}</h3>
+        </div>
+        {% endif %}
+
+        {% if cardText|length %}
+        <div class="entry-card-text entry-card-text">
+          {{ cardText }}
+        </div>
+        {% endif %}
+      </div> {# .text-content #}
+
+      <div class="btn btn-primary btn-icon no-underline hover:no-underline" aria-label="Read more about {{ cardHeading }}">
+        <span class="">
+          Read more
+        </span>
+        <span class="btn-icon">
+          {{ icon|raw }}
+        </span>
+      </div>
+    </div> {# .card-content #}
+  </a>
+</div> 

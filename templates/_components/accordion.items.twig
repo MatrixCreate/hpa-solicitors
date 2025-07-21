@@ -1,0 +1,302 @@
+{#
+# Accordion Items Component
+#
+# Renders an accessible, animated accordion using Alpine.js.
+# - Each item can be expanded/collapsed with a smooth height transition.
+# - Supports both single and multiple open items (allItemsStayOpen).
+# - Optionally shrink-wraps triggers to the widest width (shrinkWrapTriggers).
+# - Uses Alpine.js refs for robust DOM access and transition control.
+# - No reliance on display:none or hidden classes; only height and overflow.
+#
+# Props:
+#   accordionItems: array (required) - Collection of accordion items
+#   openFirstItem: boolean (default: false) - Whether to open the first item by default
+#   allItemsStayOpen: boolean (default: false) - Allow multiple items to stay open
+#   scrollToTop: boolean (default: false) - Whether to scroll to top when opening
+#   usePlusMinusIcons: boolean (default: false) - Use plus/minus icons instead of chevrons
+#   closedIcon: string (default: '') - SVG path for closed state icon
+#   openIcon: string (default: '') - SVG path for open state icon
+#   fullsizeAccordion: boolean (default: false) - Whether to render as fullsize accordion
+#   shrinkWrapTriggers: boolean (default: false) - Whether to shrink wrap triggers
+#   closedIconClass: string (default: '') - Additional CSS classes for closed icon
+#   openIconClass: string (default: '') - Additional CSS classes for open icon
+#   class: string (default: '') - Additional CSS classes for the accordion wrapper
+#
+# Usage:
+#   {{ ui.component('accordion.items', {
+#     accordionItems: block.accordionItems,
+#     openFirstItem: true,
+#     allItemsStayOpen: false,
+#     closedIcon: '@webroot/assets/icons/system/icon_chevron_right.svg',
+#     openIcon: '@webroot/assets/icons/system/icon_chevron_right.svg'
+#   }) }}
+#}
+
+{% set defaults = {
+  accordionItems: null,
+  openFirstItem: false,
+  allItemsStayOpen: false,
+  scrollToTop: false,
+  usePlusMinusIcons: false,
+  closedIcon: '',
+  openIcon: '',
+  fullsizeAccordion: false,
+  shrinkWrapTriggers: false,
+  closedIconClass: '',
+  openIconClass: '',
+  class: ''
+} %}
+
+{% set p = defaults|merge(props ?? {}) %}
+
+{% if p.accordionItems is not null %}
+  <div
+    class="accordion {{ p.fullsizeAccordion ? 'fullsize-accordion' : 'nested-accordion' }} {{ p.class }}"
+    x-data="accordion({
+      openFirstItem: {{ p.openFirstItem ? 'true' : 'false' }},
+      allItemsStayOpen: {{ p.allItemsStayOpen ? 'true' : 'false' }},
+      shrinkWrapTriggers: {{ p.shrinkWrapTriggers ? 'true' : 'false' }}
+    })"
+    x-init="init()"
+    >
+    <div class="accordion-object">
+      {#
+        globalIndex: unique index for each interactive item (used for openItems tracking)
+        groupIndex: index for grouping (if needed for headings)
+      #}
+      {% set globalIndex = 0 %}
+      {% set groupIndex = 0 %}
+      {% for item in p.accordionItems.all() %}
+        {% if item.itemContent is empty %}
+          {# Render a non-interactive heading #}
+          <div class="accordion-heading">
+            {{ item.heading }}
+          </div>
+          {% set groupIndex = groupIndex + 1 %}
+        {% else %}
+          {# Render an interactive accordion item using basic details/summary elements, which will be enhanced by Alpine.js #}
+          <details class="accordion-item" :data-group-index="{{ groupIndex }}">
+            <summary
+              class="accordion-trigger cursor-pointer {{ p.shrinkWrapTriggers ? 'shrink-wrap' : '' }}"
+              @click="toggleItem({{ groupIndex }}, {{ globalIndex }})"
+            >
+              <span class="content">
+                {{ item.itemTitle|replace({'<h3>': '<h3 style="display: inline; margin: 0;">'})|raw|replace({'<p>': '<p style="display: inline; margin: 0;">'})|raw }}
+              </span>
+              <div class="accordion-icons icons {% if p.usePlusMinusIcons %} plus-minus-icons {% else %} chevron-icons {% endif %}"
+                style="display: none;">
+                <div
+                  class="accordion-icon absolute right-0"
+                  :class="openItems.includes({{ globalIndex }}) ? 'active' : ''"
+                >
+                  {{ svg(p.closedIcon) }}
+                </div>
+                <div
+                  class="accordion-icon absolute right-0"
+                  :class="openItems.includes({{ globalIndex }}) ? 'active' : ''"
+                >
+                  {{ svg(p.openIcon) }}
+                </div>
+              </div>
+            </summary>
+            {#
+              Accordion content wrapper:
+              - Uses x-ref for robust JS access
+              - Height is animated for smooth expand/collapse
+            #}
+            <div x-ref="content{{ globalIndex }}" class="accordion-content {% if globalIndex == 0 and p.openFirstItem %}open{% endif %}">
+              <div class="accordion-inner">
+                <div class="content">
+                  {{ item.itemContent }}
+                </div>
+              </div>
+            </div>
+          </details>
+          {% set globalIndex = globalIndex + 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    // Alpine.js accordion component factory
+    // Handles open/close state, refs, and smooth height transitions
+    function accordion(config) {
+      return {
+        // Array of open item indices
+        openItems: config.openFirstItem ? [0] : [],
+        // Allow multiple open items?
+        allItemsStayOpen: config.allItemsStayOpen,
+        // Should triggers be shrink-wrapped to the widest?
+        shrinkWrapTriggers: config.shrinkWrapTriggers,
+        // Store refs to each .accordion-content for robust access
+        refs: [],
+
+        // Initialize accordion state and trigger widths
+        init() {
+          // Convert details/summary elements to divs for enhanced behavior
+          const details = this.$el.querySelectorAll('details');
+          details.forEach(detail => {
+            // Create new div to replace details
+            const newDiv = document.createElement('div');
+            newDiv.className = detail.className;
+            newDiv.setAttribute('data-group-index', detail.getAttribute('data-group-index'));
+            
+            // Move all children to the new div
+            while (detail.firstChild) {
+              newDiv.appendChild(detail.firstChild);
+            }
+            
+            // Replace details with the new div
+            detail.parentNode.replaceChild(newDiv, detail);
+            
+            // Find and replace summary with div
+            const summary = newDiv.querySelector('summary');
+            if (summary) {
+              const newTrigger = document.createElement('div');
+              newTrigger.className = summary.className;
+              
+              // Get the click handler data from the summary element
+              const clickData = summary.getAttribute('@click');
+              if (clickData) {
+                // Add the click handler using Alpine.js's way
+                newTrigger.setAttribute('x-on:click', clickData);
+              }
+              
+              // Move all children to the new trigger div
+              while (summary.firstChild) {
+                newTrigger.appendChild(summary.firstChild);
+              }
+              
+              // Replace summary with the new trigger div
+              summary.parentNode.replaceChild(newTrigger, summary);
+            }
+
+            // Strip trigger heading style attrs and show icons in enhanced mode
+            const triggers = newDiv.querySelectorAll('.accordion-trigger');
+            triggers.forEach(trigger => {
+              const icons = trigger.querySelector('.icons');
+              if (icons) {
+                icons.removeAttribute('style');
+              }
+              
+              // Try to find and remove style from any heading or text element
+              const elements = trigger.querySelectorAll('h2, h3, h4, h5, h6, p, strong');
+              elements.forEach(element => {
+                if (element) {
+                  element.removeAttribute('style');
+                }
+              });
+            });
+          });
+
+          this.$el.classList.add('enhanced');
+
+          this.refs = [];
+          const allItems = this.$el.querySelectorAll('.accordion-content');
+          allItems.forEach((wrapper, index) => {
+            this.refs[index] = wrapper;
+            const content = wrapper.querySelector('.accordion-inner');
+            // Set open/closed state by height
+            if (this.openItems.includes(index)) {
+              wrapper.style.height = 'auto';
+              wrapper.style.overflow = 'visible';
+            } else {
+              wrapper.style.height = '0px';
+              wrapper.style.overflow = 'hidden';
+            }
+          });
+
+          // Optionally set all triggers to the same width
+          if (this.shrinkWrapTriggers === true) {
+            const accordion = this.$el;
+            const triggers = accordion.querySelectorAll('.accordion-trigger');
+            const maxWidth = Math.max(...Array.from(triggers).map(trigger => trigger.offsetWidth));
+            triggers.forEach(trigger => {
+              if (window.innerWidth >= 1200) {
+                trigger.style.minWidth = maxWidth + 20 + 'px';
+              }
+            });
+          }
+        },
+
+        // Toggle an accordion item open/closed
+        // groupIndex: for grouping (if needed), index: unique global index
+        toggleItem(groupIndex, index) {
+          const wrapper = this.refs[index];
+          if (!wrapper) return;
+          const content = wrapper.querySelector('.accordion-inner');
+
+          if (this.openItems.includes(index)) {
+            // Close the currently open item
+            this.closeContent(wrapper, index);
+            this.openItems = this.openItems.filter(i => i !== index);
+          } else {
+            if (!this.allItemsStayOpen) {
+              // Close all other items globally
+              this.openItems.forEach(i => {
+                this.closeContent(this.refs[i], i);
+              });
+              this.openItems = [];
+            }
+            this.openContent(wrapper, content);
+            this.openItems.push(index);
+          }
+        },
+    
+        // Animate open: set height to content, then to auto
+        openContent(wrapper, content) {
+          wrapper.classList.add('open');
+          wrapper.style.overflow = 'hidden';
+
+          // Use getComputedStyle to add marginBottom
+          const style = window.getComputedStyle(content);
+          const height = content.scrollHeight +
+                        parseFloat(style.marginTop) +
+                        parseFloat(style.marginBottom);
+
+          wrapper.style.height = '0px';
+          requestAnimationFrame(() => {
+            wrapper.style.transition = 'height 0.35s ease';
+            wrapper.style.height = height + 'px';
+          });
+
+          wrapper.addEventListener('transitionend', function handler(e) {
+            if (e.target !== wrapper) return;
+            wrapper.style.height = 'auto';
+            wrapper.style.overflow = 'visible';
+            wrapper.style.transition = '';
+            wrapper.removeEventListener('transitionend', handler);
+          }, { once: true });
+        },
+
+        // Animate close: set height to 0
+        closeContent(wrapper, index) {
+          wrapper.classList.remove('open');
+          const content = wrapper.querySelector('.content');
+
+          const style = window.getComputedStyle(content);
+          const height = content.scrollHeight +
+                        parseFloat(style.marginTop) +
+                        parseFloat(style.marginBottom);
+
+          wrapper.style.height = height + 'px';
+          wrapper.style.overflow = 'hidden';
+          requestAnimationFrame(() => {
+            wrapper.style.transition = 'height 0.35s ease';
+            wrapper.style.height = '0px';
+          });
+          wrapper.addEventListener('transitionend', function handler(e) {
+            if (e.target !== wrapper) return;
+            wrapper.style.transition = '';
+            wrapper.style.height = '0px';
+            wrapper.style.overflow = 'hidden';
+            wrapper.removeEventListener('transitionend', handler);
+          }, { once: true });
+        }
+
+      }
+    }
+  </script>
+
+{% endif %}

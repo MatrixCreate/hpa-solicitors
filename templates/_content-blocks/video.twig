@@ -1,0 +1,69 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set videoUrl = block.videoUrl %}
+{% set videoPosterImage = videoUrl.media.image %}
+{% set videoPosterImage = videoPosterImage | split('_')[0] ~ '_1280x720' %}
+{% set customPosterImage = block.posterImage.one() ?? null %}
+{% set playInLightbox = block.playInLightbox ?? false %}
+
+{# Set color classes from block settings #}
+{% set backgroundColour = block.backgroundColour.color[0].background %}
+{% set headingColour = block.headingColour.color[0].heading %}
+{% set textColour = block.textColour.color[0].text %}
+
+<section class="video content-block
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, block.type, 'Video') }}
+  >
+  <div class="content-block-inner container-medium">
+
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+
+    <div class="video-container group">
+      {% if playInLightbox %}
+        <a href="{{ videoUrl }}" data-fancybox="data-fancybox" aria-label="Play video">
+          {% if customPosterImage %}
+            {% set posterImage = customPosterImage.url %}
+          {% else %}
+            {% set posterImage = videoPosterImage %}
+          {% endif %}
+          <img class="video-poster-image" src="{{ posterImage }}">
+
+          <div class="video-button js-video-button-{{ block.id }}">
+            <button class="video-play-button group-hover:bg-primary" type="button" tabindex="0" aria-label="Play video">
+              {{ svg('@webroot/assets/icons/system/icon_video_play.svg') | attr({ class: 'video-play-icon' }) }}
+            </button>
+          </div>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const videoButton = document.querySelector('.js-video-button-{{ block.id }}');
+              videoButton.addEventListener('click', function() {
+                videoButton.style.display = 'none';
+                video.play();
+              });
+            });
+          </script>
+        </a>
+      {% else %}
+        {{ videoUrl.render({
+          params: {
+            autoplay: 0,
+            muted: 0,
+            loop: 0,
+          },
+          attributes: {
+            width: '100%',
+            height: '100%',
+            class: 'video-iframe',
+          }
+        }) }}
+      {% endif %}
+    </div>
+  </div>
+</section>

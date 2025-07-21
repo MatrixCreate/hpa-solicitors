@@ -1,0 +1,59 @@
+color: null
+description: null
+fieldLayouts:
+  60ebf5cc-c8e6-43fa-ad3f-022da2195a74:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:75ffe92f-a6fc-46df-8383-c660f6a5842e'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-28T13:12:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e80cd3ad-bf8c-4ab9-86fc-c72b90ae9b57 # Plain Text
+            handle: tabLabel
+            includeInCards: true
+            instructions: null
+            label: 'Tab Label'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 75ffe92f-a6fc-46df-8383-c660f6a5842e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:12:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e4180fed-979c-4f12-82ab-ba4878abcc1c # Entries
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3b589d44-c4e7-462c-bfe3-24e3fcd60932
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d8f4df4a-0a42-4dcf-877b-2d0727a85189
+        userCondition: null
+handle: tab
+hasTitleField: false
+icon: folder-closed
+name: Tab
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

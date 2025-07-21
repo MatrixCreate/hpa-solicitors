@@ -1,0 +1,17 @@
+<!-- Logo Section -->
+<mj-section padding="40px 20px 20px">
+  <mj-column>
+    <mj-raw>
+      {% set logo = companyInfo.emailLogo.one() ?? companyInfo.mainLogo.one() %}
+      {% if logo %}
+        {% set logoUrl = logo.url %}
+        {% if logo.extension == 'svg' %}
+          {% set logoUrl = logo.url|svgToPng(400, 'auto') %}
+        {% endif %}
+    </mj-raw>
+    <mj-image width="200px" src="{{ (siteUrl ends with '/') ? siteUrl|slice(0, -1) : siteUrl }}{{ logoUrl }}" alt="{{ siteName }}" align="center" />
+    <mj-raw>
+      {% endif %}
+    </mj-raw>
+  </mj-column>
+</mj-section> 

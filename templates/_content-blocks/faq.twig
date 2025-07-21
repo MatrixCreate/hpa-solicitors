@@ -1,0 +1,83 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set useGlobalFaq = block.useGlobalFaq %}
+{% if useGlobalFaq %}
+  {% set richText = globalContent.globalFaqRichText %}
+  {% set accordionItems = globalContent.globalFaqAccordionItems %}
+  {% set openFirstItem = globalContent.globalFaqOpenFirstItem ?? 'false' %}
+  {% set allItemsStayOpen = globalContent.globalFaqAllItemsStayOpen ?? 'false' %}
+  {% set callToAction = globalContent.globalFaqCallToAction %}
+  {% set backgroundColour = globalContent.globalFaqBackgroundColour %}
+  {% set blockType = 'faq' %}
+{% else %}
+  {% set richText = block.richText %}
+  {% set accordionItems = block.accordionItems %}
+  {% set openFirstItem = block.openFirstItem ?? 'false' %}
+  {% set allItemsStayOpen = block.allItemsStayOpen ?? 'false' %}
+  {% set callToAction = block.actionButton %}
+  {% set backgroundColour = block.backgroundColour %}
+  {% set blockType = block.type %}
+{% endif %}
+
+{% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
+<section class="accordion-block content-block
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, blockType, 'Accordion') }}
+  >
+  <div class="content-block-inner container-narrow">
+    
+    {{ ui.component('rich-text', { 
+      content: richText 
+    }) }}
+
+    {{ ui.component('accordion.items', {
+      accordionItems: accordionItems,
+      openFirstItem: openFirstItem,
+      allItemsStayOpen: allItemsStayOpen,
+      scrollToTop: false,
+      fullsizeAccordion: true,
+      usePlusMinusIcons: true,
+      closedIcon: '@webroot/assets/icons/system/icon_plus.svg',
+      openIcon: '@webroot/assets/icons/system/icon_minus.svg'
+    }) }}
+
+    {% if callToAction.url|length %}
+      {% set cta = callToAction %}
+      {{ ui.component('button', {
+        type: 'link',
+        href: cta.url,
+        target: cta.target,
+        text: cta.text ?? 'Read more',
+        class: 'btn btn-primary'
+      }) }}
+    {% endif %}
+  </div>
+</section>
+
+{# Generate Schema addition for FAQPage #}
+{% if block.outputFAQPageSchema %}
+  {# Create an array of FAQPage mainEntity #}
+  {% set faqsArray = [] %}
+  {% for faq in accordionItems.all() %}
+      {% set faqLinks = '' %}
+
+      {% set faqsArray = faqsArray | merge([seomatic.jsonLd.create({
+          'type': 'Question',
+          'name': faq.itemTitle|striptags,
+          'acceptedAnswer': {
+              'type': 'Answer',
+              'text': (faq.itemContent|striptags),
+          },
+      }, false)]) %}
+  {% endfor %}
+
+  {# Create FAQPage schema and add as separate entity #}
+  {% if faqsArray|length %}
+    {% set faqPage = seomatic.jsonLd.create({
+      'type': 'FAQPage',
+      'mainEntity': faqsArray,
+    }) %}
+  {% endif %}  
+{% endif %}

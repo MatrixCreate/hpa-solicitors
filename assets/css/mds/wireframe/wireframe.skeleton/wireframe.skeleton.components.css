@@ -1,0 +1,77 @@
+/* Components - structural layout only */
+@layer components {
+
+  
+  /* Equal height trust signal logos */
+  .trust-links-content-block-inner {
+    @apply xs:py-10 md:py-16;
+  }
+  .trust-links-row {
+    --strength: 1; 
+    --base-height: 5rem;
+    --logo-min-size-factor: 0.375;
+    --logo-max-size-factor: 1.25;
+    @apply flex flex-wrap justify-center items-center;
+    gap: var(--icon-gap, 2rem 3rem);
+    container-type: inline-size;
+  }
+  @property --captured-length {
+    syntax: "<length>";
+    initial-value: 0px;
+    inherits: false;
+  }
+  .trust-links-logo {
+    --captured-length: var(--base-height);
+    --area: pow(
+      tan(atan2(var(--captured-length), 1px)),
+      2
+    );
+    --diff: sqrt(
+      var(--area)
+      /
+      (var(--width) * var(--height))
+    );
+    --scaled-height: calc(1px * var(--height) * var(--diff));
+    height: clamp(
+      var(--base-height) * var(--logo-min-size-factor),
+      var(--base-height) + (var(--scaled-height) - var(--base-height)) * var(--strength),
+      var(--base-height) * var(--logo-max-size-factor)
+    );
+  }
+
+
+  /* Back to Top */
+  .btn-back-to-top {
+    @apply hidden fixed bottom-8 right-8 z-50;
+    @apply w-10 h-10 aspect-square;
+  }
+
+  /* Social Icons */
+  .social-networks {
+    @apply flex;
+  }
+  .social-network-list {
+    @apply flex flex-col justify-center items-center space-y-4;
+  }
+  .social-icon {
+    @apply block aspect-square;
+    
+    &.sm {
+      @apply w-4 h-4;
+    }
+    &.md {
+      @apply w-6 h-6;
+    }
+    &.lg {
+      @apply w-8 h-8;
+    }
+    
+    svg {
+      @apply w-full h-full;
+      path {
+        fill: currentColor;
+      }
+    }
+  }
+
+}

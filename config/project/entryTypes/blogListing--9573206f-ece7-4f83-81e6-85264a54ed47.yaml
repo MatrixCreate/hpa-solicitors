@@ -1,0 +1,224 @@
+color: null
+description: null
+fieldLayouts:
+  31b17b6c-35b3-401c-8241-8cd2b9b737b6:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:6bcccacf-d85e-4935-8390-702bf83ee35b'
+      - 'layoutElement:0a13d522-85a3-4421-9259-a93c6bd11caa'
+      - 'layoutElement:ee841794-0ac1-41cf-8099-e57d79c016bc'
+      - 'layoutElement:00f97a01-14cf-4669-ab2b-eb568b013926'
+      - 'layoutElement:be1645ad-3fe6-4664-b076-b5c564a1c2fb'
+      - 'layoutElement:84bbe8ce-738b-4858-a0f1-43257ce82291'
+      - 'layoutElement:9ebcaa43-37df-49f0-b3e6-3df024909be9'
+      - 'layoutElement:3da96cf7-76ec-47c0-b8db-f723a47d9fa0'
+      - 'layoutElement:e73dd236-bb77-4ffb-aaec-b619ce2a3dd2'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-28T07:56:40+00:00'
+            elementCondition: null
+            heading: 'Blog Listing'
+            type: craft\fieldlayoutelements\Heading
+            uid: 54033d19-0fe1-490a-8c24-a202b625ea0f
+            userCondition: null
+          -
+            dateAdded: '2025-01-12T10:33:25+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6bcccacf-d85e-4935-8390-702bf83ee35b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-06T18:24:25+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2de08d74-791b-4389-a6fc-181f1b631f2e # Action Button
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9273da05-fecb-42d2-8e81-5fa7563ede66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T15:57:40+00:00'
+            elementCondition: null
+            heading: 'Display Options'
+            type: craft\fieldlayoutelements\Heading
+            uid: fa28e3e6-7dc6-467a-b8c4-36dc97d3e9df
+            userCondition: null
+          -
+            dateAdded: '2025-07-06T18:24:25+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b2e3e00-04e8-44c7-8675-08a17b35f5c5 # Number of Posts to Display
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0a13d522-85a3-4421-9259-a93c6bd11caa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T15:43:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c653b9bb-65ee-4db5-8062-7864cdc61c35 # Mobile Blog Listing Layout
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Mobile Layout'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee841794-0ac1-41cf-8099-e57d79c016bc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T15:57:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: showFilters
+            includeInCards: true
+            instructions: null
+            label: 'Show Filters'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 00f97a01-14cf-4669-ab2b-eb568b013926
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T15:49:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: showPagination
+            includeInCards: true
+            instructions: null
+            label: 'Show Pagination'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: be1645ad-3fe6-4664-b076-b5c564a1c2fb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T19:42:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: useDynamicLoading
+            includeInCards: true
+            instructions: null
+            label: 'Load More Posts Without Reloading Page'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84bbe8ce-738b-4858-a0f1-43257ce82291
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-15T15:57:40+00:00'
+            elementCondition: null
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 20893a73-f0db-40dc-a244-a663b32e3638
+            userCondition: null
+          -
+            dateAdded: '2025-05-28T07:56:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ebcaa43-37df-49f0-b3e6-3df024909be9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T07:56:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3da96cf7-76ec-47c0-b8db-f723a47d9fa0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-12T10:32:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e73dd236-bb77-4ffb-aaec-b619ce2a3dd2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e18f5c09-4e74-41ad-8d45-d9f2bf9260c9
+        userCondition: null
+handle: blogListing
+hasTitleField: false
+icon: newspaper
+name: 'Blog Listing'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Blog Listing'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

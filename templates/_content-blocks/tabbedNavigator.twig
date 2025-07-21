@@ -1,0 +1,124 @@
+{# 
+  Tabbed Navigator Block Template
+  -----------------------------
+  A dynamic tabbed interface that displays different sets of entries organized by
+  categories or sections. Each tab contains a list of entries with featured images,
+  titles, excerpts, and links.
+
+  Features:
+  - Tabbed navigation interface
+  - Rich text content support
+  - Customizable colors for background, headings, and text
+  - Entry cards with featured images
+  - Truncated titles (10 words) and excerpts (100 chars)
+  - Responsive layout
+  - Vanilla JavaScript tab switching
+
+  Configuration:
+  - Tabs: Collection of tab items, each containing:
+    - Tab Label: The text shown on the tab button
+    - Entries: Collection of entries to display in the tab
+  - Rich Text: Optional content above the tabs
+  - Colors:
+    - Background color
+    - Heading color
+    - Text color
+
+  Entry Card Structure:
+  - Featured Image (optional)
+  - Title (truncated to 10 words)
+  - Excerpt (truncated to 100 characters)
+  - "See more" button linking to full entry
+#}
+
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{% set headingColour = block.headingColour.color[0].heading ?? null %}
+{% set textColour = block.textColour.color[0].text ?? null %}
+{% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
+
+{# Main tabbed navigator section with styling classes #}
+<section class="tabbed-navigator content-block
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, block.type, 'Tabbed Navigator') }}
+  >
+	<div class="content-block-inner container-medium">
+
+    {# Optional rich text content above the tabs #}
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+
+    {# Tabbed interface container #}
+    <div class="tabbed-block tabbed-entries">
+      {# Tab navigation buttons #}
+      <div class="tabbed-block-tabs">
+        <div class="tabbed-block-tabs-inner">
+        {% for item in block.tabs.all() %}
+          <button
+            class="tabbed-block-tab-label{% if loop.first %} active {% endif %}"
+            data-tab="{{ loop.index0 }}"
+            {% if loop.first %}aria-selected="true"{% endif %}
+          >
+            {{ item.tabLabel }}
+          </button>
+        {% endfor %}
+        </div>
+      </div>
+
+      {# Tab content panels #}
+      <div class="tabbed-block-contents">
+        {% for item in block.tabs.all() %}
+          <div
+            class="tabbed-block-tab-content"
+            data-tab-content="{{ loop.index0 }}"
+            style="{% if not loop.first %}display:none;{% endif %}"
+          >
+            {% set entries = item.entries.all() %}
+
+            <div class="tab-content-inner">
+              {# Entry cards within each tab #}
+              {% for entry in entries %}
+
+                {% set linkUrl = entry.url %}
+                {% set featuredImage = entry.featuredImage.one() %}
+                {% set cardHeading = entry.title|trim|split(' ')|length > 10 ? entry.title|trim|split(' ')|slice(0, 10)|join(' ') ~ '...' : entry.title|trim %}
+                {% set cardText = entry.excerpt|trim|length > 100 ? entry.excerpt|trim|slice(0, 100) ~ '...' : entry.excerpt|trim %}
+
+                {{ ui.component('entry.card', {
+                  linkUrl: linkUrl,
+                  cardImage: featuredImage,
+                  cardHeading: cardHeading,
+                  cardText: cardText,
+                  displayActionButton: true,
+                  icon: null
+                }) }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+	</div>
+
+  {# Tab switching functionality #}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tabbed-block-tab-label');
+      const tabContents = document.querySelectorAll('.tabbed-block-tab-content');
+      tabButtons.forEach((btn, idx) => {
+        btn.addEventListener('click', function() {
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.style.display = 'none');
+          btn.classList.add('active');
+          tabContents[idx].style.display = '';
+        });
+      });
+    });
+  </script>
+</section>

@@ -1,0 +1,26 @@
+<!-- Footer -->
+<mj-section padding="20px">
+  <mj-column>
+    <mj-raw>
+      <!-- Social Media Section -->
+      {% set socialNetworks = siteConfig.socialNetworks.all() %}
+      {% if socialNetworks|length %}
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+          <tr>
+            {% for socialNetwork in socialNetworks %}
+              <td style="padding: 0 8px;">
+                <a href="{{ socialNetwork.theUrl }}" target="_blank" style="text-decoration: none;">
+                  <img src="{{ socialNetwork.socialNetworkIcon.url | svgToPng(50, 50) }}" width="25" height="25" style="opacity: 0.5;">
+                </a>
+              </td>
+            {% endfor %}
+          </tr>
+        </table>
+      {% endif %}
+    </mj-raw>
+
+    <mj-text padding="0 20px 20px 20px" font-size="12px" line-height="16px" color="#666666" align="center">
+      © {{ "now"|date("Y") }} {{ siteName }}. All rights reserved.
+    </mj-text>
+  </mj-column>
+</mj-section>

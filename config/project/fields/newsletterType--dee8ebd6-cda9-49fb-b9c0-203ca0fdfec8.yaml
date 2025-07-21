@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: newsletterType
+instructions: null
+name: 'Newsletter Type'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Embed Code'
+  onLabel: Form
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

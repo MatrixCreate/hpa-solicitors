@@ -1,0 +1,172 @@
+/* Components - structural layout only */
+@layer components {
+
+
+    .accordion {
+      .accordion-trigger {
+        .content {
+          @apply float-left;
+          @apply mr-2;
+          h2, h3, h4, h5, h6, p, p strong {
+            @apply m-0;
+          }
+        }
+        .accordion-icons {
+          @apply hidden;
+        }
+      }
+      details {
+        @apply mb-2;
+      }
+      &.enhanced {
+        .accordion-object {
+          .accordion-heading {
+            @apply mt-10 mb-2;
+            h2, h3, h4, h5, h6 {
+            }
+            &:first-child {
+              @apply !mt-0;
+            }
+          }
+          .accordion-heading + .accordion-trigger {
+            @apply !border-t-0;
+          }
+          .accordion-trigger {
+            @apply relative;
+            @apply flex justify-between;
+            @apply py-1 pr-8;
+            @apply border-t-2;
+            @apply select-none;
+            @apply cursor-pointer;
+
+            @apply max-md:!min-w-full;
+      
+            &.shrink-wrap {
+              @apply w-fit;
+            }
+      
+            h2, h3, h4, h5, h6, p, p strong {
+              @apply m-0;
+            }
+      
+            .accordion-icons {
+              @apply absolute top-1/2 -translate-y-1/2 right-0 flex justify-center items-center;
+              .accordion-icon {
+                @apply flex justify-center items-center;
+                @apply w-4 h-4;
+              }
+
+              /* Plus/Minus specific styles */
+              &.plus-minus-icons {
+                .accordion-icon:first-child {
+                  @apply opacity-100;
+                  @apply rotate-0;
+                }
+                .accordion-icon:last-child {
+                  @apply opacity-0;
+                  @apply -rotate-90;
+                }
+                .accordion-icon.active:first-child {
+                  @apply opacity-0;
+                  @apply rotate-90;
+                }
+                .accordion-icon.active:last-child {
+                  @apply opacity-100;
+                  @apply rotate-0;
+                }
+              }
+              
+              /* Chevron specific styles */
+              &.chevron-icons {
+                .accordion-icon:first-child {
+                  @apply opacity-100;
+                  @apply rotate-0;
+                }
+                .accordion-icon:last-child {
+                  @apply opacity-0;
+                  @apply -rotate-90;
+                }
+                .accordion-icon.active:first-child {
+                  @apply opacity-0;
+                  @apply rotate-90;
+                }
+                .accordion-icon.active:last-child {
+                  @apply opacity-100;
+                  @apply rotate-90;
+                }
+              }
+            }
+          }
+          .accordion-trigger:first-child,
+          .accordion-heading + .accordion-trigger {
+            @apply border-t-0;
+          }
+          .accordion-content {
+            @apply overflow-hidden;
+            @apply h-0;
+            will-change: height;
+            .accordion-inner {
+              @apply pb-4;
+              @apply opacity-0;
+              @apply -translate-y-4;
+
+              h2, h3, h4, h5, h6 {
+                @apply !mt-2 mb-0;
+              }
+              ul {
+                @apply !mt-0 !pl-0;
+                li {
+                  @apply !pl-4;
+                }
+              }
+            }
+            &.open {
+              .accordion-inner {
+                @apply opacity-100;
+                @apply translate-y-0;
+              }
+            }
+            .expanding {
+              @apply relative;
+              @apply h-0;
+              @apply overflow-hidden;
+              /* transition: height 0.35s ease; */
+            }
+          }
+          .content {
+            p:last-child {
+              @apply !mb-0;
+            }
+          }
+        }
+        &.fullsize-accordion {
+          .accordion-item {
+            @apply border-b;
+          }
+          .accordion-trigger {
+            @apply py-4 pr-4;
+          }
+        }
+      }
+      &.nested-accordion {
+        .accordion-trigger {
+          @apply relative;
+          &::before {
+            @apply absolute top-1/2 -translate-y-1/2 -left-4;
+            @apply w-[0.35rem] h-[0.35rem];
+            @apply rounded-full;
+            content: '';
+          }
+        }
+      }
+      &:not(.no-prose) {
+        .accordion-content .content {
+          @apply prose;
+          p {
+            @apply !mt-0;
+          }
+        }
+      }
+    }
+ 
+}

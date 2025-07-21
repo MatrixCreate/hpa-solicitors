@@ -1,0 +1,125 @@
+color: null
+description: null
+fieldLayouts:
+  2f4a5d24-f8b0-4bb2-89c6-19403821b4b9:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:add237b5-90d7-4f5f-891d-c8dba13213d5'
+      - 'layoutElement:a8bd1c54-df9d-4187-aacb-84e6234b602b'
+      - 'layoutElement:9b31c3da-9f54-4901-8477-0da2ea39dc0b'
+      - 'layoutElement:89cfe337-a81b-4395-8c79-bd6484fa6c27'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: add237b5-90d7-4f5f-891d-c8dba13213d5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 8650621f-7e2d-49d3-9e85-874bffe3fe06
+            userCondition: null
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 52bcc17c-fa0e-4bf8-8b04-ca9a8ecb4a09 # Tabs
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed4f53ae-c62d-420b-ab6b-a2c62205697d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 800af5d5-5230-43e3-be9d-e6b6ae7903e3
+            userCondition: null
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a8bd1c54-df9d-4187-aacb-84e6234b602b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9b31c3da-9f54-4901-8477-0da2ea39dc0b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-28T13:13:30+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 89cfe337-a81b-4395-8c79-bd6484fa6c27
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2468fe3b-fc81-4998-806d-bb5f8709ce35
+        userCondition: null
+handle: tabbedNavigator
+hasTitleField: false
+icon: compass
+name: 'Tabbed Navigator'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

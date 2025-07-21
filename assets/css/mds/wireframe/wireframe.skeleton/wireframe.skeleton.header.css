@@ -1,0 +1,57 @@
+/* Header - structural layout only */
+@layer components {
+
+  /* Header */
+  .header {
+    @apply sticky md:static top-0 z-50;
+    @apply w-full;
+  }
+  .header-sticky {
+    @apply md:sticky;
+  }
+
+  /* Desktop Header */
+  .desktop-header {
+    @apply hidden md:block;
+    @apply w-full;
+  }
+  .desktop-header-inner {
+    @apply relative;
+    @apply flex justify-between items-center;
+    @apply max-w-[var(--container-wide)] mx-auto;
+  }
+  .desktop-header-actions {
+    @apply flex items-center;
+  }
+
+  /* Secondary Header */
+  .secondary-header {
+    @apply hidden md:block;
+    @apply w-full;
+  }
+  .secondary-header-inner {
+    @apply relative;
+    @apply flex justify-between items-center;
+    @apply max-w-[var(--container-wide)] mx-auto;
+  }
+
+  /* Mobile Header */
+  .mobile-header {
+    @apply md:hidden;
+    @apply sticky top-0 z-[100];
+  }
+  .mobile-header-actions {
+    @apply flex items-center gap-2;
+  }
+
+  /* Company Logo */
+  .company-logo {
+    
+  }
+  .company-logo-image {
+    @apply transition-all duration-300;
+  }
+  .company-logo-text {
+    @apply text-2xl;
+  }
+}

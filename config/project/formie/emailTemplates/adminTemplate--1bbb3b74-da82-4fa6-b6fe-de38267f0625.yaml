@@ -1,0 +1,4 @@
+handle: adminTemplate
+name: 'Admin Template'
+sortOrder: null
+template: _email/admin.twig

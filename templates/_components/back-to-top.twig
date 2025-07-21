@@ -1,0 +1,12 @@
+{% if siteConfig.showBackToTopLink %}
+{% set backToTopIcon = siteConfig.backToTopIcon %}
+<a href="#top" class="btn-back-to-top js-btn-top"
+  title="Return to top of page"
+  data-threshold="20%"
+  >
+  <span class="sr-only">
+    Back to Top
+  </span>
+  {{ backToTopIcon.inline }}
+</a>
+{% endif %}

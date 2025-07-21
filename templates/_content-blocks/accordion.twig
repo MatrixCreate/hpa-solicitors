@@ -1,0 +1,78 @@
+{# 
+  Main Accordion Block Template
+  -----------------------------
+  This template serves as the container for the accordion component and handles:
+  - Block configuration and defaults
+  - Rich text content above the accordion
+  - Optional action button below the accordion
+  - SEO schema generation for FAQ pages
+#}
+
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{# Set default values for block configuration #}
+{% set accordionItems = block.accordionItems ?? null %}
+{% set openFirstItem = block.openFirstItem ?? false %}
+{% set allItemsStayOpen = block.allItemsStayOpen ?? false %}
+{% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
+
+{# Main accordion section with background color support #}
+<section class="accordion-block content-block
+  {{ backgroundColour }}
+  "
+  {{ utils.debugAttributes(entry, block.type, 'Accordion') }}
+  >
+  <div class="content-block-inner container-narrow">
+    
+    {# Optional rich text content above the accordion #}
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+
+    {# Include the accordion items component with configuration #}
+    {{ ui.component('accordion.items', {
+      accordionItems: accordionItems,
+      openFirstItem: openFirstItem,
+      allItemsStayOpen: allItemsStayOpen,
+      scrollToTop: false,
+      usePlusMinusIcons: false,
+      closedIcon: '@webroot/assets/icons/system/icon_chevron_right.svg',
+      openIcon: '@webroot/assets/icons/system/icon_chevron_right.svg'
+    }) }}
+
+    {# Optional action button below the accordion #}
+    {% if block.actionButton.url|length %}
+      {% set cta = block.actionButton %}
+      {{ ui.component('button', {
+        type: 'link',
+        href: cta.url,
+        target: cta.target,
+        text: cta.text ?? 'Read more',
+        class: 'btn btn-primary'
+      }) }}
+    {% endif %}
+  </div>
+</section>
+
+
+{# Generate Schema addition for FAQPage #}
+{# Create an array of FAQPage mainEntity #}
+{% set faqsArray = [] %}
+{% for faq in accordionItems.all() %}
+  {% set faqLinks = '' %}
+
+  {% set faqsArray = faqsArray | merge([seomatic.jsonLd.create({
+      'type': 'Question',
+      'name': faq.itemTitle | striptags,
+      'acceptedAnswer': {
+        'type': 'Answer',
+        'text': (faq.itemContent | striptags)
+      }
+    }, false)]) %}
+{% endfor %}
+
+{# Create FAQPage schema and add as separate entity #}
+{% if faqsArray | length %}
+  {% set faqPage = seomatic.jsonLd.create({'type': 'FAQPage', 'mainEntity': faqsArray}) %}
+{% endif %}

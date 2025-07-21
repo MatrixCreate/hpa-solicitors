@@ -1,0 +1,47 @@
+/* Buttons - structural layout only */
+@layer components {
+  /* Button base structure */
+  .btn {
+    @apply inline-block w-fit text-center cursor-pointer select-none;
+  }
+  
+  /* Action buttons container structure */
+  .action-buttons {
+    @apply flex;
+  }
+  
+  /* Button responsive visibility and structure */
+  .btn-telephone,
+  .btn-contact {
+    .btn-icon {
+      @apply md:hidden;
+    }
+    .btn-text {
+      @apply hidden md:block;
+    }
+  }
+  .btn-telephone {
+    @apply md:hidden lg:block;
+  }
+  .btn-contact {
+    @apply hidden md:block;
+  }
+
+  /* Button arrow positioning structure */
+  .btn-arrow {
+    @apply relative;
+    &::after {
+      @apply absolute top-1/2 right-0;
+    }
+  }
+  
+  /* Button icon layout structure */
+  .btn-icon {
+    @apply flex items-center;
+  }
+  
+  /* Button action link text alignment structure */
+  .btn-action-link {
+    @apply text-center;
+  }
+}

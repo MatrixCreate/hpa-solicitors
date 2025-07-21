@@ -1,0 +1,28 @@
+{% cache if not craft.app.config.general.devMode %}
+  {% if entry is defined and entry.showGlobalCallToAction %}
+    {% include '_content-blocks/callToAction' with {
+        isFooterBlock: true,
+        entry: entry
+      } only %}
+  {% endif %}
+  {% if entry is defined and entry.showGlobalContactForm %}
+    {% include '_content-blocks/contactForm' with {
+        isFooterBlock: true,
+        useGlobalContactForm: true,
+        entry: entry
+      } only %}
+  {% endif %}
+  {% if entry is defined and entry.showTestimonials %}
+    {% include '_content-blocks/testimonials' with {
+      isFooterBlock: true,
+      useGlobalTestimonials: true,
+      entry: entry
+    } only %}
+  {% endif %}
+  {% if entry is defined and entry.showTrustLinks %}
+    {% include '_content-blocks/trustLinks' %}
+  {% endif %}
+  {% if entry is defined and entry.showNewsletterSignup %}
+    {% include '_content-blocks/newsletterSignup' %}
+  {% endif %}
+{% endcache %}

@@ -1,0 +1,11 @@
+/* Contact & Location - visual styling only */
+@layer components {
+  
+  /* Contact & Location */
+  .contact-details-item {
+    h5 {
+      @apply font-semibold;
+    }
+  }
+
+}

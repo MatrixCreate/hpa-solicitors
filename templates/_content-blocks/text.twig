@@ -1,0 +1,19 @@
+{% import "_macros/utils.twig" as utils %}
+{% import "_macros/ui.twig" as ui %}
+
+{# Set color classes from block settings #}
+{% set backgroundColour = block.backgroundColour.color[0].background %}
+{% set headingColour = block.headingColour.color[0].heading %}
+{% set textColour = block.textColour.color[0].text %}
+
+<section class="rich-text content-block {{ headingColour }} {{ textColour }} {{ backgroundColour }}"
+  {{ utils.debugAttributes(entry, block.type, 'Rich Text') }}
+  >
+	<div class="content-block-inner container-medium">
+
+    {{ ui.component('rich-text', { 
+      content: block.richText 
+    }) }}
+
+	</div>
+</section>

@@ -1,0 +1,45 @@
+/* Tailwind v4 utilities */
+
+/* Generate .heading-{color} for every --color-* token, to enable heading colours from CMS */
+@utility heading-* {
+  --heading-color: --value(--color-*);
+}
+
+/* Debug utilities - visual styling */
+@layer utilities {
+
+  /* Overlay link utility - visual properties */
+  .overlay-link {
+    @apply bg-transparent;
+    @apply opacity-0;
+  }
+
+  /* Scrollbars hidden - visual appearance */
+  .scrollbars-hidden {
+    @apply [scrollbar-width:none] [-ms-overflow-style:none];
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+
+  /* Debug info - visual styling */
+  .debug-info {
+    @apply p-2;
+    @apply [color:var(--mds-debug-text)];
+    @apply [background-color:var(--mds-debug-background)];
+    
+    .block-name {
+      @apply [font-size:var(--mds-debug-block-name-font-size)];
+      @apply [font-weight:var(--mds-debug-block-name-font-weight)];
+    }
+    .block-template {
+      @apply font-mono;
+      @apply [font-size:var(--mds-debug-template-font-size)];
+      @apply [font-weight:var(--mds-debug-template-font-weight)];
+    }
+
+    &::before  {
+      @apply [background-color:var(--mds-debug-border)];
+    }
+  }
+}
