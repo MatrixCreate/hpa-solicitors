@@ -61,7 +61,7 @@ return [
         'default' => false,
         'color'   => [
           [
-            'color'           => '#666666',
+            'color'           => '#5D5D5D',
             'text'            => 'text-dark-grey',
             'heading'         => 'heading-dark-grey',
             'background'      => 'bg-dark-grey',
@@ -71,11 +71,25 @@ return [
         ],
       ],
       [
+        'label'   => 'Grey', 
+        'default' => false,
+        'color'   => [
+          [
+            'color'           => '#ADAFAF',
+            'text'            => 'text-grey',
+            'heading'         => 'heading-grey',
+            'background'      => 'bg-grey',
+            'textHover'       => 'hover:text-grey',
+            'backgroundHover' => 'hover:bg-grey',
+          ]
+        ],
+      ],
+      [
         'label'   => 'Medium Grey', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#999999',
+            'color'           => '#F4F4F4',
             'text'            => 'text-medium-grey',
             'heading'         => 'heading-medium-grey',
             'background'      => 'bg-medium-grey',
@@ -89,7 +103,7 @@ return [
         'default' => false,
         'color'   => [
           [
-            'color'           => '#f5f5f5',
+            'color'           => '#FCFCFC',
             'text'            => 'text-light-grey',
             'heading'         => 'heading-light-grey',
             'background'      => 'bg-light-grey',
@@ -99,86 +113,58 @@ return [
         ],
       ],
       [
-        'label'   => 'Dark Blue', 
+        'label'   => 'Dark Navy', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#149BD7',
-            'text'            => 'text-dark-blue',
-            'heading'         => 'heading-dark-blue',
-            'background'      => 'bg-dark-blue',
-            'textHover'       => 'hover:text-dark-blue',
-            'backgroundHover' => 'hover:bg-dark-blue',
+            'color'           => '#18283B',
+            'text'            => 'text-dark-navy',
+            'heading'         => 'heading-dark-navy',
+            'background'      => 'bg-dark-navy',
+            'textHover'       => 'hover:text-dark-navy',
+            'backgroundHover' => 'hover:bg-dark-navy',
           ]
         ],
       ],
       [
-        'label'   => 'Light Blue', 
+        'label'   => 'Gold', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#48C0F5',
-            'text'            => 'text-light-blue',
-            'heading'         => 'heading-light-blue',
-            'background'      => 'bg-light-blue',
-            'textHover'       => 'hover:text-light-blue',
-            'backgroundHover' => 'hover:bg-light-blue',
+            'color'           => '#B68E34',
+            'text'            => 'text-gold',
+            'heading'         => 'heading-gold',
+            'background'      => 'bg-gold',
+            'textHover'       => 'hover:text-gold',
+            'backgroundHover' => 'hover:bg-gold',
           ]
         ],
       ],
       [
-        'label'   => 'Pale Blue', 
+        'label'   => 'Light Gold', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#bfebff',
-            'text'            => 'text-pale-blue',
-            'heading'         => 'heading-pale-blue',
-            'background'      => 'bg-pale-blue',
-            'textHover'       => 'hover:text-pale-blue',
-            'backgroundHover' => 'hover:bg-pale-blue',
+            'color'           => '#CFBD9A',
+            'text'            => 'text-light-gold',
+            'heading'         => 'heading-light-gold',
+            'background'      => 'bg-light-gold',
+            'textHover'       => 'hover:text-light-gold',
+            'backgroundHover' => 'hover:bg-light-gold',
           ]
         ],
       ],
       [
-        'label'   => 'Dark Orange', 
+        'label'   => 'Cream', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#ed7712',
-            'text'            => 'text-dark-orange',
-            'heading'         => 'heading-dark-orange',
-            'background'      => 'bg-dark-orange',
-            'textHover'       => 'hover:text-dark-orange',
-            'backgroundHover' => 'hover:bg-dark-orange',
-          ]
-        ],
-      ],
-      [
-        'label'   => 'Light Orange', 
-        'default' => false,
-        'color'   => [
-          [
-            'color'           => '#ffc107',
-            'text'            => 'text-light-orange',
-            'heading'         => 'heading-light-orange',
-            'background'      => 'bg-light-orange',
-            'textHover'       => 'hover:text-light-orange',
-            'backgroundHover' => 'hover:bg-light-orange',
-          ]
-        ],
-      ],
-      [
-        'label'   => 'Pale Orange', 
-        'default' => false,
-        'color'   => [
-          [
-            'color'           => '#ffe79f',
-            'text'            => 'text-pale-orange',
-            'heading'         => 'heading-pale-orange',
-            'background'      => 'bg-pale-orange',
-            'textHover'       => 'hover:text-pale-orange',
-            'backgroundHover' => 'hover:bg-pale-orange',
+            'color'           => '#FCF7EC',
+            'text'            => 'text-cream',
+            'heading'         => 'heading-cream',
+            'background'      => 'bg-cream',
+            'textHover'       => 'hover:text-cream',
+            'backgroundHover' => 'hover:bg-cream',
           ]
         ],
       ],
@@ -227,58 +213,58 @@ return [
         ],
       ],
       [
-        'label'   => 'Pale Blue',
+        'label'   => 'Dark Navy', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#bfebff',
-            'text'            => 'text-pale-blue',
-            'heading'         => 'heading-pale-blue',
-            'background'      => 'bg-pale-blue',
-            'textHover'       => 'hover:text-pale-blue',
-            'backgroundHover' => 'hover:bg-pale-blue',
+            'color'           => '#18283B',
+            'text'            => 'text-dark-navy',
+            'heading'         => 'heading-dark-navy',
+            'background'      => 'bg-dark-navy',
+            'textHover'       => 'hover:text-dark-navy',
+            'backgroundHover' => 'hover:bg-dark-navy',
           ]
         ],
       ],
       [
-        'label'   => 'Light Blue', 
+        'label'   => 'Gold', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#48C0F5',
-            'text'            => 'text-light-blue',
-            'heading'         => 'heading-light-blue',
-            'background'      => 'bg-light-blue',
-            'textHover'       => 'hover:text-light-blue',
-            'backgroundHover' => 'hover:bg-light-blue',
+            'color'           => '#B68E34',
+            'text'            => 'text-gold',
+            'heading'         => 'heading-gold',
+            'background'      => 'bg-gold',
+            'textHover'       => 'hover:text-gold',
+            'backgroundHover' => 'hover:bg-gold',
           ]
         ],
       ],
       [
-        'label'   => 'Dark Orange', 
+        'label'   => 'Light Gold', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#ed7712',
-            'text'            => 'text-dark-orange',
-            'heading'         => 'heading-dark-orange',
-            'background'      => 'bg-dark-orange',
-            'textHover'       => 'hover:text-dark-orange',
-            'backgroundHover' => 'hover:bg-dark-orange',
+            'color'           => '#CFBD9A',
+            'text'            => 'text-light-gold',
+            'heading'         => 'heading-light-gold',
+            'background'      => 'bg-light-gold',
+            'textHover'       => 'hover:text-light-gold',
+            'backgroundHover' => 'hover:bg-light-gold',
           ]
         ],
       ],
       [
-        'label'   => 'Light Orange', 
+        'label'   => 'Cream', 
         'default' => false,
         'color'   => [
           [
-            'color'           => '#ffc107',
-            'text'            => 'text-light-orange',
-            'heading'         => 'heading-light-orange',
-            'background'      => 'bg-light-orange',
-            'textHover'       => 'hover:text-light-orange',
-            'backgroundHover' => 'hover:bg-light-orange',
+            'color'           => '#FCF7EC',
+            'text'            => 'text-cream',
+            'heading'         => 'heading-cream',
+            'background'      => 'bg-cream',
+            'textHover'       => 'hover:text-cream',
+            'backgroundHover' => 'hover:bg-cream',
           ]
         ],
       ],

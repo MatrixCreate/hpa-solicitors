@@ -28,8 +28,8 @@ export default defineConfig(({ command }) => ({
       "Access-Control-Allow-Private-Network": "true",
     },
     host: '0.0.0.0',
-    origin: 'http://localhost:3000',
-    port: 3000,
+    origin: 'http://localhost:3001',
+    port: 3001,
     strictPort: true
   },
   resolve: {

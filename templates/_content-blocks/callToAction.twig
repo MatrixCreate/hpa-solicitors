@@ -45,8 +45,6 @@
 
 {# Use the Global Call to Action if it's enabled, otherwise use the local block settings #}
 {% if useGlobalCallToActionBlock %}
-  
-  {# {%- set backgroundImage = globalContent.globalCtaBackgroundImage.one() -%} #}
 
   {% if globalContent.globalCtaImage %}
     {%- set image = globalContent.globalCtaImage.one() -%}
@@ -67,7 +65,7 @@
   {%- set richText = globalContent.globalCtaRichText -%}
   {%- set actionButtons = globalContent.globalCtaActionButtons -%}
 
-  {% set backgroundImage = globalContent.globalCtaBackgroundImage.one() %}
+  {% set desktopBackgroundImage = globalContent.globalCtaDesktopBackgroundImage.one() %}
 {% else %}
 
   {# {%- set backgroundImage = block.backgroundImage.one() -%} #}
@@ -142,55 +140,61 @@
         </div>
         {% endif %}
 
-        {% if richText|length %}
-          {{ ui.component('rich-text', { 
-            content: richText 
-          }) }}
-        {% endif %}
 
-        <div class="action-buttons action-buttons-inline">
-        {% for action in actionButtons.all() %}
-          {% set cta = action.actionButton %}
-          {{ ui.component('button', {
-            type: 'link',
-            href: cta.url,
-            target: cta.target,
-            text: cta.text ?? 'Read more',
-            class: 'btn btn-primary'
-          }) }}
-        {% endfor %}
+        <div class="content-box-inner">
+
+          <div class="cta-content">
+            {% if richText|length %}
+              {{ ui.component('rich-text', { 
+                content: richText 
+              }) }}
+            {% endif %}
+
+            <div class="action-buttons action-buttons-inline">
+            {% for action in actionButtons.all() %}
+              {% set cta = action.actionButton %}
+              {{ ui.component('button', {
+                type: 'link',
+                href: cta.url,
+                target: cta.target,
+                text: cta.text ?? 'Read more',
+                class: 'btn btn-primary'
+              }) }}
+            {% endfor %}
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
     
     {% if backgroundImage %}
-      {{ ui.component('image', {
+      {{ ui.component('picture', {
         img: backgroundImage,
         class: 'background-image call-to-action-image',
-        sizes: '100vw',
         formats: ['webp'],
         alt: backgroundImage.alt ?? backgroundImage.title,
         lazy: true,
         responsive: {
           sm: {
             mode: 'crop',
-            width: 400,
-            height: 300,
-            quality: 85,
+            width: 750,
+            height: 800,
+            quality: 90,
             position: 'center-center',
           },
           md: {
             mode: 'crop',
-            width: 800,
-            height: 400,
-            quality: 85,
+            width: 1920,
+            height: 440,
+            quality: 90,
             position: 'center-center',
           },
           lg: {
             mode: 'crop',
-            width: 1200,
-            height: 800,
-            quality: 85,
+            width: 3840,
+            height: 880,
+            quality: 90,
             position: 'center-center',
           },
         }

@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="footer-container footer-bottom">
+    <div class="footer-container py-0">
       <div class="footer-bottom-content">
         <div class="footer-legal">
           {% include "_partials/navigation/navigation-legal" %}
@@ -94,6 +94,13 @@
           {%- endif -%}
         </div>
       </div>
+    </div>
+    <div class="footer-container py-8">
+      {% if siteConfig.legalDisclaimer|length %}
+      <div class="footer-disclaimer text-xs">
+        {{ siteConfig.legalDisclaimer }}
+      </div>
+      {% endif %}
     </div>
   </div>
 

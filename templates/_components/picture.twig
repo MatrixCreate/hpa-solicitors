@@ -1,12 +1,67 @@
-{% if responsive is defined %}
+{#
+# Advanced Responsive Picture Component  
+#
+# A sophisticated picture component that automatically generates responsive images
+# with multiple formats, retina support, and performance optimizations using the
+# <picture> element with multiple <source> tags for optimal format delivery.
+#
+# Props:
+#   img: Asset (required) - The image asset to render
+#   class: string (default: '') - CSS classes for the img element
+#   sizes: string (default: '100vw') - Sizes attribute for responsive images
+#   formats: array (default: from config) - Image formats to generate ['webp', 'jpeg']
+#   alt: string (default: img.alt || img.title) - Alt text for accessibility
+#   lazy: boolean (default: false) - Enable lazy loading
+#   priority: boolean (default: false) - Set fetchpriority="high" for above-fold images
+#   responsive: object (required) - Responsive breakpoint configuration
+#
+# Responsive Config Example:
+#   responsive: {
+#     sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
+#     md: { mode: 'crop', width: 800, height: 400, quality: 85, position: 'center-center' },
+#     lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
+#   }
+#
+# Usage:
+#   {{ ui.component('picture', {
+#     img: entry.featuredImage.one(),
+#     class: 'hero-image w-full h-full object-cover',
+#     sizes: '100vw', 
+#     formats: ['webp'],
+#     lazy: true,
+#     responsive: {
+#       sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
+#       md: { mode: 'crop', width: 800, height: 400, quality: 85, position: 'center-center' },
+#       lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
+#     }
+#   }) }}
+#
+# Note: This component is interchangeable with the 'image' component - they accept
+# identical props but output different markup (<picture> vs <img> with srcset).
+#}
+
+{% set defaults = {
+  img: null,
+  class: '',
+  sizes: '100vw',
+  formats: null,
+  alt: null,
+  lazy: false,
+  priority: false,
+  responsive: {}
+} %}
+
+{% set p = defaults|merge(props ?? {}) %}
+
+{% if p.img and p.responsive %}
   {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
-  {% set configFormats = formats ?? transformConfig.formats %}
+  {% set configFormats = p.formats ?? transformConfig.formats %}
   {% set enableRetina = transformConfig.enableRetina %}
   
   {% set transforms = {} %}
 
   {% for format in configFormats %}
-    {% for size, settings in responsive %}
+    {% for size, settings in p.responsive %}
       {% set key = size ~ '_1x_' ~ format %}
       {% set transform1x = {
         mode: settings.mode,
@@ -35,7 +90,7 @@
     {% endfor %}
   {% endfor %}
 
-  {% set primarySize = responsive|keys|first %}
+  {% set primarySize = p.responsive|keys|first %}
   {% set primaryFormat = configFormats|first %}
   {% set fallbackTransform = transforms[primarySize ~ '_1x_jpg'] ?? transforms[primarySize ~ '_1x_jpeg'] ?? transforms[transforms|keys|first] %}
   {% set primaryTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
@@ -43,31 +98,31 @@
   <picture>
     {% for format in configFormats %}
       {% set srcsetItems = [] %}
-      {% for size, settings in responsive %}
+      {% for size, settings in p.responsive %}
         {% set transform1x = transforms[size ~ '_1x_' ~ format] %}
-        {% set srcsetItems = srcsetItems|merge([img.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+        {% set srcsetItems = srcsetItems|merge([p.img.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
         {% if enableRetina %}
           {% set transform2x = transforms[size ~ '_2x_' ~ format] %}
-          {% set srcsetItems = srcsetItems|merge([img.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+          {% set srcsetItems = srcsetItems|merge([p.img.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
         {% endif %}
       {% endfor %}
       
       <source
         type="image/{{ format }}"
         srcset="{{ srcsetItems|join(', ') }}"
-        sizes="{{ sizes }}">
+        sizes="{{ p.sizes }}">
     {% endfor %}
     <img
-      src="{{ img.getUrl(fallbackTransform) }}"
-      class="{{ class }}"
-      {% if priority is defined and priority %}
-        fetchpriority="high"
-      {% endif %}
-      {% if lazy %}
-        loading="lazy"
-        decoding="async"
-      {% endif %}
-      alt="{{ alt ?? img.alt ?? img.title }}"
+      src="{{ p.img.getUrl(fallbackTransform) }}"
+      class="{{ p.class }}"
+    {% if p.priority %}
+      fetchpriority="high"
+    {% endif %}
+    {% if p.lazy %}
+      loading="lazy"
+      decoding="async"
+    {% endif %}
+      alt="{{ p.alt ?? p.img.alt ?? p.img.title }}"
       width="{{ primaryTransform.width }}"
       height="{{ primaryTransform.height }}">
   </picture>
