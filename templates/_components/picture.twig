@@ -5,8 +5,8 @@
 # with multiple formats, retina support, and performance optimizations using the
 # <picture> element with multiple <source> tags for optimal format delivery.
 #
-# Props:
-#   img: Asset (required) - The image asset to render
+# Single Image Mode Props:
+#   img: Asset (required for single image mode) - The image asset to render
 #   class: string (default: '') - CSS classes for the img element
 #   sizes: string (default: '100vw') - Sizes attribute for responsive images
 #   formats: array (default: from config) - Image formats to generate ['webp', 'jpeg']
@@ -15,6 +15,16 @@
 #   priority: boolean (default: false) - Set fetchpriority="high" for above-fold images
 #   responsive: object (required) - Responsive breakpoint configuration
 #
+# Desktop/Mobile Mode Props:
+#   desktopImg: Asset - Desktop image asset (for art-direction scenarios)
+#   mobileImg: Asset - Mobile image asset (for art-direction scenarios)
+#   breakpoint: string (default: '768px') - Media query breakpoint between mobile/desktop
+#   desktopSizes: string (default: '100vw') - Sizes attribute for desktop image
+#   mobileSizes: string (default: '100vw') - Sizes attribute for mobile image
+#   desktopResponsive: object - Responsive config for desktop image
+#   mobileResponsive: object - Responsive config for mobile image
+#   (All other props apply to both images)
+#
 # Responsive Config Example:
 #   responsive: {
 #     sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
@@ -22,7 +32,7 @@
 #     lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
 #   }
 #
-# Usage:
+# Single Image Usage:
 #   {{ ui.component('picture', {
 #     img: entry.featuredImage.one(),
 #     class: 'hero-image w-full h-full object-cover',
@@ -36,24 +46,200 @@
 #     }
 #   }) }}
 #
-# Note: This component is interchangeable with the 'image' component - they accept
-# identical props but output different markup (<picture> vs <img> with srcset).
+# Desktop/Mobile Usage (Art-Direction):
+#   {{ ui.component('picture', {
+#     desktopImg: entry.desktopImage.one(),
+#     mobileImg: entry.mobileImage.one(),
+#     breakpoint: '768px',
+#     class: 'hero-image w-full h-full object-cover',
+#     formats: ['webp'],
+#     lazy: true,
+#     desktopResponsive: {
+#       md: { mode: 'crop', width: 1920, height: 440, quality: 90, position: 'center-center' },
+#       lg: { mode: 'crop', width: 3840, height: 880, quality: 90, position: 'center-center' }
+#     },
+#     mobileResponsive: {
+#       sm: { mode: 'crop', width: 750, height: 800, quality: 90, position: 'center-center' }
+#     }
+#   }) }}
 #}
 
 {% set defaults = {
   img: null,
+  desktopImg: null,
+  mobileImg: null,
+  breakpoint: '768px',
   class: '',
   sizes: '100vw',
+  desktopSizes: null,
+  mobileSizes: null,
   formats: null,
   alt: null,
   lazy: false,
   priority: false,
-  responsive: {}
+  responsive: {},
+  desktopResponsive: null,
+  mobileResponsive: null
 } %}
 
 {% set p = defaults|merge(props ?? {}) %}
 
-{% if p.img and p.responsive %}
+{# Determine if we're in desktop/mobile mode or single image mode #}
+{% set isDesktopMobileMode = p.desktopImg or p.mobileImg %}
+
+{% if isDesktopMobileMode %}
+  {# Desktop/Mobile Art-Direction Mode #}
+  {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
+  {% set configFormats = p.formats ?? transformConfig.formats %}
+  {% set enableRetina = transformConfig.enableRetina %}
+  
+  {# Set up sizes attributes with fallbacks #}
+  {% set desktopSizes = p.desktopSizes ?? p.sizes %}
+  {% set mobileSizes = p.mobileSizes ?? p.sizes %}
+  
+  {# Set up responsive configs with fallbacks #}
+  {% set desktopResponsive = p.desktopResponsive ?? p.responsive %}
+  {% set mobileResponsive = p.mobileResponsive ?? p.responsive %}
+  
+  {# Determine primary image and alt text #}
+  {% set primaryImg = p.desktopImg ?? p.mobileImg %}
+  {% set altText = p.alt ?? primaryImg.alt ?? primaryImg.title %}
+  
+  {# Generate transforms for desktop image #}
+  {% set desktopTransforms = {} %}
+  {% if p.desktopImg and desktopResponsive %}
+    {% for format in configFormats %}
+      {% for size, settings in desktopResponsive %}
+        {% set key = size ~ '_1x_' ~ format %}
+        {% set transform1x = {
+          mode: settings.mode,
+          width: settings.width,
+          height: settings.height ?? 'auto',
+          quality: settings.quality,
+          position: settings.position,
+          format: format
+        } %}
+        {% set desktopTransforms = desktopTransforms|merge({(key): transform1x}) %}
+        
+        {% if enableRetina %}
+          {% set key2x = size ~ '_2x_' ~ format %}
+          {% set transform2x = {
+            mode: settings.mode,
+            width: settings.width * 2,
+            height: settings.height is defined ? settings.height * 2 : 'auto',
+            quality: settings.quality,
+            position: settings.position,
+            format: format
+          } %}
+          {% set desktopTransforms = desktopTransforms|merge({(key2x): transform2x}) %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  
+  {# Generate transforms for mobile image #}
+  {% set mobileTransforms = {} %}
+  {% if p.mobileImg and mobileResponsive %}
+    {% for format in configFormats %}
+      {% for size, settings in mobileResponsive %}
+        {% set key = size ~ '_1x_' ~ format %}
+        {% set transform1x = {
+          mode: settings.mode,
+          width: settings.width,
+          height: settings.height ?? 'auto',
+          quality: settings.quality,
+          position: settings.position,
+          format: format
+        } %}
+        {% set mobileTransforms = mobileTransforms|merge({(key): transform1x}) %}
+        
+        {% if enableRetina %}
+          {% set key2x = size ~ '_2x_' ~ format %}
+          {% set transform2x = {
+            mode: settings.mode,
+            width: settings.width * 2,
+            height: settings.height is defined ? settings.height * 2 : 'auto',
+            quality: settings.quality,
+            position: settings.position,
+            format: format
+          } %}
+          {% set mobileTransforms = mobileTransforms|merge({(key2x): transform2x}) %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  
+  {# Determine fallback transform #}
+  {% set fallbackTransform = null %}
+  {% if p.desktopImg and desktopTransforms %}
+    {% set primarySize = desktopResponsive|keys|first %}
+    {% set primaryFormat = configFormats|first %}
+    {% set fallbackTransform = desktopTransforms[primarySize ~ '_1x_' ~ primaryFormat] ?? desktopTransforms[desktopTransforms|keys|first] %}
+  {% elseif p.mobileImg and mobileTransforms %}
+    {% set primarySize = mobileResponsive|keys|first %}
+    {% set primaryFormat = configFormats|first %}
+    {% set fallbackTransform = mobileTransforms[primarySize ~ '_1x_' ~ primaryFormat] ?? mobileTransforms[mobileTransforms|keys|first] %}
+  {% endif %}
+
+  <picture>
+    {% for format in configFormats %}
+      {# Desktop sources #}
+      {% if p.desktopImg and desktopTransforms %}
+        {% set srcsetItems = [] %}
+        {% for size, settings in desktopResponsive %}
+          {% set transform1x = desktopTransforms[size ~ '_1x_' ~ format] %}
+          {% set srcsetItems = srcsetItems|merge([p.desktopImg.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+          {% if enableRetina %}
+            {% set transform2x = desktopTransforms[size ~ '_2x_' ~ format] %}
+            {% set srcsetItems = srcsetItems|merge([p.desktopImg.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+          {% endif %}
+        {% endfor %}
+        
+        <source
+          type="image/{{ format }}"
+          media="(min-width: {{ p.breakpoint }})"
+          srcset="{{ srcsetItems|join(', ') }}"
+          sizes="{{ desktopSizes }}">
+      {% endif %}
+      
+      {# Mobile sources #}
+      {% if p.mobileImg and mobileTransforms %}
+        {% set srcsetItems = [] %}
+        {% for size, settings in mobileResponsive %}
+          {% set transform1x = mobileTransforms[size ~ '_1x_' ~ format] %}
+          {% set srcsetItems = srcsetItems|merge([p.mobileImg.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+          {% if enableRetina %}
+            {% set transform2x = mobileTransforms[size ~ '_2x_' ~ format] %}
+            {% set srcsetItems = srcsetItems|merge([p.mobileImg.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+          {% endif %}
+        {% endfor %}
+        
+        <source
+          type="image/{{ format }}"
+          srcset="{{ srcsetItems|join(', ') }}"
+          sizes="{{ mobileSizes }}">
+      {% endif %}
+    {% endfor %}
+    
+    {% if fallbackTransform %}
+      <img
+        src="{{ primaryImg.getUrl(fallbackTransform) }}"
+        class="{{ p.class }}"
+      {% if p.priority %}
+        fetchpriority="high"
+      {% endif %}
+      {% if p.lazy %}
+        loading="lazy"
+        decoding="async"
+      {% endif %}
+        alt="{{ altText }}"
+        width="{{ fallbackTransform.width }}"
+        height="{{ fallbackTransform.height }}">
+    {% endif %}
+  </picture>
+
+{% elseif p.img and p.responsive %}
+  {# Single Image Mode (backward compatibility) #}
   {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
   {% set configFormats = p.formats ?? transformConfig.formats %}
   {% set enableRetina = transformConfig.enableRetina %}

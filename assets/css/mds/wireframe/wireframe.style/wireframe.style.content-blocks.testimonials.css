@@ -11,8 +11,12 @@
       @apply bg-[var(--mds-testimonial-card-background-color)];
       @apply text-[var(--mds-testimonial-card-text-color)];
       @apply rounded-[var(--mds-testimonial-card-corner-radius)];
+      @apply border-[var(--mds-testimonial-card-border-color)];
+      border-width: var(--mds-testimonial-card-border-width);
+      border-style: solid;
     }
     .testimonial-stars {
+      /* @apply border-b; */
       .icon-star {
         @apply text-[var(--mds-testimonial-stars-color)];
       }
@@ -20,7 +24,7 @@
     .testimonial-quote {
       @apply text-[var(--mds-testimonial-quote-font-size)];
       @apply font-[var(--mds-testimonial-quote-font-weight)];
-      @apply italic;
+      /* @apply italic; */
     }
     .testimonial-quote-view-more {
       @apply text-[var(--mds-testimonial-view-more-font-size)];

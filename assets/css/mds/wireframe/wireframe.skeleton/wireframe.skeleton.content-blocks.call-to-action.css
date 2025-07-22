@@ -14,9 +14,9 @@
     /* If background image */
     &:has(.background-image) {
       .background-image {
-        @apply absolute top-0 left-0 z-0;
-        @apply w-full h-full;
-        @apply object-cover;
+        /* @apply absolute top-0 left-0 z-0; */
+        @apply w-full;
+        /* @apply object-cover; */
       }
       .content-box {
         @apply p-6;
@@ -38,8 +38,8 @@
       }
       /* Re-apply container width and padding to the container-inner */
       .container-inner {
-        max-width: var(--container-narrow);
-        @apply mx-auto;
+        max-width: var(--container-medium);
+        @apply mx-auto px-6;
       }
     }
   }

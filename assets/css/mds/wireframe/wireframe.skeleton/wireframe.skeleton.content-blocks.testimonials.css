@@ -19,7 +19,6 @@
       @apply flex items-center;
       @apply gap-1;
       @apply pb-6;
-      @apply border-b;
       .icon-star {
         @apply inline-block;
         @apply w-6 h-6;

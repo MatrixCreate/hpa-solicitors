@@ -3,13 +3,14 @@
   
   /* Primary Brand Colors */
   --color-white:          #ffffff;
-  --color-black:          #18283b;     /* Dk Navy - primary brand color */
-  --color-dark-grey:      #5d5d5d;     /* Dk Grey from Figma */
-  --color-medium-grey:    #5d5d5d;     /* Dk Grey from Figma */
-  --color-light-grey:     #f4f4f4;     /* Mid Grey from Figma */
+  --color-black:          #181818;     /* Black - primary brand color */
+  --color-dark-grey:      #5D5D5D;     /* Dark Grey from Figma */
+  --color-grey:           #ADAFAF;     /* Grey from Figma */
+  --color-medium-grey:    #F4F4F4;     /* Medium Grey from Figma */
+  --color-light-grey:     #FCFCFC;     /* Light Grey from Figma */
   
   /* HPA Navy Palette */
-  --color-dk-navy:        #18283b;     /* Primary brand color */
+  --color-dark-navy:      #18283b;     /* Primary brand color */
   --color-navy-hover:     #0f1b28;     /* Darker navy for hover states */
   --color-navy-light:     #2a3f56;     /* Lighter navy variant */
   
@@ -19,14 +20,14 @@
   --color-gold-light:     #d4a955;     /* Lighter gold variant */
   
   /* Semantic Color Mappings */
-  --color-primary:         var(--color-dk-navy);
+  --color-primary:         var(--color-dark-navy);
   --color-primary-hover:   var(--color-navy-hover);
   --color-secondary:       var(--color-gold);
   --color-secondary-hover: var(--color-gold-hover);
   
   /* Background Colors */
-  --color-footer-bg:       var(--color-dk-navy);
-  --color-body:            var(--color-dk-navy);
+  --color-footer-bg:       var(--color-dark-navy);
+  --color-body:            var(--color-dark-navy);
   
   /* Link Colors */
   --color-link:            var(--color-gold);
@@ -38,9 +39,8 @@
   --font-ui:              'Inter', sans-serif;      /* UI elements font from Figma */
   
   /* ===== LAYOUT & SPACING ===== */
-  --page-max-width:       118rem;
-  --container-wide:       118rem;
-  --container-medium:     80rem;
+  --container-wide:       90rem;
+  --container-medium:     75rem;
   --container-narrow:     64rem;
   
   --padding-block-2xs:    0.25rem;

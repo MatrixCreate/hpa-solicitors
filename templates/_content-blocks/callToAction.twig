@@ -66,6 +66,7 @@
   {%- set actionButtons = globalContent.globalCtaActionButtons -%}
 
   {% set desktopBackgroundImage = globalContent.globalCtaDesktopBackgroundImage.one() %}
+  {% set mobileBackgroundImage = globalContent.globalCtaMobileBackgroundImage.one() %}
 {% else %}
 
   {# {%- set backgroundImage = block.backgroundImage.one() -%} #}
@@ -89,7 +90,8 @@
   {%- set richText = block.richText -%}
   {%- set actionButtons = block.actionButtons -%}
 
-  {% set backgroundImage = null %}
+  {% set desktopBackgroundImage = block.desktopBackgroundImage.one() %}
+  {% set mobileBackgroundImage = block.mobileBackgroundImage.one() %}
 {% endif %}
 
 <section class="call-to-action content-block
@@ -168,21 +170,16 @@
       </div>
     </div>
     
-    {% if backgroundImage %}
+    {% if desktopBackgroundImage or mobileBackgroundImage %}
       {{ ui.component('picture', {
-        img: backgroundImage,
+        desktopImg: desktopBackgroundImage,
+        mobileImg: mobileBackgroundImage,
+        breakpoint: '768px',
         class: 'background-image call-to-action-image',
         formats: ['webp'],
-        alt: backgroundImage.alt ?? backgroundImage.title,
+        alt: (desktopBackgroundImage ?? mobileBackgroundImage).alt ?? (desktopBackgroundImage ?? mobileBackgroundImage).title,
         lazy: true,
-        responsive: {
-          sm: {
-            mode: 'crop',
-            width: 750,
-            height: 800,
-            quality: 90,
-            position: 'center-center',
-          },
+        desktopResponsive: {
           md: {
             mode: 'crop',
             width: 1920,
@@ -194,6 +191,15 @@
             mode: 'crop',
             width: 3840,
             height: 880,
+            quality: 90,
+            position: 'center-center',
+          },
+        },
+        mobileResponsive: {
+          sm: {
+            mode: 'crop',
+            width: 750,
+            height: 800,
             quality: 90,
             position: 'center-center',
           },

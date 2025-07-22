@@ -2,10 +2,11 @@
 # Advanced Responsive Image Component
 #
 # A sophisticated image component that automatically generates responsive images
-# with multiple formats, retina support, and performance optimizations.
+# with multiple formats, retina support, and performance optimizations using
+# <img> with srcset for optimal performance.
 #
-# Props:
-#   img: Asset (required) - The image asset to render
+# Single Image Mode Props:
+#   img: Asset (required for single image mode) - The image asset to render
 #   class: string (default: '') - CSS classes for the img element
 #   sizes: string (default: '100vw') - Sizes attribute for responsive images
 #   formats: array (default: from config) - Image formats to generate ['webp', 'jpeg']
@@ -14,6 +15,16 @@
 #   priority: boolean (default: false) - Set fetchpriority="high" for above-fold images
 #   responsive: object (required) - Responsive breakpoint configuration
 #
+# Desktop/Mobile Mode Props:
+#   desktopImg: Asset - Desktop image asset (for art-direction scenarios)
+#   mobileImg: Asset - Mobile image asset (for art-direction scenarios)  
+#   breakpoint: string (default: '768px') - Media query breakpoint between mobile/desktop
+#   desktopSizes: string (default: '100vw') - Sizes attribute for desktop image
+#   mobileSizes: string (default: '100vw') - Sizes attribute for mobile image
+#   desktopResponsive: object - Responsive config for desktop image
+#   mobileResponsive: object - Responsive config for mobile image
+#   (All other props apply to both images)
+#
 # Responsive Config Example:
 #   responsive: {
 #     sm: { mode: 'crop', width: 400, height: 300, quality: 85, position: 'center-center' },
@@ -21,7 +32,7 @@
 #     lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
 #   }
 #
-# Usage:
+# Single Image Usage:
 #   {{ ui.component('image', {
 #     img: entry.featuredImage.one(),
 #     class: 'hero-image w-full h-full object-cover',
@@ -34,22 +45,120 @@
 #       lg: { mode: 'crop', width: 1200, height: 800, quality: 85, position: 'center-center' }
 #     }
 #   }) }}
+#
+# Desktop/Mobile Usage (Note: <picture> component preferred for art-direction):
+#   {{ ui.component('image', {
+#     desktopImg: entry.desktopImage.one(),
+#     mobileImg: entry.mobileImage.one(),
+#     breakpoint: '768px',
+#     class: 'hero-image w-full h-full object-cover',
+#     formats: ['webp'],
+#     lazy: true,
+#     responsive: {
+#       sm: { mode: 'crop', width: 750, height: 800, quality: 90, position: 'center-center' },
+#       md: { mode: 'crop', width: 1920, height: 440, quality: 90, position: 'center-center' }
+#     }
+#   }) }}
 #}
 
 {% set defaults = {
   img: null,
+  desktopImg: null,
+  mobileImg: null,
+  breakpoint: '768px',
   class: '',
   sizes: '100vw',
+  desktopSizes: null,
+  mobileSizes: null,
   formats: null,
   alt: null,
   lazy: false,
   priority: false,
-  responsive: {}
+  responsive: {},
+  desktopResponsive: null,
+  mobileResponsive: null
 } %}
 
 {% set p = defaults|merge(props ?? {}) %}
 
-{% if p.img and p.responsive %}
+{# Determine if we're in desktop/mobile mode or single image mode #}
+{% set isDesktopMobileMode = p.desktopImg or p.mobileImg %}
+
+{% if isDesktopMobileMode %}
+  {# Desktop/Mobile Mode - Use primary image for single srcset (picture component preferred for true art-direction) #}
+  {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
+  {% set configFormats = p.formats ?? transformConfig.formats %}
+  {% set enableRetina = transformConfig.enableRetina %}
+  
+  {# Determine primary image - prefer desktop, fall back to mobile #}
+  {% set primaryImg = p.desktopImg ?? p.mobileImg %}
+  {% set responsiveConfig = p.desktopResponsive ?? p.mobileResponsive ?? p.responsive %}
+  {% set sizesAttribute = p.desktopSizes ?? p.mobileSizes ?? p.sizes %}
+  
+  {% set transforms = {} %}
+  {% set primaryFormat = configFormats|first %}
+
+  {% for size, settings in responsiveConfig %}
+    {% set key = size ~ '_1x_' ~ primaryFormat %}
+    {% set transform1x = {
+      mode: settings.mode,
+      width: settings.width,
+      height: settings.height ?? 'auto',
+      quality: settings.quality,
+      position: settings.position,
+      format: primaryFormat
+    } %}
+
+    {% set transforms = transforms|merge({(key): transform1x}) %}
+    
+    {% if enableRetina %}
+      {% set key2x = size ~ '_2x_' ~ primaryFormat %}
+      {% set transform2x = {
+        mode: settings.mode,
+        width: settings.width * 2,
+        height: settings.height is defined ? settings.height * 2 : 'auto',
+        quality: settings.quality,
+        position: settings.position,
+        format: primaryFormat
+      } %}
+      
+      {% set transforms = transforms|merge({(key2x): transform2x}) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set primarySize = responsiveConfig|keys|first %}
+  {% set fallbackTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
+  {% set primaryTransform = transforms[primarySize ~ '_1x_' ~ primaryFormat] ?? transforms[transforms|keys|first] %}
+
+  {% set srcsetItems = [] %}
+  {% for size, settings in responsiveConfig %}
+    {% set transform1x = transforms[size ~ '_1x_' ~ primaryFormat] %}
+    {% set srcsetItems = srcsetItems|merge([primaryImg.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+    {% if enableRetina %}
+      {% set transform2x = transforms[size ~ '_2x_' ~ primaryFormat] %}
+      {% set srcsetItems = srcsetItems|merge([primaryImg.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+    {% endif %}
+  {% endfor %}
+
+  <img
+    src="{{ primaryImg.getUrl(fallbackTransform) }}"
+    srcset="{{ srcsetItems|join(', ') }}"
+    class="{{ p.class }}"
+    sizes="{{ sizesAttribute }}"
+  {% if p.priority %}
+    fetchpriority="high"
+  {% endif %}
+  {% if p.lazy %}
+    loading="lazy"
+    decoding="async"
+  {% endif %}
+    alt="{{ p.alt ?? primaryImg.alt ?? primaryImg.title }}"
+    width="{{ primaryTransform.width }}"
+    height="{{ primaryTransform.height }}"
+  />
+
+{% elseif p.img and p.responsive %}
+  {# Single Image Mode (backward compatibility) #}
   {% set transformConfig = craft.app.config.getConfigFromFile('transforms') %}
   {% set configFormats = p.formats ?? transformConfig.formats %}
   {% set enableRetina = transformConfig.enableRetina %}
