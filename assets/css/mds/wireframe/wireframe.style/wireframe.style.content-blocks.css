@@ -6,7 +6,8 @@
     /* Apply Tailwind prose styles to Rich Text fields in all content blocks */
     .rich-text-field {
       @apply flex flex-col;
-      @apply prose max-w-none;
+      @apply prose prose-sm max-w-none;
+      @apply text-inherit;
       @apply prose-headings:font-display;
       @apply prose-headings:font-bold;
       @apply prose-headings:leading-tight;
@@ -17,7 +18,9 @@
     .heading {
       h1, h2, h3, h4, h5, h6 {
         @apply font-display font-semibold;
+        color: var(--heading-color);
       }
+      /*
       h1 {
         @apply text-[var(--mds-heading-h1-font-size)];
         @apply font-[var(--mds-heading-h1-font-weight)];
@@ -60,6 +63,7 @@
         
         @apply md:text-[var(--mds-heading-h6-font-size-md)];
       }
+      */
 
       /* Style UL and OL lists */
       ul {

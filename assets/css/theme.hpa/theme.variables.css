@@ -44,9 +44,9 @@
     --mds-status-success:                             theme(--color-dark-navy);
     --mds-status-success-background:                  theme(--color-light-grey);
     --mds-status-warning:                             theme(--color-gold);
-    --mds-status-warning-background:                  theme(--color-gold-light);
+    --mds-status-warning-background:                  theme(--color-light-gold);
     --mds-status-error:                               theme(--color-gold);
-    --mds-status-error-background:                    theme(--color-gold-light);
+    --mds-status-error-background:                    theme(--color-light-gold);
     
     /* Component-Specific Colors - Brand Overrides */
     
@@ -75,7 +75,7 @@
     --mds-mobile-nav-submenu-background:              theme(--color-black);
     --mds-mobile-nav-border:                          theme(--color-white);
     --mds-mobile-nav-cta-background:                  theme(--color-gold);
-    --mds-mobile-nav-cta-background-hover:            theme(--color-gold-light);
+    --mds-mobile-nav-cta-background-hover:            theme(--color-light-gold);
     
     /* Footer Colors */
     --mds-footer-background:                          theme(--color-light-grey);
@@ -177,7 +177,7 @@
     --mds-testimonial-card-corner-radius:             var(--mds-global-card-border-radius);
     --mds-testimonial-card-border-color:              theme(--color-dark-grey);
     --mds-testimonial-card-border-width:              1px;
-    --mds-testimonial-stars-color:                    theme(--color-gold-light);
+    --mds-testimonial-stars-color:                    theme(--color-light-gold);
     
     --mds-testimonial-nav-btn-background-color:       theme(--color-white);
     --mds-testimonial-nav-btn-background-color-hover: theme(--color-dark-navy);

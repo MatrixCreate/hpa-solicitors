@@ -424,11 +424,46 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-05-28T09:56:47+00:00'
+            dateAdded: '2025-07-23T18:37:26+00:00'
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 3cbe1ef0-8798-4c10-b455-bc92ed8cf6b7
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 43744a24-4dac-490b-88bf-c257222cc332
             userCondition: null
+          -
+            dateAdded: '2025-07-23T18:37:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalFaqHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c6f3b0e2-18b0-4509-99d9-7c1f5c52d6b6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:37:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: globalFaqTextColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d8123b96-64ac-4aa5-a624-0d30cdfec71e
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2025-04-02T14:22:12+00:00'
             editCondition: null
@@ -492,6 +527,64 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-07-23T18:35:07+00:00'
+            elementCondition: null
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 4363ccb0-f977-4306-b1ff-ec9d428817de
+            userCondition: null
+          -
+            dateAdded: '2025-07-23T18:35:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalUspsHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5282c10-9df0-40a8-8e0e-9bfc5585b3eb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:35:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: globalUspsTextColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 59e73957-fed6-4624-8e77-4cd0b8a3cf90
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:35:07+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalUspsBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3299bae4-1a0d-4bd9-84ee-adf797ec25f7
+            userCondition: null
+            warning: null
+            width: 100
         name: USPs
         uid: 313f61b7-96fb-4f59-bf50-53c2087d0814
         userCondition: null
@@ -516,17 +609,35 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-07-06T17:43:44+00:00'
+            dateAdded: '2025-07-23T18:37:26+00:00'
             elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 88eb4f89-250e-4ceb-b61b-ca45af9cbeb0
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: ff309199-4a5e-4b7a-aee3-73dfaa0af1da
             userCondition: null
+          -
+            dateAdded: '2025-07-23T18:37:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: globalTrustLinksHeadingColour
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c2df4601-c69d-4f79-91c6-a96f44518c5b
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2025-05-28T10:02:43+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
-            handle: null
+            handle: globalTrustLinksTextColour
             includeInCards: false
             instructions: null
             label: null
@@ -543,7 +654,7 @@ fieldLayouts:
             editCondition: null
             elementCondition: null
             fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
-            handle: trustLinksBackgroundColour
+            handle: globalTrustLinksBackgroundColour
             includeInCards: false
             instructions: null
             label: null

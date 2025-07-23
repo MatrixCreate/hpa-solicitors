@@ -9,6 +9,8 @@ fieldLayouts:
       - 'layoutElement:97011bf8-762d-4c42-9653-b953190693ad'
       - 'layoutElement:f9a0e132-2e26-4d3b-9ac3-78dbcc3172c1'
       - 'layoutElement:97bfc781-ea66-4d0e-81b8-b85351d13e9b'
+      - 'layoutElement:f570965e-6ce5-46f8-8c4c-55eb0ee7bf74'
+      - 'layoutElement:cd0232f4-2949-4c9d-842d-7f50bb12a36f'
       - 'layoutElement:263355bf-9c7e-4d49-aa69-52cf485f0aa2'
     tabs:
       -
@@ -267,6 +269,60 @@ fieldLayouts:
             type: craft\fieldlayoutelements\HorizontalRule
             uid: 26e6c8e0-dc38-437b-a9ae-9c4addae9a97
             userCondition: null
+          -
+            dateAdded: '2025-07-23T19:54:26+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 545e2e52-d8e0-43c9-a56b-d59ff7a1146c
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f570965e-6ce5-46f8-8c4c-55eb0ee7bf74
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T19:54:26+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: ab1bdd2f-7a1e-43fd-af4d-0917511787d7 # Use Global FAQ
+                  layoutElementUid: 0be83dfe-f991-422d-8e6e-ff73de1a412a
+                  uid: 0c9e40c3-2a0f-41b8-9b1a-55773acef8fa
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cd0232f4-2949-4c9d-842d-7f50bb12a36f
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2025-01-12T10:38:46+00:00'
             editCondition: null

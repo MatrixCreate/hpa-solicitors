@@ -8,6 +8,7 @@
   --color-grey:           #ADAFAF;     /* Grey from Figma */
   --color-medium-grey:    #F4F4F4;     /* Medium Grey from Figma */
   --color-light-grey:     #FCFCFC;     /* Light Grey from Figma */
+  --color-cream:          #FCF7EC;     /* Cream from Figma */
   
   /* HPA Navy Palette */
   --color-dark-navy:      #18283b;     /* Primary brand color */
@@ -17,7 +18,7 @@
   /* HPA Gold Palette */
   --color-gold:           #b68e34;     /* Secondary brand color */
   --color-gold-hover:     #9c7a2e;     /* Darker gold for hover states */
-  --color-gold-light:     #d4a955;     /* Lighter gold variant */
+  --color-light-gold:     #d4a955;     /* Lighter gold variant */
   
   /* Semantic Color Mappings */
   --color-primary:         var(--color-dark-navy);

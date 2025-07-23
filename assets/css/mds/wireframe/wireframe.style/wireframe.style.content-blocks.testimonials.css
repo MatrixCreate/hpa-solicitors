@@ -53,6 +53,10 @@
         @apply bg-[var(--mds-testimonial-dot-background-color-active)];
       }
     }
+    .testimonial-nav-btn,
+    .testimonial-dots {
+      @apply hidden;
+    }
   }
 
 }

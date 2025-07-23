@@ -7,7 +7,9 @@
   }
   .lq-slider {
     @apply relative;
-    @apply flex gap-6 lg:gap-8;
+    @apply flex;
+    @apply md:justify-center;
+    @apply gap-6 lg:gap-8;
     @apply 2xl:mr-6;
     @apply px-6 md:pr-0;
 
@@ -24,7 +26,7 @@
       }
      
       .lq-slider-item {
-        @apply snap-center shrink-0 basis-[95%] md:basis-[calc(33.3333%-1rem)];
+        @apply snap-center shrink-0 basis-[95%] md:basis-[calc(33.3333%-1.5rem)];
         &:first-child {
           @apply pl-0;
         }
@@ -57,7 +59,6 @@
       }
     }
   }
-  
   .lq-slider-controls {
     @apply absolute top-1/2 -translate-y-1/2;
     @apply hidden md:flex justify-between;

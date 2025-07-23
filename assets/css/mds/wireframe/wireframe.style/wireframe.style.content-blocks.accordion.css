@@ -8,7 +8,6 @@
         h2, h3, h4, h5, h6, p, p strong {
           @apply text-[var(--mds-accordion-trigger-font-size)];
           @apply font-[var(--mds-accordion-trigger-font-weight)];
-          @apply text-[var(--mds-accordion-trigger-text)];
         }
       }
     }
@@ -31,11 +30,9 @@
             @apply font-sans;
             @apply text-[var(--mds-accordion-trigger-font-size)];
             @apply font-[var(--mds-accordion-trigger-font-weight)];
-            @apply text-[var(--mds-accordion-trigger-text)];
           }
     
           .accordion-icons {
-            @apply text-[var(--mds-accordion-trigger-text)];
             .accordion-icon {
               @apply transition-all duration-300;
             }

@@ -1,8 +1,9 @@
 /* Tailwind v4 utilities */
 
-/* Generate .heading-{color} for every --color-* token, to enable heading colours from CMS */
+/* Generate .heading-{color} utilities programmatically for all colors in theme */
 @utility heading-* {
   --heading-color: --value(--color-*);
+  /* color: var(--heading-color); */
 }
 
 /* Debug utilities - visual styling */

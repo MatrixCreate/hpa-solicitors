@@ -31,14 +31,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-05-28T10:08:19+00:00'
-            elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 740c8a5a-5edb-49f3-96d9-65ceccee1469
-            userCondition: null
-          -
-            dateAdded: '2025-01-11T20:27:29+00:00'
-            dismissible: true
+            dateAdded: '2025-07-23T19:01:07+00:00'
             elementCondition:
               class: craft\elements\conditions\entries\EntryCondition
               conditionRules:
@@ -46,14 +39,31 @@ fieldLayouts:
                   class: craft\fields\conditions\LightswitchFieldConditionRule
                   fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
                   layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
-                  uid: 90b94d2e-073e-4732-8cab-8f64e95284aa
+                  uid: 8079176d-f671-406b-a316-b67a907e9d47
                   value: true
               elementType: craft\elements\Entry
               fieldContext: global
-            style: tip
-            tip: 'USPs can be edited in Globals > Global Content > USPs.'
-            type: craft\fieldlayoutelements\Tip
-            uid: 0175166d-bf76-4d84-98fc-240e67aed823
+            template: _cp/tips/usps_globals.twig
+            templateMode: site
+            type: craft\fieldlayoutelements\Template
+            uid: 1b17dfef-6b36-452c-a923-4914d503b63f
+            userCondition: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T19:01:07+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
+                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
+                  uid: fdd2a7cf-07c0-440e-b771-1abd489f1170
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: f5ecbd1e-d868-423a-84f9-452fa7cac96a
             userCondition: null
           -
             dateAdded: '2025-05-28T10:08:19+00:00'
@@ -110,15 +120,36 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-05-28T10:08:19+00:00'
-            elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 24c4871b-6a4f-4989-8408-5c672942305a
+            dateAdded: '2025-07-23T18:57:43+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
+                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
+                  uid: ce49d3bd-732d-4041-80e3-ede617558a17
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 0e692cf4-b5e7-4b8a-bf3f-498a4a535a26
             userCondition: null
           -
             dateAdded: '2025-05-28T10:08:19+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
+                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
+                  uid: 01cdd392-97c1-4791-955e-b6107d657f91
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
             handle: null
             includeInCards: true
@@ -135,7 +166,17 @@ fieldLayouts:
           -
             dateAdded: '2025-05-28T10:08:19+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
+                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
+                  uid: c0c67b56-fcc6-4e07-a0e8-90c449669a62
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
             handle: null
             includeInCards: true
@@ -152,7 +193,17 @@ fieldLayouts:
           -
             dateAdded: '2025-01-11T20:27:29+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
+                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
+                  uid: 6285325c-b47a-4ef5-8473-03089e3ecef3
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
             handle: null
             includeInCards: true

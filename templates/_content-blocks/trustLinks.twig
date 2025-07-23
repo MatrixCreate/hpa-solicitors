@@ -1,9 +1,14 @@
 {% import "_macros/utils.twig" as utils %}
 
-{% set backgroundColour = globalContent.trustLinksBackgroundColour.color[0].background %}
+{% set backgroundColour = globalContent.globalTrustLinksBackgroundColour.color[0].background %}
+{% set headingColour = globalContent.globalTrustLinksHeadingColour.color[0].heading %}
+{% set textColour = globalContent.globalTrustLinksTextColour.color[0].text %}
 
 <section class="trust-links content-block
-  {{ backgroundColour }}"
+  {{ headingColour }}
+  {{ textColour }}
+  {{ backgroundColour }}
+  "
   {{ utils.debugAttributes(entry, 'trustLinks', 'Trust Links') }}
   >
   <div class="content-block-inner container-narrow trust-links-content-block-inner">

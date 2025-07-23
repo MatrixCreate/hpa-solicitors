@@ -38,17 +38,22 @@
 
 {# Set configuration based on global/local mode #}
 {% if useGlobalUsps %}
-  {%- set usps = globalContent.usps.all() -%}
   {%- set richText = globalContent.uspsRichText -%}
+  {%- set usps = globalContent.usps.all() -%}
+  {%- set backgroundColour = globalContent.globalUspsBackgroundColour.color[0].background -%}
+  {%- set headingColour = globalContent.globalUspsHeadingColour.color[0].heading -%}
+  {%- set textColour = globalContent.globalUspsTextColour.color[0].text -%}
 {% else %}
-  {%- set usps = block.usps.all() -%}
   {%- set richText = block.richText -%}
+  {%- set usps = block.usps.all() -%}
+  {%- set backgroundColour = backgroundColour ?? block.backgroundColour.color[0].background -%}
+  {%- set headingColour = headingColour ?? block.headingColour.color[0].heading -%}
+  {%- set textColour = textColour ?? block.textColour.color[0].text -%}
 {% endif %}
 
-{%- set backgroundColour = backgroundColour ?? block.backgroundColour.color[0].background -%}
 
 {# Main USPs section with styling classes #}
-<section class="usps content-block {{ backgroundColour }}"
+<section class="usps content-block {{ backgroundColour }} {{ headingColour }} {{ textColour }}"
   {{ utils.debugAttributes(entry, 'usps', 'USPs') }}
   >
   <div class="content-block-inner container-wide">

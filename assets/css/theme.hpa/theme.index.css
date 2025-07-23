@@ -116,6 +116,15 @@ Organisation:
   }
 }
 
+.testimonials {
+  .rich-text-field {
+    @apply text-center;
+  }
+  .testimonial-footer {
+    @apply hidden;
+  }
+}
+
 .solicitor-profile {
   .solicitor-profile-wrapper {
     @apply flex flex-col md:flex-row gap-8 items-start;
@@ -169,4 +178,9 @@ Organisation:
       }
     }
   }
+}
+
+
+.trust-links-logo {
+  @apply mix-blend-darken;
 }

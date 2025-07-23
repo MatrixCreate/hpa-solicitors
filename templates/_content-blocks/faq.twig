@@ -8,7 +8,9 @@
   {% set openFirstItem = globalContent.globalFaqOpenFirstItem ?? 'false' %}
   {% set allItemsStayOpen = globalContent.globalFaqAllItemsStayOpen ?? 'false' %}
   {% set callToAction = globalContent.globalFaqCallToAction %}
-  {% set backgroundColour = globalContent.globalFaqBackgroundColour %}
+  {% set backgroundColour = globalContent.globalFaqBackgroundColour.color[0].background ?? null %}
+  {% set headingColour = globalContent.globalFaqHeadingColour.color[0].heading ?? null %}
+  {% set textColour = globalContent.globalFaqTextColour.color[0].text ?? null %}
   {% set blockType = 'faq' %}
 {% else %}
   {% set richText = block.richText %}
@@ -16,13 +18,17 @@
   {% set openFirstItem = block.openFirstItem ?? 'false' %}
   {% set allItemsStayOpen = block.allItemsStayOpen ?? 'false' %}
   {% set callToAction = block.actionButton %}
-  {% set backgroundColour = block.backgroundColour %}
+  {% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
+  {% set headingColour = block.headingColour.color[0].heading ?? null %}
+  {% set textColour = block.textColour.color[0].text ?? null %}
   {% set blockType = block.type %}
 {% endif %}
 
-{% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
+
 <section class="accordion-block content-block
   {{ backgroundColour }}
+  {{ headingColour }}
+  {{ textColour }}
   "
   {{ utils.debugAttributes(entry, blockType, 'Accordion') }}
   >
