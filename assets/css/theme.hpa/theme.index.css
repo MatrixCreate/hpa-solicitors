@@ -184,3 +184,16 @@ Organisation:
 .trust-links-logo {
   @apply mix-blend-darken;
 }
+
+
+.text-and-image {
+  &:nth-child(2) {
+    .rich-text-field {
+      p:first-child {
+        @apply font-display;
+        @apply font-bold;
+      }
+    }
+  }
+
+}
