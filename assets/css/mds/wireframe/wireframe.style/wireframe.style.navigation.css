@@ -55,7 +55,8 @@
       @apply p-2;
       @apply text-[var(--mds-nav-level-2-font-size)];
       @apply bg-[var(--mds-nav-background-overlay)];
-      @apply transition-opacity duration-300;
+      @apply transition-all duration-150;
+      transition-property: opacity, transform;
     }
     
     .nav-item-level-2 {
@@ -183,6 +184,8 @@
     /* Individual columns */
     .megamenu-column {
       @apply border-[var(--mds-megamenu-border)];
+      @apply transition-all duration-150;
+      transition-property: opacity, transform;
       
       &.column-1 {
         @apply bg-[var(--mds-nav-background-active)];

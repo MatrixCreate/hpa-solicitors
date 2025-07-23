@@ -335,29 +335,69 @@
           }
         });
         
-        // Close submenus function
-        const closeSubmenus = () => {
+        // Close submenus function with smooth transition
+        const closeSubmenus = (immediate = false) => {
           const activeItems = document.querySelectorAll('.nav--megamenu .nav-item.active');
-          activeItems.forEach(item => {
-            item.classList.remove('active');
-            
-            // Reset chevron indicators when closing submenus
-            const indicator = item.querySelector('.subnav-indicator');
-            if (indicator) {
-              indicator.style.transform = 'rotate(0deg)';
-            }
-            
-            // Clear clicked state when closing submenus
-            if (typeof clickedLevel1Items !== 'undefined') {
-              clickedLevel1Items.delete(item);
-            }
-          });
-          
-          // Also close megamenu columns
           const activeColumns = document.querySelectorAll('.nav--megamenu .megamenu-column.active');
-          activeColumns.forEach(col => {
-            col.classList.remove('active');
-          });
+          
+          if (immediate) {
+            // Immediate close without transitions
+            activeItems.forEach(item => {
+              item.classList.remove('active');
+              const indicator = item.querySelector('.subnav-indicator');
+              if (indicator) {
+                indicator.style.transform = 'rotate(0deg)';
+              }
+              if (typeof clickedLevel1Items !== 'undefined') {
+                clickedLevel1Items.delete(item);
+              }
+            });
+            
+            activeColumns.forEach(col => {
+              col.classList.remove('active');
+            });
+          } else {
+            // Smooth fade out transition
+            activeItems.forEach(item => {
+              const submenu = item.querySelector('.nav-menu-level-2');
+              if (submenu) {
+                submenu.style.opacity = '0';
+                submenu.style.transform = 'translateY(-10px)';
+              }
+            });
+            
+            activeColumns.forEach(col => {
+              col.style.opacity = '0';
+              col.style.transform = 'translateY(-5px)';
+            });
+            
+            // Remove classes after transition completes
+            setTimeout(() => {
+              activeItems.forEach(item => {
+                item.classList.remove('active');
+                const indicator = item.querySelector('.subnav-indicator');
+                if (indicator) {
+                  indicator.style.transform = 'rotate(0deg)';
+                }
+                if (typeof clickedLevel1Items !== 'undefined') {
+                  clickedLevel1Items.delete(item);
+                }
+                
+                // Reset inline styles
+                const submenu = item.querySelector('.nav-menu-level-2');
+                if (submenu) {
+                  submenu.style.opacity = '';
+                  submenu.style.transform = '';
+                }
+              });
+              
+              activeColumns.forEach(col => {
+                col.classList.remove('active');
+                col.style.opacity = '';
+                col.style.transform = '';
+              });
+            }, 150);
+          }
         };
 
         // Close submenus when clicking outside of the nav
@@ -386,11 +426,12 @@
           let currentScrollPosition = window.scrollY;
           let scrollDelta = Math.abs(currentScrollPosition - scrollStartPosition);
 
-          // Close navigation when user scrolls more than 50px and nav is active
-          if (scrollDelta > 50) {
+          // Close navigation when user scrolls more than 30px and nav is active
+          // Reduced threshold for better integration with header hide behavior
+          if (scrollDelta > 30) {
             const activeItems = document.querySelectorAll('.nav--megamenu .nav-item.active');
             if (activeItems.length > 0) {
-              closeSubmenus();
+              closeSubmenus(); // Use smooth transition
               isScrolling = false;
             }
           }
@@ -402,6 +443,7 @@
           }, 150);
         }, { passive: true });
         
+        
         // Close submenus on escape key
         document.addEventListener('keydown', function (event) {
           if (event.key === 'Escape') {
@@ -410,10 +452,11 @@
         });
       }
       
+      // Hover delay timers - declare outside hover block for global access
+      let hoverDelayTimers = new Map();
+      
       // Hover interactions for megamenu
       if (interaction === 'hover') {
-        // Hover delay timers
-        let hoverDelayTimers = new Map();
         
         // Helper function to show submenu with delay
         function showSubmenuWithDelay(navItem, delay = 150) {
@@ -730,7 +773,48 @@
             }
           });
         }
+        
       }
+      
+      // Universal header hide integration (works for both click and hover modes)
+      window.addEventListener('headerHidden', function() {
+        if (interaction === 'click') {
+          // Use existing closeSubmenus function for smooth integration
+          const activeItems = document.querySelectorAll('.nav--megamenu .nav-item.active');
+          if (activeItems.length > 0) {
+            closeSubmenus(true); // Immediate close when header hides
+          }
+        } else if (interaction === 'hover') {
+          // Close all hover states immediately
+          const activeItems = nav.querySelectorAll('.nav-item.active');
+          activeItems.forEach(item => {
+            item.classList.remove('active');
+            
+            // Reset chevron indicators
+            const indicator = item.querySelector('.subnav-indicator');
+            if (indicator) {
+              indicator.style.transform = 'rotate(0deg)';
+            }
+            
+            // Clear any hover delay timers
+            if (hoverDelayTimers.has(item)) {
+              clearTimeout(hoverDelayTimers.get(item));
+              hoverDelayTimers.delete(item);
+            }
+          });
+          
+          // Reset megamenu column active states
+          const activeColumns = nav.querySelectorAll('.megamenu-column.active');
+          activeColumns.forEach(col => {
+            col.classList.remove('active');
+          });
+          
+          // Reset any touch tapped items (check if in hover mode with touch)
+          if (typeof tappedItems !== 'undefined') {
+            tappedItems.clear();
+          }
+        }
+      });
     });
   </script>
 </nav>

@@ -180,11 +180,9 @@ Organisation:
   }
 }
 
-
 .trust-links-logo {
   @apply mix-blend-darken;
 }
-
 
 .text-and-image {
   &:nth-child(2) {
@@ -195,5 +193,10 @@ Organisation:
       }
     }
   }
+}
 
+.nav-menu-level-2 {
+  @apply mt-2;
+  @apply rounded-lg;
+  @apply overflow-hidden;
 }

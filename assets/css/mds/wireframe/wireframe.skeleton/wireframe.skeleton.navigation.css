@@ -176,7 +176,7 @@
     
     /* Level 2 becomes full-width mega panel */
     .nav-menu-level-2 {
-      @apply absolute top-full left-0 right-0;
+      @apply absolute top-full left-6 right-6;
       @apply flex flex-col;
       min-height: 24rem;
       @apply opacity-0 invisible;
