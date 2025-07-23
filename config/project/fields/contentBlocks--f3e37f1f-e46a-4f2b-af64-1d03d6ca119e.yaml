@@ -60,7 +60,7 @@ settings:
       __assoc__:
         -
           - uid
-          - 39cea0eb-d033-4b07-a76b-2bbb18856244 # Text
+          - b2ad0281-009a-4992-ba30-d42c5ff660a2 # Solicitor Profile
         -
           - group
           - General
@@ -68,7 +68,7 @@ settings:
       __assoc__:
         -
           - uid
-          - d5949c6e-8359-485f-855e-6abc97353dfb # USPs
+          - 39cea0eb-d033-4b07-a76b-2bbb18856244 # Text
         -
           - group
           - General
@@ -93,6 +93,14 @@ settings:
         -
           - uid
           - f5d132be-e014-4c13-9cfa-43f5e4a30020 # Text & Image
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - d5949c6e-8359-485f-855e-6abc97353dfb # USPs
         -
           - group
           - General

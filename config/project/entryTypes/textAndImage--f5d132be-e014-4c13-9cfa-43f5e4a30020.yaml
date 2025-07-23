@@ -4,10 +4,10 @@ fieldLayouts:
   8c53dfcb-263f-4e31-ae57-df4b6f815a61:
     cardThumbAlignment: end
     cardView:
+      - 'layoutElement:4c66d506-f163-4d32-9e3d-91d0952b040a'
+      - 'layoutElement:d8b1d7d1-da49-4ae4-bdf2-1db15269ad0b'
       - 'layoutElement:c1653837-2fbd-4cee-a8f3-125a408a0af9'
       - 'layoutElement:301ce672-b0bb-430d-ac3f-ee0d920589fc'
-      - 'layoutElement:d8b1d7d1-da49-4ae4-bdf2-1db15269ad0b'
-      - 'layoutElement:4c66d506-f163-4d32-9e3d-91d0952b040a'
       - 'layoutElement:9355feb1-2eea-496f-b9bf-9114be83c50b'
       - 'layoutElement:2e62ef4d-bc9b-4b08-84d5-ae5a2ed91c74'
       - 'layoutElement:3ae1f3fe-2389-46d3-97f4-162db268864d'

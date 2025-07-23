@@ -9,8 +9,9 @@
   {% set form = globalContent.globalContactFormForm %}
   {% set headingColour = globalContent.globalContactFormHeadingColour.color[0].heading %}
   {% set textColour = globalContent.globalContactFormTextColour.color[0].text %}
-  {% set backgroundColour = globalContent.globalContactFormBackgroundColour.color[0].background %}
-  {% set backgroundImage = globalContent.globalContactFormBackgroundImage.one() ?? null %}
+  {% set blockBackgroundColour = globalContent.globalContactFormBlockBackgroundColour.color[0].background %}
+  {% set formBackgroundColour = globalContent.globalContactFormFormBackgroundColour.color[0].background %}
+  {% set blockBackgroundImage = globalContent.globalContactFormBlockBackgroundImage.one() ?? null %}
   {% set blockType = 'contactForm' %}
 {% else %}
   {% set image = block.image.one() ?? null %}
@@ -18,16 +19,18 @@
   {% set form = block.form %}
   {% set headingColour = block.headingColour.color[0].heading %}
   {% set textColour = block.textColour.color[0].text %}
-  {% set backgroundColour = block.backgroundColour.color[0].background %}
-  {% set backgroundImage = block.backgroundImage.one() ?? null %}
+  {% set blockBackgroundColour = block.blockBackgroundColour.color[0].background %}
+  {% set formBackgroundColour = block.formBackgroundColour.color[0].background %}
+  {% set blockBackgroundImage = block.blockBackgroundImage.one() ?? null %}
+  {% set blockBackgroundImage = block.blockBackgroundImage.one() ?? null %}
   {% set blockType = block.type %}
 {% endif %}
 
 <section class="contact-form content-block
-  {{ backgroundColour }}
+  {{ blockBackgroundColour }}
   {{ headingColour }}
   {{ textColour }}
-  {{ backgroundImage ? 'has-background-image' : '' }}
+  {{ blockBackgroundImage ? 'has-background-image' : '' }}
   "
   {{ utils.debugAttributes(entry, blockType, 'Contact Form') }}
   >
@@ -72,7 +75,7 @@
           {# .image-wrapper #}
         {% endif %}
 
-        <div class="form-wrapper">
+        <div class="form-wrapper {{ formBackgroundColour }}">
           {{ ui.component('rich-text', { 
             content: richText 
           }) }}
@@ -86,13 +89,13 @@
       </div> {# .content-box #}
     </div> {# .container-inner #}
 
-    {% if backgroundImage %}
+    {% if blockBackgroundImage %}
       {{ ui.component('image', {
-        img: backgroundImage,
+        img: blockBackgroundImage,
         class: 'background-image contact-form-image',
         sizes: '100vw',
         formats: ['webp'],
-        alt: backgroundImage.alt ?? backgroundImage.title,
+        alt: blockBackgroundImage.alt ?? blockBackgroundImage.title,
         lazy: true,
         responsive: {
           sm: {

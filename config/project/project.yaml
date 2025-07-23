@@ -1,4 +1,4 @@
-dateModified: 1753281537
+dateModified: 1753294670
 elementSources:
   craft\elements\Entry:
     -
@@ -190,7 +190,7 @@ meta:
     9881f7fe-9627-4f98-9c75-df9d131b19b3: 'Contact & Location' # Contact & Location
     32001bc5-6fb5-4a51-9c63-525dcee3b4ed: 'Mobile Navigation Style' # Mobile Navigation Style
     39785eae-4b55-4b36-9be2-491a42225351: 'Head Scripts' # Head Scripts
-    68611d72-6c45-48c2-9cbc-2832777d8159: 'Design Options' # Design Options
+    77200aac-9078-4d25-91f5-ddad6e3ec045: 'Team Member' # Team Member
     901519ce-e6de-4761-90a4-faaa0a48014f: Hero # Hero
     3135539e-c170-4f51-a9ab-b1914259bc17: 'Main Navigation' # Main Navigation
     5508904f-3547-4f4d-8aa1-7cbd37fad70f: 'Social Network' # Social Network
@@ -212,6 +212,7 @@ meta:
     ac855411-f993-4e39-8cb5-55a8a9520dcd: Colour # Colour
     adb1ed9c-489c-48e0-acd0-d4582acf2cc0: 'Carousel Transition' # Carousel Transition
     af4a1c91-3af9-4b64-85e7-1249eae9a6bf: 'Star Rating' # Star Rating
+    b2ad0281-009a-4992-ba30-d42c5ff660a2: 'Solicitor Profile' # Solicitor Profile
     b8a7e45e-98e1-421d-bd6d-b46b4dc24ae8: Error # Error
     b8bbac3b-1fd7-42b3-85a2-fb56e6045dae: 'Custom Schema' # Custom Schema
     b31e80bd-f6a2-40b1-a76a-2254459b4ef0: 'Call to Action' # Call to Action
@@ -261,7 +262,6 @@ meta:
     e2d560ef-593b-45eb-a2a2-38e4e3addc3f: 'Social Networks' # Social Networks
     e9af25fc-88c5-4ef3-81e0-e58077037275: 'Desktop Navigation Interaction' # Desktop Navigation Interaction
     e80cd3ad-bf8c-4ab9-86fc-c72b90ae9b57: 'Plain Text' # Plain Text
-    e965f04b-1033-42b1-afdc-ddb6ae5bb55d: 'Footer Blocks' # Footer Blocks
     e4180fed-979c-4f12-82ab-ba4878abcc1c: Entries # Entries
     e7153c93-193c-4368-9767-21b563ec2f74: 'Video URL' # Video URL
     e92930cb-194a-4ac2-a279-09d104925476: 'Colour Theme' # Colour Theme

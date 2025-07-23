@@ -105,10 +105,17 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-07-06T15:01:33+00:00'
+            dateAdded: '2025-07-23T14:41:53+00:00'
+            elementCondition: null
+            heading: 'Footer Content Blocks'
+            type: craft\fieldlayoutelements\Heading
+            uid: 92d2e320-c87e-4254-bfb0-cce8171d1bea
+            userCondition: null
+          -
+            dateAdded: '2025-07-23T14:41:29+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: e965f04b-1033-42b1-afdc-ddb6ae5bb55d # Footer Blocks
+            fieldUid: c6a6cb2e-afae-45ed-9b37-883afdce998c # Show Global Call to Action
             handle: null
             includeInCards: false
             instructions: null
@@ -117,9 +124,52 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4c179770-831b-441f-99f5-58c9a04e0376
+            uid: 65b89b60-e40c-4856-9002-3ad83fa961b3
             userCondition: null
             warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T14:41:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d1c05327-4725-49d4-8853-16d9ba87a417 # Show Testimonials
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24f95a38-d48e-4747-8080-246fda69cc65
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T14:41:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 20e2f95c-70a8-4c32-adb7-35c86d995115 # Show Trust Links
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06632125-43bb-43e0-982c-79a62def64c1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T14:41:29+00:00'
+            elementCondition: null
+            template: _cp/tips/footer-blocks_global-content.twig
+            templateMode: site
+            type: craft\fieldlayoutelements\Template
+            uid: 9051d2b6-1a93-4079-af99-8ef1739a0a69
+            userCondition: null
             width: 100
         name: 'Footer Content'
         uid: 6723becd-a60a-4f91-8388-a73196b0b35d

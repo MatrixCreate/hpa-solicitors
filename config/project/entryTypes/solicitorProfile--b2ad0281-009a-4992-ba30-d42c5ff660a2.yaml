@@ -1,0 +1,121 @@
+color: null
+description: null
+fieldLayouts:
+  b0334704-20d4-4733-a5e9-ab8cbad01a38:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:16399323-66c7-4a7d-9788-75e195774caf'
+      - 'layoutElement:06624357-c497-4239-8494-4bff5e290921'
+      - 'layoutElement:096e5558-36fc-4bcb-86a8-62a4a516a43c'
+      - 'layoutElement:b4d9312d-fef9-44b6-a1a5-5997f7d78284'
+      - 'layoutElement:3537694e-7aec-4f01-9810-585eab3edf2c'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-23T18:09:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 77200aac-9078-4d25-91f5-ddad6e3ec045 # Team Member
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 16399323-66c7-4a7d-9788-75e195774caf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-27T20:32:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f53721fc-dc3d-4ae1-88b5-f3af79963912 # Rich Text
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06624357-c497-4239-8494-4bff5e290921
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:08:54+00:00'
+            elementCondition: null
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 34d586bf-6cff-46c0-8478-39f5816834ae
+            userCondition: null
+          -
+            dateAdded: '2025-04-02T14:09:08+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 29de51db-42ca-4f70-9664-79678e123674 # Heading Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 096e5558-36fc-4bcb-86a8-62a4a516a43c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-11T20:32:17+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f887805-eb34-411a-aa55-03e1393ec407 # Text Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4d9312d-fef9-44b6-a1a5-5997f7d78284
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-07T10:07:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3537694e-7aec-4f01-9810-585eab3edf2c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 69e30a4f-f112-4f56-a95f-6fd3a1d36eee
+        userCondition: null
+handle: solicitorProfile
+hasTitleField: false
+icon: user
+name: 'Solicitor Profile'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Solicitor Profile'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

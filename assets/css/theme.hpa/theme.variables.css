@@ -101,7 +101,6 @@
     /* Search Colors */
     --mds-search-background:                          theme(--color-white);
     --mds-search-text:                                theme(--color-black);
-    --mds-search-text-muted:                          theme(--color-medium-grey);
     --mds-search-text-light:                          theme(--color-medium-grey);
     --mds-search-button-background:                   theme(--color-light-grey);
     --mds-search-button-background-hover:             theme(--color-medium-grey);
@@ -154,7 +153,7 @@
     --mds-button-secondary-text-color-hover:          theme(--color-white);
     
     /* Button Structure - Brand Overrides */
-    --mds-button-border-radius:                       theme(spacing.2);
+    --mds-button-border-radius:                       theme(spacing.1);
     --mds-button-border-color:                        theme(--color-white);
     --mds-button-text-transform:                      capitalize;
     

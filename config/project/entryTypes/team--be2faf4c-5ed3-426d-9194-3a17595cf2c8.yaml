@@ -135,6 +135,57 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-07-23T18:17:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d9fa2a8a-b9f3-4960-88f8-1db729fff2b3 # Telephone
+            handle: telephone
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: afbfb80d-85f7-424f-8f55-07c729f4d5d8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:17:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c86d69c8-411f-49cf-a938-18fb516179ba # Email
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 65be795f-9fa4-4d66-9c57-b8132624278d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:17:50+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e80cd3ad-bf8c-4ab9-86fc-c72b90ae9b57 # Plain Text
+            handle: linkedIn
+            includeInCards: false
+            instructions: null
+            label: LinkedIn
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 23322ff6-e69b-4a19-9e3e-b2748fd1634c
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-05-28T19:24:10+00:00'
             elementCondition: null
             heading: Content
@@ -459,19 +510,10 @@ fieldLayouts:
           -
             dateAdded: '2025-07-12T10:56:34+00:00'
             elementCondition: null
-            heading: 'Footer Blocks'
+            heading: 'Footer Content Blocks'
             type: craft\fieldlayoutelements\Heading
             uid: 53190e58-2309-4c23-b1e4-addfa333562f
             userCondition: null
-          -
-            dateAdded: '2025-07-12T10:56:34+00:00'
-            elementCondition: null
-            template: _cp/tips/footer-blocks_global-content.twig
-            templateMode: site
-            type: craft\fieldlayoutelements\Template
-            uid: 156679e0-7c26-48bc-a253-54951ed05120
-            userCondition: null
-            width: 100
           -
             dateAdded: '2025-07-12T10:56:34+00:00'
             editCondition: null
@@ -510,6 +552,23 @@ fieldLayouts:
             dateAdded: '2025-07-12T10:56:34+00:00'
             editCondition: null
             elementCondition: null
+            fieldUid: d1c05327-4725-49d4-8853-16d9ba87a417 # Show Testimonials
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7c923e3e-0f50-41fc-b6c6-7724d71f48fb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-12T10:56:34+00:00'
+            editCondition: null
+            elementCondition: null
             fieldUid: 20e2f95c-70a8-4c32-adb7-35c86d995115 # Show Trust Links
             handle: null
             includeInCards: false
@@ -525,20 +584,12 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-07-12T10:56:34+00:00'
-            editCondition: null
             elementCondition: null
-            fieldUid: d1c05327-4725-49d4-8853-16d9ba87a417 # Show Testimonials
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7c923e3e-0f50-41fc-b6c6-7724d71f48fb
+            template: _cp/tips/footer-blocks_global-content.twig
+            templateMode: site
+            type: craft\fieldlayoutelements\Template
+            uid: 156679e0-7c26-48bc-a253-54951ed05120
             userCondition: null
-            warning: null
             width: 100
         name: 'Footer Content'
         uid: ac5e0798-147c-4963-a83c-2e289163f8cc
@@ -593,15 +644,6 @@ fieldLayouts:
             uid: a2542caf-f59a-4791-bb77-5c55ec3aa32c
             userCondition: null
           -
-            dateAdded: '2025-07-12T10:56:34+00:00'
-            elementCondition: null
-            template: _cp/tips/custom-schema.twig
-            templateMode: site
-            type: craft\fieldlayoutelements\Template
-            uid: 1a3e22c2-c9b5-4b06-8744-aa64c98900e2
-            userCondition: null
-            width: 100
-          -
             dateAdded: '2025-07-07T17:19:56+00:00'
             editCondition: null
             elementCondition: null
@@ -617,6 +659,15 @@ fieldLayouts:
             uid: e5966ca0-453a-41f3-afbe-ad4ff6442bfa
             userCondition: null
             warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-12T10:56:34+00:00'
+            elementCondition: null
+            template: _cp/tips/custom-schema.twig
+            templateMode: site
+            type: craft\fieldlayoutelements\Template
+            uid: 1a3e22c2-c9b5-4b06-8744-aa64c98900e2
+            userCondition: null
             width: 100
         name: Schema
         uid: 0f31785f-12c6-4daf-ace0-2ecf245b732c

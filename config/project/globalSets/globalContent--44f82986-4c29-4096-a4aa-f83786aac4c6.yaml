@@ -229,6 +229,13 @@ fieldLayouts:
             uid: d0ebdff4-675a-46f2-9ba1-bfdc46f192c8
             userCondition: null
           -
+            dateAdded: '2025-07-23T16:07:26+00:00'
+            elementCondition: null
+            heading: Colours
+            type: craft\fieldlayoutelements\Heading
+            uid: 3f44b4f7-2393-4b08-b246-d84fd1578ae4
+            userCondition: null
+          -
             dateAdded: '2025-07-06T17:25:47+00:00'
             editCondition: null
             elementCondition: null
@@ -263,14 +270,31 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-07-23T16:07:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: globalContactFormFormBackgroundColour
+            includeInCards: false
+            instructions: null
+            label: 'Form Background Colour'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b2b3dfd4-ade7-4d66-8f49-8725cbff463e
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-04-02T14:32:54+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
-            handle: globalContactFormBackgroundColour
+            handle: globalContactFormBlockBackgroundColour
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Block Background Colour'
             providesThumbs: false
             required: false
             tip: null
@@ -287,7 +311,7 @@ fieldLayouts:
             handle: globalContactFormBackgroundImage
             includeInCards: false
             instructions: null
-            label: 'Background Image'
+            label: 'Block Background Image'
             providesThumbs: false
             required: false
             tip: null

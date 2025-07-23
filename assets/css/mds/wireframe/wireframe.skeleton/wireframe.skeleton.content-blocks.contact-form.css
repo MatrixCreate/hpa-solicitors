@@ -62,7 +62,7 @@
     }
     input::placeholder,
     textarea::placeholder {
-      @apply md:hidden md:invisible md:opacity-0;
+      /* @apply md:hidden md:invisible md:opacity-0; */
     }
     .btn-wrapper {
       @apply flex justify-center;

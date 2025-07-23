@@ -7,6 +7,9 @@ fieldLayouts:
       - 'layoutElement:dcb3b0c9-0032-4f7c-9615-f02ac62fafa8'
       - 'layoutElement:e5947920-0b51-4e32-bd4c-9f797757f9a3'
       - 'layoutElement:7fc77759-9517-4d97-8b33-7755d034a2f2'
+      - 'layoutElement:b40dd5fc-18a4-47fa-b2b1-e7d5b2bd48f0'
+      - 'layoutElement:06e54211-ab8e-4967-8475-64c705f0a3ef'
+      - 'layoutElement:e16379c4-a7dd-47d1-ba9e-aa9a0fe702b1'
       - 'layoutElement:c8beb96e-1b5a-422f-bed3-368f132f6855'
       - 'layoutElement:577d908c-118d-4524-9597-57cf8bb89dcc'
     tabs:
@@ -233,6 +236,33 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-07-23T16:15:54+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: dcb3b0c9-0032-4f7c-9615-f02ac62fafa8
+                  uid: 03679eea-2085-4301-b6f4-6451730d7fba
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
+            handle: formBackgroundColour
+            includeInCards: true
+            instructions: null
+            label: 'Form Background Colour'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e16379c4-a7dd-47d1-ba9e-aa9a0fe702b1
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-01-09T20:19:59+00:00'
             editCondition: null
             elementCondition:
@@ -247,10 +277,10 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             fieldUid: 3b34836a-b2ff-42aa-b2e8-2fac2ef47579 # Background Colour
-            handle: null
+            handle: blockBackgroundColour
             includeInCards: true
             instructions: null
-            label: null
+            label: 'Block Background Colour'
             providesThumbs: false
             required: false
             tip: null
@@ -274,10 +304,10 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             fieldUid: f1c78530-4861-4775-af22-734d110036e4 # Image
-            handle: backgroundImage
+            handle: blockBackgroundImage
             includeInCards: true
             instructions: null
-            label: 'Background Image'
+            label: 'Block Background Image'
             providesThumbs: false
             required: false
             tip: null
@@ -291,7 +321,7 @@ fieldLayouts:
         userCondition: null
 handle: contactForm
 hasTitleField: false
-icon: envelope-open-text
+icon: pen-field
 name: 'Contact Form'
 showSlugField: false
 showStatusField: true

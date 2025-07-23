@@ -3,6 +3,7 @@
 
     /* Hero */
   .hero-text-wrapper {
+    @apply max-w-[var(--container-medium)];
     @apply p-6;
   }
   .hero-text {
