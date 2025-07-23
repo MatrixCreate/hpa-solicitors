@@ -545,23 +545,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            dateAdded: '2025-07-12T10:10:55+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 83971616-a717-4139-b641-499dbc6dfb99 # Show Newsletter Signup
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7b77a68c-d27d-445a-90b2-a0d99dc4d97f
-            userCondition: null
-            warning: null
-            width: 100
         name: 'Footer Content'
         uid: ab057265-8f68-400e-954c-8ca950c0bb8b
         userCondition: null

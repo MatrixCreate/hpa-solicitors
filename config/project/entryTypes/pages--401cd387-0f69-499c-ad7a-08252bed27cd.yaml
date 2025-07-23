@@ -355,6 +355,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-07-23T12:34:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 52d16a9f-4777-4c28-a348-6146366ed718 # Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 104fe691-176e-47c8-be6b-6e854c985740
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Card Details'
         uid: 57b17516-9105-428e-8b35-86b2ae48aa91
         userCondition: null
@@ -442,23 +459,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 4d11d4dc-93cc-4060-9ae5-353d45866e97
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-07-07T21:01:18+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 83971616-a717-4139-b641-499dbc6dfb99 # Show Newsletter Signup
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: dfbec4ad-a3e8-47a1-bbe3-4a3975ac63e3
             userCondition: null
             warning: null
             width: 100
