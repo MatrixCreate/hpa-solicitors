@@ -182,7 +182,7 @@
               <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                   <tbody>
-                    <!-- Social Media Section --> {% set socialNetworks = siteConfig.socialNetworks.all() %} {% if socialNetworks|length %} <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                    <!-- Social Media Section --> {% set socialNetworks = companyInfo.socialNetworks.all() %} {% if socialNetworks|length %} <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
                       <tr> {% for socialNetwork in socialNetworks %} <td style="padding: 0 8px;">
                           <a href="{{ socialNetwork.theUrl }}" target="_blank" style="text-decoration: none;">
                             <img src="{{ socialNetwork.socialNetworkIcon.url | svgToPng(50, 50) }}" width="25" height="25" style="opacity: 0.5;">
