@@ -183,41 +183,111 @@
 
   <picture>
     {% for format in configFormats %}
-      {# Desktop sources #}
-      {% if p.desktopImg and desktopTransforms %}
-        {% set srcsetItems = [] %}
-        {% for size, settings in desktopResponsive %}
-          {% set transform1x = desktopTransforms[size ~ '_1x_' ~ format] %}
-          {% set srcsetItems = srcsetItems|merge([p.desktopImg.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
-          {% if enableRetina %}
-            {% set transform2x = desktopTransforms[size ~ '_2x_' ~ format] %}
-            {% set srcsetItems = srcsetItems|merge([p.desktopImg.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
-          {% endif %}
-        {% endfor %}
+      {# Desktop sources - use desktop image if available, fallback to mobile image #}
+      {% if desktopResponsive %}
+        {% set desktopImage = p.desktopImg ?? p.mobileImg %}
+        {% set desktopTransformsToUse = desktopTransforms %}
         
-        <source
-          type="image/{{ format }}"
-          media="(min-width: {{ p.breakpoint }})"
-          srcset="{{ srcsetItems|join(', ') }}"
-          sizes="{{ desktopSizes }}">
+        {# If no desktop transforms but we have mobile image, generate desktop transforms from mobile image #}
+        {% if not desktopTransformsToUse and desktopImage and desktopResponsive %}
+          {% set desktopTransformsToUse = {} %}
+          {% for size, settings in desktopResponsive %}
+            {% set key = size ~ '_1x_' ~ format %}
+            {% set transform1x = {
+              mode: settings.mode,
+              width: settings.width,
+              height: settings.height ?? 'auto',
+              quality: settings.quality,
+              position: settings.position,
+              format: format
+            } %}
+            {% set desktopTransformsToUse = desktopTransformsToUse|merge({(key): transform1x}) %}
+            
+            {% if enableRetina %}
+              {% set key2x = size ~ '_2x_' ~ format %}
+              {% set transform2x = {
+                mode: settings.mode,
+                width: settings.width * 2,
+                height: settings.height is defined ? settings.height * 2 : 'auto',
+                quality: settings.quality,
+                position: settings.position,
+                format: format
+              } %}
+              {% set desktopTransformsToUse = desktopTransformsToUse|merge({(key2x): transform2x}) %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+        {% if desktopImage and desktopTransformsToUse %}
+          {% set srcsetItems = [] %}
+          {% for size, settings in desktopResponsive %}
+            {% set transform1x = desktopTransformsToUse[size ~ '_1x_' ~ format] %}
+            {% set srcsetItems = srcsetItems|merge([desktopImage.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+            {% if enableRetina %}
+              {% set transform2x = desktopTransformsToUse[size ~ '_2x_' ~ format] %}
+              {% set srcsetItems = srcsetItems|merge([desktopImage.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+            {% endif %}
+          {% endfor %}
+          
+          <source
+            type="image/{{ format }}"
+            media="(min-width: {{ p.breakpoint }})"
+            srcset="{{ srcsetItems|join(', ') }}"
+            sizes="{{ desktopSizes }}">
+        {% endif %}
       {% endif %}
       
-      {# Mobile sources #}
-      {% if p.mobileImg and mobileTransforms %}
-        {% set srcsetItems = [] %}
-        {% for size, settings in mobileResponsive %}
-          {% set transform1x = mobileTransforms[size ~ '_1x_' ~ format] %}
-          {% set srcsetItems = srcsetItems|merge([p.mobileImg.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
-          {% if enableRetina %}
-            {% set transform2x = mobileTransforms[size ~ '_2x_' ~ format] %}
-            {% set srcsetItems = srcsetItems|merge([p.mobileImg.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
-          {% endif %}
-        {% endfor %}
+      {# Mobile sources - use mobile image if available, fallback to desktop image #}
+      {% if mobileResponsive %}
+        {% set mobileImage = p.mobileImg ?? p.desktopImg %}
+        {% set mobileTransformsToUse = mobileTransforms %}
         
-        <source
-          type="image/{{ format }}"
-          srcset="{{ srcsetItems|join(', ') }}"
-          sizes="{{ mobileSizes }}">
+        {# If no mobile transforms but we have desktop image, generate mobile transforms from desktop image #}
+        {% if not mobileTransformsToUse and mobileImage and mobileResponsive %}
+          {% set mobileTransformsToUse = {} %}
+          {% for size, settings in mobileResponsive %}
+            {% set key = size ~ '_1x_' ~ format %}
+            {% set transform1x = {
+              mode: settings.mode,
+              width: settings.width,
+              height: settings.height ?? 'auto',
+              quality: settings.quality,
+              position: settings.position,
+              format: format
+            } %}
+            {% set mobileTransformsToUse = mobileTransformsToUse|merge({(key): transform1x}) %}
+            
+            {% if enableRetina %}
+              {% set key2x = size ~ '_2x_' ~ format %}
+              {% set transform2x = {
+                mode: settings.mode,
+                width: settings.width * 2,
+                height: settings.height is defined ? settings.height * 2 : 'auto',
+                quality: settings.quality,
+                position: settings.position,
+                format: format
+              } %}
+              {% set mobileTransformsToUse = mobileTransformsToUse|merge({(key2x): transform2x}) %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+        {% if mobileImage and mobileTransformsToUse %}
+          {% set srcsetItems = [] %}
+          {% for size, settings in mobileResponsive %}
+            {% set transform1x = mobileTransformsToUse[size ~ '_1x_' ~ format] %}
+            {% set srcsetItems = srcsetItems|merge([mobileImage.getUrl(transform1x) ~ ' ' ~ transform1x.width ~ 'w']) %}
+            {% if enableRetina %}
+              {% set transform2x = mobileTransformsToUse[size ~ '_2x_' ~ format] %}
+              {% set srcsetItems = srcsetItems|merge([mobileImage.getUrl(transform2x) ~ ' ' ~ transform2x.width ~ 'w']) %}
+            {% endif %}
+          {% endfor %}
+          
+          <source
+            type="image/{{ format }}"
+            srcset="{{ srcsetItems|join(', ') }}"
+            sizes="{{ mobileSizes }}">
+        {% endif %}
       {% endif %}
     {% endfor %}
     

@@ -67,6 +67,11 @@
 
   {% set desktopBackgroundImage = globalContent.globalCtaDesktopBackgroundImage.one() %}
   {% set mobileBackgroundImage = globalContent.globalCtaMobileBackgroundImage.one() %}
+  
+  {# Fallback to single background image if desktop/mobile not available #}
+  {% if not desktopBackgroundImage and not mobileBackgroundImage and globalContent.globalCtaBackgroundImage %}
+    {% set desktopBackgroundImage = globalContent.globalCtaBackgroundImage.one() %}
+  {% endif %}
 {% else %}
 
   {# {%- set backgroundImage = block.backgroundImage.one() -%} #}
@@ -92,6 +97,11 @@
 
   {% set desktopBackgroundImage = block.desktopBackgroundImage.one() %}
   {% set mobileBackgroundImage = block.mobileBackgroundImage.one() %}
+  
+  {# Fallback to single background image if desktop/mobile not available #}
+  {% if not desktopBackgroundImage and not mobileBackgroundImage and block.backgroundImage %}
+    {% set desktopBackgroundImage = block.backgroundImage.one() %}
+  {% endif %}
 {% endif %}
 
 <section class="call-to-action content-block
