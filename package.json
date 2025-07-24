@@ -36,11 +36,5 @@
 		"@tailwindcss/postcss": "^4.1.11",
 		"@tailwindcss/vite": "^4.1.11",
 		"tailwindcss": "^4.1.11"
-	},
-	"overrides": {
-		"puppeteer": "^23.1.0",
-		"rimraf": "^6.0.1",
-		"glob": "^11.0.0",
-		"inflight": "npm:@isaacs/inflight@^1.0.1"
 	}
 }
