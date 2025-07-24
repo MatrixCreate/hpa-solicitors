@@ -18,7 +18,7 @@ return [
     'aliases' => [
         '@assetsUrl' => App::env('ASSETS_URL') ?: App::env('PRIMARY_SITE_URL'),
         '@web' => App::env('PRIMARY_SITE_URL'),
-        '@webroot' => App::env('WEB_ROOT_PATH'),
+        '@webroot' => App::env('WEB_ROOT_PATH') ?: dirname(__DIR__) . '/web',
     ],
 
     // Default Week Start Day (0 = Sunday, 1 = Monday...)
