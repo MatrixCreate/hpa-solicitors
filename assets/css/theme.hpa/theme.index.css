@@ -29,6 +29,45 @@ Organisation:
   @apply font-sans;
   @apply uppercase;
 }
+.btn-telephone,
+.btn-contact {
+  @apply flex;
+  @apply gap-2;
+  @apply items-center;
+  @apply px-0;
+  @apply text-sm font-normal capitalize;
+  @apply bg-transparent;
+  .btn-icon {
+    @apply md:block;
+    @apply w-4 h-4;
+    @apply text-gold;
+  }
+}
+
+.secondary-header-inner {
+  @apply py-1;
+}
+.search-input {
+  @apply text-sm;
+  @apply font-normal;
+  @apply capitalize;
+  @apply text-white;
+  @apply bg-transparent;
+  @apply border-none;
+  @apply placeholder:text-sm;
+  @apply placeholder:text-white;
+}
+.search-input-wrapper {
+  @apply flex-row-reverse;
+}
+.search-button {
+  @apply p-1;
+  @apply text-white;
+}
+.search-button:hover {
+  @apply bg-white;
+  @apply text-dark-navy;
+}
 
 
 

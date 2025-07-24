@@ -10,12 +10,12 @@
 {% for actionButton in actionButtonNav %}
   {% if actionButton.useGlobalTelephone is defined and actionButton.useGlobalTelephone == true %}
     {% set buttonUrl = 'tel:' ~ companyInfo.telephone|replace({' ': ''}) %}
-    {% set buttonText = companyInfo.telephone %}
+    {% set buttonText = 'Call ' ~ companyInfo.telephone %}
     {% set actionButtonClasses = 'btn-primary btn-telephone' ~ actionButton.classes %}
     {% if actionButton.customAttributes %}
       {% set ariaLabel = actionButton.customAttributes[0].value %}
     {% endif %}
-    {% set icon = svg('@webroot/assets/icons/system/icon_mobile_telephone.svg')|attr({ class: 'call-button-icon'}) %}
+    {% set icon = svg('@webroot/assets/icons/system/icon_telephone.svg')|attr({ class: 'call-button-icon'}) %}
   {% else %}
     {% set buttonUrl = actionButton.url %}
     {% set buttonText = actionButton.title %}

@@ -23,11 +23,10 @@
   }
   .search-input {
     @apply w-full;
-    @apply p-2 pr-10 pl-3;
+    @apply p-1.5;
   }
 
   .search-form--header .search-input {
-    @apply p-2 pr-10 pl-3;
     @apply rounded-md;
   }
 
@@ -36,19 +35,13 @@
   }
 
   .search-button {
-    @apply absolute;
-    @apply right-2.5;
-    @apply top-1/2;
-    @apply -translate-y-1/2;
     @apply bg-transparent;
     @apply border-none;
     @apply cursor-pointer;
     @apply p-1.5;
     @apply rounded-md;
   }
-
   .search-form--header .search-button {
-    @apply right-2;
     @apply p-1;
   }
 

@@ -3,13 +3,13 @@
   
   Props:
   - query: Current search query (optional)
-  - placeholder: Input placeholder text (default: "Search...")
+  - placeholder: Input placeholder text (default: "Search")
   - class: Additional CSS classes (optional)
   - variant: Form variant - 'header' or 'page' (default: 'page')
 #}
 
 {% set query = query ?? craft.app.request.getQueryParam('q', '') %}
-{% set placeholder = placeholder ?? 'Search...' %}
+{% set placeholder = placeholder ?? 'Search' %}
 {% set variant = variant ?? 'page' %}
 {% set class = class ?? '' %}
 

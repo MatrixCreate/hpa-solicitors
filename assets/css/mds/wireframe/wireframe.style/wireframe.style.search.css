@@ -37,6 +37,7 @@
   .search-button:hover {
     @apply text-[var(--mds-search-button-text-hover)];
     @apply bg-[var(--mds-search-button-background-hover)];
+    @apply text-black;
   }
 
   .search-button:focus {
