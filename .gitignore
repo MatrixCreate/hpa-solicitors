@@ -45,3 +45,6 @@ web/dist
 
 # CMS Assets
 web/assets/cms
+
+# MCP config
+.mcp.json
