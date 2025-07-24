@@ -96,19 +96,21 @@
             {% set cardText = card.cardText ?? ''  %}
           {% endif %}
 
-          {# Only render card if there's a related entry #}
-          {% if relatedEntry %}
-            <div class="entry-card-grid-item">
-              {{ ui.component('entry.card', {
-                linkUrl: linkUrl,
-                cardImage: cardImage,
-                cardHeading: cardHeading,
-                cardText: cardText,
-                displayActionButton: card.displayActionButton ?? false,
-                icon: icon
-              }) }}
-            </div>
+          {# Always render card, use global placeholder if no image #}
+          {% if not cardImage %}
+            {% set cardImage = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
           {% endif %}
+          
+          <div class="entry-card-grid-item">
+            {{ ui.component('entry.card', {
+              linkUrl: linkUrl,
+              cardImage: cardImage,
+              cardHeading: cardHeading,
+              cardText: cardText,
+              displayActionButton: card.displayActionButton ?? false,
+              icon: icon
+            }) }}
+          </div>
         {% endfor %}
 
       {% else %}
@@ -136,6 +138,11 @@
           {% set cardHeading = card.title %}
           {% set cardText = card.excerpt %}
           {% set entryIcon = card.customIcon %}
+
+          {# Use global placeholder if no featured image #}
+          {% if not cardImage %}
+            {% set cardImage = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
+          {% endif %}
 
           {# Render the card #}
           <div class="entry-card-grid-item">

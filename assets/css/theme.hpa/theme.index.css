@@ -269,6 +269,7 @@ Organisation:
   }
   
   .text-content {
+    @apply flex-0; /* Override flex-1 from wireframe style */
     @apply mb-0; /* Override mb-4 from wireframe style */
   }
   
