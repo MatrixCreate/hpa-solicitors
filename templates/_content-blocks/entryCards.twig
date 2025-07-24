@@ -62,7 +62,7 @@
     }) }}
 
     {# Card grid container with responsive columns #}
-    <div class="entry-card-grid">
+    <div class="entry-card-grid entry-card-carousel">
 
     {% if entrySelection == 'custom' %}
         {# Custom Card Type Logic #}
@@ -135,8 +135,7 @@
           {% set cardImage = card.featuredImage.one() %}
           {% set cardHeading = card.title %}
           {% set cardText = card.excerpt %}
-          {% set displayActionButton = card.displayActionButton ?? false %}
-          {% set icon = svg('@webroot/assets/icons/system/icon_chevron_right.svg') %}
+          {% set entryIcon = card.customIcon %}
 
           {# Render the card #}
           <div class="entry-card-grid-item">
@@ -145,8 +144,7 @@
                 cardImage: cardImage,
                 cardHeading: cardHeading,
                 cardText: cardText,
-                displayActionButton: displayActionButton,
-                icon: null
+                cardIcon: entryIcon
               }) }}
           </div>
         {% endfor %}

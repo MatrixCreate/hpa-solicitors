@@ -189,8 +189,10 @@
     --mds-image-border-radius:                        var(--mds-global-card-border-radius);
 
     /* Entry Cards */
+    --mds-entry-card-heading-font-family:             theme(fontFamily.display);
     --mds-entry-card-heading-font-size:               theme(fontSize.xl);
-    --mds-entry-card-heading-font-weight:             theme(fontWeight.medium);
+    --mds-entry-card-heading-font-weight:             theme(fontWeight.semibold);
+    --mds-entry-card-heading-color:                   theme(--color-white);
     --mds-entry-card-background-color:                theme(--color-light-grey);
     --mds-entry-card-border-radius:                   var(--mds-global-card-border-radius);
     --mds-entry-card-border-radius-overflow:          hidden;
@@ -218,5 +220,6 @@
     --mds-overlay-background:                         rgb(255 255 255 / 0.6);
 
     --hpa-call-to-action-background: url('/assets/images/cta_block_text_bg_shape.svg');
+    --hpa-hero-shape-background: url('/assets/images/hero_shape_bg.svg');
   }
 }

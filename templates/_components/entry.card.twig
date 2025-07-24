@@ -23,7 +23,7 @@
 {% set cardText = props.cardText ?? cardText ?? '' %}
 {% set cardImage = props.cardImage ?? cardImage ?? null %}
 {% set displayActionButton = props.displayActionButton ?? displayActionButton ?? false %}
-{% set icon = props.icon ?? icon ?? null %}
+{% set cardIcon = props.cardIcon ?? cardIcon ?? null %}
 
 <div class="entry-card no-shadow entry-card {% if displayActionButton %}has-action-button{% else %}has-overlay-link{% endif %}">
   <a href="{{ linkUrl }}" class="entry-card-link">
@@ -40,22 +40,22 @@
           sm: {
             mode: 'crop',
             width: 400,
-            height: 280,
-            quality: 85,
+            height: 200,
+            quality: 90,
             position: 'center-center',
           },
           md: {
             mode: 'crop',
-            width: 600,
-            height: 400,
-            quality: 85,
+            width: 500,
+            height: 250,
+            quality: 90,
             position: 'center-center',
           },
           lg: {
             mode: 'crop',
-            width: 300,
-            height: 200,
-            quality: 85,
+            width: 750,
+            height: 375,
+            quality: 90,
             position: 'center-center',
           },
         }
@@ -64,6 +64,12 @@
     {% endif %}
 
     <div class="card-content entry-card-content">
+      {% if cardIcon %}
+        <div class="entry-card-icon">
+          {{ cardIcon.inline|raw }}
+        </div>
+      {% endif %}
+
       <div class="text-content">
         {% if cardHeading|length %}
         <div class="entry-card-heading">
@@ -77,15 +83,6 @@
         </div>
         {% endif %}
       </div> {# .text-content #}
-
-      <div class="btn btn-primary btn-icon no-underline hover:no-underline" aria-label="Read more about {{ cardHeading }}">
-        <span class="">
-          Read more
-        </span>
-        <span class="btn-icon">
-          {{ icon|raw }}
-        </span>
-      </div>
     </div> {# .card-content #}
   </a>
 </div> 
