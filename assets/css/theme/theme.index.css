@@ -1,0 +1,263 @@
+/*
+theme/theme.index.css
+Theme stylesheet for Craft Starter
+The theme version of the site, with custom design tokes and variables for the client project. Colours, fonts, spacing, etc.
+
+Organisation:
+
+- Tokens
+- Variables
+- Utilities
+- Base styles
+- Typography
+- Buttons
+- Header
+- Navigation
+- Search
+- Footer
+
+- Hero
+- Components (Content Blocks, Testimonials, Blog, Contact)
+*/
+
+@import './theme.tokens.css';
+@import './theme.variables.css';
+
+
+.btn {
+  @apply font-sans;
+  @apply uppercase;
+}
+
+.hero-text-wrapper {
+  @apply max-w-[var(--container-wide)];
+}
+.hero-text {
+  @apply md:w-1/3;
+}
+.hero-text-inner {
+  .heading {
+    @apply pl-8;
+    @apply text-gold;
+    @apply border-l-2 border-light-grey;
+  }
+  .rich-text-field {
+    @apply pt-8;
+    @apply text-xl;
+    @apply text-white;
+  }
+}
+
+.usps {
+  .rich-text-field {
+    @apply text-center;
+  }
+  .usp-item {
+    @apply flex-row;
+    @apply p-4;
+    @apply border border-dark-grey;
+    @apply rounded;
+  }
+  .usp-text {
+    @apply font-display;
+    @apply font-bold;
+  }
+
+}
+
+.call-to-action {
+  .container-inner {
+    @apply absolute top-0 left-0 right-0 bottom-0;
+    @apply w-full h-full;
+  }
+  .content-box {
+    @apply p-0;
+    @apply bg-transparent;
+  }
+  .content-box {
+    @apply md:grid md:grid-cols-2;
+  }
+  .container-inner {
+    @apply p-0;
+  }
+  .content-box-inner {
+    @apply md:col-start-2;
+    @apply bg-(image:--hpa-call-to-action-background);
+    @apply bg-contain bg-no-repeat;
+  }
+  .cta-content {
+    @apply md:w-2/3;
+    @apply p-6;
+    @apply md:p-12 md:pl-20;
+    .rich-text-field {
+      @apply prose-headings:text-gold;
+      @apply prose-headings:text-3xl;
+      @apply prose-headings:pl-4;
+      @apply prose-headings:border-l;
+      @apply prose-headings:border-light-grey;
+
+      @apply text-white;
+    }
+  }
+}
+
+.contact-form {
+  .image-wrapper {
+    @apply h-full;
+  }
+  .contact-form-image {
+    @apply w-full h-full object-cover;
+  }
+  .form-wrapper {
+    @apply p-6;
+    .fui-label {
+      @apply sr-only;
+    }
+  }
+}
+
+.testimonials {
+  .rich-text-field {
+    @apply text-center;
+  }
+  .testimonial-footer {
+    @apply hidden;
+  }
+}
+
+.solicitor-profile {
+  .solicitor-profile-wrapper {
+    @apply flex flex-col md:flex-row gap-8 items-start;
+  }
+  
+  .profile-image-wrapper {
+    @apply flex-shrink-0;
+    
+    .profile-image {
+      @apply rounded-full w-48 h-48 md:w-64 md:h-64 object-cover;
+    }
+  }
+  
+  .profile-content {
+    @apply flex-1;
+  }
+  
+  .profile-header {
+    @apply mb-6;
+    
+    .solicitor-name {
+      @apply font-display;
+      @apply text-3xl font-bold text-dark-navy mb-2;
+    }
+    
+    .solicitor-title {
+      @apply text-lg text-dark-grey;
+    }
+  }
+  
+  .solicitor-bio {
+    @apply mb-8;
+    
+    p {
+      @apply text-base leading-relaxed;
+    }
+  }
+  
+  .contact-info {
+    @apply space-y-3;
+    
+    .contact-item {
+      @apply flex items-center gap-3;
+      
+      .contact-icon {
+        @apply w-5 h-5 text-gold flex-shrink-0;
+      }
+      
+      .contact-link {
+        @apply text-dark-navy hover:text-gold transition-colors;
+      }
+    }
+  }
+}
+
+.trust-links-logo {
+  @apply mix-blend-darken;
+}
+
+.text-and-image {
+  &:nth-child(2) {
+    .rich-text-field {
+      p:first-child {
+        @apply font-display;
+        @apply font-bold;
+      }
+    }
+  }
+}
+
+.nav-menu-level-2 {
+  @apply mt-2;
+  @apply rounded-lg;
+  @apply overflow-hidden;
+}
+
+/* ===== HPA ENTRY CARDS OVERRIDES ===== */
+/* Override skeleton entry cards with carousel layout */
+.entry-cards {
+  .entry-card-carousel {
+    @apply flex flex-row snap-x snap-mandatory overflow-x-auto gap-6;
+    @apply md:grid md:grid-cols-3 lg:gap-8 max-md:pr-6;
+    @apply -mr-6 md:mr-0;
+    > * {
+      @apply basis-[90%] snap-start flex-shrink-0;
+    }
+  }
+  
+  /* Remove flex-1 from text-content for improved layout */
+  .text-content {
+    @apply flex flex-col; /* Override flex-1 from skeleton */
+  }
+}
+
+/* Override entry card styling for HPA design */
+.entry-card {
+  .entry-card-content {
+    @apply absolute inset-0;
+    @apply w-full h-full;
+    @apply space-y-2;
+    @apply justify-center items-center;
+    @apply p-4;
+    @apply text-center;
+    @apply bg-dark-grey/50;
+  }
+  
+  .text-content {
+    @apply mb-0; /* Override mb-4 from wireframe style */
+  }
+  
+  .entry-card-heading {
+    font-family: var(--mds-entry-card-heading-font-family);
+    @apply text-lg md:text-base lg:text-xl;
+    @apply leading-tight;
+    @apply font-[var(--mds-entry-card-heading-font-weight)];
+    @apply text-[var(--mds-entry-card-heading-color)];
+    @apply mb-0; /* Override mb-2 from wireframe style */
+  }
+  
+  .entry-card-icon {
+    @apply w-16 h-16;
+    @apply md:w-12 md:h-12;
+    @apply lg:w-16 lg:h-16;
+    svg {
+      @apply w-full h-full;
+    }
+  }
+}
+
+/* Override tabbed navigator entry card heading spacing */
+.tabbed-navigator {
+  .entry-card-heading {
+    @apply mb-0; /* Override mb-2 from wireframe style */
+    @apply text-xl font-bold;
+  }
+}

@@ -1,0 +1,66 @@
+@theme {
+  /* ===== HPA SOLICITORS BRAND COLOR SYSTEM ===== */
+  
+  /* Primary Brand Colors */
+  --color-white:          #ffffff;
+  --color-black:          #181818;     /* Black - primary brand color */
+  --color-dark-grey:      #5D5D5D;     /* Dark Grey from Figma */
+  --color-grey:           #ADAFAF;     /* Grey from Figma */
+  --color-medium-grey:    #F4F4F4;     /* Medium Grey from Figma */
+  --color-light-grey:     #FCFCFC;     /* Light Grey from Figma */
+  --color-cream:          #FCF7EC;     /* Cream from Figma */
+  
+  /* HPA Navy Palette */
+  --color-dark-navy:      #18283b;     /* Primary brand color */
+  --color-navy-hover:     #0f1b28;     /* Darker navy for hover states */
+  --color-navy-light:     #2a3f56;     /* Lighter navy variant */
+  
+  /* HPA Gold Palette */
+  --color-gold:           #b68e34;     /* Secondary brand color */
+  --color-gold-hover:     #9c7a2e;     /* Darker gold for hover states */
+  --color-light-gold:     #d4a955;     /* Lighter gold variant */
+  
+  /* Semantic Color Mappings */
+  --color-primary:         var(--color-dark-navy);
+  --color-primary-hover:   var(--color-navy-hover);
+  --color-secondary:       var(--color-gold);
+  --color-secondary-hover: var(--color-gold-hover);
+  
+  /* Background Colors */
+  --color-footer-bg:       var(--color-dark-navy);
+  --color-body:            var(--color-dark-navy);
+  
+  /* Link Colors */
+  --color-link:            var(--color-gold);
+  --color-link-hover:      var(--color-gold-hover);
+  
+  /* ===== HPA SOLICITORS TYPOGRAPHY ===== */
+  --font-display:         'museo-sans', serif;      /* Headings font from Figma */
+  --font-sans:            'work-sans', sans-serif;  /* Body text font from Figma */
+  --font-ui:              'Inter', sans-serif;      /* UI elements font from Figma */
+  
+  /* ===== LAYOUT & SPACING ===== */
+  --container-wide:       90rem;
+  --container-medium:     75rem;
+  --container-narrow:     64rem;
+  
+  --padding-block-2xs:    0.25rem;
+  --padding-block-xs:     0.5rem;
+  --padding-block-sm:     1rem;
+  --padding-block-md:     1.5rem;
+  --padding-block-lg:     2rem;
+  --padding-block-xl:     2.5rem;
+  --padding-block-2xl:    3rem;
+  
+  /* ===== BREAKPOINTS ===== */
+  --breakpoint-2xs: 350px;
+  --breakpoint-xs:  500px;
+  --breakpoint-3xl: 1536px;
+  --breakpoint-4xl: 1600px;
+  
+  /* ===== UTILITIES ===== */
+  --font-size-2xs:        0.5rem;
+  
+  /* ===== ASSETS ===== */
+  --background-image-icon-chevron-down: url('../../assets/icons/system/icon_chevron_down.svg');
+}
