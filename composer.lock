@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e59cd48e387cf876f708976a62aea745",
+    "content-hash": "e0324cc9741c6aee6229bac3e611a533",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -554,11 +554,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "5.8.5",
+            "version": "5.8.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/5790cca6b0a970e1eee6779636960b9b83a3072c",
-                "reference": "5790cca6b0a970e1eee6779636960b9b83a3072c",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/93d85ce6dae3b8da62a3e1fc3191f495d53db2c8",
+                "reference": "93d85ce6dae3b8da62a3e1fc3191f495d53db2c8",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
                 "docs": "https://craftcms.com/docs/5.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2025-07-08T23:53:53+00:00"
+            "time": "2025-07-18T18:47:52+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -794,16 +794,16 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "08082638f8caff8ab86a223898e8ea167b3f5879"
+                "reference": "3b1f239c1cc781710978b0baa3e3bc99410d1973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/08082638f8caff8ab86a223898e8ea167b3f5879",
-                "reference": "08082638f8caff8ab86a223898e8ea167b3f5879",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/3b1f239c1cc781710978b0baa3e3bc99410d1973",
+                "reference": "3b1f239c1cc781710978b0baa3e3bc99410d1973",
                 "shasum": ""
             },
             "type": "library",
@@ -832,7 +832,7 @@
                 "rss": "https://github.com/craftcms/server-check/releases.atom",
                 "source": "https://github.com/craftcms/server-check"
             },
-            "time": "2025-02-11T20:26:29+00:00"
+            "time": "2025-07-23T14:22:43+00:00"
         },
         {
             "name": "craftcms/store-hours",
@@ -2195,6 +2195,56 @@
                 }
             ],
             "time": "2025-03-27T12:30:47+00:00"
+        },
+        {
+            "name": "heavymetalavo/craft-aialttext",
+            "version": "v1.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heavymetalavo/craft-aialttext/zipball/f43bf4e5dc4ed1bb708a121e8127d7147c33c0cb",
+                "reference": "f43bf4e5dc4ed1bb708a121e8127d7147c33c0cb",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": ">=8.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "ai-alt-text",
+                "name": "AI Alt Text",
+                "developer": "heavymetalavo",
+                "documentationUrl": "https://github.com/heavymetalavo/craft-aialttext",
+                "class": "heavymetalavo\\craftaialttext\\AiAltText"
+            },
+            "autoload": {
+                "psr-4": {
+                    "heavymetalavo\\craftaialttext\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "heavymetalavo",
+                    "homepage": "https://github.com/heavymetalavo"
+                }
+            ],
+            "description": "Generate suitable alt text for CraftCMS Asset Images",
+            "keywords": [
+                "accessibility",
+                "ai",
+                "alt-text",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/heavymetalavo/craft-aialttext",
+                "issues": "https://github.com/heavymetalavo/craft-aialttext/issues?state=open",
+                "source": "https://github.com/heavymetalavo/craft-aialttext"
+            },
+            "time": "2025-06-27T13:46:08+00:00"
         },
         {
             "name": "html2text/html2text",
@@ -10763,11 +10813,11 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.4"
     },

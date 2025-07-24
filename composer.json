@@ -23,6 +23,7 @@
     "craftcms/feed-me": "^6.1.0",
     "craftcms/store-hours": "^4.2.0",
     "craftpulse/craft-colour-swatches": "5.1.0",
+    "heavymetalavo/craft-aialttext": "v1.6.1",
     "matrixcreate/craft-simple-seo-import": "^1.0",
     "nystudio107/craft-code-field": "5.0.1",
     "nystudio107/craft-plugin-vite": "^5.0.1",
