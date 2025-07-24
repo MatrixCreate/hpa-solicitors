@@ -1,4 +1,4 @@
-dateModified: 1753300466
+dateModified: 1753349572
 elementSources:
   craft\elements\Entry:
     -
@@ -280,6 +280,19 @@ meta:
     fce874cd-067f-4773-a00e-3259d546da3a: 'SEO Admin' # SEO Admin
     feac832c-784d-47fa-95ba-7bcc2584a099: New # New
 plugins:
+  ai-alt-text:
+    edition: standard
+    enabled: true
+    licenseKey: 3FD8GSG3PLXHCSUY6WQU892F
+    schemaVersion: 1.0.0
+    settings:
+      generateForNewAssets: false
+      openAiApiKey: $OPENAI_API_KEY
+      openAiImageInputDetailLevel: low
+      openAiModel: gpt-4.1-nano
+      prompt: "Describe the image provided, make it suitable for an alt text description (roughly 150 characters maximum). Consider transparency within the image if supported by the file type, e.g. don't suggest it has a dark background if it is transparent. Do not add a prefix of any kind (e.g. alt text: AI content) so the value is suitable for the alt text attribute value of the image. Output in {site.language}"
+      propagate: false
+      saveTranslatedResultsToEachSite: false
   buttonbox:
     edition: standard
     enabled: true
