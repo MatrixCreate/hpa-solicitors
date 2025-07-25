@@ -1,4 +1,4 @@
-dateModified: 1753349572
+dateModified: 1753427776
 elementSources:
   craft\elements\Entry:
     -
@@ -16,9 +16,12 @@ elementSources:
       key: 'heading:748eb433-6a6f-4619-b638-9f3fc15bcdec'
       type: heading
     -
-      heading: Company
+      heading: Collections
       key: 'heading:97f55c86-40f4-4e02-a7dc-fdb92c8dd66b'
       type: heading
+    -
+      key: 'section:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+      type: native
     -
       key: 'section:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
       type: native
@@ -29,9 +32,6 @@ elementSources:
       heading: Content
       key: 'heading:bcea5122-d601-4863-a182-67d3b6754e53'
       type: heading
-    -
-      key: 'section:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
-      type: native
     -
       defaultSort:
         - structure
