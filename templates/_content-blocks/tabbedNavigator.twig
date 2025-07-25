@@ -85,13 +85,13 @@
               {% for entry in entries %}
 
                 {% set linkUrl = entry.url %}
-                {% set featuredImage = entry.featuredImage.one() %}
+                {% set cardImage = entry.cardImage.one() %}
                 {% set cardHeading = entry.title|trim|split(' ')|length > 10 ? entry.title|trim|split(' ')|slice(0, 10)|join(' ') ~ '...' : entry.title|trim %}
                 {% set cardText = entry.excerpt|trim|length > 100 ? entry.excerpt|trim|slice(0, 100) ~ '...' : entry.excerpt|trim %}
 
                 {{ ui.component('entry.card', {
                   linkUrl: linkUrl,
-                  cardImage: featuredImage,
+                  cardImage: cardImage,
                   cardHeading: cardHeading,
                   cardText: cardText,
                   displayActionButton: true,

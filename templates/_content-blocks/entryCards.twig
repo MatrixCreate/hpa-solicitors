@@ -83,7 +83,7 @@
             {% set linkUrl = ctaLink.url %}
             
             {% set relatedEntry = ctaLink.getElement() ?? null %}
-            {% set relatedEntryImage = relatedEntry.featuredImage.one() ?? null %}
+            {% set relatedEntryImage = relatedEntry.cardImage.one() ?? null %}
             {% set cardImage = relatedEntryImage %}
             
             {% set cardHeading = card.linkedEntry.linkText ?? card.linkedEntry.getElement().title ?? '' %}
@@ -134,7 +134,7 @@
         {% for card in entries %}
           {# Get entry details for card #}
           {% set linkUrl = card.url %}
-          {% set cardImage = card.featuredImage.one() %}
+          {% set cardImage = card.cardImage.one() %}
           {% set cardHeading = card.title %}
           {% set cardText = card.excerpt %}
           {% set entryIcon = card.customIcon %}

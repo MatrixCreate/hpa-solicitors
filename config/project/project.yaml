@@ -1,4 +1,4 @@
-dateModified: 1753427776
+dateModified: 1753439399
 elementSources:
   craft\elements\Entry:
     -
@@ -256,7 +256,7 @@ meta:
     dee8ebd6-cda9-49fb-b9c0-203ca0fdfec8: 'Newsletter Type' # Newsletter Type
     df55b90f-eb27-45bd-8ed8-c40138f7911d: Quote # Quote
     df94ec7b-710a-4783-8e2f-2d60d156b23b: 'Full Bleed Images' # Full Bleed Images
-    df481174-6e82-404e-8c4d-4b51de3e7d33: 'Featured Image' # Featured Image
+    df481174-6e82-404e-8c4d-4b51de3e7d33: 'Card Image' # Card Image
     dfacfb5c-a3b6-4062-9bde-d50b59ecf855: 'Rich Text' # Rich Text
     e02d91e4-756f-4167-a264-cf7204dcd994: 'Customer Template' # Customer Template
     e2d560ef-593b-45eb-a2a2-38e4e3addc3f: 'Social Networks' # Social Networks

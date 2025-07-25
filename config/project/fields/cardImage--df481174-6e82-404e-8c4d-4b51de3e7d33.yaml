@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: featuredImage
-instructions: 'The Featured Image is the default thumbnail image for cards and listing blocks. '
-name: 'Featured Image'
+handle: cardImage
+instructions: 'The Card Image is the default thumbnail image for cards and listing blocks. '
+name: 'Card Image'
 searchable: false
 settings:
   allowSelfRelations: false
@@ -21,7 +21,7 @@ settings:
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:c7b92d55-6cb8-4dce-b433-944e46d454ac' # Images
   restrictedLocationSubpath: null
-  selectionLabel: 'Add an image'
+  selectionLabel: 'Add an Image'
   showCardsInGrid: false
   showSearchInput: true
   showSiteMenu: true

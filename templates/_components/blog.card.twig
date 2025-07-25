@@ -6,7 +6,7 @@
 
 <div class="blog-card">
   {% if showImages %}
-    {% set cardImage = entry.featuredImage.one() %}
+    {% set cardImage = entry.cardImage.one() %}
     {% if cardImage|length %}
       <a href="{{ entry.url }}">
         <figure role="figure">
