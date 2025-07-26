@@ -1,0 +1,8 @@
+columnSuffix: null
+handle: contentBlockAnchor
+instructions: 'Copy this anchor ID to use in Jump Links in other Content Blocks.'
+name: 'Content Block Anchor'
+searchable: false
+translationKeyFormat: null
+translationMethod: none
+type: johnhenry\matrixblockanchor\fields\MatrixBlockAnchorField

@@ -191,6 +191,29 @@ fieldLayouts:
         name: Content
         uid: 2e07019c-0b0f-4fe7-9eb8-7a6a1de504e0
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-26T13:07:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 21abe5ad-efdc-4498-aa38-c289b403fca8
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Jump Links'
+        uid: 1fb649da-cb4b-48dd-9a7a-2ceed3c9d814
+        userCondition: null
 handle: textAndImage
 hasTitleField: false
 icon: address-card

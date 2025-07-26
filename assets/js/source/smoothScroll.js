@@ -35,8 +35,10 @@ class SmoothScroll {
             return;
         }
 
-        // Disable header auto-hiding for the duration of the smooth scroll
-        window.dispatchEvent(new CustomEvent('smoothScrollStart'));
+        // Show header if it's hidden (jump links should always show header)
+        if (this.headerElement && this.headerElement.classList.contains('header-hidden')) {
+            this.headerElement.classList.remove('header-hidden');
+        }
 
         const offset = this.calculateOffset();
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
@@ -45,11 +47,8 @@ class SmoothScroll {
             top: targetPosition,
             behavior: 'smooth'
         });
-
-        // Re-enable header auto-hiding after scroll completes
-        this.detectScrollEnd(() => {
-            window.dispatchEvent(new CustomEvent('smoothScrollEnd'));
-        });
+        
+        // No event handling needed - the new auto-hide system ignores programmatic scrolls
     }
 
     calculateOffset() {
@@ -57,35 +56,25 @@ class SmoothScroll {
             return 0;
         }
 
-        // Get the current header height from CSS custom property
-        const headerHeight = parseInt(getComputedStyle(document.documentElement)
+        // Measure actual header height directly for accuracy
+        const actualHeaderHeight = this.headerElement.offsetHeight;
+        
+        // Also get the CSS custom property as a fallback
+        const cssHeaderHeight = parseInt(getComputedStyle(document.documentElement)
             .getPropertyValue('--header-height')) || 0;
+        
+        // Use the actual height if it differs significantly from CSS property
+        const headerHeight = Math.abs(actualHeaderHeight - cssHeaderHeight) > 5 
+            ? actualHeaderHeight 
+            : cssHeaderHeight;
 
-        // Add some padding for visual breathing room
-        const padding = 20;
+        // Remove padding to eliminate gap
+        const padding = 0;
 
         return headerHeight + padding;
     }
 
-    detectScrollEnd(callback) {
-        let scrollTimeout;
-        
-        const scrollHandler = () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                window.removeEventListener('scroll', scrollHandler);
-                callback();
-            }, 150); // Wait 150ms after scrolling stops
-        };
-
-        window.addEventListener('scroll', scrollHandler, { passive: true });
-        
-        // Fallback: ensure callback is called even if scroll doesn't fire
-        setTimeout(() => {
-            window.removeEventListener('scroll', scrollHandler);
-            callback();
-        }, 2000);
-    }
+    // detectScrollEnd method removed - no longer needed with new auto-hide system
 }
 
 // Initialize when DOM is ready

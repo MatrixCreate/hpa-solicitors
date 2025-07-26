@@ -108,6 +108,29 @@ fieldLayouts:
         name: Content
         uid: 69e30a4f-f112-4f56-a95f-6fd3a1d36eee
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-26T13:04:26+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5045df30-b23c-469e-9f8c-e353eafb81e2
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Jump Links'
+        uid: 49d34f1f-7500-445f-a8ab-d3dbd068ec52
+        userCondition: null
 handle: solicitorProfile
 hasTitleField: false
 icon: user

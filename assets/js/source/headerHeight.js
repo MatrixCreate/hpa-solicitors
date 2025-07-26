@@ -1,8 +1,17 @@
+// Debounce function to prevent excessive measurements
+let measureTimeout;
+const debounceMeasurement = (fn, delay = 100) => {
+  return (...args) => {
+    clearTimeout(measureTimeout);
+    measureTimeout = setTimeout(() => fn(...args), delay);
+  };
+};
+
 // Measure the header and update the --header-height custom property
-export const measureHeaderHeight = (header) => {
+export const measureHeaderHeight = debounceMeasurement((header) => {
   const headerHeight = header.offsetHeight;
   document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-};
+});
 
 // Throttled resize event listener
 const addResizeListener = (header) => {

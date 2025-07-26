@@ -46,10 +46,10 @@ export function initHeaderShrink() {
       }
       
       // Update the header height CSS variable when state changes
-      // Use setTimeout to allow CSS transition to start, then measure new height
+      // Use setTimeout to allow CSS transition to complete (300ms duration from CSS)
       setTimeout(() => {
         measureHeaderHeight(header);
-      }, 50);
+      }, 350);
     }
   }
   

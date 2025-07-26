@@ -211,6 +211,29 @@ fieldLayouts:
         name: Content
         uid: e18f5c09-4e74-41ad-8d45-d9f2bf9260c9
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-26T13:01:23+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b58f7f58-d3b1-4064-83f3-f7e82695e642
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Jump Links'
+        uid: 307eee86-c279-4c6c-9a67-fbee79240b72
+        userCondition: null
 handle: blogListing
 hasTitleField: false
 icon: newspaper

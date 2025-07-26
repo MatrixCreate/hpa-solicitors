@@ -238,6 +238,29 @@ fieldLayouts:
         name: Content
         uid: 5635c1b1-b355-4ffe-8942-c7f73c5124c0
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-26T13:02:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8f1a28b4-88c2-4488-88c1-acd0d292c261
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Jump Links'
+        uid: 8a8fa1bf-241e-41ce-8b38-d73bb5554f27
+        userCondition: null
 handle: callToAction
 hasTitleField: false
 icon: bullhorn

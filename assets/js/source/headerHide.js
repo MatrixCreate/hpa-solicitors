@@ -23,12 +23,13 @@ export function initHeaderHide() {
   let scrollDelta = 0; // Accumulated scroll in current direction
   let ticking = false;
   let lastScrollTime = Date.now();
-  let isTemporarilyDisabled = false; // Flag to temporarily disable auto-hiding
+  let isManualScrolling = false; // Track if scroll is user-initiated
+  let manualScrollTimeout = null;
   
   // Function to check scroll behavior and update header visibility
   function checkScrollBehavior() {
-    // Skip auto-hiding if temporarily disabled
-    if (isTemporarilyDisabled) {
+    // ONLY hide header during manual user scrolling - ignore all programmatic scrolls
+    if (!isManualScrolling) {
       resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
       return;
     }
@@ -90,6 +91,14 @@ export function initHeaderHide() {
       
       // Dispatch custom event for other components that might need to know
       window.dispatchEvent(new CustomEvent('headerHidden'));
+      
+      // Update header height measurement after transition completes (300ms duration)
+      setTimeout(() => {
+        // Import and call measureHeaderHeight
+        import('./headerHeight.js').then(module => {
+          module.measureHeaderHeight(header);
+        });
+      }, 350);
     }
   }
   
@@ -100,6 +109,14 @@ export function initHeaderHide() {
       
       // Dispatch custom event for other components that might need to know
       window.dispatchEvent(new CustomEvent('headerShown'));
+      
+      // Update header height measurement after transition completes (300ms duration)
+      setTimeout(() => {
+        // Import and call measureHeaderHeight
+        import('./headerHeight.js').then(module => {
+          module.measureHeaderHeight(header);
+        });
+      }, 350);
     }
   }
   
@@ -108,20 +125,21 @@ export function initHeaderHide() {
     lastScrollTime = time;
   }
   
-  // Functions to temporarily disable/enable auto-hiding
-  function temporarilyDisableAutoHide() {
-    isTemporarilyDisabled = true;
-    // Ensure header is visible when disabling auto-hide
-    if (isHeaderHidden) {
-      showHeader();
-    }
+  // Functions to detect manual vs programmatic scrolling
+  function startManualScrolling() {
+    isManualScrolling = true;
+    clearTimeout(manualScrollTimeout);
   }
   
-  function enableAutoHide() {
-    isTemporarilyDisabled = false;
-    // Reset tracking to current position to prevent immediate hide/show
-    resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
-    scrollDelta = 0;
+  function stopManualScrolling() {
+    clearTimeout(manualScrollTimeout);
+    manualScrollTimeout = setTimeout(() => {
+      isManualScrolling = false;
+      // Reset tracking to prevent immediate hide/show after programmatic scroll
+      resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
+      scrollDelta = 0;
+      scrollDirection = null;
+    }, 100); // Short delay to ensure scroll events finish
   }
   
   // Throttled scroll handler using requestAnimationFrame
@@ -153,21 +171,39 @@ export function initHeaderHide() {
   // Initial setup
   resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
   
-  // Event listeners
+  // Event listeners for scroll
   window.addEventListener('scroll', handleScroll, { passive: true });
   window.addEventListener('focus', handleFocus);
   window.addEventListener('resize', handleResize);
   
-  // Listen for smooth scroll events to temporarily disable auto-hiding
-  window.addEventListener('smoothScrollStart', temporarilyDisableAutoHide);
-  window.addEventListener('smoothScrollEnd', enableAutoHide);
+  // Track user interactions to detect manual scrolling
+  window.addEventListener('wheel', startManualScrolling, { passive: true });
+  window.addEventListener('touchstart', startManualScrolling, { passive: true });
+  window.addEventListener('touchmove', startManualScrolling, { passive: true });
+  window.addEventListener('keydown', (e) => {
+    // Arrow keys, page up/down, space, home, end
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Space', 'Home', 'End'].includes(e.code)) {
+      startManualScrolling();
+    }
+  });
+  
+  // Stop manual scrolling after user interaction ends
+  window.addEventListener('wheel', stopManualScrolling, { passive: true });
+  window.addEventListener('touchend', stopManualScrolling, { passive: true });
+  window.addEventListener('keyup', stopManualScrolling);
   
   // Cleanup function
   return () => {
     window.removeEventListener('scroll', handleScroll);
     window.removeEventListener('focus', handleFocus);
     window.removeEventListener('resize', handleResize);
-    window.removeEventListener('smoothScrollStart', temporarilyDisableAutoHide);
-    window.removeEventListener('smoothScrollEnd', enableAutoHide);
+    window.removeEventListener('wheel', startManualScrolling);
+    window.removeEventListener('wheel', stopManualScrolling);
+    window.removeEventListener('touchstart', startManualScrolling);
+    window.removeEventListener('touchmove', startManualScrolling);
+    window.removeEventListener('touchend', stopManualScrolling);
+    window.removeEventListener('keydown', startManualScrolling);
+    window.removeEventListener('keyup', stopManualScrolling);
+    clearTimeout(manualScrollTimeout);
   };
 }
