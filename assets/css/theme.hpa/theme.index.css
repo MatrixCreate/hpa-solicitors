@@ -20,21 +20,17 @@ Organisation:
 - Components (Content Blocks, Testimonials, Blog, Contact)
 */
 
+/* ===== TOKENS ===== */
 @import './theme.tokens.css';
 @import './theme.variables.css';
 
+
+/* ===== BASE STYLES ===== */
 .nav-item-link {
   @apply text-dark-navy;
   .subnav-indicator {
     @apply hidden;
   }
-}
-
-.header {
-  @apply bg-pink-200/50;
-}
-.content-block {
-  @apply border-t border-dark-grey;
 }
 
 .btn {
