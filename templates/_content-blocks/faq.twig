@@ -31,6 +31,7 @@
   {{ textColour }}
   "
   {{ utils.debugAttributes(entry, blockType, 'Accordion') }}
+  {{ utils.jumpLink(block.id) }}
   >
   <div class="content-block-inner container-narrow">
     
@@ -53,6 +54,7 @@
       {% set cta = callToAction %}
       {{ ui.component('button', {
         type: 'link',
+        cta: cta,
         href: cta.url,
         target: cta.target,
         text: cta.text ?? 'Read more',

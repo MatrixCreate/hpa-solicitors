@@ -1,4 +1,4 @@
-dateModified: 1753439399
+dateModified: 1753534283
 elementSources:
   craft\elements\Entry:
     -
@@ -21,6 +21,9 @@ elementSources:
       type: heading
     -
       key: 'section:5e83d284-e974-4bfa-a0a7-9861040885d2' # Blog
+      type: native
+    -
+      key: 'section:b231df8a-237b-4b97-8659-eda52edb7534' # Blog Categories
       type: native
     -
       key: 'section:01f2754e-aea4-46f6-b66e-a74edc09857a' # Team
@@ -50,9 +53,6 @@ elementSources:
       heading: System
       key: 'heading:00c8c748-da69-4173-8108-6e35f0c38d01'
       type: heading
-    -
-      key: 'section:b231df8a-237b-4b97-8659-eda52edb7534' # Blog Categories
-      type: native
     -
       key: 'section:1bdfb46b-c66c-46b6-b5a8-7ae064c19722' # Error Pages
       type: native
@@ -561,6 +561,10 @@ plugins:
       iconSetsPath: '@webroot/assets/icons/'
       iconSetsUrl: '@web/assets/icons/'
       redactorFieldHandle: ''
+  matrix-block-anchor:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   navigation:
     edition: standard
     enabled: true

@@ -110,6 +110,7 @@
   {{ backgroundColour }}
   "
   {{ utils.debugAttributes(entry, 'callToAction', 'Call to Action') }}
+  {{ utils.jumpLink(block.id ?? '#') }}
   >
   <div class="content-block-inner container-narrow">
 
@@ -167,6 +168,7 @@
               {% set cta = action.actionButton %}
               {{ ui.component('button', {
                 type: 'link',
+                cta: cta,
                 href: cta.url,
                 target: cta.target,
                 text: cta.text ?? 'Read more',

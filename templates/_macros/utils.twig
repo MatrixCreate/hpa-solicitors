@@ -4,6 +4,11 @@
   {%- endif -%}
 {% endmacro %}
 
+{% macro jumpLink(id) %}
+  {%- if id -%}
+    id="blockIdAnchor-{{ id }}"
+  {%- endif -%}
+{% endmacro %}
 
 {# DEPRECATED
 {% macro backgroundColour(source) %}

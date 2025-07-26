@@ -8,12 +8,31 @@
 
 <section class="rich-text content-block {{ headingColour }} {{ textColour }} {{ backgroundColour }}"
   {{ utils.debugAttributes(entry, block.type, 'Rich Text') }}
+  {{ utils.jumpLink(block.id) }}
   >
 	<div class="content-block-inner container-medium">
 
     {{ ui.component('rich-text', { 
       content: block.richText 
     }) }}
+
+    {% if block.actionButtons.all() %}
+    <div class="action-buttons">
+      {% for item in block.actionButtons.all() %}
+        {% if item.actionButton.url|length %}
+          {%- set cta = item.actionButton -%}
+          {%- set alternatingButtonClass = loop.index is odd ? 'btn-primary' : 'btn-secondary' -%}
+          {{ ui.component('button', {
+            type: 'link',
+            cta: cta,
+            href: cta.url,
+            text: cta.text,
+            class: 'btn ' ~ alternatingButtonClass,
+          }) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
 
 	</div>
 </section>

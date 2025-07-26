@@ -19,6 +19,7 @@
   {{ backgroundColour }}
   "
   {{ utils.debugAttributes(entry, block.type, 'Text and Image') }}
+  {{ utils.jumpLink(block.id) }}
   >
   <div class="content-block-inner">
     <div class="content-wrapper">
@@ -60,6 +61,7 @@
               {%- set alternatingButtonClass = loop.index is odd ? 'btn-primary' : 'btn-secondary' -%}
               {{ ui.component('button', {
                 type: 'link',
+                cta: cta,
                 href: cta.url,
                 text: cta.text,
                 class: 'btn ' ~ alternatingButtonClass

@@ -13,6 +13,7 @@
 # Usage:
 #   {{ ui.component('button', { 
 #     type: 'link', 
+#     cta: cta,
 #     text: 'Click me', 
 #     href: '/contact',
 #     class: 'btn-primary'
@@ -21,6 +22,7 @@
 
 {% set defaults = {
   type: 'button',
+  cta: cta ?? null,
   text: '',
   href: '#',
   target: null,
@@ -43,6 +45,8 @@
     class="{{ p.class }}"
     href="{{ p.href }}"
     {% if p.target %}target="{{ p.target }}"{% endif %}
+    {% if p.cta.smoothScroll ?? false %}data-smooth-scroll="true"{% endif %}
+    {# {% if p.cta.scrollOffset %}data-scroll-offset="{{ p.cta.scrollOffset }}"{% endif %} #}
     {% if p.attributes %}
       {% for attribute in p.attributes %}
         data-{{ attribute.attribute }}="{{ attribute.value }}"

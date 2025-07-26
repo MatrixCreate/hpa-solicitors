@@ -9,8 +9,8 @@
   {% set form = globalContent.globalContactFormForm %}
   {% set headingColour = globalContent.globalContactFormHeadingColour.color[0].heading %}
   {% set textColour = globalContent.globalContactFormTextColour.color[0].text %}
-  {% set blockBackgroundColour = globalContent.globalContactFormBlockBackgroundColour.color[0].background %}
   {% set formBackgroundColour = globalContent.globalContactFormFormBackgroundColour.color[0].background %}
+  {% set blockBackgroundColour = globalContent.globalContactFormBlockBackgroundColour.color[0].background %}
   {% set blockBackgroundImage = globalContent.globalContactFormBlockBackgroundImage.one() ?? null %}
   {% set blockType = 'contactForm' %}
 {% else %}
@@ -19,8 +19,8 @@
   {% set form = block.form %}
   {% set headingColour = block.headingColour.color[0].heading %}
   {% set textColour = block.textColour.color[0].text %}
-  {% set blockBackgroundColour = block.blockBackgroundColour.color[0].background %}
   {% set formBackgroundColour = block.formBackgroundColour.color[0].background %}
+  {% set blockBackgroundColour = block.blockBackgroundColour.color[0].background %}
   {% set blockBackgroundImage = block.blockBackgroundImage.one() ?? null %}
   {% set blockBackgroundImage = block.blockBackgroundImage.one() ?? null %}
   {% set blockType = block.type %}
@@ -33,6 +33,7 @@
   {{ blockBackgroundImage ? 'has-background-image' : '' }}
   "
   {{ utils.debugAttributes(entry, blockType, 'Contact Form') }}
+  {{ utils.jumpLink(block.id ?? '#') }}
   >
 	<div class="content-block-inner container-medium">
     <div class="container-inner">

@@ -23,9 +23,16 @@ export function initHeaderHide() {
   let scrollDelta = 0; // Accumulated scroll in current direction
   let ticking = false;
   let lastScrollTime = Date.now();
+  let isTemporarilyDisabled = false; // Flag to temporarily disable auto-hiding
   
   // Function to check scroll behavior and update header visibility
   function checkScrollBehavior() {
+    // Skip auto-hiding if temporarily disabled
+    if (isTemporarilyDisabled) {
+      resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
+      return;
+    }
+    
     const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
     const currentTime = Date.now();
     const timeDelta = currentTime - lastScrollTime;
@@ -101,6 +108,22 @@ export function initHeaderHide() {
     lastScrollTime = time;
   }
   
+  // Functions to temporarily disable/enable auto-hiding
+  function temporarilyDisableAutoHide() {
+    isTemporarilyDisabled = true;
+    // Ensure header is visible when disabling auto-hide
+    if (isHeaderHidden) {
+      showHeader();
+    }
+  }
+  
+  function enableAutoHide() {
+    isTemporarilyDisabled = false;
+    // Reset tracking to current position to prevent immediate hide/show
+    resetScrollTracking(window.pageYOffset || document.documentElement.scrollTop, Date.now());
+    scrollDelta = 0;
+  }
+  
   // Throttled scroll handler using requestAnimationFrame
   function handleScroll() {
     if (!ticking) {
@@ -135,10 +158,16 @@ export function initHeaderHide() {
   window.addEventListener('focus', handleFocus);
   window.addEventListener('resize', handleResize);
   
+  // Listen for smooth scroll events to temporarily disable auto-hiding
+  window.addEventListener('smoothScrollStart', temporarilyDisableAutoHide);
+  window.addEventListener('smoothScrollEnd', enableAutoHide);
+  
   // Cleanup function
   return () => {
     window.removeEventListener('scroll', handleScroll);
     window.removeEventListener('focus', handleFocus);
     window.removeEventListener('resize', handleResize);
+    window.removeEventListener('smoothScrollStart', temporarilyDisableAutoHide);
+    window.removeEventListener('smoothScrollEnd', enableAutoHide);
   };
 }
