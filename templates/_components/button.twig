@@ -16,7 +16,8 @@
 #     cta: cta,
 #     text: 'Click me', 
 #     href: '/contact',
-#     class: 'btn-primary'
+#     class: 'btn-primary',
+#     buttonIcon: buttonIcon,
 #   }) }}
 #}
 
@@ -28,7 +29,8 @@
   target: null,
   class: '',
   id: '',
-  attributes: []
+  attributes: [],
+  buttonIcon: null,
 } %}
 
 {% set p = defaults|merge(props ?? {}) %}
@@ -38,6 +40,11 @@
     class="{{ p.class }}"
     type="{{ p.type }}"
     {% if p.id %}id="{{ p.id }}"{% endif %}>
+    {% if p.buttonIcon %}
+      <span class="btn-icon">
+        {{ p.buttonIcon|raw }}
+      </span>
+    {% endif %}
     {{ p.text }}
   </button>
 {% elseif p.type == 'link' or p.type == 'overlay-link' %}
@@ -53,6 +60,11 @@
       {% endfor %}
     {% endif %}
   >
+    {% if p.buttonIcon %}
+      <span class="btn-icon">
+        {{ p.buttonIcon|raw }}
+      </span>
+    {% endif %}
     {{ p.text }}
   </a>
 {% endif %}

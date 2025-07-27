@@ -118,4 +118,15 @@
   .btn-trans {
     @apply bg-[var(--mds-button-transparent-background)];
   }
+
+  /* Telephone button styling */
+  .btn-call-now {
+    @apply p-0;
+    @apply text-3xl;
+    @apply tracking-tight;
+    @apply !font-display font-bold;
+    .btn-icon {
+      @apply w-6 h-6;
+    }
+  }
 }

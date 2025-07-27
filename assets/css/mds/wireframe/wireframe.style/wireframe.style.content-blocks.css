@@ -6,11 +6,16 @@
     /* Apply Tailwind prose styles to Rich Text fields in all content blocks */
     .rich-text-field {
       @apply flex flex-col;
+      @apply space-y-4 mb-6;
       @apply prose prose-sm max-w-none;
       @apply text-inherit;
       @apply prose-headings:font-display;
       @apply prose-headings:font-bold;
       @apply prose-headings:leading-tight;
+
+      &:last-child {
+        @apply mb-0;
+      }
     }
 
     /* Headings in Rich Text fields */
@@ -72,13 +77,6 @@
             @apply bg-[var(--secondary-color)];
           }
         }
-      }
-    }
-
-    .rich-text-field {
-      @apply space-y-4 mb-8;
-      &:last-child {
-        @apply mb-0;
       }
     }
   }

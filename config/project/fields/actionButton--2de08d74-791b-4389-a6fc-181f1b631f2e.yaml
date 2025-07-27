@@ -273,6 +273,380 @@ settings:
       __assoc__:
         -
           - type
+          - verbb\hyper\links\Custom
+        -
+          - label
+          - 'Call Now'
+        -
+          - handle
+          - 7NRQUzTeW9
+        -
+          - enabled
+          - true
+        -
+          - isCustom
+          - false
+        -
+          - layoutUid
+          - 4a61578e-aa40-4037-8013-c7fce3914223
+        -
+          - layoutConfig
+          -
+            __assoc__:
+              -
+                - cardThumbAlignment
+                - end
+              -
+                - tabs
+                -
+                  -
+                    __assoc__:
+                      -
+                        - name
+                        - Content
+                      -
+                        - uid
+                        - 777ec1c1-f21f-4274-9b50-3c93ce0543a9
+                      -
+                        - elements
+                        -
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - craft\fieldlayoutelements\Heading
+                              -
+                                - heading
+                                - 'Global Telephone Number'
+                              -
+                                - dateAdded
+                                - '2025-07-27T15:53:34+00:00'
+                              -
+                                - uid
+                                - 85650e3c-6280-4fcf-aa00-58800630a050
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - craft\fieldlayoutelements\CustomField
+                              -
+                                - handle
+                                - useGlobalTelephone
+                              -
+                                - label
+                                - 'Use Global Telephone'
+                              -
+                                - instructions
+                                - 'When enabled, the Telephone number in Globals > Company Info will be used. Otherwise, the Link and Link Text will be combined into a custom tel: link.'
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 100
+                              -
+                                - dateAdded
+                                - '2025-07-27T15:53:34+00:00'
+                              -
+                                - uid
+                                - 4b4abefe-f6c3-4fa8-ae35-938af44c8541
+                              -
+                                - fieldUid
+                                - d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - craft\fieldlayoutelements\Heading
+                              -
+                                - heading
+                                - 'Local Telephone Number'
+                              -
+                                - dateAdded
+                                - '2025-07-27T15:53:34+00:00'
+                              -
+                                - uid
+                                - b7ed898e-61d5-4a2e-b118-faee6fedb96c
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - verbb\hyper\fieldlayoutelements\LinkField
+                              -
+                                - attribute
+                                - linkValue
+                              -
+                                - mandatory
+                                - true
+                              -
+                                - requirable
+                                - true
+                              -
+                                - autocomplete
+                                - false
+                              -
+                                - autofocus
+                                - false
+                              -
+                                - autocorrect
+                                - true
+                              -
+                                - autocapitalize
+                                - true
+                              -
+                                - disabled
+                                - false
+                              -
+                                - readonly
+                                - false
+                              -
+                                - translatable
+                                - false
+                              -
+                                - instructions
+                                - 'Include the tel: protocol followed by the custom telephone number.'
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 50
+                              -
+                                - dateAdded
+                                - '2025-01-11T22:09:32+00:00'
+                              -
+                                - uid
+                                - 7ae74f0e-ca9c-4a4e-8d73-38ed83bac077
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - verbb\hyper\fieldlayoutelements\LinkTextField
+                              -
+                                - attribute
+                                - linkText
+                              -
+                                - requirable
+                                - true
+                              -
+                                - autocomplete
+                                - false
+                              -
+                                - autofocus
+                                - false
+                              -
+                                - autocorrect
+                                - true
+                              -
+                                - autocapitalize
+                                - true
+                              -
+                                - disabled
+                                - false
+                              -
+                                - readonly
+                                - false
+                              -
+                                - placeholder
+                                - '01234 567890'
+                              -
+                                - mandatory
+                                - false
+                              -
+                                - translatable
+                                - false
+                              -
+                                - instructions
+                                - 'Provide the telephone number as you wish it to be displayed.'
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 50
+                              -
+                                - dateAdded
+                                - '2025-01-11T22:09:32+00:00'
+                              -
+                                - uid
+                                - cdeafa65-eabe-47d3-bbd0-60dff8e42bb8
+                  -
+                    __assoc__:
+                      -
+                        - name
+                        - Advanced
+                      -
+                        - uid
+                        - 302463d2-dcc9-451a-b838-e217432990ec
+                      -
+                        - elements
+                        -
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - verbb\hyper\fieldlayoutelements\LinkTitleField
+                              -
+                                - attribute
+                                - linkTitle
+                              -
+                                - requirable
+                                - true
+                              -
+                                - autocomplete
+                                - false
+                              -
+                                - autofocus
+                                - false
+                              -
+                                - autocorrect
+                                - true
+                              -
+                                - autocapitalize
+                                - true
+                              -
+                                - disabled
+                                - false
+                              -
+                                - readonly
+                                - false
+                              -
+                                - mandatory
+                                - false
+                              -
+                                - translatable
+                                - false
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 100
+                              -
+                                - dateAdded
+                                - '2025-01-11T22:09:32+00:00'
+                              -
+                                - uid
+                                - 61d439ed-cdf7-4f0f-901f-1ded8b520046
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - verbb\hyper\fieldlayoutelements\ClassesField
+                              -
+                                - attribute
+                                - classes
+                              -
+                                - requirable
+                                - true
+                              -
+                                - autocomplete
+                                - false
+                              -
+                                - autofocus
+                                - false
+                              -
+                                - autocorrect
+                                - true
+                              -
+                                - autocapitalize
+                                - true
+                              -
+                                - disabled
+                                - false
+                              -
+                                - readonly
+                                - false
+                              -
+                                - mandatory
+                                - false
+                              -
+                                - translatable
+                                - false
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 100
+                              -
+                                - dateAdded
+                                - '2025-01-11T22:09:32+00:00'
+                              -
+                                - uid
+                                - e2b4166f-4ed0-418d-8cad-abbfd20071af
+                          -
+                            __assoc__:
+                              -
+                                - type
+                                - verbb\hyper\fieldlayoutelements\CustomAttributesField
+                              -
+                                - attribute
+                                - customAttributes
+                              -
+                                - requirable
+                                - true
+                              -
+                                - mandatory
+                                - false
+                              -
+                                - translatable
+                                - false
+                              -
+                                - required
+                                - false
+                              -
+                                - providesThumbs
+                                - false
+                              -
+                                - includeInCards
+                                - false
+                              -
+                                - width
+                                - 100
+                              -
+                                - dateAdded
+                                - '2025-01-11T22:09:32+00:00'
+                              -
+                                - uid
+                                - e1823b34-de44-43bc-9e68-36c29b92992d
+        -
+          - placeholder
+          - 'tel:01234567890'
+    -
+      __assoc__:
+        -
+          - type
           - verbb\hyper\links\Email
         -
           - label
@@ -787,260 +1161,6 @@ settings:
       __assoc__:
         -
           - type
-          - verbb\hyper\links\Url
-        -
-          - label
-          - URL
-        -
-          - handle
-          - default-verbb-hyper-links-url
-        -
-          - enabled
-          - true
-        -
-          - isCustom
-          - false
-        -
-          - layoutUid
-          - e65915f0-2636-4ecd-a790-93c5acb9c3a8
-        -
-          - layoutConfig
-          -
-            __assoc__:
-              -
-                - tabs
-                -
-                  -
-                    __assoc__:
-                      -
-                        - name
-                        - Content
-                      -
-                        - uid
-                        - 440c5d60-b847-4980-a787-748bd47637c2
-                      -
-                        - elements
-                        -
-                          -
-                            __assoc__:
-                              -
-                                - type
-                                - verbb\hyper\fieldlayoutelements\LinkField
-                              -
-                                - attribute
-                                - linkValue
-                              -
-                                - mandatory
-                                - true
-                              -
-                                - requirable
-                                - true
-                              -
-                                - autocomplete
-                                - false
-                              -
-                                - autofocus
-                                - false
-                              -
-                                - autocorrect
-                                - true
-                              -
-                                - autocapitalize
-                                - true
-                              -
-                                - disabled
-                                - false
-                              -
-                                - readonly
-                                - false
-                              -
-                                - translatable
-                                - false
-                              -
-                                - required
-                                - false
-                              -
-                                - width
-                                - 50
-                              -
-                                - uid
-                                - f57e2cf0-7c69-4220-9aa1-5c720b5355e7
-                          -
-                            __assoc__:
-                              -
-                                - type
-                                - verbb\hyper\fieldlayoutelements\LinkTextField
-                              -
-                                - attribute
-                                - linkText
-                              -
-                                - requirable
-                                - true
-                              -
-                                - autocomplete
-                                - false
-                              -
-                                - autofocus
-                                - false
-                              -
-                                - autocorrect
-                                - true
-                              -
-                                - autocapitalize
-                                - true
-                              -
-                                - disabled
-                                - false
-                              -
-                                - readonly
-                                - false
-                              -
-                                - placeholder
-                                - 'e.g. Read more'
-                              -
-                                - mandatory
-                                - false
-                              -
-                                - translatable
-                                - false
-                              -
-                                - required
-                                - false
-                              -
-                                - width
-                                - 50
-                              -
-                                - uid
-                                - 331462e5-b74e-481d-9c77-187b54fda3ce
-                  -
-                    __assoc__:
-                      -
-                        - name
-                        - Advanced
-                      -
-                        - uid
-                        - dc2b6e34-13cc-4916-83bf-89f52e5ec61f
-                      -
-                        - elements
-                        -
-                          -
-                            __assoc__:
-                              -
-                                - type
-                                - verbb\hyper\fieldlayoutelements\LinkTitleField
-                              -
-                                - attribute
-                                - linkTitle
-                              -
-                                - requirable
-                                - true
-                              -
-                                - autocomplete
-                                - false
-                              -
-                                - autofocus
-                                - false
-                              -
-                                - autocorrect
-                                - true
-                              -
-                                - autocapitalize
-                                - true
-                              -
-                                - disabled
-                                - false
-                              -
-                                - readonly
-                                - false
-                              -
-                                - mandatory
-                                - false
-                              -
-                                - translatable
-                                - false
-                              -
-                                - required
-                                - false
-                              -
-                                - width
-                                - 100
-                              -
-                                - uid
-                                - 8c02df1e-74a9-4388-b032-0eece26b1d9d
-                          -
-                            __assoc__:
-                              -
-                                - type
-                                - verbb\hyper\fieldlayoutelements\ClassesField
-                              -
-                                - attribute
-                                - classes
-                              -
-                                - requirable
-                                - true
-                              -
-                                - autocomplete
-                                - false
-                              -
-                                - autofocus
-                                - false
-                              -
-                                - autocorrect
-                                - true
-                              -
-                                - autocapitalize
-                                - true
-                              -
-                                - disabled
-                                - false
-                              -
-                                - readonly
-                                - false
-                              -
-                                - mandatory
-                                - false
-                              -
-                                - translatable
-                                - false
-                              -
-                                - required
-                                - false
-                              -
-                                - width
-                                - 100
-                              -
-                                - uid
-                                - f6b69464-bb87-48e9-9e7e-2ba309e08c74
-                          -
-                            __assoc__:
-                              -
-                                - type
-                                - verbb\hyper\fieldlayoutelements\CustomAttributesField
-                              -
-                                - attribute
-                                - customAttributes
-                              -
-                                - requirable
-                                - true
-                              -
-                                - mandatory
-                                - false
-                              -
-                                - translatable
-                                - false
-                              -
-                                - required
-                                - false
-                              -
-                                - width
-                                - 100
-                              -
-                                - uid
-                                - 8ce6cf53-ff18-4102-b1a9-5f40de245814
-    -
-      __assoc__:
-        -
-          - type
           - verbb\hyper\links\Custom
         -
           - label
@@ -1387,22 +1507,22 @@ settings:
       __assoc__:
         -
           - type
-          - verbb\hyper\links\Custom
+          - verbb\hyper\links\Url
         -
           - label
-          - 'Call Now'
+          - URL
         -
           - handle
-          - 7NRQUzTeW9
+          - default-verbb-hyper-links-url
         -
           - enabled
-          - false
+          - true
         -
           - isCustom
           - false
         -
           - layoutUid
-          - 4a61578e-aa40-4037-8013-c7fce3914223
+          - e65915f0-2636-4ecd-a790-93c5acb9c3a8
         -
           - layoutConfig
           -
@@ -1417,7 +1537,7 @@ settings:
                         - Content
                       -
                         - uid
-                        - 777ec1c1-f21f-4274-9b50-3c93ce0543a9
+                        - 440c5d60-b847-4980-a787-748bd47637c2
                       -
                         - elements
                         -
@@ -1458,22 +1578,13 @@ settings:
                                 - false
                               -
                                 - required
-                                - true
-                              -
-                                - providesThumbs
-                                - false
-                              -
-                                - includeInCards
                                 - false
                               -
                                 - width
                                 - 50
                               -
-                                - dateAdded
-                                - '2025-01-11T22:09:32+00:00'
-                              -
                                 - uid
-                                - 7ae74f0e-ca9c-4a4e-8d73-38ed83bac077
+                                - f57e2cf0-7c69-4220-9aa1-5c720b5355e7
                           -
                             __assoc__:
                               -
@@ -1516,20 +1627,11 @@ settings:
                                 - required
                                 - false
                               -
-                                - providesThumbs
-                                - false
-                              -
-                                - includeInCards
-                                - false
-                              -
                                 - width
                                 - 50
                               -
-                                - dateAdded
-                                - '2025-01-11T22:09:32+00:00'
-                              -
                                 - uid
-                                - cdeafa65-eabe-47d3-bbd0-60dff8e42bb8
+                                - 331462e5-b74e-481d-9c77-187b54fda3ce
                   -
                     __assoc__:
                       -
@@ -1537,7 +1639,7 @@ settings:
                         - Advanced
                       -
                         - uid
-                        - 302463d2-dcc9-451a-b838-e217432990ec
+                        - dc2b6e34-13cc-4916-83bf-89f52e5ec61f
                       -
                         - elements
                         -
@@ -1580,20 +1682,11 @@ settings:
                                 - required
                                 - false
                               -
-                                - providesThumbs
-                                - false
-                              -
-                                - includeInCards
-                                - false
-                              -
                                 - width
                                 - 100
                               -
-                                - dateAdded
-                                - '2025-01-11T22:09:32+00:00'
-                              -
                                 - uid
-                                - 61d439ed-cdf7-4f0f-901f-1ded8b520046
+                                - 8c02df1e-74a9-4388-b032-0eece26b1d9d
                           -
                             __assoc__:
                               -
@@ -1633,20 +1726,11 @@ settings:
                                 - required
                                 - false
                               -
-                                - providesThumbs
-                                - false
-                              -
-                                - includeInCards
-                                - false
-                              -
                                 - width
                                 - 100
                               -
-                                - dateAdded
-                                - '2025-01-11T22:09:32+00:00'
-                              -
                                 - uid
-                                - e2b4166f-4ed0-418d-8cad-abbfd20071af
+                                - f6b69464-bb87-48e9-9e7e-2ba309e08c74
                           -
                             __assoc__:
                               -
@@ -1668,23 +1752,11 @@ settings:
                                 - required
                                 - false
                               -
-                                - providesThumbs
-                                - false
-                              -
-                                - includeInCards
-                                - false
-                              -
                                 - width
                                 - 100
                               -
-                                - dateAdded
-                                - '2025-01-11T22:09:32+00:00'
-                              -
                                 - uid
-                                - e1823b34-de44-43bc-9e68-36c29b92992d
-        -
-          - placeholder
-          - '#'
+                                - 8ce6cf53-ff18-4102-b1a9-5f40de245814
     -
       __assoc__:
         0:

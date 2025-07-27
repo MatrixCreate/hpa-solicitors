@@ -166,13 +166,36 @@
             <div class="action-buttons action-buttons-inline">
             {% for action in actionButtons.all() %}
               {% set cta = action.actionButton %}
+
+              {% if 'Custom' in cta.type and cta.url == '' %}
+                {% set buttonIconUrl = '@webroot/assets/icons/system/icon_telephone.svg' %}
+                {% set buttonIconInline = svg(buttonIconUrl) %}
+                {% set ctaText = companyInfo.telephone %}
+                {% set ctaUrl = 'tel:' ~ companyInfo.telephone|replace({' ': ''}) %}
+                {% set ctaClass = 'btn-has-icon btn-call-now' %}
+                {% set buttonIcon = buttonIconInline %}
+              {% elseif 'Custom' in cta.type and 'tel' in cta.url %}
+                {% set buttonIconUrl = '@webroot/assets/icons/system/icon_telephone.svg' %}
+                {% set buttonIconInline = svg(buttonIconUrl) %}
+                {% set ctaText = cta.text ?? 'Call us' %}
+                {% set ctaUrl = cta.url %}
+                {% set ctaClass = 'btn-has-icon btn-call-now' %}
+                {% set buttonIcon = buttonIconInline %}
+              {% else %}
+                {% set ctaText = cta.text ?? 'Read more' %}
+                {% set ctaUrl = cta.url %}
+                {% set ctaClass = 'btn-primary' %}
+                {% set buttonIcon = null %}
+              {% endif %}
+
               {{ ui.component('button', {
                 type: 'link',
                 cta: cta,
-                href: cta.url,
+                href: ctaUrl,
                 target: cta.target,
-                text: cta.text ?? 'Read more',
-                class: 'btn btn-primary'
+                text: ctaText,
+                class: 'btn ' ~ ctaClass,
+                buttonIcon: buttonIcon,
               }) }}
             {% endfor %}
             </div>

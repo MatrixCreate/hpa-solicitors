@@ -36,8 +36,11 @@
   }
   
   /* Button icon layout structure */
+  .btn-has-icon {
+    @apply flex items-center gap-2;
+  }
   .btn-icon {
-    @apply flex items-center;
+    @apply w-6 h-6;
   }
   
   /* Button action link text alignment structure */
