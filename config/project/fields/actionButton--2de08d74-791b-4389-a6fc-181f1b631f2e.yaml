@@ -1168,7 +1168,7 @@ settings:
                                 - false
                               -
                                 - placeholder
-                                - 'e.g. Read more'
+                                - 'Jump to...'
                               -
                                 - mandatory
                                 - false

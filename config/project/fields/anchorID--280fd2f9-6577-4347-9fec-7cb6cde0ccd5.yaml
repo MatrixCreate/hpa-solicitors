@@ -1,6 +1,6 @@
 columnSuffix: null
 handle: anchorID
-instructions: 'Use this Anchor ID to create In-Page links from other content blocks.'
+instructions: 'Copy this Anchor ID to create In-Page links from other content blocks.'
 name: 'Anchor ID'
 searchable: false
 translationKeyFormat: null
