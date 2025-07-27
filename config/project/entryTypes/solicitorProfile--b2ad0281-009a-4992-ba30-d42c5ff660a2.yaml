@@ -115,7 +115,7 @@ fieldLayouts:
             dateAdded: '2025-07-26T13:04:26+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Anchor ID
             handle: null
             includeInCards: false
             instructions: null
@@ -128,7 +128,7 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: 'Jump Links'
+        name: 'In-Page Anchor'
         uid: 49d34f1f-7500-445f-a8ab-d3dbd068ec52
         userCondition: null
 handle: solicitorProfile

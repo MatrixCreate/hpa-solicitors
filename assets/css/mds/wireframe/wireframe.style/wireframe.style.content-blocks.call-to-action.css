@@ -6,7 +6,7 @@
     /* If background image */
     &:has(.background-image) {
       .content-box {
-        @apply bg-[var(--mds-overlay-background)];
+        
       }
     }
   }

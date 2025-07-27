@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: contentBlockAnchor
-instructions: 'Copy this anchor ID to use in Jump Links in other Content Blocks.'
-name: 'Content Block Anchor'
+handle: anchorID
+instructions: 'Use this Anchor ID to create In-Page links from other content blocks.'
+name: 'Anchor ID'
 searchable: false
 translationKeyFormat: null
 translationMethod: none

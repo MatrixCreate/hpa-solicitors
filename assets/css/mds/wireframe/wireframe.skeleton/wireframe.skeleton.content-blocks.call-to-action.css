@@ -1,36 +1,25 @@
 /* Call to Action Content Block - structural layout only */
 @layer components {
 
-  /* Call to Action with background image */
+  /* Call to Action block */
   .call-to-action {
     @apply relative;
     .content-box {
       @apply relative z-10;
-      @apply flex flex-col items-center gap-4 md:gap-8;
-      .rich-text-field {
-        @apply mb-0;
-      }
-    }
-    /* If background image */
-    &:has(.background-image) {
-      .background-image {
-        /* @apply absolute top-0 left-0 z-0; */
+      @apply flex flex-col gap-4 md:gap-8;
+      .call-to-action-image {
         @apply w-full;
-        /* @apply object-cover; */
-      }
-      .content-box {
-        @apply p-6;
       }
     }
-    .form-btn-wrapper {
-      @apply flex justify-center;
-      @apply mt-4;
-    }
-  }
-  /* Call to Action */
-  .call-to-action {
-    /* If background image */
+
+    /* With background image */
     &:has(.background-image) {
+      /* Position content on top of background image */
+      .container-inner {
+        @apply absolute top-0 left-0 right-0 bottom-0;
+        @apply w-full h-full;
+        @apply flex;
+      }
       /* Remove container width and padding, so image is fullscreen */
       .content-block-inner {
         @apply max-w-none;
@@ -41,7 +30,14 @@
         max-width: var(--container-medium);
         @apply mx-auto px-6;
       }
+      .content-box {
+        @apply md:grid md:grid-cols-2;
+        @apply p-0;
+        @apply bg-transparent;
+      }
+      .background-image {
+        @apply w-full;
+      }
     }
   }
-
 }

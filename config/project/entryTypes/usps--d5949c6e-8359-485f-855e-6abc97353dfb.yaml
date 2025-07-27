@@ -227,7 +227,7 @@ fieldLayouts:
             dateAdded: '2025-07-26T13:08:02+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Anchor ID
             handle: null
             includeInCards: false
             instructions: null
@@ -240,7 +240,7 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: 'Jump Links'
+        name: 'In-Page Anchor'
         uid: d0352aa6-c419-43f7-9733-27851e0166be
         userCondition: null
 handle: usps

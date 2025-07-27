@@ -35,7 +35,7 @@ class SmoothScroll {
             return;
         }
 
-        // Show header if it's hidden (jump links should always show header)
+        // Show header if it's hidden (In-Page Links should always show header)
         if (this.headerElement && this.headerElement.classList.contains('header-hidden')) {
             this.headerElement.classList.remove('header-hidden');
         }

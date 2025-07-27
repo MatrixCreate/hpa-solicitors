@@ -119,7 +119,7 @@ fieldLayouts:
             dateAdded: '2025-07-26T13:07:05+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Anchor ID
             handle: null
             includeInCards: false
             instructions: null
@@ -132,7 +132,7 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: 'Jump Links'
+        name: 'In-Page Anchor'
         uid: 433dfb39-ae80-4015-8050-54547827d178
         userCondition: null
 handle: tabbedNavigator

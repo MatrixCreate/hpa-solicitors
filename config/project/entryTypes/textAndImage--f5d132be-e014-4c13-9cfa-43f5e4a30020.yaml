@@ -198,7 +198,7 @@ fieldLayouts:
             dateAdded: '2025-07-26T13:07:26+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Content Block Anchor
+            fieldUid: 280fd2f9-6577-4347-9fec-7cb6cde0ccd5 # Anchor ID
             handle: null
             includeInCards: false
             instructions: null
@@ -211,7 +211,7 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: 'Jump Links'
+        name: 'In-Page Anchor'
         uid: 1fb649da-cb4b-48dd-9a7a-2ceed3c9d814
         userCondition: null
 handle: textAndImage
