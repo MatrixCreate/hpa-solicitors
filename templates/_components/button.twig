@@ -18,6 +18,7 @@
 #     href: '/contact',
 #     class: 'btn-primary',
 #     buttonIcon: buttonIcon,
+#     buttonIconClass: 'btn-icon',
 #   }) }}
 #}
 
@@ -31,6 +32,7 @@
   id: '',
   attributes: [],
   buttonIcon: null,
+  buttonIconClass: 'btn-icon',
 } %}
 
 {% set p = defaults|merge(props ?? {}) %}
@@ -61,7 +63,7 @@
     {% endif %}
   >
     {% if p.buttonIcon %}
-      <span class="btn-icon">
+      <span class="{{ p.buttonIconClass }}">
         {{ p.buttonIcon|raw }}
       </span>
     {% endif %}
