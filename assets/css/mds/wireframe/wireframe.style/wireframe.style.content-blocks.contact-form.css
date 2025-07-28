@@ -9,19 +9,15 @@
         @apply bg-[var(--mds-overlay-background)];
       }
     }
-  
     /* Inset form */
     &.is-inset {
       .form-wrapper {
         @apply bg-grey-200;
       }
     }
-
+    /* Form Image */
     .contact-form-image {
       @apply rounded-[var(--mds-form-image-border-radius)];
     }
-    .form-wrapper {
-      @apply rounded-[var(--mds-form-image-border-radius)];
-    }
-  }
+  } 
 }
