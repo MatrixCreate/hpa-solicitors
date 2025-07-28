@@ -6,7 +6,7 @@ fieldLayouts:
     cardView:
       - 'layoutElement:e1a14102-d56d-40fd-a2f3-0c7d8acd8956'
       - 'layoutElement:9d967e12-4208-4f58-8c73-05e2aa6c9951'
-      - 'layoutElement:7443ba9b-c4d7-40f2-a2d8-cedc55d0216b'
+      - 'layoutElement:90491632-48d8-41f7-b7ef-5e09511c916e'
       - 'layoutElement:4886e199-e400-4e61-bc80-4cac52eb21a5'
       - 'layoutElement:a098483e-d3ff-4b84-a7b9-43688689c495'
       - 'layoutElement:079f58cc-d051-4741-af50-669a9e8314b8'
@@ -128,10 +128,10 @@ fieldLayouts:
             uid: 0e692cf4-b5e7-4b8a-bf3f-498a4a535a26
             userCondition: null
           -
-            dateAdded: '2025-07-28T16:36:40+00:00'
+            dateAdded: '2025-07-28T16:44:36+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
             handle: useGlobalUspColours
             includeInCards: true
             instructions: null
@@ -140,7 +140,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
+            uid: 90491632-48d8-41f7-b7ef-5e09511c916e
             userCondition: null
             warning: null
             width: 100
@@ -152,9 +152,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
-                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
-                  uid: ea51c105-13ea-4e7a-8795-43a414850d9e
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: 90491632-48d8-41f7-b7ef-5e09511c916e
+                  uid: 0daa92ff-a369-4a78-94d1-15007531ee0a
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
@@ -179,9 +179,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
-                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
-                  uid: 9e1f8a12-df95-421b-9c11-7e0a8e25f260
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: 90491632-48d8-41f7-b7ef-5e09511c916e
+                  uid: 3033230c-af40-46c9-a96f-50463bc928da
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
@@ -206,9 +206,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
-                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
-                  uid: 4d964b72-b414-469e-ae32-5d023c028e9e
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: 90491632-48d8-41f7-b7ef-5e09511c916e
+                  uid: 039db499-c3f9-4688-bad0-0f1606f57094
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
