@@ -18,10 +18,10 @@ export default defineConfig(({ command }) => ({
     }
   },
   server: {
-    https: {
-      key: fs.readFileSync('localhost+2-key.pem'),
-      cert: fs.readFileSync('localhost+2.pem'),
-    },
+    // https: {
+    //   key: fs.readFileSync('localhost+2-key.pem'),
+    //   cert: fs.readFileSync('localhost+2.pem'),
+    // },
     allowedHosts: true,
     cors: {
       origin: /https?:\/\/([A-Za-z0-9\-\.]+)?(localhost|\.local|\.test|\.site)(?::\d+)?$/
@@ -33,7 +33,7 @@ export default defineConfig(({ command }) => ({
       "Access-Control-Allow-Private-Network": "true",
     },
     host: '0.0.0.0',
-    origin: 'https://localhost:3001',
+    origin: 'http://localhost:3001',
     port: 3001,
     strictPort: true
   },
