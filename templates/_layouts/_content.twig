@@ -1,5 +1,19 @@
 {% set baseUrl = "_content-blocks/" %}
-{% set blocks = entry.contentBlocks.all() %}
+{% set blocks = entry.contentBlocks.with([
+  'entryCards.linkedEntry.cardImage',
+  'entryCards.cardImage',
+  'entries.cardImage',
+  'entries.children.cardImage',
+  'tabs.entries.cardImage',
+  'heroCarousel.heroDesktopImage',
+  'heroCarousel.heroMobileImage',
+  'heroCarousel.heroActionButtons',
+  'teamMember.headshot',
+  'teamMember.cardImage',
+  'accordionItems',
+  'usps',
+  'testimonials'
+]).all() %}
 
 {% for block in blocks %}
     {% include baseUrl ~ block.type ~ '.twig' %}

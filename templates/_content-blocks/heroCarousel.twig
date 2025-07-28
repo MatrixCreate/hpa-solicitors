@@ -2,7 +2,7 @@
 
 {% import "_macros/ui.twig" as ui %}
 
-{% set hero = entry.heroCarousel.all() %}
+{% set hero = entry.heroCarousel %}
 {% set isCarousel = hero|length > 1 %}
 
 {# Carousel settings #}

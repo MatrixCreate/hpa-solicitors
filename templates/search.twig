@@ -67,6 +67,7 @@
                 .section(searchableSections)
                 .search(query)
                 .status('live')
+                .with(['contentBlocks'])
                 .orderBy('score') %}
             
             {# Calculate pagination manually #}
@@ -118,6 +119,7 @@
                     .section(sectionHandle)
                     .search(query)
                     .status('live')
+                    .with(['contentBlocks'])
                     .all() %}
                 {% set debugResults = debugResults|merge({(sectionHandle): sectionResults|length}) %}
             {% endfor %}

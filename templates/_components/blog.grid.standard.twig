@@ -10,7 +10,7 @@
 {% set mobileBlogListingLayout = props.mobileBlogListingLayout ?? mobileBlogListingLayout ?? 'blog-grid-cards' %}
 
 {# Build filtered query #}
-{% set entryQuery = craft.entries().section('blog') %}
+{% set entryQuery = craft.entries().section('blog').with(['cardImage']) %}
 
 {# Apply category filter #}
 {% set categoryFilter = craft.app.request.getQueryParam('category') %}

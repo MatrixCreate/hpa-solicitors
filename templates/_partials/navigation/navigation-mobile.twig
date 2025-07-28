@@ -3,7 +3,7 @@
 {% set mobileMainNav = craft.navigation.nodes()
   .handle("mainNavigation")
   .level(1)
-  .with(['children'])
+  .with(['children', 'children.children', 'element', 'element.children', 'children.element', 'children.element.children'])
   .all() %}
 
 {% if mobileMainNav != null %}

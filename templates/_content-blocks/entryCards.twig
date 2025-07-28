@@ -46,6 +46,9 @@
 {% set headingColour = block.headingColour.color[0].heading %}
 {% set textColour = block.textColour.color[0].text %}
 
+{# Cache global placeholder to avoid repeated queries #}
+{% set globalPlaceholder = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
+
 {# Main section wrapper with styling classes #}
 <section class="entry-cards content-block
   {{ headingColour }}
@@ -66,8 +69,8 @@
     <div class="entry-card-grid entry-card-carousel scrollbars-hidden">
 
     {% if entrySelection == 'custom' %}
-        {# Custom Card Type Logic #}
-        {% set entryCards = block.entryCards.all() %}
+        {# Custom Card Type Logic - entries already eager loaded #}
+        {% set entryCards = block.entryCards %}
         {% for card in entryCards %}
         
           {# Get linked entry details and CTA configuration #}
@@ -99,7 +102,7 @@
 
           {# Always render card, use global placeholder if no image #}
           {% if not cardImage %}
-            {% set cardImage = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
+            {% set cardImage = globalPlaceholder %}
           {% endif %}
           
           <div class="entry-card-grid-item">
@@ -115,19 +118,19 @@
         {% endfor %}
 
       {% else %}
-        {# Automatic Card Type Logic #}
+        {# Automatic Card Type Logic - entries already eager loaded #}
         {# Determine which entries to display #}
         {% if showOwnChildren %}
-          {# Show child entries of current entry #}
-          {% set entries = entry.children.all() %}
+          {# Show child entries of current entry - already eager loaded #}
+          {% set entries = entry.children %}
         {% else %}
-          {% set entries = block.entries.all() %}
-          {% if block.entries.all()|length == 1 %}
-            {# If only one entry selected, show its children #}
-            {% set entries = block.entries.one().children().all() %}
+          {% set entries = block.entries %}
+          {% if entries|length == 1 %}
+            {# If only one entry selected, show its children - already eager loaded #}
+            {% set entries = entries[0].children %}
           {% else %}
             {# If multiple entries selected, show all of them #}
-            {% set entries = block.entries.all() %}
+            {% set entries = block.entries %}
           {% endif %}
         {% endif %}
 
@@ -142,7 +145,7 @@
 
           {# Use global placeholder if no featured image #}
           {% if not cardImage %}
-            {% set cardImage = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
+            {% set cardImage = globalPlaceholder %}
           {% endif %}
 
           {# Render the card #}

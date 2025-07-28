@@ -59,7 +59,7 @@
       {# Tab navigation buttons #}
       <div class="tabbed-block-tabs">
         <div class="tabbed-block-tabs-inner">
-        {% for item in block.tabs.all() %}
+        {% for item in block.tabs %}
           <button
             class="tabbed-block-tab-label{% if loop.first %} active {% endif %}"
             data-tab="{{ loop.index0 }}"
@@ -73,13 +73,13 @@
 
       {# Tab content panels #}
       <div class="tabbed-block-contents">
-        {% for item in block.tabs.all() %}
+        {% for item in block.tabs %}
           <div
             class="tabbed-block-tab-content"
             data-tab-content="{{ loop.index0 }}"
             style="{% if not loop.first %}display:none;{% endif %}"
           >
-            {% set entries = item.entries.all() %}
+            {% set entries = item.entries %}
 
             <div class="tab-content-inner">
               {# Entry cards within each tab #}

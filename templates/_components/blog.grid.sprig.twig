@@ -47,6 +47,7 @@
 #}
 {% set blogEntriesQ = craft.entries()
   .section('blog')
+  .with(['cardImage'])
   .limit(limit)
   .orderBy(selectedSort) %}
 
