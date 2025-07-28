@@ -294,9 +294,6 @@ settings:
           -
             __assoc__:
               -
-                - cardThumbAlignment
-                - end
-              -
                 - tabs
                 -
                   -
@@ -1181,9 +1178,6 @@ settings:
           - layoutConfig
           -
             __assoc__:
-              -
-                - cardThumbAlignment
-                - end
               -
                 - tabs
                 -
