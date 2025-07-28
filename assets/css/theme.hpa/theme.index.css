@@ -27,6 +27,9 @@ Organisation:
 
 /* ===== BASE STYLES ===== */
 
+.body {
+  /* font-size: 20px; */
+}
 .nav--megamenu {
   .megamenu-column {
     @apply border-0;
@@ -135,21 +138,17 @@ Organisation:
   @apply relative;
   @apply overflow-hidden;
   &::after {
+    content: '';
     @apply bg-(image:--hpa-hero-page-shape-background);
     @apply bg-cover bg-no-repeat bg-right-bottom;
     @apply absolute top-0 md:bottom-0 left-0;
     @apply w-full h-2/3 md:w-1/2 md:h-full;
-    content: '';
-  }
-  @media (min-width: 768px) {
   }
 }
 .hero--home {
   .hero-inner {
     &::after {
       @apply bg-(image:--hpa-hero-home-shape-background);
-    }
-    @media (min-width: 768px) {
     }
   }
 }
@@ -222,7 +221,7 @@ Organisation:
   .usp-text {
     @apply font-display;
     @apply font-bold;
-    @apply text-sm lg:text-base;
+    /* @apply text-sm lg:text-base; */
   }
 }
 
@@ -326,7 +325,6 @@ Organisation:
     @apply bg-auto bg-no-repeat bg-center;
     .testimonial-card {
       @apply h-fit;
-      /* transform: scale(0.9); */
     }
   }
 }
@@ -335,48 +333,37 @@ Organisation:
   .solicitor-profile-wrapper {
     @apply flex flex-col md:flex-row gap-8 items-start;
   }
-  
   .profile-image-wrapper {
-    @apply flex-shrink-0;
-    
+    @apply flex-shrink-0; 
     .profile-image {
       @apply rounded-full w-48 h-48 md:w-64 md:h-64 object-cover;
     }
   }
-  
   .profile-content {
     @apply flex-1;
   }
-  
   .profile-header {
-    @apply mb-6;
-    
+    @apply mb-6; 
     .solicitor-name {
       @apply font-display;
       @apply text-3xl font-bold text-dark-navy mb-2;
     }
-    
     .solicitor-title {
       @apply text-lg text-dark-grey;
     }
   }
-  
   .solicitor-bio {
-    @apply mb-8;
-    
+    @apply mb-8; 
     p {
       @apply text-base leading-relaxed;
     }
   }
-  
   .contact-info {
-    @apply space-y-3;
-    
+    @apply space-y-3; 
     .contact-item {
       @apply flex items-center gap-3;
       @apply font-display;
       @apply font-bold;
-      
       .contact-icon-wrapper {
         @apply text-gold;
       }
@@ -384,7 +371,6 @@ Organisation:
         @apply w-5 h-5 flex-shrink-0;
         fill: currentColor;
       }
-      
       .contact-link {
         @apply text-dark-navy hover:text-gold transition-colors;
       }
@@ -495,10 +481,10 @@ Organisation:
 
 
 .text-and-image {
-  @apply py-[calc(10vw*0.25)];
   @apply overflow-hidden;
   .content-block-inner {
     @apply relative z-10;
+    @apply py-[calc(10vw*0.25)];
     &::after {
       content: '';
       @apply absolute top-0 z-[-1];

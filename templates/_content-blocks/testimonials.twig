@@ -76,7 +76,7 @@
                       {% set remainingParagraphs = quoteParts[1:]|join('</p>')|trim %}
                       
                       {% if '<strong>' in firstParagraph or '<b>' in firstParagraph %}
-                        <div class="testimonial-quote-bold font-display font-bold text-lg mb-4">
+                        <div class="testimonial-quote-bold mb-4 font-display font-bold">
                           {{ firstParagraph|striptags }}
                         </div>
                         {% if remainingParagraphs|length %}

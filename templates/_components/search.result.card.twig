@@ -35,9 +35,14 @@
                 {{ entry.excerpt|truncate(150) }}
             {% elseif entry.contentBlocks %}
                 {# Extract text from first rich text block #}
-                {% set firstRichTextBlock = entry.contentBlocks.type('richText').one() %}
-                {% if firstRichTextBlock and firstRichTextBlock.richText %}
-                    {{ firstRichTextBlock.richText|striptags|truncate(150) }}
+                {% set firstRichText = null %}
+                {% for block in entry.contentBlocks %}
+                    {% if not firstRichText and block.type.handle == 'richText' and block.richText %}
+                        {% set firstRichText = block.richText %}
+                    {% endif %}
+                {% endfor %}
+                {% if firstRichText %}
+                    {{ firstRichText|striptags|truncate(150) }}
                 {% endif %}
             {% else %}
                 {{ entry.title }}

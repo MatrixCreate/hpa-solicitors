@@ -16,6 +16,9 @@
       @apply prose-headings:font-display;
       @apply prose-headings:font-bold;
       @apply prose-headings:leading-tight;
+      
+      font-size: inherit !important;
+      line-height: inherit !important;
     }
 
     /* Headings in Rich Text fields */

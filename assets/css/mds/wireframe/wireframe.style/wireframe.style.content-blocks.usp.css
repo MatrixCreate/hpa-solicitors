@@ -8,10 +8,10 @@
     @apply md:text-[var(--mds-usp-text-font-size-md)];
   }
   .usp-text {
-    @apply text-[var(--mds-usp-text-font-size)];
+    /* @apply text-[var(--mds-usp-text-font-size)];
+    @apply md:text-[var(--mds-usp-text-font-size-md)]; */
     @apply font-[var(--mds-usp-text-font-weight)];
     
-    @apply md:text-[var(--mds-usp-text-font-size-md)];
   }
   
 }
