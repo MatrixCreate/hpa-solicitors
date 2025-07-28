@@ -20,12 +20,14 @@
   {% set backgroundColour = globalContent.globalTestimonialsBackgroundColour.color[0].background %}
   {% set headingColour = globalContent.globalTestimonialsHeadingColour.color[0].heading %}
   {% set textColour = globalContent.globalTestimonialsTextColour.color[0].text %}
+  {% set truncateText = globalContent.globalTestimonialsTruncateText %}
   {% set blockType = 'testimonials' %}
 {% else %}
   {% set richText = block.richText %}
   {% set backgroundColour = block.backgroundColour.color[0].background %}
   {% set headingColour = block.headingColour.color[0].heading %}
   {% set textColour = block.textColour.color[0].text %}
+  {% set truncateText = globalContent.globalTestimonialsTruncateText %}
   {% set blockType = block.type %}
 {% endif %}
 
@@ -67,24 +69,91 @@
                 </div>
 
                 <div class="testimonial-content">
-                  <div class="testimonial-quote" x-data="{
-                    isExpanded: false,
-                    wordCount: 25,
-                    fullText: '{{ testimonial.quote|striptags|replace({" '": "\\' "}) }}',
-                    get truncatedText() {
-                      const words = this.fullText.split(' ');
-                      if (words.length <= this.wordCount + 10) return this.fullText;
-                      return words.slice(0, this.wordCount).join(' ') + '...';
-                    },
-                    get shouldShowMore() {
-                      const words = this.fullText.split(' ');
-                      return words.length > this.wordCount + 10;
-                    }
-                  }">
-                    &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
-                    <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
-                      View more
-                    </button>
+                  <div class="testimonial-quote">
+                    {% set quoteParts = testimonial.quote|split('</p>') %}
+                    {% if quoteParts|length > 1 %}
+                      {% set firstParagraph = quoteParts[0] ~ '</p>' %}
+                      {% set remainingParagraphs = quoteParts[1:]|join('</p>')|trim %}
+                      
+                      {% if '<strong>' in firstParagraph or '<b>' in firstParagraph %}
+                        <div class="testimonial-quote-bold font-bold mb-2">
+                          {{ firstParagraph|striptags }}
+                        </div>
+                        {% if remainingParagraphs|length %}
+                          {% if truncateText %}
+                            <div x-data="{
+                              isExpanded: false,
+                              wordCount: 15,
+                              fullText: '{{ remainingParagraphs|striptags|replace({" '": "\\' "}) }}',
+                              get truncatedText() {
+                                const words = this.fullText.split(' ').filter(w => w.trim());
+                                if (words.length <= this.wordCount + 10) return this.fullText;
+                                return words.slice(0, this.wordCount).join(' ') + '...';
+                              },
+                              get shouldShowMore() {
+                                const words = this.fullText.split(' ').filter(w => w.trim());
+                                return words.length > this.wordCount + 10;
+                              }
+                            }">
+                              &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
+                              <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
+                                View more
+                              </button>
+                            </div>
+                          {% else %}
+                            <div>&ldquo;{{ remainingParagraphs|striptags }}&rdquo;</div>
+                          {% endif %}
+                        {% endif %}
+                      {% else %}
+                        {% if truncateText %}
+                          <div x-data="{
+                            isExpanded: false,
+                            wordCount: 15,
+                            fullText: '{{ testimonial.quote|striptags|replace({" '": "\\' "}) }}',
+                            get truncatedText() {
+                              const words = this.fullText.split(' ').filter(w => w.trim());
+                              if (words.length <= this.wordCount + 10) return this.fullText;
+                              return words.slice(0, this.wordCount).join(' ') + '...';
+                            },
+                            get shouldShowMore() {
+                              const words = this.fullText.split(' ').filter(w => w.trim());
+                              return words.length > this.wordCount + 10;
+                            }
+                          }">
+                            &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
+                            <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
+                              View more
+                            </button>
+                          </div>
+                        {% else %}
+                          <div>&ldquo;{{ testimonial.quote|striptags }}&rdquo;</div>
+                        {% endif %}
+                      {% endif %}
+                    {% else %}
+                      {% if truncateText %}
+                        <div x-data="{
+                          isExpanded: false,
+                          wordCount: 15,
+                          fullText: '{{ testimonial.quote|striptags|replace({" '": "\\' "}) }}',
+                          get truncatedText() {
+                            const words = this.fullText.split(' ').filter(w => w.trim());
+                            if (words.length <= this.wordCount + 10) return this.fullText;
+                            return words.slice(0, this.wordCount).join(' ') + '...';
+                          },
+                          get shouldShowMore() {
+                            const words = this.fullText.split(' ').filter(w => w.trim());
+                            return words.length > this.wordCount + 10;
+                          }
+                        }">
+                          &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
+                          <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
+                            View more
+                          </button>
+                        </div>
+                      {% else %}
+                        <div>&ldquo;{{ testimonial.quote|striptags }}&rdquo;</div>
+                      {% endif %}
+                    {% endif %}
                   </div>
                   <div class="testimonial-footer">
                     <div class="testimonial-avatar">

@@ -1,17 +1,42 @@
 {% set footerNav = craft.navigation.nodes()
   .handle("footerNavigation")
-  .level(1)
   .all() %}
 
 {% if footerNav != null %}
-  <nav class="nav nav-footer">
+  <nav class="nav nav-footer flex-col items-start gap-0">
   {% for navItem in footerNav %}
-    <a
-      class="nav-footer-link"
-      href="{{ navItem.url }}"
-      >
-      {{ navItem.title }}
-    </a>
+    {% if navItem.isPassive %}
+      <h2 class="nav-footer-heading mb-4 font-display font-bold text-2xl text-gold">{{ navItem.title }}</h2>
+    {% else %}
+      <a
+        class="nav-footer-link"
+        href="{{ navItem.url }}"
+        >
+        {{ navItem.title }}
+      </a>
+    {% endif %}
+  {% endfor %}
+  </nav>
+{% endif %}
+
+
+{% set footerAboutNav = craft.navigation.nodes()
+  .handle("footerAboutNavigation")
+  .all() %}
+
+{% if footerAboutNav != null %}
+  <nav class="nav nav-footer flex-col items-start gap-0">
+  {% for navItem in footerAboutNav %}
+    {% if navItem.isPassive %}
+      <h2 class="nav-footer-heading mb-4 font-display font-bold text-2xl text-gold">{{ navItem.title }}</h2>
+    {% else %}
+      <a
+        class="nav-footer-link"
+        href="{{ navItem.url }}"
+        >
+        {{ navItem.title }}
+      </a>
+    {% endif %}
   {% endfor %}
   </nav>
 {% endif %}

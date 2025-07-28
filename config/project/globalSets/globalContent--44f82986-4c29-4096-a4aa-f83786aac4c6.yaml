@@ -732,6 +732,23 @@ fieldLayouts:
             userCondition: null
             width: 100
           -
+            dateAdded: '2025-07-28T14:49:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: globalTestimonialsTruncateText
+            includeInCards: false
+            instructions: null
+            label: 'Truncate Text and Add View More Links'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8d8dc4bf-c3e3-4c80-b8f3-300c48f903ad
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-01-06T14:49:16+00:00'
             editCondition: null
             elementCondition:
