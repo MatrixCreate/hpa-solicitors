@@ -6,8 +6,8 @@
   - query: Search query for highlighting (optional)
 #}
 
-{% set entry = entry %}
-{% set query = query ?? '' %}
+{% set entry = props.entry ?? entry ?? null %}
+{% set query = props.query ?? query ?? '' %}
 
 {% if entry %}
 <article class="search-result-card">
