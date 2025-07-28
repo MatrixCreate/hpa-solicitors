@@ -408,16 +408,18 @@ Organisation:
   }
 }
 
-
 /* ===== HPA ENTRY CARDS OVERRIDES ===== */
 /* Override skeleton entry cards with carousel layout */
 .entry-cards {
   .entry-card-carousel {
-    @apply flex flex-row snap-x snap-mandatory overflow-x-auto gap-6;
+    @apply flex flex-row snap-x snap-mandatory overflow-x-auto gap-0;
     @apply md:grid md:grid-cols-3 lg:gap-8 max-md:pr-6;
-    @apply -mr-6 md:mr-0;
+    @apply -ml-6 -mr-6 md:mr-0;
     > * {
-      @apply basis-[90%] snap-start flex-shrink-0;
+      @apply basis-[92.5%] snap-start flex-shrink-0;
+      @apply pl-6;
+      &:first-child {
+      }
     }
   }
   

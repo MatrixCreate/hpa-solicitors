@@ -12,7 +12,7 @@
       @apply flex flex-col;
       @apply md:grid md:grid-cols-12;
       @apply mx-auto;
-      @apply gap-8;
+      @apply gap-0 md:gap-8;
     }
     .text-wrapper {
       @apply flex flex-col justify-center col-span-6 space-y-4;
