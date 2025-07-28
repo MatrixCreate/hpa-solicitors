@@ -126,7 +126,7 @@ Organisation:
   @apply overflow-hidden;
   @media (min-width: 768px) {
     &::after {
-      @apply bg-(image:--hpa-hero-shape-background);
+      @apply bg-(image:--hpa-hero-page-shape-background);
       @apply bg-cover bg-no-repeat bg-right-bottom;
       @apply absolute top-0 md:bottom-0 left-0;
       @apply w-[120%] h-2/3 md:w-1/2 md:h-full;
@@ -134,6 +134,16 @@ Organisation:
     }
   }
 }
+.hero--home {
+  .hero-inner {
+    @media (min-width: 768px) {
+      &::after {
+        @apply bg-(image:--hpa-hero-home-shape-background);
+      }
+    }
+  }
+}
+
 .hero-text-wrapper {
   @apply justify-start xs:justify-center;
   @apply max-w-[var(--container-wide)];
