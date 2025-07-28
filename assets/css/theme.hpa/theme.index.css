@@ -26,6 +26,26 @@ Organisation:
 
 
 /* ===== BASE STYLES ===== */
+
+.nav--megamenu {
+  .megamenu-column {
+    @apply border-0;
+  }
+  .nav-menu-level-2 {
+    @apply p-4 xl:p-8 xl:px-16 2xl:p-10 2xl:px-20;
+    .nav-link {
+      @apply rounded;
+    }
+
+    .nav-link-level-2 {
+      @apply xl:p-2 xl:py-[0.685rem];
+      @apply xl:text-xl;
+    }
+    .nav-item-view-page {
+      @apply border-0;
+    }
+  }
+}
 .nav-item-link {
   @apply text-dark-navy;
   .subnav-indicator {

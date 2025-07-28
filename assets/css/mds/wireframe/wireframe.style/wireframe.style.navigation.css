@@ -188,7 +188,7 @@
       transition-property: opacity, transform;
       
       &.column-1 {
-        @apply bg-[var(--mds-nav-background-active)];
+        /* @apply bg-[var(--mds-nav-background-active)]; */
       }
       
       &.column-2,
@@ -210,7 +210,7 @@
     }
     
     .nav-link-level-2 {
-      @apply p-4;
+      @apply p-3;
       @apply text-[var(--mds-megamenu-level-2-font-size)];
       @apply font-[var(--mds-megamenu-level-2-font-weight)];
       @apply transition-colors;

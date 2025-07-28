@@ -63,9 +63,9 @@
     --mds-nav-text-hover:                             theme(--color-dark-navy);
     --mds-nav-text-active:                            theme(--color-dark-navy);
     --mds-nav-text-muted:                             theme(--color-medium-grey);
-    --mds-nav-background-hover:                       theme(--color-light-grey);
-    --mds-nav-background-active:                      theme(--color-light-grey);
-    --mds-nav-border:                                 theme(--color-light-grey);
+    --mds-nav-background-hover:                       theme(--color-medium-grey);
+    --mds-nav-background-active:                      theme(--color-medium-grey);
+    --mds-nav-border:                                 theme(--color-medium-grey);
     
     /* Mobile Navigation Colors */
     --mds-mobile-nav-background:                      theme(--color-dark-navy);
