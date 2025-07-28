@@ -35,17 +35,22 @@
 
 {# Determine if using global or local settings #}
 {%- set useGlobalUsps = useGlobalUsps ?? block.useGlobalUsps ?? false -%}
+{%- set useGlobalUspColours = useGlobalUspColours ?? block.useGlobalUspColours ?? false -%}
 
 {# Set configuration based on global/local mode #}
 {% if useGlobalUsps %}
   {%- set richText = globalContent.uspsRichText -%}
   {%- set usps = globalContent.usps.all() -%}
+{% else %}
+  {%- set richText = block.richText -%}
+  {%- set usps = block.usps.all() -%}
+{% endif %}
+
+{% if useGlobalUspColours %}
   {%- set backgroundColour = globalContent.globalUspsBackgroundColour.color[0].background -%}
   {%- set headingColour = globalContent.globalUspsHeadingColour.color[0].heading -%}
   {%- set textColour = globalContent.globalUspsTextColour.color[0].text -%}
 {% else %}
-  {%- set richText = block.richText -%}
-  {%- set usps = block.usps.all() -%}
   {%- set backgroundColour = backgroundColour ?? block.backgroundColour.color[0].background -%}
   {%- set headingColour = headingColour ?? block.headingColour.color[0].heading -%}
   {%- set textColour = textColour ?? block.textColour.color[0].text -%}

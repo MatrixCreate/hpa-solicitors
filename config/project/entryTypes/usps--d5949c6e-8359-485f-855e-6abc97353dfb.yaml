@@ -6,6 +6,7 @@ fieldLayouts:
     cardView:
       - 'layoutElement:e1a14102-d56d-40fd-a2f3-0c7d8acd8956'
       - 'layoutElement:9d967e12-4208-4f58-8c73-05e2aa6c9951'
+      - 'layoutElement:7443ba9b-c4d7-40f2-a2d8-cedc55d0216b'
       - 'layoutElement:4886e199-e400-4e61-bc80-4cac52eb21a5'
       - 'layoutElement:a098483e-d3ff-4b84-a7b9-43688689c495'
       - 'layoutElement:079f58cc-d051-4741-af50-669a9e8314b8'
@@ -121,21 +122,28 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-07-23T18:57:43+00:00'
-            elementCondition:
-              class: craft\elements\conditions\entries\EntryCondition
-              conditionRules:
-                -
-                  class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
-                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
-                  uid: ce49d3bd-732d-4041-80e3-ede617558a17
-                  value: false
-              elementType: craft\elements\Entry
-              fieldContext: global
+            elementCondition: null
             heading: Colours
             type: craft\fieldlayoutelements\Heading
             uid: 0e692cf4-b5e7-4b8a-bf3f-498a4a535a26
             userCondition: null
+          -
+            dateAdded: '2025-07-28T16:36:40+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+            handle: useGlobalUspColours
+            includeInCards: true
+            instructions: null
+            label: 'Use Global USP Colours'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2025-05-28T10:08:19+00:00'
             editCondition: null
@@ -144,9 +152,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
-                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
-                  uid: 01cdd392-97c1-4791-955e-b6107d657f91
+                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
+                  uid: ea51c105-13ea-4e7a-8795-43a414850d9e
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
@@ -171,9 +179,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
-                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
-                  uid: c0c67b56-fcc6-4e07-a0e8-90c449669a62
+                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
+                  uid: 9e1f8a12-df95-421b-9c11-7e0a8e25f260
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
@@ -198,9 +206,9 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 3e42bd3e-2753-4261-a252-993210ccbd6e # Use Global USPs
-                  layoutElementUid: e1a14102-d56d-40fd-a2f3-0c7d8acd8956
-                  uid: 6285325c-b47a-4ef5-8473-03089e3ecef3
+                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
+                  layoutElementUid: 7443ba9b-c4d7-40f2-a2d8-cedc55d0216b
+                  uid: 4d964b72-b414-469e-ae32-5d023c028e9e
                   value: false
               elementType: craft\elements\Entry
               fieldContext: global
