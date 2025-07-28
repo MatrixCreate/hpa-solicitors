@@ -66,13 +66,19 @@
 
           {# Contact Information #}
           <div class="contact-info">
-            {% if solicitorEntry.telephone %}
+            {% set telephone = null %}
+            {% if solicitorEntry.useGlobalTelephone %}
+              {% set telephone = companyInfo.telephone %}
+            {% else %}
+              {% set telephone = solicitorEntry.telephone %}
+            {% endif %}
+            {% if telephone %}
               <div class="contact-item contact-phone">
                 <div class="contact-icon-wrapper">
                   {{ svg('@webroot/assets/icons/system/telephone.svg') | attr({ class: 'contact-icon' }) }}
                 </div>
-                <a href="tel:{{ solicitorEntry.telephone }}" class="contact-link">
-                  {{ solicitorEntry.telephone }}
+                <a href="tel:{{ telephone|replace({' ': ''}) }}" class="contact-link">
+                  {{ telephone }}
                 </a>
               </div>
             {% endif %}

@@ -135,9 +135,36 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-07-23T18:17:50+00:00'
+            dateAdded: '2025-07-28T17:13:22+00:00'
             editCondition: null
             elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: useGlobalTelephone
+            includeInCards: false
+            instructions: 'When enabled, the Telephone number in Globals > Company Info will be used.'
+            label: 'Use Global Telephone'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 154ec9df-8f26-433d-be8c-51d34a6f3c39
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-23T18:17:50+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+                  layoutElementUid: 154ec9df-8f26-433d-be8c-51d34a6f3c39
+                  uid: 10af4940-1937-429d-ab8a-1073b0998046
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: d9fa2a8a-b9f3-4960-88f8-1db729fff2b3 # Telephone
             handle: telephone
             includeInCards: false

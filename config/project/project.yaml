@@ -1,4 +1,4 @@
-dateModified: 1753721096
+dateModified: 1753722833
 elementSources:
   craft\elements\Entry:
     -
@@ -173,7 +173,7 @@ meta:
     280fd2f9-6577-4347-9fec-7cb6cde0ccd5: 'Anchor ID' # Anchor ID
     356a9366-c862-45bb-b2a7-9515ad112c42: Images # Images
     401cd387-0f69-499c-ad7a-08252bed27cd: Pages # Pages
-    444f10e2-97de-4115-8287-0b6d17f1b9ea: 'Action Buttons' # Action Buttons
+    444f10e2-97de-4115-8287-0b6d17f1b9ea: Actions # Actions
     453eb038-5a16-46c6-85dd-6f13bf991d65: USPs # USPs
     461e63c1-3d63-4282-a6b8-7794c9c3208a: 'Rich Text and Media' # Rich Text and Media
     620e8683-5b45-432a-ba88-3ca352866ee7: 'Hero Carousel' # Hero Carousel

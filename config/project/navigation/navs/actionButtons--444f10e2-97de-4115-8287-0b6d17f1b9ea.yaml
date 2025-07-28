@@ -76,7 +76,7 @@ fieldLayouts:
             fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
             handle: useGlobalTelephone
             includeInCards: false
-            instructions: null
+            instructions: 'When enabled, the Telephone number in Globals > Company Info will be used.'
             label: 'Use Global Telephone'
             providesThumbs: false
             required: false
@@ -188,9 +188,9 @@ fieldLayouts:
         uid: c05b53c7-1ffd-4eca-b13b-22374875e6e1
         userCondition: null
 handle: actionButtons
-instructions: null
+instructions: ''
 maxNodes: null
-name: 'Action Buttons'
+name: Actions
 permissions:
   craft\elements\Asset:
     enabled: '1'
