@@ -1,4 +1,4 @@
-dateModified: 1753631677
+dateModified: 1753714379
 elementSources:
   craft\elements\Entry:
     -
@@ -161,6 +161,7 @@ meta:
     52d16a9f-4777-4c28-a348-6146366ed718: Icon # Icon
     63a1d88b-0061-406b-9d6a-f37b63ae447f: 'Desktop Image' # Desktop Image
     63ba87bf-e562-44d4-ac20-3360a518ec05: Form # Form
+    67ca3eab-5c6e-411b-8e3f-276aeb5e2e0d: 'Footer About Navigation' # Footer About Navigation
     69f93180-d936-463c-bebc-f5c3f24ab7ee: 'Code (Single Line)' # Code (Single Line)
     73d20edc-b18a-447d-a391-33e2b2dbce15: 'Placeholder Image' # Placeholder Image
     74d2d162-eeeb-47a7-a055-13c1ac6021b3: 'Brand Asset' # Brand Asset

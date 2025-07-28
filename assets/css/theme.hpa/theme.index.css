@@ -32,7 +32,11 @@ Organisation:
     @apply border-0;
   }
   .nav-menu-level-2 {
+    @apply mt-2;
     @apply p-4 xl:p-8 xl:px-16 2xl:p-10 2xl:px-20;
+    @apply rounded-lg;
+    @apply overflow-hidden;
+    @apply shadow-lg;
     .nav-link {
       @apply rounded;
     }
@@ -44,6 +48,12 @@ Organisation:
     .nav-item-view-page {
       @apply border-0;
     }
+  }
+  .nav-link-level-2,
+  .nav-link-level-3 {
+    @apply !pr-4;
+    @apply lg:!pr-6;
+    @apply xl:!pr-8;
   }
 }
 .nav-item-link {
@@ -377,11 +387,6 @@ Organisation:
   }
 }
 
-.nav-menu-level-2 {
-  @apply mt-2;
-  @apply rounded-lg;
-  @apply overflow-hidden;
-}
 
 /* ===== HPA ENTRY CARDS OVERRIDES ===== */
 /* Override skeleton entry cards with carousel layout */
@@ -443,4 +448,21 @@ Organisation:
     @apply mb-0; /* Override mb-2 from wireframe style */
     @apply text-xl font-bold;
   }
+}
+
+
+.footer-primary,
+.footer-bottom-content,
+.footer-copyright {
+  @apply items-start;
+  @apply text-left;
+}
+.footer-copyright {
+  @apply md:flex-col;
+}
+.footer-tagline {
+  @apply max-md:mb-8;
+}
+.nav--legal {
+  @apply max-md:flex-col max-md:items-start max-md:gap-0;
 }

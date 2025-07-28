@@ -16,7 +16,7 @@
   {{ footerBackgroundColour}}
   {{ footerHeadingColour}}
   {{ footerTextColour}}">
-    <div class="footer-container">
+    <div class="footer-container pt-8 pb-0">
       <div class="footer-primary">
         {# Load logo assets from global-variables file #}
         {%- if companyInfo.footerLogo.one() -%}
@@ -28,48 +28,77 @@
         {%- else -%}
           <h5 class="text-2xl">{{ siteName }}</h5>
         {%- endif -%}
+      </div>
+    </div>
 
-        <div class="footer-content">
-          {%- if siteConfig.showContactDetailsInFooter and companyInfo.address.companyName|length -%}
-          <p>
-            {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}, ")|raw : '' }}
-            {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}, <br>")|raw : '' }}
-            {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2},")|raw : '' }}
-            {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}, <br>")|raw : '' }}
-            {{ companyInfo.address.townCity|length ? ("#{companyInfo.address.townCity}, ")|raw : '' }}
-            {{ companyInfo.address.county|length ? ("#{companyInfo.address.county}, ")|raw : '' }}
-            {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
-          </p>
-          <div class="footer-contact">
-            <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
-              {{ companyInfo.telephone }}
-            </a>
-            <a href="mailto:{{ companyInfo.email }}">
-              {{ companyInfo.email }}
-            </a>
-          </div>
-          {%- endif -%}
-
-          {%- if companyInfo.openingHours|length -%}
-            {% include '_partials/opening-hours' %}
-          {%- endif -%}
-          
-          {%- if siteConfig.showSocialNetworksInFooter -%}
-          <div class="footer-socials">
-            {{ ui.component('social-networks', { size: 'md', gap: 'gap-2' }) }}
-          </div>
-          {% endif %}
-          
+    <div class="footer-container py-6">
+      <div class="footer-primary">
+        <div class="footer-content">          
           {%- if siteConfig.footerTagline|length -%}
-          <div class="footer-tagline">
+          <div class="footer-tagline pl-4 border-l border-white">
             {{ siteConfig.footerTagline }}
           </div>
           {%- endif -%}
         </div>
       </div>
 
-      <div class="footer-nav">
+      <div class="footer-primary">
+      {%- if siteConfig.showContactDetailsInFooter and companyInfo.address.companyName|length -%}
+        <h2 class="mb-4 font-display font-bold text-2xl text-gold">Contact</h2>
+        <div class="footer-contact">
+          <p class="mb-6">
+            {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}<br> ")|raw : '' }}
+            {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}<br>")|raw : '' }}
+            {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2}<br>")|raw : '' }}
+            {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}<br>")|raw : '' }}
+            {{ companyInfo.address.townCity|length ? ("#{companyInfo.address.townCity}<br> ")|raw : '' }}
+            {{ companyInfo.address.county|length ? ("#{companyInfo.address.county}<br> ")|raw : '' }}
+            {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
+          </p>
+          {%- if companyInfo.telephone|length -%}
+          <span class="flex gap-1">
+            <span>Tel:</span> 
+            <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
+              {{ companyInfo.telephone }}
+            </a>
+          </span>
+          {%- endif -%}
+          {%- if companyInfo.fax|length -%}
+          <span class="flex gap-1">
+            <span>Fax:</span> 
+            <span>
+              {{ companyInfo.fax }}
+            </span>
+          </span>
+          {%- endif -%}
+          {%- if companyInfo.email|length -%}
+          <span class="flex gap-1">
+            <span>Email:</span> 
+            <a href="mailto:{{ companyInfo.email }}">
+              {{ companyInfo.email }}
+            </a>
+          </span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+        {%- if companyInfo.openingHours|length -%}
+          {% include '_partials/opening-hours' %}
+        {%- endif -%}
+      </div>
+
+      <div class="footer-nav xs:flex-row items-start">
         {% include '_partials/navigation/navigation-footer' %}
+      </div>
+    </div>
+
+    <div class="footer-container py-6">
+      <div class="footer-primary">
+        {%- if siteConfig.showSocialNetworksInFooter -%}
+        <div class="footer-socials text-gold">
+          {{ ui.component('social-networks', { size: 'md', gap: 'gap-2' }) }}
+        </div>
+        {% endif %}
       </div>
     </div>
 
