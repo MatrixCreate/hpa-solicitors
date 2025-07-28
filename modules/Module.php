@@ -4,7 +4,7 @@ namespace modules;
 use Craft;
 
 // Include the extension classes
-require_once __DIR__ . '/extensions/SvgToPngExtension.php';
+// require_once __DIR__ . '/extensions/SvgToPngExtension.php';
 
 /**
  * Custom module class.
@@ -45,8 +45,8 @@ class Module extends \yii\base\Module
         // Register our Twig extensions for both web and console requests
         Craft::info('Registering Twig extensions', __METHOD__);
         try {
-            Craft::$app->view->registerTwigExtension(new SvgToPngExtension());
-            Craft::info('Twig extensions registered successfully', __METHOD__);
+            // Craft::$app->view->registerTwigExtension(new SvgToPngExtension());
+            // Craft::info('Twig extensions registered successfully', __METHOD__);
         } catch (\Exception $e) {
             Craft::error('Failed to register Twig extensions: ' . $e->getMessage(), __METHOD__);
         }
