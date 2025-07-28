@@ -31,8 +31,6 @@
   .hero-carousel {
     @apply relative;
     @apply overflow-hidden;
-    @apply aspect-square;
-    @apply md:aspect-[16/5];
     
     /* Carousel timing values - synchronized between CSS and JavaScript
        - Default values are set here

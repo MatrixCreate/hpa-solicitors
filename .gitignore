@@ -47,5 +47,8 @@ web/dist
 web/assets/cms
 web/assets/placeholders
 
+# Local certificates
+*.pem
+
 # MCP config
 .mcp.json

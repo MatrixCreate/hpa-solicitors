@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import tailwindcss from "@tailwindcss/vite";
+import fs from 'fs';
 
 
 export default defineConfig(({ command }) => ({
@@ -17,6 +18,10 @@ export default defineConfig(({ command }) => ({
     }
   },
   server: {
+    https: {
+      key: fs.readFileSync('localhost+2-key.pem'),
+      cert: fs.readFileSync('localhost+2.pem'),
+    },
     allowedHosts: true,
     cors: {
       origin: /https?:\/\/([A-Za-z0-9\-\.]+)?(localhost|\.local|\.test|\.site)(?::\d+)?$/
@@ -28,7 +33,7 @@ export default defineConfig(({ command }) => ({
       "Access-Control-Allow-Private-Network": "true",
     },
     host: '0.0.0.0',
-    origin: 'http://localhost:3001',
+    origin: 'https://localhost:3001',
     port: 3001,
     strictPort: true
   },
@@ -37,6 +42,8 @@ export default defineConfig(({ command }) => ({
       '@': path.resolve(__dirname, './assets'),
     }
   },
-  plugins: [tailwindcss()],
+  plugins: [
+    tailwindcss()
+  ],
 
 })); 
