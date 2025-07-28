@@ -468,6 +468,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-07-28T16:19:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: contentBlocks_textAndImages_centerVertically
+            includeInCards: false
+            instructions: null
+            label: 'Center Image Vertically'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6416795a-a3cf-4a1f-b2ba-cfb057388a9b
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Content Blocks'
         uid: 63e78d33-4953-455d-8c82-5f46ea307ae6
         userCondition: null

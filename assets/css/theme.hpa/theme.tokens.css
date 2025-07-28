@@ -62,5 +62,12 @@
   --font-size-2xs:        0.5rem;
   
   /* ===== ASSETS ===== */
-  --background-image-icon-chevron-down: url('../../assets/icons/system/icon_chevron_down.svg');
+  --background-image-icon-chevron-down: url('/assets/icons/system/icon_chevron_down.svg');
+  --background-image-text-image-right-dots-desktop: url('/assets/images/text_image_right_dots_bg_desktop.svg');
+  --background-image-text-image-left-dots-desktop: url('/assets/images/text_image_left_dots_bg_desktop.svg');
+  --background-image-text-image-left-dots-mobile: url('/assets/images/text_image_bg_shape_left_mobile.svg');
+
+  --background-image-entry-cards-bg-shape-top-desktop: url('/assets/images/text_image_bg_shape_top_desktop.svg');
+  --background-image-testimonials-item-bg-dots-shape: url('/assets/images/grey_dots_shape.svg');
+
 }

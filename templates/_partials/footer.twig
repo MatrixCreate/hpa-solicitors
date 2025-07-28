@@ -56,15 +56,15 @@
             {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
           </p>
           {%- if companyInfo.telephone|length -%}
-          <span class="flex gap-1">
+          <span class="flex items-center gap-1">
             <span>Tel:</span> 
-            <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
+            <a class="nav-footer-link" href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
               {{ companyInfo.telephone }}
             </a>
           </span>
           {%- endif -%}
           {%- if companyInfo.fax|length -%}
-          <span class="flex gap-1">
+          <span class="flex items-center gap-1">
             <span>Fax:</span> 
             <span>
               {{ companyInfo.fax }}
@@ -72,9 +72,9 @@
           </span>
           {%- endif -%}
           {%- if companyInfo.email|length -%}
-          <span class="flex gap-1">
+          <span class="flex items-center gap-1">
             <span>Email:</span> 
-            <a href="mailto:{{ companyInfo.email }}">
+            <a class="nav-footer-link" href="mailto:{{ companyInfo.email }}">
               {{ companyInfo.email }}
             </a>
           </span>

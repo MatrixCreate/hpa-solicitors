@@ -7,6 +7,7 @@
 {%- set headingColour = block.headingColour.color[0].heading -%}
 {%- set textColour = block.textColour.color[0].text -%}
 {%- set fitImageToBlock = siteConfig.contentBlocks_textAndImages_fitImageToBlock ?? false -%}
+{%- set centerVertically = siteConfig.contentBlocks_textAndImages_centerVertically ?? false -%}
 
 
 <section class="text-and-image content-block {{ columnLayout }} {{ mobileLayout }} {{ fitImageToBlock ? 'fit-image-to-block' : '' }} {{ headingColour }} {{ textColour }} {{ backgroundColour }}"
@@ -23,7 +24,7 @@
         {%- endif -%}
 
         {%- if image|length -%}
-          <figure class="text-and-image-figure h-full" role="figure">
+          <figure class="text-and-image-figure h-full {{ centerVertically ? 'flex items-center justify-center' : '' }}" role="figure">
             {{ ui.component('image', {
               img: image,
               class: 'text-and-image-image',

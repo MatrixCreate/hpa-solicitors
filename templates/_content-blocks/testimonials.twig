@@ -59,7 +59,7 @@
           {% for testimonial in testimonials %}
             <li class="lq-slider-item" data-index="{{ loop.index0 }}">
               <div class="testimonial-card">
-                <div class="testimonial-stars">
+                <div class="testimonial-stars pb-0">
                   {% set starRating = testimonial.starRating %}
                   {% for i in range(1, starRating) %}
                     <svg class="icon-star" viewbox="0 0 24 23">
@@ -69,14 +69,14 @@
                 </div>
 
                 <div class="testimonial-content">
-                  <div class="testimonial-quote">
+                  <div class="testimonial-quote mt-3">
                     {% set quoteParts = testimonial.quote|split('</p>') %}
                     {% if quoteParts|length > 1 %}
                       {% set firstParagraph = quoteParts[0] ~ '</p>' %}
                       {% set remainingParagraphs = quoteParts[1:]|join('</p>')|trim %}
                       
                       {% if '<strong>' in firstParagraph or '<b>' in firstParagraph %}
-                        <div class="testimonial-quote-bold font-bold mb-2">
+                        <div class="testimonial-quote-bold font-display font-bold text-lg mb-4">
                           {{ firstParagraph|striptags }}
                         </div>
                         {% if remainingParagraphs|length %}
