@@ -257,7 +257,7 @@ Organisation:
   .content-box-inner {
     @apply md:col-start-2;
     @apply p-6;
-    @apply mb-4 pb-12;
+    @apply mb-8 pb-12;
     @apply bg-(image:--hpa-call-to-action-background-mobile);
     @apply bg-no-repeat;
     @apply bg-cover bg-bottom;
@@ -302,7 +302,7 @@ Organisation:
   .call-to-action {
     .action-buttons {
       .btn {
-        font-size: 2em;
+        font-size: 1.5em;
         .btn-icon {
           @apply w-8 h-8;
         }
