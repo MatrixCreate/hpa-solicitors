@@ -212,6 +212,8 @@
     /* Additional Component Colors */
     --mds-blockquote-border:                          theme(--color-dark-navy);
     --mds-tabs-border:                                theme(--color-light-grey);
+    --mds-nav-font-weight:                            theme(fontWeight.normal);
+    --mds-megamenu-level-2-font-weight:               theme(fontWeight.normal);
     --mds-megamenu-border:                            theme(--color-light-grey);
     --mds-filter-search-button-background:            theme(--color-dark-navy);
     --mds-filter-search-button-text:                  theme(--color-white);

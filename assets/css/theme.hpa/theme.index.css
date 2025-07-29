@@ -130,16 +130,6 @@ Organisation:
 .hero-text {
   @apply !m-0;
 }
-
-.hero-image {
-  @apply md:absolute xl:static;
-  /* @apply object-right; */
-}
-.hero-text-wrapper {
-  @apply md:relative xl:absolute top-0 bottom-0 z-10;
-  @apply mx-auto;
-}
-
 .hero-inner {
   @apply relative;
   @apply overflow-hidden;
@@ -151,18 +141,13 @@ Organisation:
     @apply w-full h-2/3 md:w-1/2 md:h-full;
   }
 }
-.hero--home {
-  .hero-inner {
-    &::after {
-      @apply bg-(image:--hpa-hero-home-shape-background);
-    }
-  }
-}
 
 .hero-text-wrapper {
+  @apply md:relative xl:absolute top-0 bottom-0 z-10;
   @apply justify-center;
   @apply max-w-[var(--container-wide)];
   @apply h-2/3 md:min-h-[325px] md:h-full;
+  @apply mx-auto;
   /* @apply max-md:pr-32; */
   @apply md:pt-4;
   @apply md:pb-20;
@@ -173,9 +158,12 @@ Organisation:
 }
 .hero-text {
   @apply md:w-[40%] 2xl:w-[38%];
-  @apply p-6 pl-0 pr-20 xs:pt-12;
+  @apply p-6 pl-0 pr-16 xs:pr-20 xs:pt-12;
   @apply xs:pr-32 sm:pr-32;
   @apply md:pr-6;
+  .action-buttons {
+    @apply mt-4;
+  }
 }
 .hero-text-inner {
   .heading {
@@ -185,15 +173,20 @@ Organisation:
   }
   .heading-scale {
     font-size: clamp(2rem, 10vw, 3.5rem);
-    font-size: clamp(1rem, 10cqi, 4.75rem);
+    font-size: clamp(1rem, 8.75cqi, 4.75rem);
+    text-wrap: balance;
+    @media (min-width: 420px) {
+      font-size: clamp(1rem, 9cqi, 4.75rem);
+    }
     @media (min-width: 768px) {
       font-size: clamp(1rem, 4cqi, 4.1rem);
-      text-wrap: balance;
     }
   }
   .rich-text-field {
     @apply pt-6;
-    /* @apply text-xl; */
+    @media (min-width: 420px) {
+      padding-right: 1rem;
+    }
     @apply text-white;
     font-size: clamp(1rem, 3.25cqi, 3.5rem);
     @media (min-width: 768px) {
@@ -202,7 +195,15 @@ Organisation:
     }
   }
 }
+.hero-image {
+  @apply md:absolute xl:static;
+}
 .hero--home {
+  .hero-inner {
+    &::after {
+      @apply bg-(image:--hpa-hero-home-shape-background);
+    }
+  }
   .hero-text-wrapper {
     @apply xs:pb-24;
   }
