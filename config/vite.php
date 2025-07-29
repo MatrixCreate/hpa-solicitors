@@ -3,7 +3,7 @@
 use craft\helpers\App;
 
 return [
-    'useDevServer' => App::env('ENVIRONMENT') === 'dev' || App::env('CRAFT_ENVIRONMENT') === 'dev',
+    'useDevServer' => (App::env('ENVIRONMENT') === 'dev' || App::env('CRAFT_ENVIRONMENT') === 'dev') && App::env('VITE_DEV_SERVER_PUBLIC'),
     'manifestPath' => '@webroot/dist/.vite/manifest.json',
     'devServerPublic' => 'http://localhost:3001/',
     'serverPublic' => App::env('PRIMARY_SITE_URL') . '/dist/',
