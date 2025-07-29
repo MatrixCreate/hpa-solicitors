@@ -20,9 +20,7 @@
     @apply mb-4;
   }
 
-  .footer-content {
-    @apply text-sm;
-  }
+  .footer-content {}
 
   .footer-bottom-content {
     @apply text-xs;

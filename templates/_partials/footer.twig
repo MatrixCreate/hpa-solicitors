@@ -44,10 +44,9 @@
 
       <div class="footer-primary">
       {%- if siteConfig.showContactDetailsInFooter and companyInfo.address.companyName|length -%}
-        <h2 class="mb-4 font-display font-bold text-2xl text-gold">Contact</h2>
+        <h2 class="nav-footer-heading">Contact</h2>
         <div class="footer-contact">
           <p class="mb-6">
-            {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}<br> ")|raw : '' }}
             {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}<br>")|raw : '' }}
             {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2}<br>")|raw : '' }}
             {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}<br>")|raw : '' }}

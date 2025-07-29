@@ -219,8 +219,6 @@
     --mds-blog-border:                                theme(--color-light-grey);
     --mds-overlay-background:                         rgb(255 255 255 / 0.6);
 
-    --hpa-call-to-action-background: url('/assets/images/cta_block_text_bg_shape.svg');
-    --hpa-hero-home-shape-background: url('/assets/images/hero_home_shape_bg.svg');
-    --hpa-hero-page-shape-background: url('/assets/images/hero_page_shape_bg.svg');
+
   }
 }

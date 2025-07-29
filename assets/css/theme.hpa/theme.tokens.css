@@ -60,7 +60,8 @@
   
   /* ===== UTILITIES ===== */
   --font-size-2xs:        0.5rem;
-  
+
+
   /* ===== ASSETS ===== */
   --background-image-icon-chevron-down: url('/assets/icons/system/icon_chevron_down.svg');
   --background-image-text-image-right-dots-desktop: url('/assets/images/text_image_right_dots_bg_desktop.svg');
@@ -69,5 +70,10 @@
 
   --background-image-entry-cards-bg-shape-top-desktop: url('/assets/images/text_image_bg_shape_top_desktop.svg');
   --background-image-testimonials-item-bg-dots-shape: url('/assets/images/grey_dots_shape.svg');
+
+  --hpa-call-to-action-background: url('/assets/images/cta_block_text_bg_shape.svg');
+  --hpa-call-to-action-background-mobile: url('/assets/images/cta_bg_shape_mobile.svg');
+  --hpa-hero-home-shape-background: url('/assets/images/hero_home_shape_bg.svg');
+  --hpa-hero-page-shape-background: url('/assets/images/hero_page_shape_bg.svg');
 
 }

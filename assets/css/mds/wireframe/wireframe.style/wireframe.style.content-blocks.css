@@ -16,7 +16,17 @@
       @apply prose-headings:font-display;
       @apply prose-headings:font-bold;
       @apply prose-headings:leading-tight;
+
+      @apply prose-p:mt-0;
+      @apply prose-ul:mt-0;
+      @apply prose-ol:mt-0;
       
+      p:last-child,
+      ul:last-child,
+      ol:last-child {
+        @apply mb-0;
+      }
+
       font-size: inherit !important;
       line-height: inherit !important;
     }
