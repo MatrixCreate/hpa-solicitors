@@ -96,9 +96,9 @@
 
     /* Level Spacing Overrides - HPA Theme */
     --mds-mobile-nav-item-padding-y:                  theme(spacing.1);
-    --mds-mobile-nav-level-2-padding-x:               theme(spacing.10);
-    --mds-mobile-nav-level-3-padding-x:               theme(spacing.16);
-    --mds-mobile-nav-level-4-padding-x:               theme(spacing.16);
+    --mds-mobile-nav-level-2-padding-left:            theme(spacing.10);
+    --mds-mobile-nav-level-3-padding-left:            theme(spacing.16);
+    --mds-mobile-nav-level-4-padding-left:            theme(spacing.20);
     
     /* Level Vertical Spacing - Progressive Hierarchy */
     --mds-mobile-nav-level-1-padding-y:               theme(spacing.2);

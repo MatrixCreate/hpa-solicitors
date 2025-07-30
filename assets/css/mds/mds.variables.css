@@ -356,9 +356,10 @@
     --mds-mobile-nav-item-padding-x:          1.5rem;
     --mds-mobile-nav-item-padding-y:          1rem;
     
-    /* Mobile Navigation - Level Spacing Hierarchy */
-    --mds-mobile-nav-level-2-padding-x:       2rem;
-    --mds-mobile-nav-level-3-padding-x:       2.5rem;
+    /* Mobile Navigation - Level Spacing Hierarchy (Left Indentation) */
+    --mds-mobile-nav-level-2-padding-left:    2rem;
+    --mds-mobile-nav-level-3-padding-left:    2.5rem;
+    --mds-mobile-nav-level-4-padding-left:    3rem;
     
     /* Mobile Navigation Visual Elements */
     --mds-mobile-nav-accent-height:           2px;

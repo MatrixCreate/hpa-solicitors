@@ -58,6 +58,17 @@ Organisation:
   @apply md:w-48;
   @apply lg:w-64;
 }
+/* Header shrunk state - smaller logo at all breakpoints */
+.header-shrunk {
+  .company-logo {
+    @apply md:w-28 lg:w-32 xl:w-40 2xl:w-48;
+  }
+  .desktop-header-inner {
+    @apply md:p-[var(--padding-block-md)];
+    @apply lg:py-4;
+    @apply xl:py-5;
+  }
+}
 
 .trust-links-logo {
   @apply mix-blend-darken;
@@ -116,7 +127,7 @@ Organisation:
 }
 
 .mobile-header-inner {
-  @apply pr-4;
+  @apply py-2 pr-4;
   transition: box-shadow 0.3s ease-in-out;
 }
 
@@ -460,7 +471,7 @@ Organisation:
     @apply md:w-[calc(100%-10%)];
     @apply p-6 px-0;
 
-    @apply pt-4 pr-24 pb-16 pl-4;
+    @apply pt-4 pb-12 md:pr-24 md:pb-16 md:pl-4;
     font-size: clamp(1rem,5vw,4rem);
     font-size: clamp(1rem, 3.25cqi, 3.5rem);
     @media (min-width: 768px) {

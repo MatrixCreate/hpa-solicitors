@@ -349,19 +349,6 @@
     .mobile-nav-item-header {
       @apply relative;
       padding: var(--mds-mobile-nav-level-1-padding-y) var(--mds-mobile-nav-item-padding-x);
-      
-      &::after {
-        content: '';
-        @apply absolute bottom-0 left-0 right-0;
-        height: var(--mds-mobile-nav-accent-height);
-        background-color: var(--mds-mobile-nav-level-1-accent);
-        @apply opacity-0 transition-opacity duration-200;
-      }
-      
-      &:hover::after,
-      &.active::after {
-        @apply opacity-100;
-      }
     }
     
     .mobile-nav-link {
@@ -378,7 +365,7 @@
   /* Level 2 - First submenu level */
   .mobile-nav-level-2 {
     .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-level-2-padding-x);
+      padding: var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-level-2-padding-left);
       border-bottom-color: var(--mds-mobile-nav-border-level-2);
     }
     
@@ -415,7 +402,7 @@
   /* Level 3 - Specific overrides */
   .mobile-nav-level-3 {
     .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-level-3-padding-x);
+      padding: var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-level-3-padding-left);
     }
     
     .mobile-nav-link {
@@ -428,7 +415,7 @@
   .mobile-nav-level-5,
   .mobile-nav-level-6 {
     .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-level-4-padding-x);
+      padding: var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-level-4-padding-left);
     }
     
     .mobile-nav-link {
