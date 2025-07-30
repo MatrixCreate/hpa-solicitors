@@ -247,6 +247,12 @@ Organisation:
    FOOTER
    ============================================ */
 
+.footer {
+  a {
+    @apply hover:underline;
+  }
+}
+
 .footer-logo {
   @apply w-42;
   @apply md:w-48;
@@ -279,6 +285,11 @@ Organisation:
 
 .nav-footer-link {
   @apply -my-2;
+}
+
+.footer-credit-logo {
+  margin-top: -0.075rem;
+  opacity: 0.75;
 }
 
 /* ============================================

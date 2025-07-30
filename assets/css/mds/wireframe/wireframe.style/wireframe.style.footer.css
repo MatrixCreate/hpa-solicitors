@@ -16,12 +16,6 @@
     @apply lg:py-[var(--padding-block-2xl)];
   }
 
-  .footer-logo {
-    @apply mb-4;
-  }
-
-  .footer-content {}
-
   .footer-bottom-content {
     @apply text-xs;
   }

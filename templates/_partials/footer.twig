@@ -33,6 +33,7 @@
 
     <div class="footer-container py-6">
       <div class="footer-primary">
+        <h2 class="nav-footer-heading hidden md:block">&nbsp;</h2>
         <div class="footer-content">          
           {%- if siteConfig.footerTagline|length -%}
           <div class="footer-tagline pl-4 border-l border-white">
@@ -104,7 +105,7 @@
       </div>
     </div>
 
-    <div class="footer-container py-0">
+    <div class="footer-container py-0 text-subtle-grey">
       <div class="footer-bottom-content">
         <div class="footer-legal">
           {% include "_partials/navigation/navigation-legal" %}
@@ -119,14 +120,14 @@
           <div class="footer-credit">
             Website Design & Development by
             <a class="footer-credit-link" href="https://localiq.co.uk/" target="_blank" rel="nofollow noreferrer" title="Visit LOCALiQ">
-              <img loading="lazy" decoding="async" class="footer-credit-logo -mt-1" src="/assets/site/localiq_white.svg" width="55" height="12" alt="LOCALiQ">
+              <img loading="lazy" decoding="async" class="footer-credit-logo" src="/assets/site/localiq_white.svg" width="55" height="12" alt="LOCALiQ">
             </a>
           </div>
           {%- endif -%}
         </div>
       </div>
     </div>
-    <div class="footer-container py-8">
+    <div class="footer-container py-8 text-subtle-grey">
       {% if siteConfig.legalDisclaimer|length %}
       <div class="footer-disclaimer text-xs">
         {{ siteConfig.legalDisclaimer }}
