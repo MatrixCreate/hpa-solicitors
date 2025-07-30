@@ -1,3 +1,5 @@
+
+
 {# Add LocalBusiness JSON-LD structured data #}
 {% if companyInfo.outputLocalBusinessOpeningHoursSchema %}
   {% if companyInfo.address is defined %}
@@ -24,29 +26,26 @@
 {% endif %}
 
 {% if companyInfo.openingHours.getGroupedRanges(1)|length %}
-  <div class="opening-hours">
-    <h6>Opening Hours</h6>
-    <ul>
-      {% for group in companyInfo.openingHours.getGroupedRanges(1) %}
-        {% set first = group|first %}
-        {% set last = group|last %}
-        {% if first.open and first.close %}
-          <li>
-            <strong>
-            {% if first != last %}
-              {{ first.getName('medium') }}&mdash;{{ last.getName('medium') }}
-            {% else %}
-              {{ first.getName('medium') }}
-            {% endif %}
-            </strong>
-            {% if companyInfo.showTimesIn24HourFormat %}
-              {{ first.open|date('H:i') }}&mdash;{{ first.close|date('H:i') }}
-            {% else %}
-              {{ first.open|date('g:sa')|replace(':00', '') }}&mdash;{{ first.close|date('g:sa')|replace(':00', '') }}
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+  <ul>
+    {% for group in companyInfo.openingHours.getGroupedRanges(1) %}
+      {% set first = group|first %}
+      {% set last = group|last %}
+      {% if first.open and first.close %}
+        <li>
+          <strong>
+          {% if first != last %}
+            {{ first.getName('medium') }}&mdash;{{ last.getName('medium') }}
+          {% else %}
+            {{ first.getName('medium') }}
+          {% endif %}
+          </strong>
+          {% if companyInfo.showTimesIn24HourFormat %}
+            {{ first.open|date('H:i') }}&mdash;{{ first.close|date('H:i') }}
+          {% else %}
+            {{ first.open|date('g:sa')|replace(':00', '') }}&mdash;{{ first.close|date('g:sa')|replace(':00', '') }}
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 {% endif %}

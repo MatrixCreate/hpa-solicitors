@@ -82,7 +82,10 @@
       {%- endif -%}
 
         {%- if companyInfo.openingHours|length -%}
-          {% include '_partials/opening-hours' %}
+          <div class="opening-hours">
+            <h6>Opening Hours</h6>
+            {% include '_partials/opening-hours' %}
+          </div>
         {%- endif -%}
       </div>
 
