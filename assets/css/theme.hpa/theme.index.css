@@ -30,6 +30,19 @@ Organisation:
 .body {
   /* font-size: 20px; */
 }
+
+.desktop-header-inner {
+  @apply py-8;
+}
+.company-logo {
+  @apply w-42;
+  @apply md:w-48;
+  @apply lg:w-64;
+}
+.search-form--page {
+  @apply w-32;
+  @apply pr-2;
+}
 .nav--megamenu {
   .megamenu-column {
     @apply border-0;
@@ -66,6 +79,12 @@ Organisation:
   }
 }
 
+.mobile-header-inner {
+  @apply pr-4;
+}
+.mobile-header-actions {
+  @apply gap-0;
+}
 .btn {
   @apply font-sans;
   @apply uppercase;
@@ -75,13 +94,14 @@ Organisation:
   @apply flex;
   @apply gap-2;
   @apply items-center;
-  @apply px-0;
+  @apply p-2;
   @apply text-sm font-normal capitalize;
   @apply bg-transparent;
   .btn-icon {
     @apply md:block;
-    @apply w-4 h-4;
-    @apply text-gold;
+    @apply w-6 h-6;
+    @apply md:w-4 md:h-4;
+    @apply md:text-gold;
   }
 }
 
@@ -219,19 +239,30 @@ Organisation:
     @apply text-center;
   }
   .usp-row {
-    /* @apply md:grid md:grid-cols-2 lg:flex lg:flex-row; */
+    @apply flex flex-col;
+    @apply gap-2;
+    @media (min-width: 360px) {
+      @apply grid grid-cols-2 md:grid-cols-4;
+    }
   }
   .usp-item {
-    @apply flex-row;
-    @apply p-4 md:p-2 lg:p-4;
+    @apply flex-row gap-2;
+    @media (min-width: 500px) {
+      @apply gap-4;
+    }
+    @apply p-3 py-2 md:p-2 lg:p-4;
     @apply bg-white;
     @apply border border-dark-grey;
     @apply rounded;
   }
+  .usp-icon {
+    @apply min-w-8;
+    @apply xs:min-w-10;
+  }
   .usp-text {
     @apply font-display;
     @apply font-bold;
-    /* @apply text-sm lg:text-base; */
+    @apply text-sm lg:text-base;
   }
 }
 

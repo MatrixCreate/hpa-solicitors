@@ -158,8 +158,8 @@
     --mds-button-text-transform:                      capitalize;
     
     /* Button Typography - Brand Overrides */
-    --mds-button-font-weight:                         theme(fontWeight.bold);
-    --mds-button-letter-spacing:                      theme(letterSpacing.wider);
+    --mds-button-font-weight:                         theme(fontWeight.medium);
+    --mds-button-letter-spacing:                      theme(letterSpacing.normal);
     
     /* Button Transitions - Brand Overrides */
     --mds-button-transition-duration:                 250ms;
