@@ -513,11 +513,6 @@
   .mobile-nav-open {
     @apply overflow-hidden;
   }
-  
-  /* Blur effect for main content when mobile nav is open */
-  .mobile-nav-blur {
-    @apply transition-all duration-300;
-  }
 
   /* Footer Navigation */
   .nav-footer {

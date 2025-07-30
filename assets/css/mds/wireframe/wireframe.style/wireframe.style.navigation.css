@@ -598,8 +598,11 @@
 
   /* Mobile Navigation Global Effects */
   
-  /* Blur effect for main content when mobile nav is open */
-  .mobile-nav-blur {
-    @apply blur-sm;
+  /* Blur effect for main content when mobile nav is open - based on body class */
+  .mobile-nav-open {
+    .main,
+    .footer {
+      @apply blur-sm transition-all duration-300;
+    }
   }
 }

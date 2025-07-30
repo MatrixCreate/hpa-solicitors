@@ -140,17 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile navigation global effects
   function toggleMobileNavEffects(isOpen) {
     const body = document.body;
-    const main = document.querySelector('.main');
-    const footer = document.querySelector('.footer');
     
     if (isOpen) {
       body.classList.add('mobile-nav-open');
-      if (main) main.classList.add('mobile-nav-blur');
-      if (footer) footer.classList.add('mobile-nav-blur');
     } else {
       body.classList.remove('mobile-nav-open');
-      if (main) main.classList.remove('mobile-nav-blur');
-      if (footer) footer.classList.remove('mobile-nav-blur');
     }
   }
   
@@ -175,18 +169,35 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Also watch for escape key and backdrop clicks
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
+    // Close navigation on window resize
+    window.addEventListener('resize', function() {
+      const alpineData = expandingContainer._x_dataStack?.[0];
+      if (alpineData && alpineData.navOpen) {
+        alpineData.navOpen = false;
         toggleMobileNavEffects(false);
       }
     });
     
-    // Watch for backdrop clicks
-    const backdrop = expandingContainer.querySelector('.mobile-nav-backdrop');
-    if (backdrop) {
-      backdrop.addEventListener('click', function() {
-        toggleMobileNavEffects(false);
+    // Also watch for escape key and backdrop clicks
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const alpineData = expandingContainer._x_dataStack?.[0];
+        if (alpineData) {
+          alpineData.navOpen = false;
+          toggleMobileNavEffects(false);
+        }
+      }
+    });
+    
+    // Close navigation when clicking on .main
+    const mainElement = document.querySelector('.main');
+    if (mainElement) {
+      mainElement.addEventListener('click', function() {
+        const alpineData = expandingContainer._x_dataStack?.[0];
+        if (alpineData && alpineData.navOpen) {
+          alpineData.navOpen = false;
+          toggleMobileNavEffects(false);
+        }
       });
     }
   }
