@@ -18,12 +18,15 @@
       
       {% set hasChildren = children|length > 0 %}
       {% set itemId = 'mobile-nav-' ~ navItem.id ~ '-level-' ~ level %}
+      {% set isFirstLevelPassive = level == 1 and loop.first and navItem.className is defined and 'verbb\\navigation\\' in navItem.className and navItem.isPassive %}
       
-      <li class="mobile-nav-item {{ itemClass }} {% if hasChildren %}has-submenu{% endif %}" 
+      <li class="mobile-nav-item {{ itemClass }} {% if hasChildren %}has-submenu{% endif %} {% if isFirstLevelPassive %}first-level-passive{% endif %}" 
           x-data="{ expanded: false }"
           :class="{ 'active': expanded }">
         
-        <div class="mobile-nav-item-header" :class="{ 'active': expanded }">
+        <div class="mobile-nav-item-header {% if isFirstLevelPassive and hasChildren %}clickable-header{% endif %}" 
+             :class="{ 'active': expanded }"
+             {% if isFirstLevelPassive and hasChildren %}@click="expanded = !expanded"{% endif %}>
           {# Passive items render as spans, others as links #}
           {% if navItem.className is defined and 'verbb\\navigation\\' in navItem.className and navItem.isPassive %}
             <span class="mobile-nav-link {{ linkClass }} mobile-nav-passive">
@@ -44,7 +47,7 @@
           {% if hasChildren %}
             <button type="button" 
                     class="mobile-nav-toggle"
-                    @click="expanded = !expanded"
+                    {% if not isFirstLevelPassive %}@click="expanded = !expanded"{% else %}@click.stop="expanded = !expanded"{% endif %}
                     :aria-expanded="expanded.toString()"
                     aria-label="Toggle {{ navItem.title }} submenu">
               <span class="mobile-nav-toggle-icon" :class="{ 'rotate-90': expanded }">
