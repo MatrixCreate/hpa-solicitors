@@ -67,15 +67,47 @@
     --mds-nav-background-active:                      theme(--color-medium-grey);
     --mds-nav-border:                                 theme(--color-medium-grey);
     
-    /* Mobile Navigation Colors */
-    --mds-mobile-nav-background:                      theme(--color-dark-navy);
-    --mds-mobile-nav-background-dark:                 theme(--color-black);
-    --mds-mobile-nav-text:                            theme(--color-white);
-    --mds-mobile-nav-text-hover:                      theme(--color-white);
-    --mds-mobile-nav-submenu-background:              theme(--color-black);
-    --mds-mobile-nav-border:                          theme(--color-white);
+    /* Mobile Navigation Colors - Light Theme */
+    --mds-mobile-nav-background:                      theme(--color-white);
+    --mds-mobile-nav-background-dark:                 theme(--color-medium-grey);
+    --mds-mobile-nav-text:                            theme(--color-black);
+    --mds-mobile-nav-text-hover:                      theme(--color-dark-navy);
+    --mds-mobile-nav-submenu-background:              transparent;
+    --mds-mobile-nav-border:                          theme(--color-grey);
     --mds-mobile-nav-cta-background:                  theme(--color-gold);
-    --mds-mobile-nav-cta-background-hover:            theme(--color-light-gold);
+    --mds-mobile-nav-cta-background-hover:            theme(--color-gold-hover);
+    --mds-mobile-nav-border-width:                    0;
+    
+    /* Mobile Navigation Level-specific Colors - Light Theme */
+    --mds-mobile-nav-level-1-font-weight:             theme(fontWeight.normal);
+    --mds-mobile-nav-level-1-text-color:              theme(--color-black);
+    --mds-mobile-nav-level-1-text-color-hover:        theme(--color-dark-navy);
+    --mds-mobile-nav-level-1-accent:                  theme(--color-gold);
+    --mds-mobile-nav-level-2-text-color:              theme(--color-black);
+    --mds-mobile-nav-level-2-text-color-hover:        theme(--color-black);
+    --mds-mobile-nav-level-3-font-weight:             theme(fontWeight.semibold);
+    --mds-mobile-nav-level-3-text-color:              theme(--color-black);
+    --mds-mobile-nav-level-3-text-color-hover:        theme(--color-black);
+    --mds-mobile-nav-level-4-font-weight:             theme(fontWeight.normal);
+
+    --mds-mobile-nav-item-padding-y:                  theme(spacing.1);
+    --mds-mobile-nav-level-2-padding-x:               theme(spacing.10);
+    --mds-mobile-nav-level-3-padding-x:               theme(spacing.16);
+    --mds-mobile-nav-level-4-padding-x:               theme(spacing.16);
+    
+    --mds-mobile-nav-level-1-padding-y:               theme(spacing.2);
+    --mds-mobile-nav-level-2-padding-y:               theme(spacing.2);
+    --mds-mobile-nav-level-3-padding-y:               theme(spacing.1);
+    --mds-mobile-nav-level-4-padding-y:               theme(spacing.1);
+
+    /* Mobile Navigation Border Colors - Light Theme */
+    --mds-mobile-nav-border-subtle:                   color-mix(in srgb, theme(--color-grey) 30%, transparent);
+    --mds-mobile-nav-border-level-2:                  color-mix(in srgb, theme(--color-grey) 20%, transparent);
+    --mds-mobile-nav-border-level-3:                  color-mix(in srgb, theme(--color-grey) 15%, transparent);
+    
+    /* Mobile Navigation Toggle Colors - Light Theme */
+    --mds-mobile-nav-toggle-color:                    theme(--color-grey);
+    --mds-mobile-nav-toggle-hover-color:              theme(--color-dark-grey);
     
     /* Footer Colors */
     --mds-footer-background:                          theme(--color-light-grey);

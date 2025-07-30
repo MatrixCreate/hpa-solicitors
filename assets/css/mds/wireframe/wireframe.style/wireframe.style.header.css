@@ -40,7 +40,7 @@
 
   /* Header padding adjustments for shrunk state */
   .header-shrunk .desktop-header-inner {
-    @apply p-[var(--padding-block-sm)];
+    @apply p-[var(--padding-block-md)];
     @apply lg:py-4;
     @apply xl:py-5;
   }

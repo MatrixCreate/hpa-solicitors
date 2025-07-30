@@ -4,7 +4,7 @@
   {% set itemClass = 'mobile-nav-item-level-' ~ level %}
   {% set linkClass = 'mobile-nav-link-level-' ~ level %}
   
-  <ul class="mobile-nav-list {{ levelClass }}">
+  <ul class="mobile-nav-list mobile-nav-level-{{ level }} {{ levelClass }}">
     {% for navItem in items %}
       {# Determine children - use includeAllChildren logic or nav children #}
       {% set children = [] %}
@@ -20,18 +20,23 @@
       {% set itemId = 'mobile-nav-' ~ navItem.id ~ '-level-' ~ level %}
       
       <li class="mobile-nav-item {{ itemClass }} {% if hasChildren %}has-submenu{% endif %}" 
-          x-data="{ expanded: false }">
+          x-data="{ expanded: false }"
+          :class="{ 'active': expanded }">
         
-        <div class="mobile-nav-item-header">
+        <div class="mobile-nav-item-header" :class="{ 'active': expanded }">
           {# Passive items render as spans, others as links #}
           {% if navItem.className is defined and 'verbb\\navigation\\' in navItem.className and navItem.isPassive %}
             <span class="mobile-nav-link {{ linkClass }} mobile-nav-passive">
-              {{ navItem.title }}
+              <span class="mobile-nav-link-text">
+                {{ navItem.title }}
+              </span>
             </span>
           {% else %}
             <a href="{{ navItem.url }}" 
                class="mobile-nav-link {{ linkClass }} {% if navItem.url == (entry.url ?? null) %}active{% endif %}">
-              {{ navItem.title }}
+              <span class="mobile-nav-link-text">
+                {{ navItem.title }}
+              </span>
             </a>
           {% endif %}
           
@@ -44,7 +49,7 @@
                     aria-label="Toggle {{ navItem.title }} submenu">
               <span class="mobile-nav-toggle-icon" :class="{ 'rotate-90': expanded }">
                 {{ svg('@webroot/assets/icons/system/icon_chevron_right.svg')|attr({
-                  class: 'w-5 h-5'
+                  class: 'mobile-nav-toggle-icon-svg'
                 }) }}
               </span>
             </button>

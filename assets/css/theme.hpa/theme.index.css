@@ -81,10 +81,36 @@ Organisation:
 
 .mobile-header-inner {
   @apply pr-4;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.mobile-nav-open {
+  .mobile-header-inner {
+    box-shadow: 0 0 25px rgba(0,0,0,0.125);
+  }
 }
 .mobile-header-actions {
   @apply gap-0;
 }
+
+
+.mobile-nav {
+  z-index: -1;
+}
+.mobile-nav-main {
+  @apply py-4;
+}
+.mobile-nav-level-1 {
+  > .mobile-nav-item {
+    > .mobile-nav-item-header {
+      &.active {
+        .mobile-nav-link-text {
+          @apply border-b border-gold;
+        }
+      }
+    }
+  }
+}
+
 .btn {
   @apply font-sans;
   @apply uppercase;
@@ -106,7 +132,7 @@ Organisation:
 }
 
 .secondary-header-inner {
-  @apply py-1;
+  @apply px-4 py-1;
 }
 .search-input {
   @apply text-sm;
@@ -508,7 +534,9 @@ Organisation:
 
 
 .footer-logo {
-  @apply w-64;
+  @apply w-42;
+  @apply md:w-48;
+  @apply lg:w-64;
 }
 .footer-primary,
 .footer-bottom-content,

@@ -336,6 +336,30 @@
     --mds-mobile-nav-level-title-font-size:   var(--mds-font-size-lg);
     --mds-mobile-nav-level-title-font-weight: var(--mds-font-weight-semibold);
     
+    /* Mobile Navigation Level-specific Typography */
+    --mds-mobile-nav-level-1-font-size:       var(--mds-font-size-lg);
+    --mds-mobile-nav-level-1-font-weight:     var(--mds-font-weight-medium);
+    --mds-mobile-nav-level-2-font-size:       var(--mds-font-size-base);
+    --mds-mobile-nav-level-2-font-weight:     var(--mds-font-weight-normal);
+    --mds-mobile-nav-level-3-font-size:       var(--mds-font-size-sm);
+    --mds-mobile-nav-level-3-font-weight:     var(--mds-font-weight-normal);
+    --mds-mobile-nav-level-1-text-color:      theme(colors.white);
+    --mds-mobile-nav-level-2-text-color:      theme(colors.white);
+    --mds-mobile-nav-level-3-text-color:      theme(colors.white);
+
+    --mds-mobile-nav-toggle-icon-width:       1rem;
+    --mds-mobile-nav-toggle-icon-height:      1rem;
+    
+    /* Mobile Navigation Spacing */
+    --mds-mobile-nav-item-padding-x:          1.5rem;
+    --mds-mobile-nav-item-padding-y:          1rem;
+    --mds-mobile-nav-level-2-padding-x:       2rem;
+    --mds-mobile-nav-level-3-padding-x:       2.5rem;
+    
+    /* Mobile Navigation Visual Elements */
+    --mds-mobile-nav-accent-height:           2px;
+    --mds-mobile-nav-border-width:            1px;
+    
     /* Megamenu Typography */
     --mds-megamenu-level-2-font-size:   var(--mds-font-size-base);
     --mds-megamenu-level-2-font-weight: var(--mds-font-weight-semibold);

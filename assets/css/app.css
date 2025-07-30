@@ -9,5 +9,4 @@
 @import './mds/wireframe/wireframe.style/wireframe.style.index.css';
 
 /* Theme styles (Client branding etc) */
-/* @import './theme/theme.index.css'; */
 @import './theme.hpa/theme.index.css';
