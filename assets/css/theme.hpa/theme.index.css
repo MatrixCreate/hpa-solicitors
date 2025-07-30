@@ -428,10 +428,14 @@ Organisation:
   &:has(.background-image) {
     .container-inner {
       @apply p-0;
+      @apply md:p-6 md:py-0;
       @apply relative;
+      .content-box {
+        @apply w-full;
+      }
     }
     .background-image {
-      @apply -mt-[28%] xs:-mt-[25%] md:mt-0;
+      @apply -mt-[34%] xs:-mt-[30%] md:mt-0;
       @apply md:absolute md:top-0 md:left-0;
       @apply md:w-full md:h-full md:object-cover;
     }
@@ -441,18 +445,22 @@ Organisation:
   }
   .content-box-inner {
     @apply md:col-start-2;
-    @apply p-6;
+    @apply flex justify-end;
     @apply mb-8 pb-12;
+    @apply p-6;
+    @apply md:p-0;
     @apply bg-(image:--hpa-call-to-action-background-mobile);
     @apply bg-no-repeat;
     @apply bg-cover bg-bottom;
     @apply md:bg-(image:--hpa-call-to-action-background);
-    @apply md:bg-contain md:bg-top;
+    @apply md:bg-cover;
     @apply lg:bg-bottom lg:bg-cover;
   }
   .cta-content {
+    @apply md:w-[calc(100%-10%)];
     @apply p-6 px-0;
-    @apply md:p-6 md:pl-16 lg:pl-20;
+
+    @apply pt-4 pr-24 pb-16 pl-4;
     font-size: clamp(1rem,5vw,4rem);
     font-size: clamp(1rem, 3.25cqi, 3.5rem);
     @media (min-width: 768px) {
