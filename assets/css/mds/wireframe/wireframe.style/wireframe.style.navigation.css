@@ -323,12 +323,43 @@
   }
   
   /* Mobile Navigation Level-specific Styling */
+  
+  /* Base level styling - shared properties */
+  .mobile-nav-level-1,
+  .mobile-nav-level-2,
+  .mobile-nav-level-3,
+  .mobile-nav-level-4,
+  .mobile-nav-level-5,
+  .mobile-nav-level-6 {
+    .mobile-nav-item-header {
+      border-bottom-color: var(--mds-mobile-nav-border-subtle);
+    }
+    
+    .mobile-nav-link {
+      @apply transition-all duration-200;
+      
+      &:hover {
+        @apply no-underline;
+      }
+    }
+  }
+  
+  /* Level 1 - Top level with accent indicator */
   .mobile-nav-level-1 {
     .mobile-nav-item-header {
       @apply relative;
       padding: var(--mds-mobile-nav-level-1-padding-y) var(--mds-mobile-nav-item-padding-x);
       
-      &:hover::after {
+      &::after {
+        content: '';
+        @apply absolute bottom-0 left-0 right-0;
+        height: var(--mds-mobile-nav-accent-height);
+        background-color: var(--mds-mobile-nav-level-1-accent);
+        @apply opacity-0 transition-opacity duration-200;
+      }
+      
+      &:hover::after,
+      &.active::after {
         @apply opacity-100;
       }
     }
@@ -344,9 +375,10 @@
     }
   }
   
+  /* Level 2 - First submenu level */
   .mobile-nav-level-2 {
     .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-level-2-padding-x);
+      padding: var(--mds-mobile-nav-level-2-padding-y) var(--mds-mobile-nav-level-2-padding-x);
       border-bottom-color: var(--mds-mobile-nav-border-level-2);
     }
     
@@ -361,55 +393,46 @@
     }
   }
   
-  .mobile-nav-level-3 {
-    .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-level-3-padding-x);
-      border-bottom-color: var(--mds-mobile-nav-border-level-3);
-    }
-    
-    .mobile-nav-link {
-      font-size: var(--mds-mobile-nav-level-3-font-size);
-      font-weight: var(--mds-mobile-nav-level-3-font-weight);
-      color: var(--mds-mobile-nav-level-3-text-color);
-      
-      &:hover {
-        color: var(--mds-mobile-nav-level-3-text-color-hover);
-      }
-    }
-  }
-  
-  .mobile-nav-level-4 {
-    .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-level-4-padding-x);
-      border-bottom-color: var(--mds-mobile-nav-border-level-3);
-    }
-    
-    .mobile-nav-link {
-      font-size: var(--mds-mobile-nav-level-3-font-size);
-      font-weight: var(--mds-mobile-nav-level-4-font-weight);
-      color: var(--mds-mobile-nav-level-3-text-color);
-      
-      &:hover {
-        color: var(--mds-mobile-nav-level-3-text-color-hover);
-      }
-    }
-  }
-  
+  /* Level 3+ - Deep navigation levels share styling */
+  .mobile-nav-level-3,
+  .mobile-nav-level-4,
   .mobile-nav-level-5,
   .mobile-nav-level-6 {
     .mobile-nav-item-header {
-      padding: var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-item-padding-x) var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-level-4-padding-x);
       border-bottom-color: var(--mds-mobile-nav-border-level-3);
     }
     
     .mobile-nav-link {
       font-size: var(--mds-mobile-nav-level-3-font-size);
-      font-weight: var(--mds-mobile-nav-level-3-font-weight);
       color: var(--mds-mobile-nav-level-3-text-color);
       
       &:hover {
         color: var(--mds-mobile-nav-level-3-text-color-hover);
       }
+    }
+  }
+  
+  /* Level 3 - Specific overrides */
+  .mobile-nav-level-3 {
+    .mobile-nav-item-header {
+      padding: var(--mds-mobile-nav-level-3-padding-y) var(--mds-mobile-nav-level-3-padding-x);
+    }
+    
+    .mobile-nav-link {
+      font-weight: var(--mds-mobile-nav-level-3-font-weight);
+    }
+  }
+  
+  /* Level 4+ - Deep levels share spacing and font weight */
+  .mobile-nav-level-4,
+  .mobile-nav-level-5,
+  .mobile-nav-level-6 {
+    .mobile-nav-item-header {
+      padding: var(--mds-mobile-nav-level-4-padding-y) var(--mds-mobile-nav-level-4-padding-x);
+    }
+    
+    .mobile-nav-link {
+      font-weight: var(--mds-mobile-nav-level-4-font-weight);
     }
   }
   

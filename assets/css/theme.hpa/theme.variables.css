@@ -78,23 +78,29 @@
     --mds-mobile-nav-cta-background-hover:            theme(--color-gold-hover);
     --mds-mobile-nav-border-width:                    0;
     
-    /* Mobile Navigation Level-specific Colors - Light Theme */
+    /* Mobile Navigation - HPA Theme Level Overrides */
+    
+    /* Level Typography Overrides */
     --mds-mobile-nav-level-1-font-weight:             theme(fontWeight.normal);
+    --mds-mobile-nav-level-3-font-weight:             theme(fontWeight.semibold);
+    --mds-mobile-nav-level-4-font-weight:             theme(fontWeight.normal);
+    
+    /* Level Color Overrides - Light Theme */
     --mds-mobile-nav-level-1-text-color:              theme(--color-black);
     --mds-mobile-nav-level-1-text-color-hover:        theme(--color-dark-navy);
     --mds-mobile-nav-level-1-accent:                  theme(--color-gold);
     --mds-mobile-nav-level-2-text-color:              theme(--color-black);
     --mds-mobile-nav-level-2-text-color-hover:        theme(--color-black);
-    --mds-mobile-nav-level-3-font-weight:             theme(fontWeight.semibold);
     --mds-mobile-nav-level-3-text-color:              theme(--color-black);
     --mds-mobile-nav-level-3-text-color-hover:        theme(--color-black);
-    --mds-mobile-nav-level-4-font-weight:             theme(fontWeight.normal);
 
+    /* Level Spacing Overrides - HPA Theme */
     --mds-mobile-nav-item-padding-y:                  theme(spacing.1);
     --mds-mobile-nav-level-2-padding-x:               theme(spacing.10);
     --mds-mobile-nav-level-3-padding-x:               theme(spacing.16);
     --mds-mobile-nav-level-4-padding-x:               theme(spacing.16);
     
+    /* Level Vertical Spacing - Progressive Hierarchy */
     --mds-mobile-nav-level-1-padding-y:               theme(spacing.2);
     --mds-mobile-nav-level-2-padding-y:               theme(spacing.2);
     --mds-mobile-nav-level-3-padding-y:               theme(spacing.1);
