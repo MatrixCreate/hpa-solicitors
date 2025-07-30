@@ -16,6 +16,7 @@
       @apply prose-headings:font-display;
       @apply prose-headings:font-bold;
       @apply prose-headings:leading-tight;
+      @apply prose-headings:mb-4;
 
       @apply prose-p:mt-0;
       @apply prose-ul:mt-0;

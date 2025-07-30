@@ -20,11 +20,6 @@
       }
     }
 
-    /* Apply Tailwind prose styles to Rich Text fields in all content blocks */
-    .rich-text-field {
-      @apply flex flex-col;
-    }
-
     /* Headings in Rich Text fields */
     .rich-text-field,
     .heading {

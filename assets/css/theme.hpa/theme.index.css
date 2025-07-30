@@ -80,7 +80,7 @@ Organisation:
    ============================================ */
 
 .content-block {
-  .rich-text-field {    
+  .rich-text-field {
     a {
       @apply font-semibold;
       @apply no-underline;
