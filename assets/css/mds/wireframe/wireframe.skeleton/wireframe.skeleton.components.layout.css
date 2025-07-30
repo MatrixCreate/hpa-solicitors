@@ -28,7 +28,7 @@
   .h-screen-offset-header {
     height: 100%;
     height: stretch;
-    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
   }
 
   /* Overlay link utility - positioning and sizing structure */

@@ -5,7 +5,7 @@
   .contact-location {
     &.page-width {
       .content-block-inner {
-        max-width: var(--container-narrow);
+        max-width: var(--container-medium);
         @apply mx-auto;
         @apply px-6 py-8;
       }

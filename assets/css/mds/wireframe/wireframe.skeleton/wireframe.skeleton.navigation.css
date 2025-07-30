@@ -352,7 +352,7 @@
     @apply fixed left-0 z-40;
     top: var(--header-height);
     @apply w-full;
-    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
     max-width: calc(100vw - 3rem);
     @apply overflow-y-auto;
   }
@@ -416,7 +416,7 @@
     top: var(--header-height);
     @apply w-full;
     max-width: calc(100vw - 3rem);
-    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
     @apply overflow-hidden;
   }
   
