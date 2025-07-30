@@ -1,95 +1,103 @@
 {% import "_macros/utils.twig" as utils %}
 {% import "_macros/ui.twig" as ui %}
 
-{% set backgroundColor = block.backgroundColour.color[0].background ?? null %}
+{% set backgroundColour = block.backgroundColour.color[0].background ?? null %}
 {% set headingColour = block.headingColour.color[0].heading ?? null %}
 {% set textColour = block.textColour.color[0].text ?? null %}
 
-{# Only render the contact location if the map embed code is available #}
+{% set mapLayout = block.mapLayout.value %}
 
-{% if siteConfig.locationMapEmbedCode|length %}
-  {% set mapLayout = block.mapLayout.value %}
-  
-  <section class="contact-location content-block
-    {{ mapLayout }}
-    {{ backgroundColour }}"
-    {{ utils.debugAttributes(entry, block.type, 'Contact Location') }}
-    {{ utils.inPageLink(block.id) }}
-    >
-    <div class="content-block-inner">
-      <div class="contact-location-wrapper">
+<section class="contact-location content-block
+  {{ mapLayout }}
+  {{ backgroundColour }}"
+  {{ utils.debugAttributes(entry, block.type, 'Contact Location') }}
+  {{ utils.inPageLink(block.id) }}
+  >
+  <div class="content-block-inner">
+    <div class="contact-location-wrapper">
 
-        <div class="contact-details">
-          <div class="contact-details-group">
-            {% if block.richText|length %}
-            <div class="contact-details-item">
-                {{ ui.component('rich-text', { 
-                  content: block.richText,
-                  useRaw: true 
-                }) }}
+      <div class="contact-details">
+        <div class="contact-details-group">
+          {% if block.richText|length %}
+          <div class="contact-details-item">
+              {{ ui.component('rich-text', { 
+                content: block.richText,
+                useRaw: true 
+              }) }}
+          </div>
+          {% endif %}
+          <div class="contact-details-item">
+            <div class="item-icon">
+              {{ svg('@webroot/assets/icons/system/envelope.svg') }}
             </div>
-            {% endif %}
-            <div class="contact-details-item">
-              <div class="item-icon">
-                {{ svg('@webroot/assets/icons/system/envelope.svg') }}
-              </div>
-              <div class="item-text">
-                <h5>Email</h5>
-                <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
-                  {{ companyInfo.telephone }}
-                </a>
-              </div>
-            </div>
-            <div class="contact-details-item">
-              <div class="item-icon">
-                {{ svg('@webroot/assets/icons/system/telephone.svg') }}
-              </div>
-              <div class="item-text">
-                <h5>Telephone</h5>
-                <a href="mailto:{{ companyInfo.email }}">
-                  {{ companyInfo.email }}
-                </a>
-              </div>
+            <div class="item-text">
+              <h5>Email</h5>
+              <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}">
+                {{ companyInfo.telephone }}
+              </a>
             </div>
           </div>
-          <div class="contact-details-group">
-            <div class="contact-details-item">
-              <div class="item-icon">
-                {{ svg('@webroot/assets/icons/system/map-location-dot.svg') }}
-              </div>
-              <div class="item-text">
-                <h5>Address</h5>
-                <div>
-                  {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}<br>")|raw : '' }}
-                  {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}<br>")|raw : '' }}
-                  {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2}<br>")|raw : '' }}
-                  {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}<br>")|raw : '' }}
-                  {{ companyInfo.address.townCity|length ? ("#{companyInfo.address.townCity}<br>")|raw : '' }}
-                  {{ companyInfo.address.county|length ? ("#{companyInfo.address.county}<br>")|raw : '' }}
-                  {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
-                </div>
-              </div>
+          <div class="contact-details-item">
+            <div class="item-icon">
+              {{ svg('@webroot/assets/icons/system/telephone.svg') }}
             </div>
-            <div class="contact-details-item">
-              <div class="item-icon">
-                {{ svg('@webroot/assets/icons/system/clock.svg') }}
-              </div>
-              <div class="item-text">
-                <h5>Opening Hours</h5>
-                <div>
-                  {# {{ siteConfig.openingHours|raw }} #}
-                </div>
-              </div>
+            <div class="item-text">
+              <h5>Telephone</h5>
+              <a href="mailto:{{ companyInfo.email }}">
+                {{ companyInfo.email }}
+              </a>
             </div>
           </div>
-        </div> {# .contact-details #}
-
-        <div class="location-map">
-          {{ companyInfo.locationMapEmbedCode|raw }}
+          <div class="contact-details-item">
+            <div class="item-icon">
+              {{ svg('@webroot/assets/icons/system/fax.svg') }}
+            </div>
+            <div class="item-text">
+              <h5>Fax</h5>
+              <a href="{{ companyInfo.fax }}">
+                {{ companyInfo.fax }}
+              </a>
+            </div>
+          </div>
         </div>
+        <div class="contact-details-group">
+          <div class="contact-details-item">
+            <div class="item-icon">
+              {{ svg('@webroot/assets/icons/system/map-location-dot.svg') }}
+            </div>
+            <div class="item-text">
+              <h5>Address</h5>
+              <div>
+                {{ companyInfo.address.companyName|length ? ("#{companyInfo.address.companyName}<br>")|raw : '' }}
+                {{ companyInfo.address.addressLine1|length ? ("#{companyInfo.address.addressLine1}<br>")|raw : '' }}
+                {{ companyInfo.address.addressLine2|length ? ("#{companyInfo.address.addressLine2}<br>")|raw : '' }}
+                {{ companyInfo.address.addressLine3|length ? ("#{companyInfo.address.addressLine3}<br>")|raw : '' }}
+                {{ companyInfo.address.townCity|length ? ("#{companyInfo.address.townCity}<br>")|raw : '' }}
+                {{ companyInfo.address.county|length ? ("#{companyInfo.address.county}<br>")|raw : '' }}
+                {{ companyInfo.address.postcode|length ? ("#{companyInfo.address.postcode}")|raw : '' }}
+              </div>
+            </div>
+          </div>
+          <div class="contact-details-item">
+            <div class="item-icon">
+              {{ svg('@webroot/assets/icons/system/clock.svg') }}
+            </div>
+            <div class="item-text">
+              <div>
+                {% include '_partials/opening-hours' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> {# .contact-details #}
 
-      </div> {# .contact-location-wrapper #}
-    </div> {# .content-block-inner #}
-  </section> {# .contact-location #}
+      <div class="location-map">
+        {# Only render the contact location if the map embed code is available #}
+        {% if companyInfo.locationMapEmbedCode|length %}
+          {{ companyInfo.locationMapEmbedCode|raw }}
+        {% endif %}
+      </div>
 
-{% endif %}
+    </div> {# .contact-location-wrapper #}
+  </div> {# .content-block-inner #}
+</section> {# .contact-location #}

@@ -7,6 +7,7 @@
       .content-block-inner {
         max-width: var(--container-narrow);
         @apply mx-auto;
+        @apply px-6 py-8;
       }
       .contact-location-wrapper {
         @apply flex flex-col md:flex-row;
@@ -23,11 +24,14 @@
       .contact-location-wrapper {
         @apply flex flex-col;
         .contact-details {
+          @apply w-full;
           @apply max-w-[var(--container-narrow)];
           @apply mx-auto;
+          @apply px-6 py-8;
         }
         .contact-details {
-          @apply md:flex-row space-y-4 md:space-y-0;
+          @apply md:flex-row-reverse space-y-4 md:space-y-0;
+          @apply md:gap-x-12;
           .contact-details-group {
             @apply flex-1;
           }
