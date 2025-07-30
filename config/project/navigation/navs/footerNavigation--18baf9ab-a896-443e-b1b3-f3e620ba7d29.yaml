@@ -195,7 +195,7 @@ propagationMethod: all
 siteSettings:
   c5d93292-99d1-44d9-889c-396699fe2e22: # $SYSTEM_NAME
     enabled: true
-sortOrder: 3
+sortOrder: 4
 structure:
   maxLevels: null
   uid: 85650f86-60c7-4a51-8264-299daa0ca53a

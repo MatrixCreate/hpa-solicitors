@@ -1,4 +1,4 @@
-dateModified: 1753733985
+dateModified: 1753888060
 elementSources:
   craft\elements\Entry:
     -
@@ -168,7 +168,6 @@ meta:
     74dc6939-61f7-4208-99c1-6ce7f073427b: Fax # Fax
     76a426d4-c7b9-47be-a5e1-155511be7164: 'Footer Navigation' # Footer Navigation
     94e5dc2b-0789-4cb3-acc8-4384b717fdd2: 'Main Logo' # Main Logo
-    190d550d-cd36-4eb1-aa32-254676fd36e7: 'Mobile Main Navigation' # Mobile Main Navigation
     232c396c-f786-4ec9-8fa3-9c36b3a392b6: 'Address - Address Line 3' # Address - Address Line 3
     280fd2f9-6577-4347-9fec-7cb6cde0ccd5: 'Anchor ID' # Anchor ID
     356a9366-c862-45bb-b2a7-9515ad112c42: Images # Images

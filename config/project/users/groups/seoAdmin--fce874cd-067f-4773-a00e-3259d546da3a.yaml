@@ -98,7 +98,7 @@ permissions:
   - moderateusers
   - navigation-createnavs
   - 'navigation-managenav:18baf9ab-a896-443e-b1b3-f3e620ba7d29' # Footer Navigation
-  - 'navigation-managenav:190d550d-cd36-4eb1-aa32-254676fd36e7' # Mobile Main Navigation
+  - 'navigation-managenav:190d550d-cd36-4eb1-aa32-254676fd36e7'
   - 'navigation-managenav:7b3389a9-8f98-4356-b3a9-d0fb28227037' # Main Navigation
   - 'navigation-managenav:dab9b726-98b8-4247-888b-e74d504359c3' # Legal Navigation
   - registerusers

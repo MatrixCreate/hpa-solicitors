@@ -22,7 +22,7 @@
       <div class="secondary-header-inner">
         <div class="secondary-header-right">
           {% if siteConfig.showActionButtons %}
-            {% include '_partials/navigation/navigation-action-buttons' %}
+            {% include '_partials/navigation/navigation-actions' %}
           {% endif %}
         </div>
         <div class="secondary-header-left">
@@ -48,7 +48,7 @@
       {%- endif -%}
 
       {%- if siteConfig.showActionButtons -%}
-        {% include '_partials/navigation/navigation-action-buttons' %}
+        {% include '_partials/navigation/navigation-actions' %}
       {%- endif -%}
       </div>
     {%- endif -%}
@@ -63,7 +63,7 @@
       </a>
       <div class="mobile-header-actions">
         {% if siteConfig.showActionButtons %}
-          {% include '_partials/navigation/navigation-action-buttons' %}
+          {% include '_partials/navigation/navigation-actions' %}
         {% endif %}
         {% include '_partials/navigation/navigation-mobile' %}
       </div>
