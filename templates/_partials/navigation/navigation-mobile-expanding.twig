@@ -62,8 +62,7 @@
         {# Recursive submenu rendering #}
         {% if hasChildren %}
           <div class="mobile-nav-submenu" 
-               x-show="expanded" 
-               x-collapse>
+               :class="{ 'expanded': expanded }">
             {{ _self.renderMobileNavLevel(children, level + 1) }}
           </div>
         {% endif %}

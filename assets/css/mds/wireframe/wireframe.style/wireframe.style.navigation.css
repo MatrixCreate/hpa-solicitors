@@ -481,6 +481,13 @@
   .mobile-nav-submenu {
     background-color: var(--mds-mobile-nav-submenu-background);
     border-color: var(--mds-mobile-nav-border-subtle);
+    max-height: 0;
+    overflow: hidden;
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .mobile-nav-submenu.expanded {
+    max-height: 1000px;
   }
   
   /* Mobile Navigation Actions */

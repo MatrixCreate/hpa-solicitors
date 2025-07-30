@@ -9,8 +9,11 @@ const debounceMeasurement = (fn, delay = 100) => {
 
 // Measure the header and update the --header-height custom property
 export const measureHeaderHeight = debounceMeasurement((header) => {
-  const headerHeight = header.offsetHeight;
-  document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+  // Use requestAnimationFrame to batch layout operations
+  requestAnimationFrame(() => {
+    const headerHeight = header.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+  });
 });
 
 // Throttled resize event listener

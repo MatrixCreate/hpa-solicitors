@@ -27,9 +27,12 @@ export const initContainerOffset = () => {
 
     // Function to measure and set the container offset
     const updateContainerOffset = () => {
-      const containerRect = containerEl.getBoundingClientRect();
-      const containerOffset = Math.round(containerRect.x + containerPadding);
-      document.documentElement.style.setProperty('--container-offset', `${containerOffset}px`);
+      // Use requestAnimationFrame to batch layout operations
+      requestAnimationFrame(() => {
+        const containerRect = containerEl.getBoundingClientRect();
+        const containerOffset = Math.round(containerRect.x + containerPadding);
+        document.documentElement.style.setProperty('--container-offset', `${containerOffset}px`);
+      });
     };
 
     // Initial measurement

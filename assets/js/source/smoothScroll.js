@@ -7,6 +7,9 @@
 class SmoothScroll {
     constructor() {
         this.headerElement = document.querySelector('.js-header');
+        this.cachedHeaderHeight = null;
+        this.cacheTime = 0;
+        this.cacheTimeout = null;
         this.init();
     }
 
@@ -40,12 +43,15 @@ class SmoothScroll {
             this.headerElement.classList.remove('header-hidden');
         }
 
-        const offset = this.calculateOffset();
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
+        // Use requestAnimationFrame to batch layout operations
+        requestAnimationFrame(() => {
+            const offset = this.calculateOffset();
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         });
         
         // No event handling needed - the new auto-hide system ignores programmatic scrolls
@@ -56,22 +62,26 @@ class SmoothScroll {
             return 0;
         }
 
-        // Measure actual header height directly for accuracy
-        const actualHeaderHeight = this.headerElement.offsetHeight;
-        
-        // Also get the CSS custom property as a fallback
+        // Use cached header height if available and fresh (within 500ms)
+        if (this.cachedHeaderHeight !== null && Date.now() - this.cacheTime < 500) {
+            return this.cachedHeaderHeight;
+        }
+
+        // Get the CSS custom property as primary source
         const cssHeaderHeight = parseInt(getComputedStyle(document.documentElement)
             .getPropertyValue('--header-height')) || 0;
         
-        // Use the actual height if it differs significantly from CSS property
-        const headerHeight = Math.abs(actualHeaderHeight - cssHeaderHeight) > 5 
-            ? actualHeaderHeight 
-            : cssHeaderHeight;
+        // Cache the result
+        this.cachedHeaderHeight = cssHeaderHeight;
+        this.cacheTime = Date.now();
+        
+        // Clear cache after a delay to ensure freshness
+        clearTimeout(this.cacheTimeout);
+        this.cacheTimeout = setTimeout(() => {
+            this.cachedHeaderHeight = null;
+        }, 1000);
 
-        // Remove padding to eliminate gap
-        const padding = 0;
-
-        return headerHeight + padding;
+        return cssHeaderHeight;
     }
 
     // detectScrollEnd method removed - no longer needed with new auto-hide system
