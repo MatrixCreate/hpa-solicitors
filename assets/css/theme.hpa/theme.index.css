@@ -532,6 +532,7 @@ Organisation:
         content: '';
         @apply absolute top-0 z-[-1];
         @apply w-full h-full;
+        @apply max-h-[40rem];
         @apply bg-contain bg-no-repeat;
       }
     }
