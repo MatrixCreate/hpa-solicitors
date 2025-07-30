@@ -11,6 +11,13 @@
       }
       .contact-location-wrapper {
         @apply flex flex-col md:flex-row;
+        .contact-details {
+          @apply xs:flex-row;
+          @apply md:flex-col;
+          .contact-details-group {
+            @apply flex-1;
+          }
+        }
         .contact-details,
         .location-map {
           @apply flex-1;
@@ -30,7 +37,7 @@
           @apply px-6 py-8;
         }
         .contact-details {
-          @apply md:flex-row-reverse space-y-4 md:space-y-0;
+          @apply md:flex-row space-y-4 md:space-y-0;
           @apply md:gap-x-12;
           .contact-details-group {
             @apply flex-1;
