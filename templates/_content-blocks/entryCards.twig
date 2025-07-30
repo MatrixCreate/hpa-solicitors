@@ -28,10 +28,10 @@
 {% import "_macros/ui.twig" as ui %}
 
 {# Determine card type - custom or automatic #}
-{% if block.entrySelection %}
-{% set entrySelection = 'custom' %}
+{% if block.entrySelection is defined %}
+  {% set entrySelection = block.entrySelection %}
 {% else %}
-{% set entrySelection = 'automatic' %}
+  {% set entrySelection = 'automatic' %}
 {% endif %}
 
 {# Set whether to show child entries of current entry #}
@@ -48,6 +48,27 @@
 
 {# Cache global placeholder to avoid repeated queries #}
 {% set globalPlaceholder = siteConfig.globalTextAndImagePlaceholder.one() ?? null %}
+
+
+{# Determine number of entries and whether to display carousel #}
+{% if entrySelection == 'custom' %}
+  {% set entriesLength = block.entryCards|length %}
+{% else %}
+  {% if showOwnChildren %}
+    {# Show child entries of current entry - already eager loaded #}
+    {% set entriesLength = entry.children|length %}
+  {% else %}
+    {% set entriesLength = block.entries|length %}
+    {% if entriesLength == 1 %}
+      {# If only one entry selected, show its children - already eager loaded #}
+      {% set entriesLength = entries[0].children|length %}
+    {% else %}
+      {# If multiple entries selected, show all of them #}
+      {% set entriesLength = block.entries|length %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 
 {# Main section wrapper with styling classes #}
 <section class="entry-cards content-block
@@ -66,7 +87,7 @@
     }) }}
 
     {# Card grid container with responsive columns #}
-    <div class="entry-card-grid entry-card-carousel scrollbars-hidden">
+    <div class="entry-card-grid {% if entriesLength > 1 %}entry-card-carousel{% endif %} scrollbars-hidden">
 
     {% if entrySelection == 'custom' %}
         {# Custom Card Type Logic - entries already eager loaded #}
