@@ -31,6 +31,7 @@
     "nystudio107/craft-retour": "5.0.11",
     "nystudio107/craft-seomatic": "5.1.16",
     "nystudio107/craft-vite": "^5.0.1",
+    "putyourlightson/craft-blitz": "5.11.5",
     "putyourlightson/craft-sprig": "3.6.1",
     "verbb/auth": "^2.0.3",
     "verbb/base": "^3.0.2",
