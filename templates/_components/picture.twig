@@ -169,16 +169,16 @@
     {% endfor %}
   {% endif %}
   
-  {# Determine fallback transform #}
+  {# Determine fallback transform - prefer mobile-first approach #}
   {% set fallbackTransform = null %}
-  {% if p.desktopImg and desktopTransforms %}
-    {% set primarySize = desktopResponsive|keys|first %}
-    {% set primaryFormat = configFormats|first %}
-    {% set fallbackTransform = desktopTransforms[primarySize ~ '_1x_' ~ primaryFormat] ?? desktopTransforms[desktopTransforms|keys|first] %}
-  {% elseif p.mobileImg and mobileTransforms %}
+  {% if p.mobileImg and mobileTransforms %}
     {% set primarySize = mobileResponsive|keys|first %}
     {% set primaryFormat = configFormats|first %}
     {% set fallbackTransform = mobileTransforms[primarySize ~ '_1x_' ~ primaryFormat] ?? mobileTransforms[mobileTransforms|keys|first] %}
+  {% elseif p.desktopImg and desktopTransforms %}
+    {% set primarySize = desktopResponsive|keys|first %}
+    {% set primaryFormat = configFormats|first %}
+    {% set fallbackTransform = desktopTransforms[primarySize ~ '_1x_' ~ primaryFormat] ?? desktopTransforms[desktopTransforms|keys|first] %}
   {% endif %}
 
   <picture>

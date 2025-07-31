@@ -17,7 +17,9 @@
       {% for trustLink in globalContent.trustLinks.all() %}
         {% set imageTransform = {
           mode: 'fit',
-          quality: 100,
+          width: 500,
+          height: 400,
+          quality: 90,
           position: 'center-center',
           format: 'webp'
         } %}

@@ -30,7 +30,15 @@
       {% if playInLightbox %}
         <a href="{{ videoUrl }}" data-fancybox="data-fancybox" aria-label="Play video">
           {% if customPosterImage %}
-            {% set posterImage = customPosterImage.url %}
+            {% set posterTransform = {
+              mode: 'crop',
+              width: 800,
+              height: 450,
+              quality: 85,
+              position: 'center-center',
+              format: 'webp'
+            } %}
+            {% set posterImage = customPosterImage.getUrl(posterTransform) %}
           {% else %}
             {% set posterImage = videoPosterImage %}
           {% endif %}
