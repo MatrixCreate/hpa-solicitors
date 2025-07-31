@@ -138,12 +138,15 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile navigation global effects
   function toggleMobileNavEffects(isOpen) {
+    const html = document.html;
     const body = document.body;
     
     if (isOpen) {
       body.classList.add('mobile-nav-open');
+      html.classList.add('mobile-nav-open');
     } else {
       body.classList.remove('mobile-nav-open');
+      html.classList.remove('mobile-nav-open');
     }
   }
   
