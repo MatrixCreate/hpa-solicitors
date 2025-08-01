@@ -198,6 +198,23 @@ Organisation:
   @apply py-4;
 }
 
+.mobile-nav-link {
+  .mobile-nav-link-text {
+    @apply cursor-pointer;
+  }
+}
+span.mobile-nav-link {
+  .mobile-nav-link-text {
+    @apply cursor-default;
+  }
+}
+.mobile-nav-link {
+  &:focus {
+    .mobile-nav-link-text {
+      @apply border-b border-gold;
+    }
+  }
+}
 .mobile-nav-level-1 {
   > .mobile-nav-item {
     > .mobile-nav-item-header {
