@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7aaf55fcbc79d32a0726c5ccf8cae2af",
+    "content-hash": "f63ec70ee3772e5faa7a77405ae18d40",
     "packages": [
         {
             "name": "amphp/amp",
@@ -10470,6 +10470,57 @@
                 "rss": "https://github.com/verbb/cloner/commits/v2.atom"
             },
             "time": "2024-09-07T12:09:44+00:00"
+        },
+        {
+            "name": "verbb/default-dashboard",
+            "version": "3.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/default-dashboard/zipball/49771d6b515e6f20d1dfbe6b043d543115b1cace",
+                "reference": "49771d6b515e6f20d1dfbe6b043d543115b1cace",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": "^8.2",
+                "verbb/base": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Default Dashboard",
+                "handle": "default-dashboard",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/default-dashboard/craft-5/CHANGELOG.md",
+                "class": "verbb\\defaultdashboard\\DefaultDashboard"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\defaultdashboard\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Set default dashboard widgets for users.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/default-dashboard/issues?state=open",
+                "source": "https://github.com/verbb/default-dashboard",
+                "docs": "https://github.com/verbb/default-dashboard",
+                "rss": "https://github.com/verbb/default-dashboard/commits/v2.atom"
+            },
+            "time": "2025-07-18T14:04:08+00:00"
         },
         {
             "name": "verbb/formie",

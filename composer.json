@@ -38,6 +38,7 @@
     "verbb/base": "^3.0.2",
     "verbb/buttonbox": "^5.0.0",
     "verbb/cloner": "3.0.1",
+    "verbb/default-dashboard": "3.0.2",
     "verbb/formie": "3.0.31",
     "verbb/hyper": "2.2.6",
     "verbb/icon-picker": "3.0.4",
