@@ -85,8 +85,10 @@ Organisation:
       @apply font-semibold;
       @apply no-underline;
       @apply hover:no-underline;
+      @apply focus:no-underline;
       @apply border-b-2 border-gold;
       @apply hover:border-dark-navy;
+      @apply focus:border-dark-navy;
     }
   }
 }
