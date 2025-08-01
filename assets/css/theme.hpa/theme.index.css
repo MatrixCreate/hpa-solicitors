@@ -211,7 +211,9 @@ span.mobile-nav-link {
   }
 }
 .mobile-nav-link {
-  &:focus {
+  &:hover,
+  &:focus,
+  &:active {
     .mobile-nav-link-text {
       @apply border-b border-gold;
     }
