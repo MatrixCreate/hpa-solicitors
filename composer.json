@@ -18,6 +18,7 @@
     }
   ],
   "require": {
+    "carlcs/craft-diywidget": "4.1.1",
     "craftcms/ckeditor": "4.9.0",
     "craftcms/cms": "^5.8.5",
     "craftcms/feed-me": "^6.1.0",

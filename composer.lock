@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92c7ce6eaee36742684e718011153a6d",
+    "content-hash": "7aaf55fcbc79d32a0726c5ccf8cae2af",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1085,6 +1085,50 @@
                 "time"
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "carlcs/craft-diywidget",
+            "version": "4.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carlcs/craft-diywidget/zipball/a91b62a6d0d3d61b38e8fd2a52c5135940ce63b8",
+                "reference": "a91b62a6d0d3d61b38e8fd2a52c5135940ce63b8",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0-beta.1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Do It Yourself widget",
+                "handle": "diy-widget"
+            },
+            "autoload": {
+                "psr-4": {
+                    "carlcs\\diywidget\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "carlcs",
+                    "homepage": "https://github.com/carlcs"
+                }
+            ],
+            "description": "Do It Yourself widget for Craft CMS",
+            "keywords": [
+                "craftcms",
+                "diy",
+                "widget"
+            ],
+            "support": {
+                "issues": "https://github.com/carlcs/craft-diywidget/issues?state=open",
+                "source": "https://github.com/carlcs/craft-diywidget",
+                "docs": "https://github.com/carlcs/craft-diywidget"
+            },
+            "time": "2024-10-25T12:59:44+00:00"
         },
         {
             "name": "cebe/markdown",
