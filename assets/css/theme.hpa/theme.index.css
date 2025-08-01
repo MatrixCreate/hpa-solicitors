@@ -86,9 +86,11 @@ Organisation:
       @apply no-underline;
       @apply hover:no-underline;
       @apply focus:no-underline;
+      @apply active:no-underline;
       @apply border-b-2 border-gold;
       @apply hover:border-dark-navy;
       @apply focus:border-dark-navy;
+      @apply active:border-dark-navy;
     }
   }
 }
@@ -215,7 +217,7 @@ span.mobile-nav-link {
   &:focus,
   &:active {
     .mobile-nav-link-text {
-      @apply border-b border-gold;
+      @apply border-b-2 border-gold;
     }
   }
 }
@@ -224,7 +226,7 @@ span.mobile-nav-link {
     > .mobile-nav-item-header {
       &.active {
         .mobile-nav-link-text {
-          @apply border-b border-gold;
+          @apply border-b-2 border-gold;
         }
       }
     }
