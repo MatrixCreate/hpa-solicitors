@@ -154,6 +154,9 @@ Organisation:
   .megamenu-column {
     @apply border-0;
   }
+  .nav-item-level-1 {
+    font-size: clamp(1rem, 2cqi, 1.35rem);
+  }
   .nav-menu-level-2 {
     @apply mt-2;
     @apply p-4 xl:p-8 xl:px-16 2xl:p-10 2xl:px-20;
