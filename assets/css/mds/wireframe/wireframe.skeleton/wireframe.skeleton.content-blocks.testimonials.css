@@ -31,7 +31,7 @@
       @apply leading-normal;
     }
     .testimonial-quote-view-more {
-      @apply inline;
+      @apply block;
       @apply uppercase;
       @apply hover:underline;
     }

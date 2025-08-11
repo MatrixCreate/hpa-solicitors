@@ -76,7 +76,7 @@
                       {% set remainingParagraphs = quoteParts[1:]|join('</p>')|trim %}
                       
                       {% if '<strong>' in firstParagraph or '<b>' in firstParagraph %}
-                        <div class="testimonial-quote-bold mb-4 font-display font-bold">
+                        <div class="testimonial-quote-bold mb-2 font-display font-bold">
                           {{ firstParagraph|striptags }}
                         </div>
                         {% if remainingParagraphs|length %}
@@ -97,7 +97,7 @@
                             }">
                               &ldquo;<span class="text-content" x-text="isExpanded ? fullText : truncatedText"></span>&rdquo;
                               <button x-show="!isExpanded && shouldShowMore" @click="isExpanded = true" class="testimonial-quote-view-more">
-                                View more
+                                Read more
                               </button>
                             </div>
                           {% else %}

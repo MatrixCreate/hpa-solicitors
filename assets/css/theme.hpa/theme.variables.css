@@ -216,6 +216,8 @@
     --mds-testimonial-card-border-color:              theme(--color-dark-grey);
     --mds-testimonial-card-border-width:              1px;
     --mds-testimonial-stars-color:                    theme(--color-light-gold);
+
+    --mds-testimonial-quote-font-weight:              theme(fontWeight.normal);
     
     --mds-testimonial-nav-btn-background-color:       theme(--color-white);
     --mds-testimonial-nav-btn-background-color-hover: theme(--color-dark-navy);

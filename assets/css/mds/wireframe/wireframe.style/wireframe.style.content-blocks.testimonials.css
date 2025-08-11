@@ -29,7 +29,8 @@
     .testimonial-quote-view-more {
       @apply text-[var(--mds-testimonial-view-more-font-size)];
       @apply font-[var(--mds-testimonial-view-more-font-weight)];
-      @apply italic;
+      @apply font-display;
+      @apply text-dark-grey;
       @apply transition-colors duration-200;
     }
     .testimonial-avatar-icon {
