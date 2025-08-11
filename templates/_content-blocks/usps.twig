@@ -62,7 +62,7 @@
   {{ utils.debugAttributes(entry, 'usps', 'USPs') }}
   {{ utils.inPageLink(block.id) }}
   >
-  <div class="content-block-inner container-wide">
+  <div class="content-block-inner container-medium">
 
     {# Optional rich text content above the USPs #}
     {{ ui.component('rich-text', { 
@@ -73,16 +73,18 @@
     <div class="usp-row">
     {% for item in usps %}
       <div class="usp-item">
-        {# Icon display #}
-        <div class="usp-icon">
-          {{ item.uspIcon.inline }}
-        </div>
-        {# Optional rich text content #}
-        {% if item.richText|length %}
-          <div class="usp-text">
-            {{ item.richText }}
+        <div class="usp-card">
+          {# Icon display #}
+          <div class="usp-icon">
+            {{ item.uspIcon.inline }}
           </div>
-        {% endif %}
+          {# Optional rich text content #}
+          {% if item.richText|length %}
+            <div class="usp-text">
+              {{ item.richText }}
+            </div>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
     </div>
