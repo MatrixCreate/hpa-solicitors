@@ -24,6 +24,7 @@
           format: 'webp'
         } %}
         {% set logo = trustLink.logo.one() %}
+
         {% set link = trustLink.theUrl ?? '' %}
           {% if link | length %}
           <a href="{{ link }}" target="_blank" rel="noopener noreferrer">
@@ -34,7 +35,11 @@
                 --width:{{ logo.width }};
                 --height:{{ logo.height }};
               "
-              src="{{ logo.url(imageTransform) }}"
+              {% if 'svg' in trustLink.logo.one().url %}
+                src="{{ logo.url }}"
+              {% else %}
+                src="{{ logo.url(imageTransform) }}"
+              {% endif %}
               alt="{{ logo.alt ?? logo.title }}"
               loading="lazy"
               decoding="async">
