@@ -165,13 +165,15 @@ Organisation:
     @apply mt-2;
     @apply p-4 xl:p-8 xl:px-16 2xl:p-10 2xl:px-20;
     @apply rounded-lg;
-    @apply overflow-hidden;
     @apply shadow-lg;
+    @apply overflow-hidden;
     .nav-link {
       @apply rounded;
     }
 
-    .nav-link-level-2 {
+    .nav-link-level-2,
+    .nav-link-level-3,
+    .nav-link-level-4 {
       @apply xl:p-2 xl:py-[0.685rem];
       @apply xl:text-xl;
     }

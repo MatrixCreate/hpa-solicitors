@@ -29,13 +29,15 @@
           {% if link | length %}
           <a href="{{ link }}" target="_blank" rel="noopener noreferrer">
           {% endif %}
+
+            {{ dump(trustLink.logo.one().filename) }}
             <img
               class="trust-links-logo"
               style="
                 --width:{{ logo.width }};
                 --height:{{ logo.height }};
               "
-              {% if 'svg' in trustLink.logo.one().url %}
+              {% if 'svg' in trustLink.logo.one().filename %}
                 src="{{ logo.url }}"
               {% else %}
                 src="{{ logo.url(imageTransform) }}"
