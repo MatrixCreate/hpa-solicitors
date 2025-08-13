@@ -246,23 +246,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-07-19T10:16:09+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
-            handle: showTimesIn24HourFormat
-            includeInCards: false
-            instructions: null
-            label: 'Show Times in 24-Hour Format'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 189063e1-f6ca-423c-b90e-beccaef257d4
-            userCondition: null
-            warning: null
-            width: 100
-          -
             dateAdded: '2025-07-19T10:12:37+00:00'
             editCondition: null
             elementCondition: null
@@ -276,6 +259,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 70d37d1a-0ff0-4ca3-842a-2e0e80e66d2d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-19T10:16:09+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: outputTimesIn24HourFormat
+            includeInCards: false
+            instructions: null
+            label: 'Output Times in 24-Hour Format'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 189063e1-f6ca-423c-b90e-beccaef257d4
             userCondition: null
             warning: null
             width: 100
