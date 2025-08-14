@@ -394,7 +394,7 @@ span.mobile-nav-link {
       font-size: clamp(1rem, 9cqi, 4.75rem);
     }
     @media (min-width: 768px) {
-      font-size: clamp(1rem, 4cqi, 4.1rem);
+      font-size: clamp(1rem, 4cqi, 3.8rem);
     }
   }
   .rich-text-field {
