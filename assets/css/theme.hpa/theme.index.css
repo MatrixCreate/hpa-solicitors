@@ -242,23 +242,27 @@ span.mobile-nav-link {
    ============================================ */
 
 .search-form--page {
-  @apply w-32;
+  @apply w-40;
   @apply pr-2;
 }
 
+.search-input-wrapper {
+  @apply my-[5px];
+  /* @apply flex-row-reverse; */
+}
+
 .search-input {
+  @apply py-[3px] pl-0;
   @apply text-sm;
   @apply font-normal;
   @apply capitalize;
   @apply text-white;
   @apply bg-transparent;
-  @apply border-none;
+  @apply border-0;
+  @apply rounded-none;
+  @apply border-b border-white;
   @apply placeholder:text-sm;
   @apply placeholder:text-white;
-}
-
-.search-input-wrapper {
-  /* @apply flex-row-reverse; */
 }
 
 .search-button {
