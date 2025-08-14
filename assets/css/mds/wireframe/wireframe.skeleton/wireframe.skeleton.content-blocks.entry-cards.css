@@ -49,7 +49,7 @@
     &.has-overlay-link {
       &:hover {
         .entry-card-heading {
-          @apply underline
+          
         }
       }
     }

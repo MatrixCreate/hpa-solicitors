@@ -167,6 +167,7 @@ Organisation:
     @apply rounded-lg;
     @apply shadow-lg;
     @apply overflow-hidden;
+    font-size: 1rem;
     .nav-link {
       @apply rounded;
     }
@@ -670,6 +671,8 @@ span.mobile-nav-link {
     @apply p-4;
     @apply text-center;
     @apply bg-dark-grey/50;
+    @apply transition-colors duration-150;
+    @apply hover:bg-dark-navy;
   }
   
   .text-content {
