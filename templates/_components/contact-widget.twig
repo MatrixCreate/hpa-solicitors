@@ -1,0 +1,297 @@
+{# Contact Widget Component #}
+<div id="contact-widget" class="contact-widget">
+    {# Phone button - on top #}
+    <div id="phone-option" class="contact-option contact-option--phone">
+        <a href="tel:{{ companyInfo.telephone|replace({' ': ''}) }}" class="contact-btn">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            {# Phone Tooltip #}
+            <div class="contact-tooltip">
+                Phone
+                <div class="contact-tooltip__arrow"></div>
+            </div>
+        </a>
+    </div>
+    
+    {# Email button - closer to main button #}
+    <div id="email-option" class="contact-option contact-option--email">
+        <a href="/contact-us" class="contact-btn">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+            {# Email Tooltip #}
+            <div class="contact-tooltip">
+                Email
+                <div class="contact-tooltip__arrow"></div>
+            </div>
+        </a>
+    </div>
+    
+    {# Main button #}
+    <button id="main-contact-btn" class="main-contact-btn">
+        {# Chat icon - 25% larger #}
+        <svg id="chat-svg" class="chat-icon" width="30" height="30" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+        </svg>
+        
+        {# X icon - 25% larger #}
+        <div id="close-x" class="close-icon">×</div>
+    </button>
+</div>
+
+<style>
+/* Contact Widget Styles */
+.contact-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.contact-option {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-option--phone {
+    bottom: 125px;
+}
+
+.contact-option--email {
+    bottom: 65px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #6b7280;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-btn:hover {
+    background: #b68e34 !important;
+    color: black !important;
+    transform: scale(1.05);
+}
+
+.contact-btn:hover svg {
+    fill: black;
+}
+
+.main-contact-btn {
+    width: 56px;
+    height: 56px;
+    background: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-contact-btn:hover {
+    transform: scale(1.05);
+}
+
+.chat-icon {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.close-icon {
+    position: absolute;
+    opacity: 0;
+    top: 12px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1;
+    color: white;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    color: #333;
+    padding: 6px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.contact-tooltip__arrow {
+    position: absolute;
+    left: 99%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 6px solid white;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    transform: translateY(-50%);
+}
+
+.contact-btn:hover .contact-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Jiggle Animation */
+@keyframes jiggle {
+    0% { transform: none; }
+    10% { transform: rotateZ(-20deg) scale(1.2); }
+    13% { transform: rotateZ(25deg) scale(1.2); }
+    15% { transform: rotateZ(-15deg) scale(1.2); }
+    17% { transform: rotateZ(15deg) scale(1.2); }
+    20% { transform: rotateZ(-12deg) scale(1.2); }
+    22% { transform: rotateZ(0) scale(1.2); }
+    24%, 100% { transform: rotateZ(0) scale(1); }
+}
+
+.jiggle-animation {
+    animation: 5s infinite jiggle;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const widget = document.getElementById('contact-widget');
+    const mainBtn = document.getElementById('main-contact-btn');
+    const emailOption = document.getElementById('email-option');
+    const phoneOption = document.getElementById('phone-option');
+    const chatSvg = document.getElementById('chat-svg');
+    const closeX = document.getElementById('close-x');
+    
+    let isOpen = false;
+    let jiggleInterval = null;
+    
+    // Show widget after 1 second
+    setTimeout(() => {
+        widget.style.opacity = '1';
+        widget.style.visibility = 'visible';
+    }, 1000);
+    
+    // Check if user has interacted with the widget before
+    let hasInteracted = localStorage.getItem('contactWidgetInteracted') === 'true';
+    
+    // Start jiggle animation if user hasn't interacted (after widget is visible)
+    setTimeout(() => {
+        if (!hasInteracted) {
+            startJiggleAnimation();
+        }
+    }, 1000);
+    
+    function startJiggleAnimation() {
+        // Jiggle every 8 seconds
+        jiggleInterval = setInterval(() => {
+            if (!isOpen && !hasInteracted) {
+                mainBtn.classList.add('jiggle-animation');
+                
+                // Remove class after animation completes
+                setTimeout(() => {
+                    mainBtn.classList.remove('jiggle-animation');
+                }, 5000);
+            }
+        }, 8000);
+        
+        // Initial jiggle after 3 seconds
+        setTimeout(() => {
+            if (!isOpen && !hasInteracted) {
+                mainBtn.classList.add('jiggle-animation');
+                setTimeout(() => {
+                    mainBtn.classList.remove('jiggle-animation');
+                }, 5000);
+            }
+        }, 3000);
+    }
+    
+    function stopJiggleAnimation() {
+        if (jiggleInterval) {
+            clearInterval(jiggleInterval);
+            jiggleInterval = null;
+        }
+        mainBtn.classList.remove('jiggle-animation');
+        localStorage.setItem('contactWidgetInteracted', 'true');
+        hasInteracted = true;
+    }
+    
+    mainBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Stop jiggle animation on first interaction
+        stopJiggleAnimation();
+        
+        if (isOpen) {
+            // Close - X icon rotates counterclockwise and fades out, chat icon fades in and rotates counterclockwise back to 0
+            closeX.style.opacity = '0';
+            closeX.style.transform = 'rotate(0deg) scale(0.8)'; // Spin back counterclockwise
+            
+            chatSvg.style.opacity = '1';
+            chatSvg.style.transform = 'rotate(0deg) scale(1)'; // Spin back counterclockwise to original position
+            
+            emailOption.style.opacity = '0';
+            emailOption.style.transform = 'translateY(20px)';
+            emailOption.style.pointerEvents = 'none';
+            
+            phoneOption.style.opacity = '0';
+            phoneOption.style.transform = 'translateY(20px)';
+            phoneOption.style.pointerEvents = 'none';
+            
+            isOpen = false;
+            
+        } else {
+            // Open - Chat icon rotates 1x clockwise and fades out, X icon fades in and rotates 1x clockwise
+            chatSvg.style.opacity = '0';
+            chatSvg.style.transform = 'rotate(360deg) scale(0.8)'; // 1x rotation = 360 degrees
+            
+            closeX.style.opacity = '1';
+            closeX.style.transform = 'rotate(360deg) scale(1)'; // 1x rotation = 360 degrees
+            
+            setTimeout(() => {
+                emailOption.style.opacity = '1';
+                emailOption.style.transform = 'translateY(0)';
+                emailOption.style.pointerEvents = 'auto';
+            }, 100);
+            
+            setTimeout(() => {
+                phoneOption.style.opacity = '1';
+                phoneOption.style.transform = 'translateY(0)';
+                phoneOption.style.pointerEvents = 'auto';
+            }, 200);
+            
+            isOpen = true;
+        }
+    });
+});
+</script>
