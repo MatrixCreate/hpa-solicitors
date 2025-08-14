@@ -81,7 +81,4 @@
   .opening-hours ul {
     @apply space-y-1;
   }
-  .opening-hours li {
-    @apply text-sm;
-  }  
 }

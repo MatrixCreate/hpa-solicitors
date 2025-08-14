@@ -6,7 +6,7 @@
   --breakpoint-3xl: 1536px;
   --breakpoint-4xl: 1600px;
   
-
+  /* ===== HEADER ===== */
   --header-height: 0;
 
   /* ===== LAYOUT & SPACING ===== */
@@ -23,8 +23,6 @@
   --padding-block-xl:     2.5rem;
   --padding-block-2xl:    3rem;
 
-
-
   /* ===== TYPOGRAPHY ===== */
   --font-display:         Arial, sans-serif;
   --font-sans:            Arial, sans-serif;
@@ -32,7 +30,6 @@
   /* Font Sizes */
   --font-size-2xs:        0.5rem;
 
-  
   /* ===== COLOR SYSTEM ===== */
   
   /* Grey Palette */

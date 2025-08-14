@@ -313,6 +313,7 @@ span.mobile-nav-link {
 
 .nav-footer-link {
   @apply -my-2;
+  @apply font-normal;
 }
 
 .footer-credit-logo {

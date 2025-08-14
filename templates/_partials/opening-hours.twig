@@ -30,17 +30,15 @@
       {% set last = group|last %}
       {% if first.open and first.close %}
         <li>
-          <strong>
           {% if first != last %}
-            {{ first.getName('medium') }}&mdash;{{ last.getName('medium') }}
+            {{ first.getName('medium') }}&ndash;{{ last.getName('medium') }}
           {% else %}
             {{ first.getName('medium') }}
           {% endif %}
-          </strong>
           {% if companyInfo.outputTimesIn24HourFormat %}
-            {{ first.open|date('H:i') }}&mdash;{{ first.close|date('H:i') }}
+            {{ first.open|date('H:i') }}&ndash;{{ first.close|date('H:i') }}
           {% else %}
-            {{ first.open|date('g:sa')|replace(':00', '') }}&mdash;{{ first.close|date('g:sa')|replace(':00', '') }}
+            {{ first.open|date('g:sa')|replace(':00', '') }}&ndash;{{ first.close|date('g:sa')|replace(':00', '') }}
           {% endif %}
         </li>
       {% endif %}
