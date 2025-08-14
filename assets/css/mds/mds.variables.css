@@ -370,7 +370,7 @@
     --mds-megamenu-level-2-font-weight: var(--mds-font-weight-semibold);
     
     --mds-megamenu-level-3-font-size:   var(--mds-font-size-sm);
-    --mds-megamenu-level-3-font-weight: var(--mds-font-weight-medium);
+    --mds-megamenu-level-3-font-weight: var(--mds-font-weight-normal);
     
     --mds-megamenu-level-4-font-size:   var(--mds-font-size-sm);
     --mds-megamenu-level-4-font-weight: var(--mds-font-weight-normal);
