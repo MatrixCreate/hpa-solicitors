@@ -18,6 +18,7 @@
  └─────────────────────────────────────────────────────────────────────────────┘
 #}
 {% extends "_boilerplate/_layouts/base-html-layout" %}
+{% import "_macros/ui.twig" as ui %}
 
 {# -- Any <meta> tags that should be included in the <head> #}
 {% block headMeta %}
@@ -59,6 +60,8 @@
     {% include "_components/debug-info" %}
     
     {# -- Contact Widget -- #}
-    {% include "_components/contact-widget" %}
+    {% if siteConfig.showContactWidget %}
+      {{ ui.component('contact-widget') }}
+    {% endif %}
 
 {% endblock bodyHtml %}

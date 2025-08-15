@@ -162,46 +162,19 @@ fieldLayouts:
             uid: 84d7ead2-9bbc-4185-a3fc-2ac9eaf54047
             userCondition: null
           -
-            dateAdded: '2025-07-10T19:10:50+00:00'
+            dateAdded: '2025-08-15T12:59:58+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
-            handle: showBackToTopLink
+            fieldUid: d0157a5d-556a-4b9b-8065-108efcee61de # Boolean (On)
+            handle: showContactWidget
             includeInCards: false
             instructions: null
-            label: 'Show Back to Top Link'
+            label: 'Show Contact Widget'
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e6d467fd-ade4-4966-9c21-a03bb24d9a9d
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2025-07-10T19:37:10+00:00'
-            editCondition: null
-            elementCondition:
-              class: craft\elements\conditions\ElementCondition
-              conditionRules:
-                -
-                  class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: de3beef7-9e23-467f-8aee-5de40661f7f0 # Boolean (Off)
-                  layoutElementUid: e6d467fd-ade4-4966-9c21-a03bb24d9a9d
-                  uid: aed88fb0-d4f6-4fe0-90ce-6ebf8d0a0b44
-                  value: true
-              elementType: craft\elements\GlobalSet
-              fieldContext: global
-            fieldUid: 52d16a9f-4777-4c28-a348-6146366ed718 # Icon
-            handle: backToTopIcon
-            includeInCards: false
-            instructions: null
-            label: 'Back to Top Icon'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: dd6a9e2b-27ca-41a0-8878-21257eacb4de
+            uid: d7744781-4fee-4b70-8ada-428123f1f1d6
             userCondition: null
             warning: null
             width: 100

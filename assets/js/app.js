@@ -10,7 +10,6 @@ import { initHeaderShrink } from './source/headerShrink.js';
 import { initHeaderHide } from './source/headerHide.js';
 import { initHeroCarousel } from './source/heroCarousel.js';
 import { initContainerOffset } from './source/containerOffset.js';
-import { initBackToTop } from './source/backToTop.js';
 import SmoothScroll from './source/smoothScroll.js';
 
 // Make Fancybox available globally
@@ -25,7 +24,6 @@ initHeaderShrink();
 initHeaderHide();
 initHeroCarousel();
 initContainerOffset();
-initBackToTop();
 
 document.addEventListener('DOMContentLoaded', () => {
   // FancyBox 
